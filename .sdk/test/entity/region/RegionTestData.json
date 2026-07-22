@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "region": {
+      "REGION00": {
+        "code": "s5a",
+        "country": "s5b",
+        "country_id": "COUNTRY01",
+        "id": "REGION00",
+        "latitude": 94,
+        "longitude": 95,
+        "name": "s60",
+        "population": 97,
+        "wikidata_id": "WIKIDATA01"
+      },
+      "REGION01": {
+        "code": "sb4",
+        "country": "sb5",
+        "country_id": "COUNTRY01",
+        "id": "REGION01",
+        "latitude": 184,
+        "longitude": 185,
+        "name": "sba",
+        "population": 187,
+        "wikidata_id": "WIKIDATA01"
+      },
+      "REGION02": {
+        "code": "s10e",
+        "country": "s10f",
+        "country_id": "COUNTRY01",
+        "id": "REGION02",
+        "latitude": 274,
+        "longitude": 275,
+        "name": "s114",
+        "population": 277,
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  },
+  "new": {
+    "region": {
+      "region_ref01": {
+        "code": "s168",
+        "country": "s169",
+        "country_id": "COUNTRY01",
+        "latitude": 364,
+        "longitude": 365,
+        "name": "s16e",
+        "population": 367,
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  }
+}

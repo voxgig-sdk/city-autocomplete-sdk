@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "country": {
+      "COUNTRY00": {
+        "driving_side": "s96",
+        "emoji": "s97",
+        "head_of_government": "s98",
+        "head_of_state": "s99",
+        "id": "COUNTRY00",
+        "iso_code": "s9b",
+        "licence_plate_code": "s9c",
+        "localized_name": "s9d",
+        "name": "s9e",
+        "preferred_language_id": "PREFERRED_LANGUAGE01",
+        "region": [],
+        "telephone_code": "sa1",
+        "translation": [],
+        "trunk_prefix": "sa3",
+        "wikidata_id": "WIKIDATA01"
+      },
+      "COUNTRY01": {
+        "driving_side": "s12c",
+        "emoji": "s12d",
+        "head_of_government": "s12e",
+        "head_of_state": "s12f",
+        "id": "COUNTRY01",
+        "iso_code": "s131",
+        "licence_plate_code": "s132",
+        "localized_name": "s133",
+        "name": "s134",
+        "preferred_language_id": "PREFERRED_LANGUAGE01",
+        "region": [],
+        "telephone_code": "s137",
+        "translation": [],
+        "trunk_prefix": "s139",
+        "wikidata_id": "WIKIDATA01"
+      },
+      "COUNTRY02": {
+        "driving_side": "s1c2",
+        "emoji": "s1c3",
+        "head_of_government": "s1c4",
+        "head_of_state": "s1c5",
+        "id": "COUNTRY02",
+        "iso_code": "s1c7",
+        "licence_plate_code": "s1c8",
+        "localized_name": "s1c9",
+        "name": "s1ca",
+        "preferred_language_id": "PREFERRED_LANGUAGE01",
+        "region": [],
+        "telephone_code": "s1cd",
+        "translation": [],
+        "trunk_prefix": "s1cf",
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  },
+  "new": {
+    "country": {
+      "country_ref01": {
+        "driving_side": "s258",
+        "emoji": "s259",
+        "head_of_government": "s25a",
+        "head_of_state": "s25b",
+        "iso_code": "s25d",
+        "licence_plate_code": "s25e",
+        "localized_name": "s25f",
+        "name": "s260",
+        "preferred_language_id": "PREFERRED_LANGUAGE01",
+        "region": [],
+        "telephone_code": "s263",
+        "translation": [],
+        "trunk_prefix": "s265",
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  }
+}

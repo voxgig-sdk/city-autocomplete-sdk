@@ -1,0 +1,22 @@
+# BasicCityDtoFlow
+
+main: kit: flow: BasicCityDtoFlow:
+{
+  entity: "city_dto",
+  kind: "basic",
+  name: "BasicCityDtoFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "city_dto_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCityDtoFlow"
+}

@@ -1,0 +1,28 @@
+# BasicDistanceFlow
+
+main: kit: flow: BasicDistanceFlow:
+{
+  entity: "distance",
+  kind: "basic",
+  name: "BasicDistanceFlow",
+  step: [
+    {
+      input: {
+        ref: "distance_ref01",
+        srcdatavar: "distance_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-distance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDistanceFlow"
+}

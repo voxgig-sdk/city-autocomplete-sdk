@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "language": {
+      "LANGUAGE00": {
+        "cities_count": 50,
+        "id": "LANGUAGE00",
+        "iso_code": "s34",
+        "name": "s35",
+        "wikidata_id": "WIKIDATA01"
+      },
+      "LANGUAGE01": {
+        "cities_count": 100,
+        "id": "LANGUAGE01",
+        "iso_code": "s66",
+        "name": "s67",
+        "wikidata_id": "WIKIDATA01"
+      },
+      "LANGUAGE02": {
+        "cities_count": 150,
+        "id": "LANGUAGE02",
+        "iso_code": "s98",
+        "name": "s99",
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  },
+  "new": {
+    "language": {
+      "language_ref01": {
+        "cities_count": 200,
+        "iso_code": "sca",
+        "name": "scb",
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  }
+}

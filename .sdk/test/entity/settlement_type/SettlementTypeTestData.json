@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "settlement_type": {
+      "SETTLEMENT_TYPE00": {
+        "description": "s32",
+        "id": "SETTLEMENT_TYPE00",
+        "name": "s34",
+        "name_normalized": "s35",
+        "wikidata_id": "WIKIDATA01",
+        "city_id": "CITY01"
+      },
+      "SETTLEMENT_TYPE01": {
+        "description": "s64",
+        "id": "SETTLEMENT_TYPE01",
+        "name": "s66",
+        "name_normalized": "s67",
+        "wikidata_id": "WIKIDATA01",
+        "city_id": "CITY01"
+      },
+      "SETTLEMENT_TYPE02": {
+        "description": "s96",
+        "id": "SETTLEMENT_TYPE02",
+        "name": "s98",
+        "name_normalized": "s99",
+        "wikidata_id": "WIKIDATA01",
+        "city_id": "CITY01"
+      }
+    }
+  },
+  "new": {
+    "settlement_type": {
+      "settlement_type_ref01": {
+        "description": "sc8",
+        "name": "sca",
+        "name_normalized": "scb",
+        "wikidata_id": "WIKIDATA01"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "distance": {
+      "DISTANCE00": {
+        "distance_km": 10,
+        "id": "DISTANCE00"
+      },
+      "DISTANCE01": {
+        "distance_km": 20,
+        "id": "DISTANCE01"
+      },
+      "DISTANCE02": {
+        "distance_km": 30,
+        "id": "DISTANCE02"
+      }
+    }
+  },
+  "new": {
+    "distance": {
+      "distance_ref01": {
+        "distance_km": 40
+      }
+    }
+  }
+}

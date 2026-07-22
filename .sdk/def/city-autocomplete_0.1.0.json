@@ -1,0 +1,1530 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/cities/byCoordinates/closest": {
+      "get": {
+        "operationId": "byCoordinates/closest",
+        "parameters": [
+          {
+            "name": "preferredLanguages",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "en",
+              "type": "string"
+            }
+          },
+          {
+            "name": "lon",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "lat",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Closest cities at lat/lon",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CityDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Find cities closest to the given lan/lot",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/cities/byCoordinates/largest": {
+      "get": {
+        "operationId": "byCoordinates/largest",
+        "parameters": [
+          {
+            "name": "preferredLanguages",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "en",
+              "type": "string"
+            }
+          },
+          {
+            "name": "lon",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "lat",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Most populated cities nearby",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CityDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Find the most populous cities near given lan/lot",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/cities/distance": {
+      "get": {
+        "operationId": "distance",
+        "parameters": [
+          {
+            "name": "city2",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city1",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distance result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DistanceDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get distance between two cities in km",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/cities/search": {
+      "get": {
+        "operationId": "search",
+        "parameters": [
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "population_desc",
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": 20,
+              "type": "number"
+            }
+          },
+          {
+            "name": "preferredLanguages",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "en,fr,ja,hi",
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "dallas",
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPopulation",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "minPopulation",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "regionId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countryCode",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "us",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of cities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CityDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List cities with optional filters, pagination, translations, and name search",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/cities/{id}": {
+      "get": {
+        "operationId": ":id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "City details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CityDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get city by ID, including country and region info",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/cities/{id}/translations": {
+      "get": {
+        "operationId": ":id/translations",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "City translations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CityTranslationDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all translations for a city",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/cities/{id}/settlement-types": {
+      "get": {
+        "operationId": ":id/settlement-types",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "City settlement types",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SettlementTypeDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get settlement types for a city",
+        "tags": [
+          "cities"
+        ]
+      }
+    },
+    "/countries": {
+      "get": {
+        "operationId": "/",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum number of results",
+            "schema": {
+              "default": 200,
+              "example": 200,
+              "type": "number"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "Number of results to skip",
+            "schema": {
+              "default": 0,
+              "example": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "telephoneCode",
+            "required": false,
+            "in": "query",
+            "description": "Filter by telephone code",
+            "schema": {
+              "example": "+34",
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": false,
+            "in": "query",
+            "description": "Prefix search on country name (English and preferred-language translations)",
+            "schema": {
+              "example": "Spa",
+              "type": "string"
+            }
+          },
+          {
+            "name": "preferredLanguages",
+            "required": false,
+            "in": "query",
+            "description": "Comma-separated language codes. Affects localizedName and translation name search.",
+            "schema": {
+              "example": "fr,es,en",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of countries",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CountryDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List of countries",
+        "tags": [
+          "countries"
+        ]
+      }
+    },
+    "/countries/{id}": {
+      "get": {
+        "operationId": ":id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Extended country information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryExtendedDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get country by ID",
+        "tags": [
+          "countries"
+        ]
+      }
+    },
+    "/countries/{id}/translations": {
+      "get": {
+        "operationId": ":id/translations",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+              "type": "string"
+            }
+          },
+          {
+            "name": "preferredLanguages",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "en",
+              "example": "en,fr,hi",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Country translations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CountryTranslationDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get translations for a country",
+        "tags": [
+          "countries"
+        ]
+      }
+    },
+    "/countries/{id}/regions": {
+      "get": {
+        "operationId": ":id/regions",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Country regions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegionDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get regions in the country",
+        "tags": [
+          "countries"
+        ]
+      }
+    },
+    "/regions": {
+      "get": {
+        "operationId": "/",
+        "parameters": [
+          {
+            "name": "countryId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Country regions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegionDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List regions, optionally filtered by country",
+        "tags": [
+          "regions"
+        ]
+      }
+    },
+    "/regions/{id}": {
+      "get": {
+        "operationId": ":id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Region details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionExtendedDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get region by ID",
+        "tags": [
+          "regions"
+        ]
+      }
+    },
+    "/regions/{id}/translations": {
+      "get": {
+        "operationId": ":id/translations",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+              "type": "string"
+            }
+          },
+          {
+            "name": "preferredLanguages",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "en",
+              "example": "en,fr,hi",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Region translations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegionTranslationDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get translations for a region",
+        "tags": [
+          "regions"
+        ]
+      }
+    },
+    "/languages": {
+      "get": {
+        "operationId": "/",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum number of results",
+            "schema": {
+              "default": 200,
+              "example": 200,
+              "type": "number"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "Number of results to skip",
+            "schema": {
+              "default": 0,
+              "example": 0,
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of languages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LanguageDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List languages with pagination",
+        "tags": [
+          "languages"
+        ]
+      }
+    },
+    "/languages/{id}": {
+      "get": {
+        "operationId": ":id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "example": "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Language details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get language by ID",
+        "tags": [
+          "languages"
+        ]
+      }
+    },
+    "/cities/oneshot/{country}/{language}/{city_name}": {
+      "get": {
+        "description": "Returns up to 10 cities in the given country whose name in the specified language starts with the prefix, sorted by population. Includes lang + en translations. Served from pre-built static files for zero-latency responses.\n\nAlso available without an API key on the free mirror: `https://oneshot.geomelon.dev/{iso}/{lang}/{prefix}`.",
+        "operationId": "OneshotController_byCountryLang",
+        "parameters": [
+          {
+            "name": "country",
+            "required": true,
+            "in": "path",
+            "description": "Lowercase ISO 3166-1 alpha-2 country code",
+            "schema": {
+              "example": "es",
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "required": true,
+            "in": "path",
+            "description": "BCP 47 language code",
+            "schema": {
+              "example": "es",
+              "type": "string"
+            }
+          },
+          {
+            "name": "city_name",
+            "required": true,
+            "in": "path",
+            "description": "City name prefix in the given language (1+ chars)",
+            "schema": {
+              "example": "bar",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OneshotCityDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Country + language prefix search",
+        "tags": [
+          "oneshot"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Geomelon API",
+    "description": "Read-only geographic data API — cities, countries, regions, and languages with multilingual city names and fast prefix autocomplete.\n\nAuthentication: subscribe on [RapidAPI](https://rapidapi.com/hom3chuk/api/geomelon) (free tier available) and send your key in the `x-rapidapi-key` header.\n\nThe oneshot autocomplete endpoint is also available keyless on the free mirror at `https://oneshot.geomelon.dev/{iso}/{lang}/{prefix}`.",
+    "version": "1.0",
+    "contact": {
+      "name": "Geomelon",
+      "url": "https://geomelon.dev",
+      "email": ""
+    }
+  },
+  "tags": [
+    {
+      "name": "cities",
+      "description": ""
+    },
+    {
+      "name": "countries",
+      "description": ""
+    },
+    {
+      "name": "regions",
+      "description": ""
+    },
+    {
+      "name": "languages",
+      "description": ""
+    },
+    {
+      "name": "oneshot",
+      "description": ""
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://geomelon.p.rapidapi.com",
+      "description": "RapidAPI gateway"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "RapidApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-rapidapi-key",
+        "description": "RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon"
+      }
+    },
+    "schemas": {
+      "CityDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Geomelon UUID of the city",
+            "example": "964512d1-f150-4876-87ec-0ba47aef694a"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID of the city",
+            "example": "Q1492"
+          },
+          "name": {
+            "type": "string",
+            "description": "City name",
+            "example": "Barcelona"
+          },
+          "localizedName": {
+            "type": "string",
+            "description": "Localized name according to preferred languages",
+            "example": "Q1492"
+          },
+          "population": {
+            "type": "number",
+            "description": "Population of the city",
+            "example": 1702547
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude coordinate",
+            "example": 41.3825
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude coordinate",
+            "example": 2.176944444
+          },
+          "elevation": {
+            "type": "number",
+            "description": "Elevation in meters",
+            "example": 9
+          },
+          "area": {
+            "type": "number",
+            "description": "Area in km²",
+            "example": 101.3
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code",
+            "example": "08001–08042"
+          },
+          "officialWebsite": {
+            "type": "string",
+            "description": "Official website URL",
+            "example": "https://www.barcelona.cat"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "Time zone",
+            "example": "UTC+01:00"
+          },
+          "flagImage": {
+            "type": "string",
+            "description": "Flag image URL",
+            "example": "http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Barcelona.svg"
+          },
+          "dialingCode": {
+            "type": "string",
+            "description": "Dialing code",
+            "example": "93"
+          },
+          "normalizedName": {
+            "type": "string",
+            "description": "Normalized city name",
+            "example": "barcelona"
+          },
+          "translations": {
+            "description": "Translations of the city name in requested languages",
+            "example": [
+              {
+                "language": "en",
+                "name": "Barcelona"
+              },
+              {
+                "language": "ja",
+                "name": "バルセロナ"
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "distanceKm": {
+            "type": "number",
+            "description": "Distance from the given point in kilometers",
+            "example": 12.5
+          },
+          "countryId": {
+            "type": "string",
+            "description": "UUID of the country",
+            "example": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa"
+          },
+          "countryName": {
+            "type": "string",
+            "description": "Country name",
+            "example": "Spain"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "ISO country code",
+            "example": "ES"
+          },
+          "countryEmoji": {
+            "type": "string",
+            "description": "Emoji flag of the country",
+            "example": "🇪🇸"
+          },
+          "countryTelephoneCode": {
+            "type": "string",
+            "description": "Telephone code of the country",
+            "example": "+34"
+          },
+          "regionName": {
+            "type": "string",
+            "description": "Region name",
+            "example": "Catalonia"
+          },
+          "regionCode": {
+            "type": "string",
+            "description": "Region code",
+            "example": "ES-CT"
+          },
+          "regionId": {
+            "type": "string",
+            "description": "UUID of the region",
+            "example": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929"
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "localizedName",
+          "normalizedName",
+          "translations",
+          "countryId",
+          "countryName",
+          "countryCode",
+          "countryEmoji",
+          "regionName",
+          "regionCode",
+          "regionId"
+        ]
+      },
+      "DistanceDto": {
+        "type": "object",
+        "properties": {
+          "distanceKm": {
+            "type": "number",
+            "description": "Distance between cities"
+          }
+        },
+        "required": [
+          "distanceKm"
+        ]
+      },
+      "CityTranslationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Translation ID",
+            "example": "eabda784-b9cc-4ee8-84fa-6c311fbea8b5"
+          },
+          "cityId": {
+            "type": "string",
+            "description": "City ID",
+            "example": "964512d1-f150-4876-87ec-0ba47aef694a"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code",
+            "example": "azb"
+          },
+          "name": {
+            "type": "string",
+            "description": "Translated name",
+            "example": "بارسلونا"
+          },
+          "nameNormalized": {
+            "type": "string",
+            "description": "Normalized translated name",
+            "example": "بارسلونا"
+          }
+        },
+        "required": [
+          "id",
+          "cityId",
+          "language",
+          "name",
+          "nameNormalized"
+        ]
+      },
+      "SettlementTypeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Settlement Type ID",
+            "example": "5bdb4631-a170-4bd8-bf1a-2d447d3523b1"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID",
+            "example": "Q33146843"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the settlement type",
+            "example": "municipality of Catalonia"
+          },
+          "nameNormalized": {
+            "type": "string",
+            "description": "Normalized name of the settlement type",
+            "example": "municipality of catalonia"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the settlement type",
+            "example": "administrative division of Catalonia, Spain"
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "nameNormalized",
+          "description"
+        ]
+      },
+      "CountryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Country ID",
+            "example": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID",
+            "example": "Q29"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country",
+            "example": "Spain"
+          },
+          "localizedName": {
+            "type": "string",
+            "description": "Name in the first matched preferred language, falls back to name",
+            "example": "España"
+          },
+          "emoji": {
+            "type": "string",
+            "description": "Emoji of the country",
+            "example": "🇪🇸"
+          },
+          "headOfState": {
+            "type": "string",
+            "description": "Head of state of the country",
+            "example": "Felipe VI of Spain"
+          },
+          "headOfGovernment": {
+            "type": "string",
+            "description": "Head of government of the country",
+            "example": "Pedro Sánchez"
+          },
+          "isoCode": {
+            "type": "string",
+            "description": "ISO code of the country",
+            "example": "ES"
+          },
+          "telephoneCode": {
+            "type": "string",
+            "description": "Telephone code of the country",
+            "example": "+34"
+          },
+          "trunkPrefix": {
+            "type": "string",
+            "description": "Trunk prefix of the country",
+            "example": "0"
+          },
+          "licencePlateCode": {
+            "type": "string",
+            "description": "Licence plate code of the country",
+            "example": "E"
+          },
+          "drivingSide": {
+            "type": "string",
+            "description": "Driving side of the country",
+            "example": "right"
+          },
+          "preferredLanguageId": {
+            "type": "string",
+            "description": "Preferred language ID for the country",
+            "example": "a3d69219-5e64-4fef-a137-10bceb326e3d"
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "emoji",
+          "headOfState",
+          "headOfGovernment",
+          "isoCode",
+          "telephoneCode",
+          "trunkPrefix",
+          "licencePlateCode",
+          "drivingSide",
+          "preferredLanguageId"
+        ]
+      },
+      "CountryTranslationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Translation ID",
+            "example": "0230694f-5673-403d-a10d-716ee43ac702"
+          },
+          "countryId": {
+            "type": "string",
+            "description": "Country ID",
+            "example": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code",
+            "example": "diq"
+          },
+          "name": {
+            "type": "string",
+            "description": "Translated name",
+            "example": "İspanya"
+          },
+          "nameNormalized": {
+            "type": "string",
+            "description": "Normalized translated name",
+            "example": "ispanya"
+          }
+        },
+        "required": [
+          "id",
+          "countryId",
+          "language",
+          "name",
+          "nameNormalized"
+        ]
+      },
+      "RegionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of the region",
+            "example": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID",
+            "example": "Q5705"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the region",
+            "example": "Catalonia"
+          },
+          "countryId": {
+            "type": "string",
+            "description": "Country ID the region belongs to",
+            "example": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa"
+          },
+          "population": {
+            "type": "number",
+            "description": "Population of the region",
+            "example": 8034743
+          },
+          "code": {
+            "type": "string",
+            "description": "Region code",
+            "example": "ES-CT"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude of the region center",
+            "example": 41.85
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude of the region center",
+            "example": 1.566666666
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "countryId",
+          "population",
+          "code",
+          "latitude",
+          "longitude"
+        ]
+      },
+      "CountryExtendedDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Country ID",
+            "example": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID",
+            "example": "Q29"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the country",
+            "example": "Spain"
+          },
+          "emoji": {
+            "type": "string",
+            "description": "Emoji of the country",
+            "example": "🇪🇸"
+          },
+          "headOfState": {
+            "type": "string",
+            "description": "Head of state of the country",
+            "example": "Felipe VI of Spain"
+          },
+          "headOfGovernment": {
+            "type": "string",
+            "description": "Head of government of the country",
+            "example": "Pedro Sánchez"
+          },
+          "isoCode": {
+            "type": "string",
+            "description": "ISO code of the country",
+            "example": "ES"
+          },
+          "telephoneCode": {
+            "type": "string",
+            "description": "Telephone code of the country",
+            "example": "+34"
+          },
+          "trunkPrefix": {
+            "type": "string",
+            "description": "Trunk prefix of the country",
+            "example": "0"
+          },
+          "licencePlateCode": {
+            "type": "string",
+            "description": "Licence plate code of the country",
+            "example": "E"
+          },
+          "drivingSide": {
+            "type": "string",
+            "description": "Driving side of the country",
+            "example": "right"
+          },
+          "preferredLanguageId": {
+            "type": "string",
+            "description": "Preferred language ID for the country",
+            "example": "a3d69219-5e64-4fef-a137-10bceb326e3d"
+          },
+          "translations": {
+            "description": "Country translations",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryTranslationDto"
+            }
+          },
+          "regions": {
+            "description": "Regions within the country",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegionDto"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "emoji",
+          "headOfState",
+          "headOfGovernment",
+          "isoCode",
+          "telephoneCode",
+          "trunkPrefix",
+          "licencePlateCode",
+          "drivingSide",
+          "preferredLanguageId",
+          "translations",
+          "regions"
+        ]
+      },
+      "RegionExtendedDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of the region",
+            "example": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID",
+            "example": "Q5705"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the region",
+            "example": "Catalonia"
+          },
+          "countryId": {
+            "type": "string",
+            "description": "Country ID the region belongs to",
+            "example": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa"
+          },
+          "population": {
+            "type": "number",
+            "description": "Population of the region",
+            "example": 8034743
+          },
+          "code": {
+            "type": "string",
+            "description": "Region code",
+            "example": "ES-CT"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude of the region center",
+            "example": 41.85
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude of the region center",
+            "example": 1.566666666
+          },
+          "country": {
+            "description": "Country details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CountryDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "countryId",
+          "population",
+          "code",
+          "latitude",
+          "longitude",
+          "country"
+        ]
+      },
+      "RegionTranslationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Translation ID",
+            "example": "ada3e6fd-61dc-4b83-973d-a91d79498203"
+          },
+          "regionId": {
+            "type": "string",
+            "description": "Region ID",
+            "example": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code",
+            "example": "csb"
+          },
+          "name": {
+            "type": "string",
+            "description": "Translated name",
+            "example": "Katalońskô"
+          },
+          "nameNormalized": {
+            "type": "string",
+            "description": "Normalized translated name",
+            "example": "katalonsko"
+          }
+        },
+        "required": [
+          "id",
+          "regionId",
+          "language",
+          "name",
+          "nameNormalized"
+        ]
+      },
+      "LanguageDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of the language",
+            "example": "abbf9d44-2b77-464b-bca4-90026a66182c"
+          },
+          "wikidataId": {
+            "type": "string",
+            "description": "Wikidata ID of the language",
+            "example": "Q256"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the language",
+            "example": "Turkish"
+          },
+          "isoCode": {
+            "type": "string",
+            "description": "ISO code of the language",
+            "example": "tr"
+          },
+          "citiesCount": {
+            "type": "number",
+            "description": "Number of cities using this language",
+            "example": 252088
+          }
+        },
+        "required": [
+          "id",
+          "wikidataId",
+          "name",
+          "isoCode",
+          "citiesCount"
+        ]
+      },
+      "OneshotCityDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "9c4eae2b-095b-48ab-9184-8f079b7dea25"
+          },
+          "name": {
+            "type": "string",
+            "example": "Београд",
+            "description": "City name in the requested language"
+          },
+          "population": {
+            "type": "object",
+            "example": 1197714,
+            "nullable": true
+          },
+          "emoji": {
+            "type": "object",
+            "example": "🇷🇸",
+            "nullable": true
+          },
+          "en": {
+            "type": "string",
+            "example": "Belgrade",
+            "description": "English name — omitted when the requested language is English or no English translation exists"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "population",
+          "emoji"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "RapidApiKey": []
+    }
+  ]
+}

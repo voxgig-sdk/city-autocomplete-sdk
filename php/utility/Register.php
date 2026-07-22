@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// CityAutocomplete SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+CityAutocompleteUtility::setRegistrar(function (CityAutocompleteUtility $u): void {
+    $u->clean = [CityAutocompleteClean::class, 'call'];
+    $u->done = [CityAutocompleteDone::class, 'call'];
+    $u->make_error = [CityAutocompleteMakeError::class, 'call'];
+    $u->feature_add = [CityAutocompleteFeatureAdd::class, 'call'];
+    $u->feature_hook = [CityAutocompleteFeatureHook::class, 'call'];
+    $u->feature_init = [CityAutocompleteFeatureInit::class, 'call'];
+    $u->fetcher = [CityAutocompleteFetcher::class, 'call'];
+    $u->make_fetch_def = [CityAutocompleteMakeFetchDef::class, 'call'];
+    $u->make_context = [CityAutocompleteMakeContext::class, 'call'];
+    $u->make_options = [CityAutocompleteMakeOptions::class, 'call'];
+    $u->make_request = [CityAutocompleteMakeRequest::class, 'call'];
+    $u->make_response = [CityAutocompleteMakeResponse::class, 'call'];
+    $u->make_result = [CityAutocompleteMakeResult::class, 'call'];
+    $u->make_point = [CityAutocompleteMakePoint::class, 'call'];
+    $u->make_spec = [CityAutocompleteMakeSpec::class, 'call'];
+    $u->make_url = [CityAutocompleteMakeUrl::class, 'call'];
+    $u->param = [CityAutocompleteParam::class, 'call'];
+    $u->prepare_auth = [CityAutocompletePrepareAuth::class, 'call'];
+    $u->prepare_body = [CityAutocompletePrepareBody::class, 'call'];
+    $u->prepare_headers = [CityAutocompletePrepareHeaders::class, 'call'];
+    $u->prepare_method = [CityAutocompletePrepareMethod::class, 'call'];
+    $u->prepare_params = [CityAutocompletePrepareParams::class, 'call'];
+    $u->prepare_path = [CityAutocompletePreparePath::class, 'call'];
+    $u->prepare_query = [CityAutocompletePrepareQuery::class, 'call'];
+    $u->result_basic = [CityAutocompleteResultBasic::class, 'call'];
+    $u->result_body = [CityAutocompleteResultBody::class, 'call'];
+    $u->result_headers = [CityAutocompleteResultHeaders::class, 'call'];
+    $u->transform_request = [CityAutocompleteTransformRequest::class, 'call'];
+    $u->transform_response = [CityAutocompleteTransformResponse::class, 'call'];
+});

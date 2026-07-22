@@ -1,0 +1,37 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: ""
+        name: "Geomelon"
+        url: "https://geomelon.dev"
+      }
+      description: `Read-only geographic data API — cities, countries, regions, and languages with multilingual city names and fast prefix autocomplete.
+
+Authentication: subscribe on [RapidAPI](https://rapidapi.com/hom3chuk/api/geomelon) (free tier available) and send your key in the \`x-rapidapi-key\` header.
+
+The oneshot autocomplete endpoint is also available keyless on the free mirror at \`https://oneshot.geomelon.dev/{iso}/{lang}/{prefix}\`.`
+      security: {
+        in: "header"
+        name: "x-rapidapi-key"
+        prefix: ""
+        scheme: "RapidApiKey"
+        type: "apiKey"
+      }
+      servers: [
+        {
+          description: "RapidAPI gateway"
+          url: "https://geomelon.p.rapidapi.com"
+        }
+      ]
+      summary: "Read-only geographic data API — cities, countries, regions, and languages with multilingual city names and fast prefix autocomplete."
+      title: "Geomelon API"
+      version: "1.0"
+      website: "https://geomelon.p.rapidapi.com"
+    }
+  }
+}
+

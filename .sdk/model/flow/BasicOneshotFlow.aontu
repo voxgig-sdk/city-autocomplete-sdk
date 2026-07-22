@@ -1,0 +1,28 @@
+# BasicOneshotFlow
+
+main: kit: flow: BasicOneshotFlow:
+{
+  entity: "oneshot",
+  kind: "basic",
+  name: "BasicOneshotFlow",
+  step: [
+    {
+      match: {
+        city_name: "city_name01",
+        country: "country01",
+        language: "language01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "oneshot_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOneshotFlow"
+}

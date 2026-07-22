@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "oneshot": {
+      "ONESHOT00": {
+        "emoji": {},
+        "en": "s33",
+        "id": "ONESHOT00",
+        "name": "s35",
+        "population": {},
+        "city_name": "CITY_NAME01",
+        "country": "COUNTRY01",
+        "language": "LANGUAGE01"
+      },
+      "ONESHOT01": {
+        "emoji": {},
+        "en": "s65",
+        "id": "ONESHOT01",
+        "name": "s67",
+        "population": {},
+        "city_name": "CITY_NAME01",
+        "country": "COUNTRY01",
+        "language": "LANGUAGE01"
+      },
+      "ONESHOT02": {
+        "emoji": {},
+        "en": "s97",
+        "id": "ONESHOT02",
+        "name": "s99",
+        "population": {},
+        "city_name": "CITY_NAME01",
+        "country": "COUNTRY01",
+        "language": "LANGUAGE01"
+      }
+    }
+  },
+  "new": {
+    "oneshot": {
+      "oneshot_ref01": {
+        "emoji": {},
+        "en": "sc9",
+        "name": "scb",
+        "population": {}
+      }
+    }
+  }
+}

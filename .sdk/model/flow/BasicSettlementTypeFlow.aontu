@@ -1,0 +1,26 @@
+# BasicSettlementTypeFlow
+
+main: kit: flow: BasicSettlementTypeFlow:
+{
+  entity: "settlement_type",
+  kind: "basic",
+  name: "BasicSettlementTypeFlow",
+  step: [
+    {
+      match: {
+        city_id: "city01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "settlement_type_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSettlementTypeFlow"
+}

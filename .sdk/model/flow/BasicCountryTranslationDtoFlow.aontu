@@ -1,0 +1,22 @@
+# BasicCountryTranslationDtoFlow
+
+main: kit: flow: BasicCountryTranslationDtoFlow:
+{
+  entity: "country_translation_dto",
+  kind: "basic",
+  name: "BasicCountryTranslationDtoFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "country_translation_dto_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCountryTranslationDtoFlow"
+}

@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "region_translation_dto": {
+      "REGION_TRANSLATION_DTO00": {
+        "id": "REGION_TRANSLATION_DTO00",
+        "language": "s33",
+        "name": "s34",
+        "name_normalized": "s35",
+        "region_id": "REGION01"
+      },
+      "REGION_TRANSLATION_DTO01": {
+        "id": "REGION_TRANSLATION_DTO01",
+        "language": "s65",
+        "name": "s66",
+        "name_normalized": "s67",
+        "region_id": "REGION01"
+      },
+      "REGION_TRANSLATION_DTO02": {
+        "id": "REGION_TRANSLATION_DTO02",
+        "language": "s97",
+        "name": "s98",
+        "name_normalized": "s99",
+        "region_id": "REGION01"
+      }
+    }
+  },
+  "new": {
+    "region_translation_dto": {
+      "region_translation_dto_ref01": {
+        "language": "sc9",
+        "name": "sca",
+        "name_normalized": "scb",
+        "region_id": "REGION01"
+      }
+    }
+  }
+}

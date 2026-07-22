@@ -1,0 +1,13 @@
+# Entity Models
+
+@"city.aontu"
+@"city_dto.aontu"
+@"city_translation_dto.aontu"
+@"country.aontu"
+@"country_translation_dto.aontu"
+@"distance.aontu"
+@"language.aontu"
+@"oneshot.aontu"
+@"region.aontu"
+@"region_translation_dto.aontu"
+@"settlement_type.aontu"

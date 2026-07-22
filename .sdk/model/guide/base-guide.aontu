@@ -1,0 +1,97 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 11
+  metrics: count: path: 17
+  metrics: count: method: 17
+
+  entity: city: {
+    path: "/cities/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: city_dto: {
+    path: "/cities/byCoordinates/closest": {
+      op: list: method: *GET
+    }
+    path: "/cities/byCoordinates/largest": {
+      op: list: method: *GET
+    }
+    path: "/cities/search": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: city_translation_dto: {
+    path: "/cities/{id}/translations": {
+      action: "translations": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: country: {
+    path: "/countries": {
+      op: list: method: *GET
+    }
+    path: "/countries/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: country_translation_dto: {
+    path: "/countries/{id}/translations": {
+      action: "translations": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: distance: {
+    path: "/cities/distance": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: language: {
+    path: "/languages": {
+      op: list: method: *GET
+    }
+    path: "/languages/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: oneshot: {
+    path: "/cities/oneshot/{country}/{language}/{city_name}": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: region: {
+    path: "/countries/{id}/regions": {
+      rename: param: "id": *"country_id"
+      op: list: method: *GET
+    }
+    path: "/regions": {
+      op: list: method: *GET
+    }
+    path: "/regions/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: region_translation_dto: {
+    path: "/regions/{id}/translations": {
+      action: "translations": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: settlement_type: {
+    path: "/cities/{id}/settlement-types": {
+      rename: param: "id": *"city_id"
+      op: list: method: *GET
+    }
+  }
+
+}
