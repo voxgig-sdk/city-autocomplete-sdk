@@ -72,7 +72,7 @@ class CityTranslationDtoEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -117,39 +117,39 @@ function city_translation_dto_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID");
+    $entid_env_raw = getenv("CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID" => $idmap,
-        "CITYAUTOCOMPLETE_TEST_LIVE" => "FALSE",
-        "CITYAUTOCOMPLETE_TEST_EXPLAIN" => "FALSE",
-        "CITYAUTOCOMPLETE_APIKEY" => "NONE",
+        "CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID" => $idmap,
+        "CITY_AUTOCOMPLETE_TEST_LIVE" => "FALSE",
+        "CITY_AUTOCOMPLETE_TEST_EXPLAIN" => "FALSE",
+        "CITY_AUTOCOMPLETE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID"]);
+        $env["CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["CITYAUTOCOMPLETE_TEST_LIVE"] === "TRUE") {
+    if ($env["CITY_AUTOCOMPLETE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CITYAUTOCOMPLETE_APIKEY"],
+                "apikey" => $env["CITY_AUTOCOMPLETE_APIKEY"],
             ],
             $extra ?? [],
         ]);
         $client = new CityAutocompleteSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["CITYAUTOCOMPLETE_TEST_LIVE"] === "TRUE";
+    $live = $env["CITY_AUTOCOMPLETE_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["CITYAUTOCOMPLETE_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["CITY_AUTOCOMPLETE_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

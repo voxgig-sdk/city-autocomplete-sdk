@@ -1,0 +1,1863 @@
+# CityAutocomplete SDK configuration
+
+
+def make_config():
+    return {
+        "main": {
+            "name": "CityAutocomplete",
+        },
+        "feature": {
+            "test": {
+        "options": {
+          "active": False,
+        },
+      },
+        },
+        "options": {
+            "base": "https://geomelon.p.rapidapi.com",
+            "auth": {
+                "prefix": "",
+            },
+            "headers": {
+        "content-type": "application/json",
+      },
+            "entity": {
+                "city": {},
+                "city_dto": {},
+                "city_translation_dto": {},
+                "country": {},
+                "country_translation_dto": {},
+                "distance": {},
+                "language": {},
+                "oneshot": {},
+                "region": {},
+                "region_translation_dto": {},
+                "settlement_type": {},
+            },
+        },
+        "entity": {
+      "city": {
+        "fields": [
+          {
+            "active": True,
+            "name": "area",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "countryCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "countryEmoji",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "countryId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "countryName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+          {
+            "active": True,
+            "name": "countryTelephoneCode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 5,
+          },
+          {
+            "active": True,
+            "name": "dialingCode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 6,
+          },
+          {
+            "active": True,
+            "name": "distanceKm",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 7,
+          },
+          {
+            "active": True,
+            "name": "elevation",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 8,
+          },
+          {
+            "active": True,
+            "name": "flagImage",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 9,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 10,
+          },
+          {
+            "active": True,
+            "name": "latitude",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 11,
+          },
+          {
+            "active": True,
+            "name": "localizedName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 12,
+          },
+          {
+            "active": True,
+            "name": "longitude",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 13,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 14,
+          },
+          {
+            "active": True,
+            "name": "normalizedName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 15,
+          },
+          {
+            "active": True,
+            "name": "officialWebsite",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 16,
+          },
+          {
+            "active": True,
+            "name": "population",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 17,
+          },
+          {
+            "active": True,
+            "name": "postalCode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 18,
+          },
+          {
+            "active": True,
+            "name": "regionCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 19,
+          },
+          {
+            "active": True,
+            "name": "regionId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 20,
+          },
+          {
+            "active": True,
+            "name": "regionName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 21,
+          },
+          {
+            "active": True,
+            "name": "timeZone",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 22,
+          },
+          {
+            "active": True,
+            "name": "translations",
+            "req": True,
+            "type": "`$ARRAY`",
+            "index$": 23,
+          },
+          {
+            "active": True,
+            "name": "wikidataId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 24,
+          },
+        ],
+        "name": "city",
+        "op": {
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/{id}",
+                "parts": [
+                  "cities",
+                  "{id}",
+                ],
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "load",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "city_dto": {
+        "fields": [
+          {
+            "active": True,
+            "name": "area",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "countryCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "countryEmoji",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "countryId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "countryName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+          {
+            "active": True,
+            "name": "countryTelephoneCode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 5,
+          },
+          {
+            "active": True,
+            "name": "dialingCode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 6,
+          },
+          {
+            "active": True,
+            "name": "distanceKm",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 7,
+          },
+          {
+            "active": True,
+            "name": "elevation",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 8,
+          },
+          {
+            "active": True,
+            "name": "flagImage",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 9,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 10,
+          },
+          {
+            "active": True,
+            "name": "latitude",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 11,
+          },
+          {
+            "active": True,
+            "name": "localizedName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 12,
+          },
+          {
+            "active": True,
+            "name": "longitude",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 13,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 14,
+          },
+          {
+            "active": True,
+            "name": "normalizedName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 15,
+          },
+          {
+            "active": True,
+            "name": "officialWebsite",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 16,
+          },
+          {
+            "active": True,
+            "name": "population",
+            "req": False,
+            "type": "`$NUMBER`",
+            "index$": 17,
+          },
+          {
+            "active": True,
+            "name": "postalCode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 18,
+          },
+          {
+            "active": True,
+            "name": "regionCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 19,
+          },
+          {
+            "active": True,
+            "name": "regionId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 20,
+          },
+          {
+            "active": True,
+            "name": "regionName",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 21,
+          },
+          {
+            "active": True,
+            "name": "timeZone",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 22,
+          },
+          {
+            "active": True,
+            "name": "translations",
+            "req": True,
+            "type": "`$ARRAY`",
+            "index$": 23,
+          },
+          {
+            "active": True,
+            "name": "wikidataId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 24,
+          },
+        ],
+        "name": "city_dto",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "example": "us",
+                      "kind": "query",
+                      "name": "country_code",
+                      "orig": "country_code",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "example": 20,
+                      "kind": "query",
+                      "name": "limit",
+                      "orig": "limit",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "max_population",
+                      "orig": "max_population",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "min_population",
+                      "orig": "min_population",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": "dallas",
+                      "kind": "query",
+                      "name": "name",
+                      "orig": "name",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "example": 0,
+                      "kind": "query",
+                      "name": "offset",
+                      "orig": "offset",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": "en,fr,ja,hi",
+                      "kind": "query",
+                      "name": "preferred_language",
+                      "orig": "preferred_language",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "region_id",
+                      "orig": "region_id",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "example": "population_desc",
+                      "kind": "query",
+                      "name": "sort",
+                      "orig": "sort",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/search",
+                "parts": [
+                  "cities",
+                  "search",
+                ],
+                "select": {
+                  "exist": [
+                    "country_code",
+                    "limit",
+                    "max_population",
+                    "min_population",
+                    "name",
+                    "offset",
+                    "preferred_language",
+                    "region_id",
+                    "sort",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "lat",
+                      "orig": "lat",
+                      "reqd": True,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "lon",
+                      "orig": "lon",
+                      "reqd": True,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": "en",
+                      "kind": "query",
+                      "name": "preferred_language",
+                      "orig": "preferred_language",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/byCoordinates/closest",
+                "parts": [
+                  "cities",
+                  "byCoordinates",
+                  "closest",
+                ],
+                "select": {
+                  "exist": [
+                    "lat",
+                    "lon",
+                    "preferred_language",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 1,
+              },
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "lat",
+                      "orig": "lat",
+                      "reqd": True,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "lon",
+                      "orig": "lon",
+                      "reqd": True,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": "en",
+                      "kind": "query",
+                      "name": "preferred_language",
+                      "orig": "preferred_language",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/byCoordinates/largest",
+                "parts": [
+                  "cities",
+                  "byCoordinates",
+                  "largest",
+                ],
+                "select": {
+                  "exist": [
+                    "lat",
+                    "lon",
+                    "preferred_language",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 2,
+              },
+            ],
+            "key$": "list",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "city_translation_dto": {
+        "fields": [
+          {
+            "active": True,
+            "name": "cityId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "language",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "nameNormalized",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+        ],
+        "name": "city_translation_dto",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/{id}/translations",
+                "parts": [
+                  "cities",
+                  "{id}",
+                  "translations",
+                ],
+                "select": {
+                  "$action": "translations",
+                  "exist": [
+                    "id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "country": {
+        "fields": [
+          {
+            "active": True,
+            "name": "drivingSide",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "emoji",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "headOfGovernment",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "headOfState",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+          {
+            "active": True,
+            "name": "isoCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 5,
+          },
+          {
+            "active": True,
+            "name": "licencePlateCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 6,
+          },
+          {
+            "active": True,
+            "name": "localizedName",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 7,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 8,
+          },
+          {
+            "active": True,
+            "name": "preferredLanguageId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 9,
+          },
+          {
+            "active": True,
+            "name": "regions",
+            "req": True,
+            "type": "`$ARRAY`",
+            "index$": 10,
+          },
+          {
+            "active": True,
+            "name": "telephoneCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 11,
+          },
+          {
+            "active": True,
+            "name": "translations",
+            "req": True,
+            "type": "`$ARRAY`",
+            "index$": 12,
+          },
+          {
+            "active": True,
+            "name": "trunkPrefix",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 13,
+          },
+          {
+            "active": True,
+            "name": "wikidataId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 14,
+          },
+        ],
+        "name": "country",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "example": 200,
+                      "kind": "query",
+                      "name": "limit",
+                      "orig": "limit",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": "Spa",
+                      "kind": "query",
+                      "name": "name",
+                      "orig": "name",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "example": 0,
+                      "kind": "query",
+                      "name": "offset",
+                      "orig": "offset",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": "fr,es,en",
+                      "kind": "query",
+                      "name": "preferred_language",
+                      "orig": "preferred_language",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "example": "+34",
+                      "kind": "query",
+                      "name": "telephone_code",
+                      "orig": "telephone_code",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/countries",
+                "parts": [
+                  "countries",
+                ],
+                "select": {
+                  "exist": [
+                    "limit",
+                    "name",
+                    "offset",
+                    "preferred_language",
+                    "telephone_code",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/countries/{id}",
+                "parts": [
+                  "countries",
+                  "{id}",
+                ],
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "load",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "country_translation_dto": {
+        "fields": [
+          {
+            "active": True,
+            "name": "countryId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "language",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "nameNormalized",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+        ],
+        "name": "country_translation_dto",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "active": True,
+                      "example": "en,fr,hi",
+                      "kind": "query",
+                      "name": "preferred_language",
+                      "orig": "preferred_language",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/countries/{id}/translations",
+                "parts": [
+                  "countries",
+                  "{id}",
+                  "translations",
+                ],
+                "select": {
+                  "$action": "translations",
+                  "exist": [
+                    "id",
+                    "preferred_language",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "distance": {
+        "fields": [
+          {
+            "active": True,
+            "name": "distanceKm",
+            "req": True,
+            "type": "`$NUMBER`",
+            "index$": 0,
+          },
+        ],
+        "name": "distance",
+        "op": {
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "city1",
+                      "orig": "city1",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "active": True,
+                      "kind": "query",
+                      "name": "city2",
+                      "orig": "city2",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/distance",
+                "parts": [
+                  "cities",
+                  "distance",
+                ],
+                "select": {
+                  "exist": [
+                    "city1",
+                    "city2",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "load",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "language": {
+        "fields": [
+          {
+            "active": True,
+            "name": "citiesCount",
+            "req": True,
+            "type": "`$NUMBER`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "isoCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "wikidataId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+        ],
+        "name": "language",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "example": 200,
+                      "kind": "query",
+                      "name": "limit",
+                      "orig": "limit",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                    {
+                      "active": True,
+                      "example": 0,
+                      "kind": "query",
+                      "name": "offset",
+                      "orig": "offset",
+                      "reqd": False,
+                      "type": "`$NUMBER`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/languages",
+                "parts": [
+                  "languages",
+                ],
+                "select": {
+                  "exist": [
+                    "limit",
+                    "offset",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/languages/{id}",
+                "parts": [
+                  "languages",
+                  "{id}",
+                ],
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "load",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "oneshot": {
+        "fields": [
+          {
+            "active": True,
+            "name": "emoji",
+            "req": True,
+            "type": "`$OBJECT`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "en",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "population",
+            "req": True,
+            "type": "`$OBJECT`",
+            "index$": 4,
+          },
+        ],
+        "name": "oneshot",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "bar",
+                      "kind": "param",
+                      "name": "city_name",
+                      "orig": "city_name",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                    {
+                      "active": True,
+                      "example": "es",
+                      "kind": "param",
+                      "name": "country",
+                      "orig": "country",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 1,
+                    },
+                    {
+                      "active": True,
+                      "example": "es",
+                      "kind": "param",
+                      "name": "language",
+                      "orig": "language",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 2,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/oneshot/{country}/{language}/{city_name}",
+                "parts": [
+                  "cities",
+                  "oneshot",
+                  "{country}",
+                  "{language}",
+                  "{city_name}",
+                ],
+                "select": {
+                  "exist": [
+                    "city_name",
+                    "country",
+                    "language",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+        },
+        "relations": {
+          "ancestors": [
+            [
+              "oneshot",
+            ],
+          ],
+        },
+      },
+      "region": {
+        "fields": [
+          {
+            "active": True,
+            "name": "code",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "countryId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "drivingSide",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "emoji",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "headOfGovernment",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+          {
+            "active": True,
+            "name": "headOfState",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 5,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 6,
+          },
+          {
+            "active": True,
+            "name": "isoCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 7,
+          },
+          {
+            "active": True,
+            "name": "latitude",
+            "req": True,
+            "type": "`$NUMBER`",
+            "index$": 8,
+          },
+          {
+            "active": True,
+            "name": "licencePlateCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 9,
+          },
+          {
+            "active": True,
+            "name": "localizedName",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 10,
+          },
+          {
+            "active": True,
+            "name": "longitude",
+            "req": True,
+            "type": "`$NUMBER`",
+            "index$": 11,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 12,
+          },
+          {
+            "active": True,
+            "name": "population",
+            "req": True,
+            "type": "`$NUMBER`",
+            "index$": 13,
+          },
+          {
+            "active": True,
+            "name": "preferredLanguageId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 14,
+          },
+          {
+            "active": True,
+            "name": "telephoneCode",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 15,
+          },
+          {
+            "active": True,
+            "name": "trunkPrefix",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 16,
+          },
+          {
+            "active": True,
+            "name": "wikidataId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 17,
+          },
+        ],
+        "name": "region",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                      "kind": "param",
+                      "name": "country_id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/countries/{id}/regions",
+                "parts": [
+                  "countries",
+                  "{country_id}",
+                  "regions",
+                ],
+                "rename": {
+                  "param": {
+                    "id": "country_id",
+                  },
+                },
+                "select": {
+                  "exist": [
+                    "country_id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                      "kind": "query",
+                      "name": "country_id",
+                      "orig": "country_id",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/regions",
+                "parts": [
+                  "regions",
+                ],
+                "select": {
+                  "exist": [
+                    "country_id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 1,
+              },
+            ],
+            "key$": "list",
+          },
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/regions/{id}",
+                "parts": [
+                  "regions",
+                  "{id}",
+                ],
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.country`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "load",
+          },
+        },
+        "relations": {
+          "ancestors": [
+            [
+              "country",
+            ],
+          ],
+        },
+      },
+      "region_translation_dto": {
+        "fields": [
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "language",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "nameNormalized",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "regionId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+        ],
+        "name": "region_translation_dto",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "active": True,
+                      "example": "en,fr,hi",
+                      "kind": "query",
+                      "name": "preferred_language",
+                      "orig": "preferred_language",
+                      "reqd": False,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/regions/{id}/translations",
+                "parts": [
+                  "regions",
+                  "{id}",
+                  "translations",
+                ],
+                "select": {
+                  "$action": "translations",
+                  "exist": [
+                    "id",
+                    "preferred_language",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+      "settlement_type": {
+        "fields": [
+          {
+            "active": True,
+            "name": "description",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "id",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "name",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "nameNormalized",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+          {
+            "active": True,
+            "name": "wikidataId",
+            "req": True,
+            "type": "`$STRING`",
+            "index$": 4,
+          },
+        ],
+        "name": "settlement_type",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "params": [
+                    {
+                      "active": True,
+                      "kind": "param",
+                      "name": "city_id",
+                      "orig": "id",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                      "index$": 0,
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/cities/{id}/settlement-types",
+                "parts": [
+                  "cities",
+                  "{city_id}",
+                  "settlement-types",
+                ],
+                "rename": {
+                  "param": {
+                    "id": "city_id",
+                  },
+                },
+                "select": {
+                  "exist": [
+                    "city_id",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "list",
+          },
+        },
+        "relations": {
+          "ancestors": [
+            [
+              "city",
+            ],
+          ],
+        },
+      },
+    },
+    }

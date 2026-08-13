@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CityAutocompleteControl
-from core.error import CityAutocompleteError
-from core.result import CityAutocompleteResult
-from core.spec import CityAutocompleteSpec
+from cityautocomplete_sdk.config import make_config
+from cityautocomplete_sdk.features import _make_feature
+from cityautocomplete_sdk.core.control import CityAutocompleteControl
+from cityautocomplete_sdk.core.error import CityAutocompleteError
+from cityautocomplete_sdk.core.result import CityAutocompleteResult
+from cityautocomplete_sdk.core.spec import CityAutocompleteSpec
 
 
 # True when this SDK was generated with the named feature.

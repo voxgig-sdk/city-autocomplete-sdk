@@ -80,16 +80,16 @@ function settlement_type_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "CITYAUTOCOMPLETE_TEST_SETTLEMENT_TYPE_ENTID" => [],
-        "CITYAUTOCOMPLETE_TEST_LIVE" => "FALSE",
-        "CITYAUTOCOMPLETE_APIKEY" => "NONE",
+        "CITY_AUTOCOMPLETE_TEST_SETTLEMENT_TYPE_ENTID" => [],
+        "CITY_AUTOCOMPLETE_TEST_LIVE" => "FALSE",
+        "CITY_AUTOCOMPLETE_APIKEY" => "NONE",
     ]);
 
-    $live = $env["CITYAUTOCOMPLETE_TEST_LIVE"] === "TRUE";
+    $live = $env["CITY_AUTOCOMPLETE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CITYAUTOCOMPLETE_APIKEY"],
+            "apikey" => $env["CITY_AUTOCOMPLETE_APIKEY"],
         ];
         $client = new CityAutocompleteSDK($merged_opts);
         return [

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import CityAutocompleteSDK
-from core.error import CityAutocompleteError
-from core.result import CityAutocompleteResult
-from core.response import CityAutocompleteResponse
-from core.spec import CityAutocompleteSpec
-from feature.base_feature import CityAutocompleteBaseFeature
+from projectname_sdk.core.error import CityAutocompleteError
+from projectname_sdk.core.result import CityAutocompleteResult
+from projectname_sdk.core.response import CityAutocompleteResponse
+from projectname_sdk.core.spec import CityAutocompleteSpec
+from projectname_sdk.feature.base_feature import CityAutocompleteBaseFeature
 
 
 def _client():

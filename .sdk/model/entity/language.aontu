@@ -6,7 +6,7 @@ main: kit: entity: language: {
 
   fields: [
     {
-      name: "cities_count"
+      name: "citiesCount"
       req: true
       type: "`$NUMBER`"
     }
@@ -16,7 +16,7 @@ main: kit: entity: language: {
       type: "`$STRING`"
     }
     {
-      name: "iso_code"
+      name: "isoCode"
       req: true
       type: "`$STRING`"
     }
@@ -26,7 +26,7 @@ main: kit: entity: language: {
       type: "`$STRING`"
     }
     {
-      name: "wikidata_id"
+      name: "wikidataId"
       req: true
       type: "`$STRING`"
     }

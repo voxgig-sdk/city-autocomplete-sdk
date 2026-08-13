@@ -238,30 +238,30 @@ const city = client.City()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `number` | No |  |
-| `country_code` | `string` | Yes |  |
-| `country_emoji` | `string` | Yes |  |
-| `country_id` | `string` | Yes |  |
-| `country_name` | `string` | Yes |  |
-| `country_telephone_code` | `string` | No |  |
-| `dialing_code` | `string` | No |  |
-| `distance_km` | `number` | No |  |
+| `countryCode` | `string` | Yes |  |
+| `countryEmoji` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `countryName` | `string` | Yes |  |
+| `countryTelephoneCode` | `string` | No |  |
+| `dialingCode` | `string` | No |  |
+| `distanceKm` | `number` | No |  |
 | `elevation` | `number` | No |  |
-| `flag_image` | `string` | No |  |
+| `flagImage` | `string` | No |  |
 | `id` | `string` | Yes |  |
 | `latitude` | `number` | No |  |
-| `localized_name` | `string` | Yes |  |
+| `localizedName` | `string` | Yes |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | Yes |  |
-| `normalized_name` | `string` | Yes |  |
-| `official_website` | `string` | No |  |
+| `normalizedName` | `string` | Yes |  |
+| `officialWebsite` | `string` | No |  |
 | `population` | `number` | No |  |
-| `postal_code` | `string` | No |  |
-| `region_code` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
-| `region_name` | `string` | Yes |  |
-| `time_zone` | `string` | No |  |
-| `translation` | `any[]` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `postalCode` | `string` | No |  |
+| `regionCode` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+| `regionName` | `string` | Yes |  |
+| `timeZone` | `string` | No |  |
+| `translations` | `any[]` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -312,30 +312,30 @@ const city_dto = client.CityDto()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `number` | No |  |
-| `country_code` | `string` | Yes |  |
-| `country_emoji` | `string` | Yes |  |
-| `country_id` | `string` | Yes |  |
-| `country_name` | `string` | Yes |  |
-| `country_telephone_code` | `string` | No |  |
-| `dialing_code` | `string` | No |  |
-| `distance_km` | `number` | No |  |
+| `countryCode` | `string` | Yes |  |
+| `countryEmoji` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `countryName` | `string` | Yes |  |
+| `countryTelephoneCode` | `string` | No |  |
+| `dialingCode` | `string` | No |  |
+| `distanceKm` | `number` | No |  |
 | `elevation` | `number` | No |  |
-| `flag_image` | `string` | No |  |
+| `flagImage` | `string` | No |  |
 | `id` | `string` | Yes |  |
 | `latitude` | `number` | No |  |
-| `localized_name` | `string` | Yes |  |
+| `localizedName` | `string` | Yes |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | Yes |  |
-| `normalized_name` | `string` | Yes |  |
-| `official_website` | `string` | No |  |
+| `normalizedName` | `string` | Yes |  |
+| `officialWebsite` | `string` | No |  |
 | `population` | `number` | No |  |
-| `postal_code` | `string` | No |  |
-| `region_code` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
-| `region_name` | `string` | Yes |  |
-| `time_zone` | `string` | No |  |
-| `translation` | `any[]` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `postalCode` | `string` | No |  |
+| `regionCode` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+| `regionName` | `string` | Yes |  |
+| `timeZone` | `string` | No |  |
+| `translations` | `any[]` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -385,11 +385,31 @@ const city_translation_dto = client.CityTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city_id` | `string` | Yes |  |
+| `cityId` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `translations` | `/cities/{id}/translations` | `client.CityTranslationDto().list({ $action: 'translations', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+CityTranslationDto record — check the API definition for its shape.
+
+```ts
+const result = await client.CityTranslationDto().list({
+  $action: 'translations',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -398,7 +418,7 @@ const city_translation_dto = client.CityTranslationDto()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.CityTranslationDto().list()
+const results = await client.CityTranslationDto().list({ id: "example" })
 ```
 
 ### Common Methods
@@ -439,21 +459,21 @@ const country = client.Country()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `driving_side` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes |  |
 | `emoji` | `string` | Yes |  |
-| `head_of_government` | `string` | Yes |  |
-| `head_of_state` | `string` | Yes |  |
+| `headOfGovernment` | `string` | Yes |  |
+| `headOfState` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
-| `iso_code` | `string` | Yes |  |
-| `licence_plate_code` | `string` | Yes |  |
-| `localized_name` | `string` | No |  |
+| `isoCode` | `string` | Yes |  |
+| `licencePlateCode` | `string` | Yes |  |
+| `localizedName` | `string` | No |  |
 | `name` | `string` | Yes |  |
-| `preferred_language_id` | `string` | Yes |  |
-| `region` | `any[]` | Yes |  |
-| `telephone_code` | `string` | Yes |  |
-| `translation` | `any[]` | Yes |  |
-| `trunk_prefix` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `preferredLanguageId` | `string` | Yes |  |
+| `regions` | `any[]` | Yes |  |
+| `telephoneCode` | `string` | Yes |  |
+| `translations` | `any[]` | Yes |  |
+| `trunkPrefix` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -511,11 +531,31 @@ const country_translation_dto = client.CountryTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `country_id` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `translations` | `/countries/{id}/translations` | `client.CountryTranslationDto().list({ $action: 'translations', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+CountryTranslationDto record — check the API definition for its shape.
+
+```ts
+const result = await client.CountryTranslationDto().list({
+  $action: 'translations',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -524,7 +564,7 @@ const country_translation_dto = client.CountryTranslationDto()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.CountryTranslationDto().list()
+const results = await client.CountryTranslationDto().list({ id: "example" })
 ```
 
 ### Common Methods
@@ -565,7 +605,7 @@ const distance = client.Distance()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distance_km` | `number` | Yes |  |
+| `distanceKm` | `number` | Yes |  |
 
 ### Operations
 
@@ -615,11 +655,11 @@ const language = client.Language()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cities_count` | `number` | Yes |  |
+| `citiesCount` | `number` | Yes |  |
 | `id` | `string` | Yes |  |
-| `iso_code` | `string` | Yes |  |
+| `isoCode` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -690,7 +730,7 @@ const oneshot = client.Oneshot()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Oneshot().list()
+const results = await client.Oneshot().list({ city_name: "example", country: "example", language: "example" })
 ```
 
 ### Common Methods
@@ -732,14 +772,23 @@ const region = client.Region()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `string` | Yes |  |
-| `country` | `any` | Yes |  |
-| `country_id` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes |  |
+| `emoji` | `string` | Yes |  |
+| `headOfGovernment` | `string` | Yes |  |
+| `headOfState` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
+| `isoCode` | `string` | Yes |  |
 | `latitude` | `number` | Yes |  |
+| `licencePlateCode` | `string` | Yes |  |
+| `localizedName` | `string` | No |  |
 | `longitude` | `number` | Yes |  |
 | `name` | `string` | Yes |  |
 | `population` | `number` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `preferredLanguageId` | `string` | Yes |  |
+| `telephoneCode` | `string` | Yes |  |
+| `trunkPrefix` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -800,8 +849,28 @@ const region_translation_dto = client.RegionTranslationDto()
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `translations` | `/regions/{id}/translations` | `client.RegionTranslationDto().list({ $action: 'translations', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+RegionTranslationDto record — check the API definition for its shape.
+
+```ts
+const result = await client.RegionTranslationDto().list({
+  $action: 'translations',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -810,7 +879,7 @@ const region_translation_dto = client.RegionTranslationDto()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RegionTranslationDto().list()
+const results = await client.RegionTranslationDto().list({ id: "example" })
 ```
 
 ### Common Methods
@@ -854,8 +923,8 @@ const settlement_type = client.SettlementType()
 | `description` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -864,7 +933,7 @@ const settlement_type = client.SettlementType()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.SettlementType().list()
+const results = await client.SettlementType().list({ city_id: "example" })
 ```
 
 ### Common Methods

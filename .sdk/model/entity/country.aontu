@@ -6,7 +6,7 @@ main: kit: entity: country: {
 
   fields: [
     {
-      name: "driving_side"
+      name: "drivingSide"
       req: true
       type: "`$STRING`"
     }
@@ -16,12 +16,12 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
-      name: "head_of_government"
+      name: "headOfGovernment"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "head_of_state"
+      name: "headOfState"
       req: true
       type: "`$STRING`"
     }
@@ -31,17 +31,17 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
-      name: "iso_code"
+      name: "isoCode"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "licence_plate_code"
+      name: "licencePlateCode"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "localized_name"
+      name: "localizedName"
       req: false
       type: "`$STRING`"
     }
@@ -51,32 +51,32 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
-      name: "preferred_language_id"
+      name: "preferredLanguageId"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "region"
+      name: "regions"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "telephone_code"
+      name: "telephoneCode"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "translation"
+      name: "translations"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "trunk_prefix"
+      name: "trunkPrefix"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "wikidata_id"
+      name: "wikidataId"
       req: true
       type: "`$STRING`"
     }

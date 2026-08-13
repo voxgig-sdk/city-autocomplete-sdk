@@ -37,7 +37,7 @@ class OneshotEntity extends CityAutocompleteEntityBase<Oneshot> {
 
 
 
-  async list(this: any, reqmatch?: OneshotListMatch, ctrl?: Control): Promise<Oneshot[]> {
+  async list(this: any, reqmatch?: OneshotListMatch, ctrl?: Control): Promise<OneshotEntity[]> {
 
     const utility = this._utility
 

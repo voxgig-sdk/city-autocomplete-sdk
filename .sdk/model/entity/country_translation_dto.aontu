@@ -6,7 +6,7 @@ main: kit: entity: country_translation_dto: {
 
   fields: [
     {
-      name: "country_id"
+      name: "countryId"
       req: true
       type: "`$STRING`"
     }
@@ -26,7 +26,7 @@ main: kit: entity: country_translation_dto: {
       type: "`$STRING`"
     }
     {
-      name: "name_normalized"
+      name: "nameNormalized"
       req: true
       type: "`$STRING`"
     }

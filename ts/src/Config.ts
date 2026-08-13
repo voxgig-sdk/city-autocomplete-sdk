@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'CityAutocomplete',
   }
 
 
@@ -97,49 +97,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "country_code",
+          "name": "countryCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "country_emoji",
+          "name": "countryEmoji",
           "req": true,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "country_id",
+          "name": "countryId",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "country_name",
+          "name": "countryName",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "country_telephone_code",
+          "name": "countryTelephoneCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "dialing_code",
+          "name": "dialingCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "distance_km",
+          "name": "distanceKm",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 7
@@ -153,7 +153,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "flag_image",
+          "name": "flagImage",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -174,7 +174,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "localized_name",
+          "name": "localizedName",
           "req": true,
           "type": "`$STRING`",
           "index$": 12
@@ -195,14 +195,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "normalized_name",
+          "name": "normalizedName",
           "req": true,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "official_website",
+          "name": "officialWebsite",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
@@ -216,49 +216,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "postal_code",
+          "name": "postalCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "region_code",
+          "name": "regionCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "region_id",
+          "name": "regionId",
           "req": true,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "region_name",
+          "name": "regionName",
           "req": true,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "time_zone",
+          "name": "timeZone",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "translation",
+          "name": "translations",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "wikidata_id",
+          "name": "wikidataId",
           "req": true,
           "type": "`$STRING`",
           "index$": 24
@@ -285,6 +285,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}",
               "parts": [
@@ -321,49 +322,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "country_code",
+          "name": "countryCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "country_emoji",
+          "name": "countryEmoji",
           "req": true,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "country_id",
+          "name": "countryId",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "country_name",
+          "name": "countryName",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "country_telephone_code",
+          "name": "countryTelephoneCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "dialing_code",
+          "name": "dialingCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "distance_km",
+          "name": "distanceKm",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 7
@@ -377,7 +378,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "flag_image",
+          "name": "flagImage",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -398,7 +399,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "localized_name",
+          "name": "localizedName",
           "req": true,
           "type": "`$STRING`",
           "index$": 12
@@ -419,14 +420,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "normalized_name",
+          "name": "normalizedName",
           "req": true,
           "type": "`$STRING`",
           "index$": 15
         },
         {
           "active": true,
-          "name": "official_website",
+          "name": "officialWebsite",
           "req": false,
           "type": "`$STRING`",
           "index$": 16
@@ -440,49 +441,49 @@ class Config {
         },
         {
           "active": true,
-          "name": "postal_code",
+          "name": "postalCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "region_code",
+          "name": "regionCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "region_id",
+          "name": "regionId",
           "req": true,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "region_name",
+          "name": "regionName",
           "req": true,
           "type": "`$STRING`",
           "index$": 21
         },
         {
           "active": true,
-          "name": "time_zone",
+          "name": "timeZone",
           "req": false,
           "type": "`$STRING`",
           "index$": 22
         },
         {
           "active": true,
-          "name": "translation",
+          "name": "translations",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 23
         },
         {
           "active": true,
-          "name": "wikidata_id",
+          "name": "wikidataId",
           "req": true,
           "type": "`$STRING`",
           "index$": 24
@@ -578,6 +579,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/search",
               "parts": [
@@ -634,6 +636,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/byCoordinates/closest",
               "parts": [
@@ -685,6 +688,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/byCoordinates/largest",
               "parts": [
@@ -717,7 +721,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "city_id",
+          "name": "cityId",
           "req": true,
           "type": "`$STRING`",
           "index$": 0
@@ -745,7 +749,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_normalized",
+          "name": "nameNormalized",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
@@ -772,6 +776,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}/translations",
               "parts": [
@@ -803,7 +808,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "driving_side",
+          "name": "drivingSide",
           "req": true,
           "type": "`$STRING`",
           "index$": 0
@@ -817,14 +822,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "head_of_government",
+          "name": "headOfGovernment",
           "req": true,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "head_of_state",
+          "name": "headOfState",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
@@ -838,21 +843,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "iso_code",
+          "name": "isoCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "licence_plate_code",
+          "name": "licencePlateCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "localized_name",
+          "name": "localizedName",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
@@ -866,42 +871,42 @@ class Config {
         },
         {
           "active": true,
-          "name": "preferred_language_id",
+          "name": "preferredLanguageId",
           "req": true,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "region",
+          "name": "regions",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "telephone_code",
+          "name": "telephoneCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "translation",
+          "name": "translations",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "trunk_prefix",
+          "name": "trunkPrefix",
           "req": true,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "wikidata_id",
+          "name": "wikidataId",
           "req": true,
           "type": "`$STRING`",
           "index$": 14
@@ -964,6 +969,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/countries",
               "parts": [
@@ -1007,6 +1013,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}",
               "parts": [
@@ -1036,7 +1043,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "country_id",
+          "name": "countryId",
           "req": true,
           "type": "`$STRING`",
           "index$": 0
@@ -1064,7 +1071,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_normalized",
+          "name": "nameNormalized",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
@@ -1103,6 +1110,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}/translations",
               "parts": [
@@ -1135,7 +1143,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "distance_km",
+          "name": "distanceKm",
           "req": true,
           "type": "`$NUMBER`",
           "index$": 0
@@ -1169,6 +1177,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/distance",
               "parts": [
@@ -1199,7 +1208,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "cities_count",
+          "name": "citiesCount",
           "req": true,
           "type": "`$NUMBER`",
           "index$": 0
@@ -1213,7 +1222,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "iso_code",
+          "name": "isoCode",
           "req": true,
           "type": "`$STRING`",
           "index$": 2
@@ -1227,7 +1236,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "wikidata_id",
+          "name": "wikidataId",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
@@ -1263,6 +1272,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/languages",
               "parts": [
@@ -1303,6 +1313,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/languages/{id}",
               "parts": [
@@ -1408,6 +1419,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/oneshot/{country}/{language}/{city_name}",
               "parts": [
@@ -1453,59 +1465,122 @@ class Config {
         },
         {
           "active": true,
-          "name": "country",
+          "name": "countryId",
           "req": true,
-          "type": "`$ANY`",
+          "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "country_id",
+          "name": "drivingSide",
           "req": true,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "id",
+          "name": "emoji",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "latitude",
+          "name": "headOfGovernment",
           "req": true,
-          "type": "`$NUMBER`",
+          "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "longitude",
+          "name": "headOfState",
           "req": true,
-          "type": "`$NUMBER`",
+          "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "name",
+          "name": "id",
           "req": true,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "population",
+          "name": "isoCode",
           "req": true,
-          "type": "`$NUMBER`",
+          "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "wikidata_id",
+          "name": "latitude",
+          "req": true,
+          "type": "`$NUMBER`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "licencePlateCode",
           "req": true,
           "type": "`$STRING`",
-          "index$": 8
+          "index$": 9
+        },
+        {
+          "active": true,
+          "name": "localizedName",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
+          "name": "longitude",
+          "req": true,
+          "type": "`$NUMBER`",
+          "index$": 11
+        },
+        {
+          "active": true,
+          "name": "name",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 12
+        },
+        {
+          "active": true,
+          "name": "population",
+          "req": true,
+          "type": "`$NUMBER`",
+          "index$": 13
+        },
+        {
+          "active": true,
+          "name": "preferredLanguageId",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 14
+        },
+        {
+          "active": true,
+          "name": "telephoneCode",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 15
+        },
+        {
+          "active": true,
+          "name": "trunkPrefix",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 16
+        },
+        {
+          "active": true,
+          "name": "wikidataId",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 17
         }
       ],
       "name": "region",
@@ -1530,6 +1605,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}/regions",
               "parts": [
@@ -1568,6 +1644,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/regions",
               "parts": [
@@ -1607,6 +1684,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/regions/{id}",
               "parts": [
@@ -1620,7 +1698,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.country`"
               },
               "index$": 0
             }
@@ -1661,14 +1739,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_normalized",
+          "name": "nameNormalized",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "region_id",
+          "name": "regionId",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
@@ -1707,6 +1785,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/regions/{id}/translations",
               "parts": [
@@ -1760,14 +1839,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_normalized",
+          "name": "nameNormalized",
           "req": true,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "wikidata_id",
+          "name": "wikidataId",
           "req": true,
           "type": "`$STRING`",
           "index$": 4
@@ -1794,6 +1873,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}/settlement-types",
               "parts": [

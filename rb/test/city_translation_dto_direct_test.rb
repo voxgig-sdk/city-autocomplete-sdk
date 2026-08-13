@@ -74,16 +74,16 @@ def city_translation_dto_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID" => {},
-    "CITYAUTOCOMPLETE_TEST_LIVE" => "FALSE",
-    "CITYAUTOCOMPLETE_APIKEY" => "NONE",
+    "CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID" => {},
+    "CITY_AUTOCOMPLETE_TEST_LIVE" => "FALSE",
+    "CITY_AUTOCOMPLETE_APIKEY" => "NONE",
   })
 
-  live = env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE"
+  live = env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["CITYAUTOCOMPLETE_APIKEY"],
+      "apikey" => env["CITY_AUTOCOMPLETE_APIKEY"],
     }
     client = CityAutocompleteSDK.new(merged_opts)
     return {

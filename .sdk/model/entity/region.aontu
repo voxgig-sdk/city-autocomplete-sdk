@@ -11,12 +11,27 @@ main: kit: entity: region: {
       type: "`$STRING`"
     }
     {
-      name: "country"
+      name: "countryId"
       req: true
-      type: "`$ANY`"
+      type: "`$STRING`"
     }
     {
-      name: "country_id"
+      name: "drivingSide"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "emoji"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "headOfGovernment"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "headOfState"
       req: true
       type: "`$STRING`"
     }
@@ -26,9 +41,24 @@ main: kit: entity: region: {
       type: "`$STRING`"
     }
     {
+      name: "isoCode"
+      req: true
+      type: "`$STRING`"
+    }
+    {
       name: "latitude"
       req: true
       type: "`$NUMBER`"
+    }
+    {
+      name: "licencePlateCode"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "localizedName"
+      req: false
+      type: "`$STRING`"
     }
     {
       name: "longitude"
@@ -46,7 +76,22 @@ main: kit: entity: region: {
       type: "`$NUMBER`"
     }
     {
-      name: "wikidata_id"
+      name: "preferredLanguageId"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "telephoneCode"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "trunkPrefix"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "wikidataId"
       req: true
       type: "`$STRING`"
     }
@@ -156,7 +201,7 @@ main: kit: entity: region: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.country`"
           }
         }
       ]

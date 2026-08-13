@@ -6,7 +6,7 @@ main: kit: entity: distance: {
 
   fields: [
     {
-      name: "distance_km"
+      name: "distanceKm"
       req: true
       type: "`$NUMBER`"
     }

@@ -23,8 +23,8 @@ module CityAutocompleteTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CITYAUTOCOMPLETE_TEST_LIVE")
-    override = getenv("CITYAUTOCOMPLETE_TEST_OVERRIDE")
+    live = getenv("CITY_AUTOCOMPLETE_TEST_LIVE")
+    override = getenv("CITY_AUTOCOMPLETE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CityAutocompleteTestRunner
       end
     end
 
-    explain = getenv("CITYAUTOCOMPLETE_TEST_EXPLAIN")
-    m["CITYAUTOCOMPLETE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CITY_AUTOCOMPLETE_TEST_EXPLAIN")
+    m["CITY_AUTOCOMPLETE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

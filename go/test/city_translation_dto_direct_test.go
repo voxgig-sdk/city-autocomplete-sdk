@@ -50,9 +50,10 @@ func TestCityTranslationDtoDirect(t *testing.T) {
 			"params": params,
 		})
 		if setup.live {
-			// Live mode is lenient: synthetic IDs frequently 4xx and the
-			// list-response shape varies wildly across public APIs. Skip
-			// rather than fail when the call doesn't return a usable list.
+			// Live-mode leniency is a model decision
+			// (main.kit.test.live.strict): synthetic IDs 4xx constantly
+			// against an arbitrary public API, so the default SKIPS here.
+			// A project that owns its test server sets strict and FAILS.
 			if err != nil {
 				t.Skipf("list call failed (likely synthetic IDs against live API): %v", err)
 			}
@@ -116,21 +117,21 @@ func city_translation_dtoDirectSetup(mockres any) *city_translation_dtoDirectSet
 	calls := &[]map[string]any{}
 
 	env := envOverride(map[string]any{
-		"CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID": map[string]any{},
-		"CITYAUTOCOMPLETE_TEST_LIVE":    "FALSE",
-		"CITYAUTOCOMPLETE_APIKEY":       "NONE",
+		"CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID": map[string]any{},
+		"CITY_AUTOCOMPLETE_TEST_LIVE":    "FALSE",
+		"CITY_AUTOCOMPLETE_APIKEY":       "NONE",
 	})
 
-	live := env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE"
+	live := env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["CITYAUTOCOMPLETE_APIKEY"],
+			"apikey": env["CITY_AUTOCOMPLETE_APIKEY"],
 		}
 		client := sdk.NewCityAutocompleteSDK(mergedOpts)
 
 		idmap := map[string]any{}
-		if entidRaw, ok := env["CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID"]; ok {
+		if entidRaw, ok := env["CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID"]; ok {
 			if entidStr, ok := entidRaw.(string); ok && strings.HasPrefix(entidStr, "{") {
 				json.Unmarshal([]byte(entidStr), &idmap)
 			} else if entidMap, ok := entidRaw.(map[string]any); ok {

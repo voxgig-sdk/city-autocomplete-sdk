@@ -26,8 +26,8 @@ import {
 describe('CityTranslationDtoEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CITYAUTOCOMPLETE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CITYAUTOCOMPLETE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CITY_AUTOCOMPLETE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CITY_AUTOCOMPLETE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CityAutocompleteSDK.test()
@@ -63,7 +63,7 @@ describe('CityTranslationDtoEntity', async () => {
     const city_translation_dto_ref01_ent = client.CityTranslationDto()
     const city_translation_dto_ref01_match: any = {}
 
-    const city_translation_dto_ref01_list = await city_translation_dto_ref01_ent.list(city_translation_dto_ref01_match)
+    const city_translation_dto_ref01_list = (await city_translation_dto_ref01_ent.list(city_translation_dto_ref01_match)).map((e: any) => e.data())
 
 
   })

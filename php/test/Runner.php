@@ -43,8 +43,8 @@ class CityAutocompleteTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CITYAUTOCOMPLETE_TEST_LIVE');
-        $override = self::getenv('CITYAUTOCOMPLETE_TEST_OVERRIDE');
+        $live = self::getenv('CITY_AUTOCOMPLETE_TEST_LIVE');
+        $override = self::getenv('CITY_AUTOCOMPLETE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CityAutocompleteTestRunner
             }
         }
 
-        $explain = self::getenv('CITYAUTOCOMPLETE_TEST_EXPLAIN');
+        $explain = self::getenv('CITY_AUTOCOMPLETE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CITYAUTOCOMPLETE_TEST_EXPLAIN'] = $explain;
+            $m['CITY_AUTOCOMPLETE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -156,8 +156,29 @@ class CityAutocompleteSDK {
   }
 
 
+  // Raw endpoint access is operator-controllable, like every entity op.
+  // Blocking it means denying BOTH the 'direct' and 'graphql' tokens, since
+  // either one reaches the same endpoint.
   async direct(fetchargs?: any) {
+    if (!this._options.allow.op.includes('direct')) {
+      return {
+        ok: false,
+        err: new Error('CityAutocompleteSDK: direct: operation not allowed by' +
+          ' SDK option allow.op value: "' + this._options.allow.op + '"'),
+      }
+    }
+
+    return this._rawRequest(fetchargs)
+  }
+
+
+  // Ungated request path shared by direct() and graphql(), each of which
+  // checks its own allow.op token first. Private, rather than a flag on
+  // fetchargs: a caller-supplied marker would let anyone opt straight back
+  // out of the gate by passing it.
+  async _rawRequest(fetchargs?: any) {
     const utility = this._utility
+
     const fetcher = utility.fetcher
     const makeContext = utility.makeContext
 
@@ -218,80 +239,156 @@ class CityAutocompleteSDK {
 
 
 
+  // Raw GraphQL access: the pressure valve that makes the generated
+  // surface's deliberate omissions (per-call selection sets, typed filter
+  // builders, batching, subscriptions) livable — the whole schema stays
+  // reachable.
+  //
+  // Thin wrapper over the same prepare/fetch path `direct` uses, with the
+  // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
+  // HTTP 200 as a top-level `errors` array, so status alone would report a
+  // failed query as ok.
+  //
+  // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
+  // ratelimit or paging features apply.
+  async graphql(query: string, variables?: any, ctrl?: any) {
+    const options = this._options
+
+    if (!options.allow.op.includes('graphql')) {
+      return {
+        ok: false,
+        err: new Error('CityAutocompleteSDK: graphql: operation not allowed by' +
+          ' SDK option allow.op value: "' + options.allow.op + '"'),
+      }
+    }
+
+    const res: any = await this._rawRequest({
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: { query, variables: variables || {} },
+      ctrl,
+    })
+
+    if (res instanceof Error) {
+      return res
+    }
+
+    // Errors are read BEFORE any status check: a GraphQL parse or validation
+    // failure comes back as HTTP 400 carrying the standard { errors: [...] }
+    // body, and the raw path represents a non-2xx as { ok: false } with no
+    // err — so returning early on status would discard the server's own
+    // diagnostics, which are the only useful part of that response.
+    const errors = null == res.data ? undefined : res.data.errors
+
+    if (null != errors && Array.isArray(errors) && 0 < errors.length) {
+      const first = errors[0] || {}
+      const err: any = new Error('CityAutocompleteSDK: graphql: ' +
+        (first.message || 'graphql error'))
+      err.graphql = errors
+      return { ok: false, status: res.status, headers: res.headers, err, data: res.data }
+    }
+
+    return res
+  }
+
+
+
   // Entity access: `client.City().list()` / `client.City().load({ id })`.
-  City(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  City(entopts?: Record<string, any>) {
     const self = this
-    return new CityEntity(self,data)
+    return new CityEntity(self, entopts)
   }
 
 
   // Entity access: `client.CityDto().list()` / `client.CityDto().load({ id })`.
-  CityDto(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CityDto(entopts?: Record<string, any>) {
     const self = this
-    return new CityDtoEntity(self,data)
+    return new CityDtoEntity(self, entopts)
   }
 
 
   // Entity access: `client.CityTranslationDto().list()` / `client.CityTranslationDto().load({ id })`.
-  CityTranslationDto(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CityTranslationDto(entopts?: Record<string, any>) {
     const self = this
-    return new CityTranslationDtoEntity(self,data)
+    return new CityTranslationDtoEntity(self, entopts)
   }
 
 
   // Entity access: `client.Country().list()` / `client.Country().load({ id })`.
-  Country(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Country(entopts?: Record<string, any>) {
     const self = this
-    return new CountryEntity(self,data)
+    return new CountryEntity(self, entopts)
   }
 
 
   // Entity access: `client.CountryTranslationDto().list()` / `client.CountryTranslationDto().load({ id })`.
-  CountryTranslationDto(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CountryTranslationDto(entopts?: Record<string, any>) {
     const self = this
-    return new CountryTranslationDtoEntity(self,data)
+    return new CountryTranslationDtoEntity(self, entopts)
   }
 
 
   // Entity access: `client.Distance().list()` / `client.Distance().load({ id })`.
-  Distance(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Distance(entopts?: Record<string, any>) {
     const self = this
-    return new DistanceEntity(self,data)
+    return new DistanceEntity(self, entopts)
   }
 
 
   // Entity access: `client.Language().list()` / `client.Language().load({ id })`.
-  Language(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Language(entopts?: Record<string, any>) {
     const self = this
-    return new LanguageEntity(self,data)
+    return new LanguageEntity(self, entopts)
   }
 
 
   // Entity access: `client.Oneshot().list()` / `client.Oneshot().load({ id })`.
-  Oneshot(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Oneshot(entopts?: Record<string, any>) {
     const self = this
-    return new OneshotEntity(self,data)
+    return new OneshotEntity(self, entopts)
   }
 
 
   // Entity access: `client.Region().list()` / `client.Region().load({ id })`.
-  Region(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Region(entopts?: Record<string, any>) {
     const self = this
-    return new RegionEntity(self,data)
+    return new RegionEntity(self, entopts)
   }
 
 
   // Entity access: `client.RegionTranslationDto().list()` / `client.RegionTranslationDto().load({ id })`.
-  RegionTranslationDto(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  RegionTranslationDto(entopts?: Record<string, any>) {
     const self = this
-    return new RegionTranslationDtoEntity(self,data)
+    return new RegionTranslationDtoEntity(self, entopts)
   }
 
 
   // Entity access: `client.SettlementType().list()` / `client.SettlementType().load({ id })`.
-  SettlementType(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  SettlementType(entopts?: Record<string, any>) {
     const self = this
-    return new SettlementTypeEntity(self,data)
+    return new SettlementTypeEntity(self, entopts)
   }
 
 

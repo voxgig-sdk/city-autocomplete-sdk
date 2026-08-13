@@ -37,7 +37,7 @@ class CityDtoEntity extends CityAutocompleteEntityBase<CityDto> {
 
 
 
-  async list(this: any, reqmatch?: CityDtoListMatch, ctrl?: Control): Promise<CityDto[]> {
+  async list(this: any, reqmatch?: CityDtoListMatch, ctrl?: Control): Promise<CityDtoEntity[]> {
 
     const utility = this._utility
 

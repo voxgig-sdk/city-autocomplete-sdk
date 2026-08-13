@@ -26,8 +26,8 @@ import {
 describe('DistanceEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CITYAUTOCOMPLETE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CITYAUTOCOMPLETE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CITY_AUTOCOMPLETE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CITY_AUTOCOMPLETE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CityAutocompleteSDK.test()
@@ -62,7 +62,7 @@ describe('DistanceEntity', async () => {
     // LOAD
     const distance_ref01_ent = client.Distance()
     const distance_ref01_match_dt0: any = {}
-    const distance_ref01_data_dt0 = await distance_ref01_ent.load(distance_ref01_match_dt0)
+    const distance_ref01_data_dt0 = (await distance_ref01_ent.load(distance_ref01_match_dt0)).data()
     assert(null != distance_ref01_data_dt0)
 
 

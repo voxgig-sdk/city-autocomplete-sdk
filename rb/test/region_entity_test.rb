@@ -62,7 +62,7 @@ class RegionEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set CITYAUTOCOMPLETE_TEST_REGION_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set CITY_AUTOCOMPLETE_TEST_REGION_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -87,7 +87,7 @@ class RegionEntityTest < Minitest::Test
       "id" => region_ref01_data["id"],
     }
     region_ref01_data_dt0_loaded = region_ref01_ent.load(region_ref01_match_dt0, nil)
-    region_ref01_data_dt0_load_result = Helpers.to_map(region_ref01_data_dt0_loaded)
+    region_ref01_data_dt0_load_result = Helpers.to_map(region_ref01_data_dt0_loaded.respond_to?(:data_get) ? region_ref01_data_dt0_loaded.data_get : region_ref01_data_dt0_loaded)
     assert !region_ref01_data_dt0_load_result.nil?
     assert_equal region_ref01_data_dt0_load_result["id"], region_ref01_data["id"]
 
@@ -120,39 +120,39 @@ def region_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["CITYAUTOCOMPLETE_TEST_REGION_ENTID"]
+  entid_env_raw = ENV["CITY_AUTOCOMPLETE_TEST_REGION_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "CITYAUTOCOMPLETE_TEST_REGION_ENTID" => idmap,
-    "CITYAUTOCOMPLETE_TEST_LIVE" => "FALSE",
-    "CITYAUTOCOMPLETE_TEST_EXPLAIN" => "FALSE",
-    "CITYAUTOCOMPLETE_APIKEY" => "NONE",
+    "CITY_AUTOCOMPLETE_TEST_REGION_ENTID" => idmap,
+    "CITY_AUTOCOMPLETE_TEST_LIVE" => "FALSE",
+    "CITY_AUTOCOMPLETE_TEST_EXPLAIN" => "FALSE",
+    "CITY_AUTOCOMPLETE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["CITYAUTOCOMPLETE_TEST_REGION_ENTID"])
+    env["CITY_AUTOCOMPLETE_TEST_REGION_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE"
+  if env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CITYAUTOCOMPLETE_APIKEY"],
+        "apikey" => env["CITY_AUTOCOMPLETE_APIKEY"],
       },
       extra || {},
     ])
     client = CityAutocompleteSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE"
+  live = env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["CITYAUTOCOMPLETE_TEST_EXPLAIN"] == "TRUE",
+    explain: env["CITY_AUTOCOMPLETE_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

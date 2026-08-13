@@ -37,7 +37,7 @@ $client = new CityAutocompleteSDK([
 
 ```php
 try {
-    // load() returns the bare City record (throws on error).
+    // load() returns the ENTITY — call data_get() for the City record (throws on error).
     $city = $client->City()->load(["id" => "example_id"]);
     print_r($city);
 } catch (\Throwable $err) {
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $city = $client->City()->load(["id" => "example_id"]);
+    $languages = $client->Language()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,12 +125,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = CityAutocompleteSDK::test([
-    "entity" => ["city" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["language" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
-$city = $client->City()->load(["id" => "test01"]);
-print_r($city);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$language = $client->Language()->list();
+print_r($language);
 ```
 
 ### Use a custom fetch function
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -263,30 +264,30 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: Load.
 
@@ -297,30 +298,30 @@ API path: `/cities/{id}`
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: List.
 
@@ -330,11 +331,11 @@ API path: `/cities/search`
 
 | Field | Description |
 | --- | --- |
-| `city_id` |  |
+| `cityId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: List.
 
@@ -344,21 +345,21 @@ API path: `/cities/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `driving_side` |  |
+| `drivingSide` |  |
 | `emoji` |  |
-| `head_of_government` |  |
-| `head_of_state` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
-| `iso_code` |  |
-| `licence_plate_code` |  |
-| `localized_name` |  |
+| `isoCode` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `name` |  |
-| `preferred_language_id` |  |
-| `region` |  |
-| `telephone_code` |  |
-| `translation` |  |
-| `trunk_prefix` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `regions` |  |
+| `telephoneCode` |  |
+| `translations` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -368,11 +369,11 @@ API path: `/countries`
 
 | Field | Description |
 | --- | --- |
-| `country_id` |  |
+| `countryId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: List.
 
@@ -382,7 +383,7 @@ API path: `/countries/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `distance_km` |  |
+| `distanceKm` |  |
 
 Operations: Load.
 
@@ -392,11 +393,11 @@ API path: `/cities/distance`
 
 | Field | Description |
 | --- | --- |
-| `cities_count` |  |
+| `citiesCount` |  |
 | `id` |  |
-| `iso_code` |  |
+| `isoCode` |  |
 | `name` |  |
-| `wikidata_id` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -421,14 +422,23 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `code` |  |
-| `country` |  |
-| `country_id` |  |
+| `countryId` |  |
+| `drivingSide` |  |
+| `emoji` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
+| `isoCode` |  |
 | `latitude` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
 | `population` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `telephoneCode` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -441,8 +451,8 @@ API path: `/countries/{id}/regions`
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `region_id` |  |
+| `nameNormalized` |  |
+| `regionId` |  |
 
 Operations: List.
 
@@ -455,8 +465,8 @@ API path: `/regions/{id}/translations`
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `wikidata_id` |  |
+| `nameNormalized` |  |
+| `wikidataId` |  |
 
 Operations: List.
 
@@ -482,35 +492,35 @@ Create an instance: `$city = $client->City();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `float` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `float` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `float` |  |
 | `elevation` | `float` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `float` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `float` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `float` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `array` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `array` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare City record (throws on error).
+// load() returns the ENTITY — call data_get() for the City record (throws on error).
 $city = $client->City()->load(["id" => "city_id"]);
 ```
 
@@ -530,30 +540,30 @@ Create an instance: `$city_dto = $client->CityDto();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `float` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `float` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `float` |  |
 | `elevation` | `float` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `float` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `float` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `float` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `array` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `array` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -577,11 +587,11 @@ Create an instance: `$city_translation_dto = $client->CityTranslationDto();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city_id` | `string` |  |
+| `cityId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
@@ -606,26 +616,26 @@ Create an instance: `$country = $client->Country();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `driving_side` | `string` |  |
+| `drivingSide` | `string` |  |
 | `emoji` | `string` |  |
-| `head_of_government` | `string` |  |
-| `head_of_state` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
-| `licence_plate_code` | `string` |  |
-| `localized_name` | `string` |  |
+| `isoCode` | `string` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `name` | `string` |  |
-| `preferred_language_id` | `string` |  |
-| `region` | `array` |  |
-| `telephone_code` | `string` |  |
-| `translation` | `array` |  |
-| `trunk_prefix` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `regions` | `array` |  |
+| `telephoneCode` | `string` |  |
+| `translations` | `array` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Country record (throws on error).
+// load() returns the ENTITY — call data_get() for the Country record (throws on error).
 $country = $client->Country()->load(["id" => "country_id"]);
 ```
 
@@ -651,11 +661,11 @@ Create an instance: `$country_translation_dto = $client->CountryTranslationDto()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
@@ -679,12 +689,12 @@ Create an instance: `$distance = $client->Distance();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `distance_km` | `float` |  |
+| `distanceKm` | `float` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Distance record (throws on error).
+// load() returns the ENTITY — call data_get() for the Distance record (throws on error).
 $distance = $client->Distance()->load();
 ```
 
@@ -704,16 +714,16 @@ Create an instance: `$language = $client->Language();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cities_count` | `float` |  |
+| `citiesCount` | `float` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
+| `isoCode` | `string` |  |
 | `name` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Language record (throws on error).
+// load() returns the ENTITY — call data_get() for the Language record (throws on error).
 $language = $client->Language()->load(["id" => "language_id"]);
 ```
 
@@ -769,19 +779,28 @@ Create an instance: `$region = $client->Region();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `string` |  |
-| `country` | `mixed` |  |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
+| `drivingSide` | `string` |  |
+| `emoji` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
+| `isoCode` | `string` |  |
 | `latitude` | `float` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `float` |  |
 | `name` | `string` |  |
 | `population` | `float` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `telephoneCode` | `string` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Region record (throws on error).
+// load() returns the ENTITY — call data_get() for the Region record (throws on error).
 $region = $client->Region()->load(["id" => "region_id"]);
 ```
 
@@ -810,8 +829,8 @@ Create an instance: `$region_translation_dto = $client->RegionTranslationDto();`
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `region_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `regionId` | `string` |  |
 
 #### Example: List
 
@@ -838,8 +857,8 @@ Create an instance: `$settlement_type = $client->SettlementType();`
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -921,15 +940,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$city = $client->City();
-$city->load(["id" => "example_id"]);
+$language = $client->Language();
+$language->list();
 
-// $city->data_get() now returns the city data from the last load
-// $city->match_get() returns the last match criteria
+// $language->data_get() now returns the language data from the last list
+// $language->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

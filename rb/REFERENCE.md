@@ -135,30 +135,30 @@ city = client.City
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `Float` | No |  |
-| `country_code` | `String` | Yes |  |
-| `country_emoji` | `String` | Yes |  |
-| `country_id` | `String` | Yes |  |
-| `country_name` | `String` | Yes |  |
-| `country_telephone_code` | `String` | No |  |
-| `dialing_code` | `String` | No |  |
-| `distance_km` | `Float` | No |  |
+| `countryCode` | `String` | Yes |  |
+| `countryEmoji` | `String` | Yes |  |
+| `countryId` | `String` | Yes |  |
+| `countryName` | `String` | Yes |  |
+| `countryTelephoneCode` | `String` | No |  |
+| `dialingCode` | `String` | No |  |
+| `distanceKm` | `Float` | No |  |
 | `elevation` | `Float` | No |  |
-| `flag_image` | `String` | No |  |
+| `flagImage` | `String` | No |  |
 | `id` | `String` | Yes |  |
 | `latitude` | `Float` | No |  |
-| `localized_name` | `String` | Yes |  |
+| `localizedName` | `String` | Yes |  |
 | `longitude` | `Float` | No |  |
 | `name` | `String` | Yes |  |
-| `normalized_name` | `String` | Yes |  |
-| `official_website` | `String` | No |  |
+| `normalizedName` | `String` | Yes |  |
+| `officialWebsite` | `String` | No |  |
 | `population` | `Float` | No |  |
-| `postal_code` | `String` | No |  |
-| `region_code` | `String` | Yes |  |
-| `region_id` | `String` | Yes |  |
-| `region_name` | `String` | Yes |  |
-| `time_zone` | `String` | No |  |
-| `translation` | `Array` | Yes |  |
-| `wikidata_id` | `String` | Yes |  |
+| `postalCode` | `String` | No |  |
+| `regionCode` | `String` | Yes |  |
+| `regionId` | `String` | Yes |  |
+| `regionName` | `String` | Yes |  |
+| `timeZone` | `String` | No |  |
+| `translations` | `Array` | Yes |  |
+| `wikidataId` | `String` | Yes |  |
 
 ### Operations
 
@@ -211,30 +211,30 @@ city_dto = client.CityDto
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `Float` | No |  |
-| `country_code` | `String` | Yes |  |
-| `country_emoji` | `String` | Yes |  |
-| `country_id` | `String` | Yes |  |
-| `country_name` | `String` | Yes |  |
-| `country_telephone_code` | `String` | No |  |
-| `dialing_code` | `String` | No |  |
-| `distance_km` | `Float` | No |  |
+| `countryCode` | `String` | Yes |  |
+| `countryEmoji` | `String` | Yes |  |
+| `countryId` | `String` | Yes |  |
+| `countryName` | `String` | Yes |  |
+| `countryTelephoneCode` | `String` | No |  |
+| `dialingCode` | `String` | No |  |
+| `distanceKm` | `Float` | No |  |
 | `elevation` | `Float` | No |  |
-| `flag_image` | `String` | No |  |
+| `flagImage` | `String` | No |  |
 | `id` | `String` | Yes |  |
 | `latitude` | `Float` | No |  |
-| `localized_name` | `String` | Yes |  |
+| `localizedName` | `String` | Yes |  |
 | `longitude` | `Float` | No |  |
 | `name` | `String` | Yes |  |
-| `normalized_name` | `String` | Yes |  |
-| `official_website` | `String` | No |  |
+| `normalizedName` | `String` | Yes |  |
+| `officialWebsite` | `String` | No |  |
 | `population` | `Float` | No |  |
-| `postal_code` | `String` | No |  |
-| `region_code` | `String` | Yes |  |
-| `region_id` | `String` | Yes |  |
-| `region_name` | `String` | Yes |  |
-| `time_zone` | `String` | No |  |
-| `translation` | `Array` | Yes |  |
-| `wikidata_id` | `String` | Yes |  |
+| `postalCode` | `String` | No |  |
+| `regionCode` | `String` | Yes |  |
+| `regionId` | `String` | Yes |  |
+| `regionName` | `String` | Yes |  |
+| `timeZone` | `String` | No |  |
+| `translations` | `Array` | Yes |  |
+| `wikidataId` | `String` | Yes |  |
 
 ### Operations
 
@@ -286,11 +286,11 @@ city_translation_dto = client.CityTranslationDto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city_id` | `String` | Yes |  |
+| `cityId` | `String` | Yes |  |
 | `id` | `String` | Yes |  |
 | `language` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
-| `name_normalized` | `String` | Yes |  |
+| `nameNormalized` | `String` | Yes |  |
 
 ### Operations
 
@@ -342,21 +342,21 @@ country = client.Country
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `driving_side` | `String` | Yes |  |
+| `drivingSide` | `String` | Yes |  |
 | `emoji` | `String` | Yes |  |
-| `head_of_government` | `String` | Yes |  |
-| `head_of_state` | `String` | Yes |  |
+| `headOfGovernment` | `String` | Yes |  |
+| `headOfState` | `String` | Yes |  |
 | `id` | `String` | Yes |  |
-| `iso_code` | `String` | Yes |  |
-| `licence_plate_code` | `String` | Yes |  |
-| `localized_name` | `String` | No |  |
+| `isoCode` | `String` | Yes |  |
+| `licencePlateCode` | `String` | Yes |  |
+| `localizedName` | `String` | No |  |
 | `name` | `String` | Yes |  |
-| `preferred_language_id` | `String` | Yes |  |
-| `region` | `Array` | Yes |  |
-| `telephone_code` | `String` | Yes |  |
-| `translation` | `Array` | Yes |  |
-| `trunk_prefix` | `String` | Yes |  |
-| `wikidata_id` | `String` | Yes |  |
+| `preferredLanguageId` | `String` | Yes |  |
+| `regions` | `Array` | Yes |  |
+| `telephoneCode` | `String` | Yes |  |
+| `translations` | `Array` | Yes |  |
+| `trunkPrefix` | `String` | Yes |  |
+| `wikidataId` | `String` | Yes |  |
 
 ### Operations
 
@@ -416,11 +416,11 @@ country_translation_dto = client.CountryTranslationDto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `country_id` | `String` | Yes |  |
+| `countryId` | `String` | Yes |  |
 | `id` | `String` | Yes |  |
 | `language` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
-| `name_normalized` | `String` | Yes |  |
+| `nameNormalized` | `String` | Yes |  |
 
 ### Operations
 
@@ -472,7 +472,7 @@ distance = client.Distance
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distance_km` | `Float` | Yes |  |
+| `distanceKm` | `Float` | Yes |  |
 
 ### Operations
 
@@ -524,11 +524,11 @@ language = client.Language
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cities_count` | `Float` | Yes |  |
+| `citiesCount` | `Float` | Yes |  |
 | `id` | `String` | Yes |  |
-| `iso_code` | `String` | Yes |  |
+| `isoCode` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
-| `wikidata_id` | `String` | Yes |  |
+| `wikidataId` | `String` | Yes |  |
 
 ### Operations
 
@@ -645,14 +645,23 @@ region = client.Region
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `String` | Yes |  |
-| `country` | `Object` | Yes |  |
-| `country_id` | `String` | Yes |  |
+| `countryId` | `String` | Yes |  |
+| `drivingSide` | `String` | Yes |  |
+| `emoji` | `String` | Yes |  |
+| `headOfGovernment` | `String` | Yes |  |
+| `headOfState` | `String` | Yes |  |
 | `id` | `String` | Yes |  |
+| `isoCode` | `String` | Yes |  |
 | `latitude` | `Float` | Yes |  |
+| `licencePlateCode` | `String` | Yes |  |
+| `localizedName` | `String` | No |  |
 | `longitude` | `Float` | Yes |  |
 | `name` | `String` | Yes |  |
 | `population` | `Float` | Yes |  |
-| `wikidata_id` | `String` | Yes |  |
+| `preferredLanguageId` | `String` | Yes |  |
+| `telephoneCode` | `String` | Yes |  |
+| `trunkPrefix` | `String` | Yes |  |
+| `wikidataId` | `String` | Yes |  |
 
 ### Operations
 
@@ -715,8 +724,8 @@ region_translation_dto = client.RegionTranslationDto
 | `id` | `String` | Yes |  |
 | `language` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
-| `name_normalized` | `String` | Yes |  |
-| `region_id` | `String` | Yes |  |
+| `nameNormalized` | `String` | Yes |  |
+| `regionId` | `String` | Yes |  |
 
 ### Operations
 
@@ -771,8 +780,8 @@ settlement_type = client.SettlementType
 | `description` | `String` | Yes |  |
 | `id` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
-| `name_normalized` | `String` | Yes |  |
-| `wikidata_id` | `String` | Yes |  |
+| `nameNormalized` | `String` | Yes |  |
+| `wikidataId` | `String` | Yes |  |
 
 ### Operations
 

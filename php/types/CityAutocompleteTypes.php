@@ -16,30 +16,30 @@ declare(strict_types=1);
 class City
 {
     public ?float $area = null;
-    public string $country_code;
-    public string $country_emoji;
-    public string $country_id;
-    public string $country_name;
-    public ?string $country_telephone_code = null;
-    public ?string $dialing_code = null;
-    public ?float $distance_km = null;
+    public string $countryCode;
+    public string $countryEmoji;
+    public string $countryId;
+    public string $countryName;
+    public ?string $countryTelephoneCode = null;
+    public ?string $dialingCode = null;
+    public ?float $distanceKm = null;
     public ?float $elevation = null;
-    public ?string $flag_image = null;
+    public ?string $flagImage = null;
     public string $id;
     public ?float $latitude = null;
-    public string $localized_name;
+    public string $localizedName;
     public ?float $longitude = null;
     public string $name;
-    public string $normalized_name;
-    public ?string $official_website = null;
+    public string $normalizedName;
+    public ?string $officialWebsite = null;
     public ?float $population = null;
-    public ?string $postal_code = null;
-    public string $region_code;
-    public string $region_id;
-    public string $region_name;
-    public ?string $time_zone = null;
-    public array $translation;
-    public string $wikidata_id;
+    public ?string $postalCode = null;
+    public string $regionCode;
+    public string $regionId;
+    public string $regionName;
+    public ?string $timeZone = null;
+    public array $translations;
+    public string $wikidataId;
 }
 
 /** Request payload for City#load. */
@@ -52,70 +52,70 @@ class CityLoadMatch
 class CityDto
 {
     public ?float $area = null;
-    public string $country_code;
-    public string $country_emoji;
-    public string $country_id;
-    public string $country_name;
-    public ?string $country_telephone_code = null;
-    public ?string $dialing_code = null;
-    public ?float $distance_km = null;
+    public string $countryCode;
+    public string $countryEmoji;
+    public string $countryId;
+    public string $countryName;
+    public ?string $countryTelephoneCode = null;
+    public ?string $dialingCode = null;
+    public ?float $distanceKm = null;
     public ?float $elevation = null;
-    public ?string $flag_image = null;
+    public ?string $flagImage = null;
     public string $id;
     public ?float $latitude = null;
-    public string $localized_name;
+    public string $localizedName;
     public ?float $longitude = null;
     public string $name;
-    public string $normalized_name;
-    public ?string $official_website = null;
+    public string $normalizedName;
+    public ?string $officialWebsite = null;
     public ?float $population = null;
-    public ?string $postal_code = null;
-    public string $region_code;
-    public string $region_id;
-    public string $region_name;
-    public ?string $time_zone = null;
-    public array $translation;
-    public string $wikidata_id;
+    public ?string $postalCode = null;
+    public string $regionCode;
+    public string $regionId;
+    public string $regionName;
+    public ?string $timeZone = null;
+    public array $translations;
+    public string $wikidataId;
 }
 
 /** Request payload for CityDto#list. */
 class CityDtoListMatch
 {
     public ?float $area = null;
-    public ?string $country_code = null;
-    public ?string $country_emoji = null;
-    public ?string $country_id = null;
-    public ?string $country_name = null;
-    public ?string $country_telephone_code = null;
-    public ?string $dialing_code = null;
-    public ?float $distance_km = null;
+    public ?string $countryCode = null;
+    public ?string $countryEmoji = null;
+    public ?string $countryId = null;
+    public ?string $countryName = null;
+    public ?string $countryTelephoneCode = null;
+    public ?string $dialingCode = null;
+    public ?float $distanceKm = null;
     public ?float $elevation = null;
-    public ?string $flag_image = null;
+    public ?string $flagImage = null;
     public ?string $id = null;
     public ?float $latitude = null;
-    public ?string $localized_name = null;
+    public ?string $localizedName = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $normalized_name = null;
-    public ?string $official_website = null;
+    public ?string $normalizedName = null;
+    public ?string $officialWebsite = null;
     public ?float $population = null;
-    public ?string $postal_code = null;
-    public ?string $region_code = null;
-    public ?string $region_id = null;
-    public ?string $region_name = null;
-    public ?string $time_zone = null;
-    public ?array $translation = null;
-    public ?string $wikidata_id = null;
+    public ?string $postalCode = null;
+    public ?string $regionCode = null;
+    public ?string $regionId = null;
+    public ?string $regionName = null;
+    public ?string $timeZone = null;
+    public ?array $translations = null;
+    public ?string $wikidataId = null;
 }
 
 /** CityTranslationDto entity data model. */
 class CityTranslationDto
 {
-    public string $city_id;
+    public string $cityId;
     public string $id;
     public string $language;
     public string $name;
-    public string $name_normalized;
+    public string $nameNormalized;
 }
 
 /** Request payload for CityTranslationDto#list. */
@@ -127,21 +127,21 @@ class CityTranslationDtoListMatch
 /** Country entity data model. */
 class Country
 {
-    public string $driving_side;
+    public string $drivingSide;
     public string $emoji;
-    public string $head_of_government;
-    public string $head_of_state;
+    public string $headOfGovernment;
+    public string $headOfState;
     public string $id;
-    public string $iso_code;
-    public string $licence_plate_code;
-    public ?string $localized_name = null;
+    public string $isoCode;
+    public string $licencePlateCode;
+    public ?string $localizedName = null;
     public string $name;
-    public string $preferred_language_id;
-    public array $region;
-    public string $telephone_code;
-    public array $translation;
-    public string $trunk_prefix;
-    public string $wikidata_id;
+    public string $preferredLanguageId;
+    public array $regions;
+    public string $telephoneCode;
+    public array $translations;
+    public string $trunkPrefix;
+    public string $wikidataId;
 }
 
 /** Request payload for Country#load. */
@@ -153,31 +153,31 @@ class CountryLoadMatch
 /** Request payload for Country#list. */
 class CountryListMatch
 {
-    public ?string $driving_side = null;
+    public ?string $drivingSide = null;
     public ?string $emoji = null;
-    public ?string $head_of_government = null;
-    public ?string $head_of_state = null;
+    public ?string $headOfGovernment = null;
+    public ?string $headOfState = null;
     public ?string $id = null;
-    public ?string $iso_code = null;
-    public ?string $licence_plate_code = null;
-    public ?string $localized_name = null;
+    public ?string $isoCode = null;
+    public ?string $licencePlateCode = null;
+    public ?string $localizedName = null;
     public ?string $name = null;
-    public ?string $preferred_language_id = null;
-    public ?array $region = null;
-    public ?string $telephone_code = null;
-    public ?array $translation = null;
-    public ?string $trunk_prefix = null;
-    public ?string $wikidata_id = null;
+    public ?string $preferredLanguageId = null;
+    public ?array $regions = null;
+    public ?string $telephoneCode = null;
+    public ?array $translations = null;
+    public ?string $trunkPrefix = null;
+    public ?string $wikidataId = null;
 }
 
 /** CountryTranslationDto entity data model. */
 class CountryTranslationDto
 {
-    public string $country_id;
+    public string $countryId;
     public string $id;
     public string $language;
     public string $name;
-    public string $name_normalized;
+    public string $nameNormalized;
 }
 
 /** Request payload for CountryTranslationDto#list. */
@@ -189,23 +189,23 @@ class CountryTranslationDtoListMatch
 /** Distance entity data model. */
 class Distance
 {
-    public float $distance_km;
+    public float $distanceKm;
 }
 
 /** Request payload for Distance#load. */
 class DistanceLoadMatch
 {
-    public ?float $distance_km = null;
+    public ?float $distanceKm = null;
 }
 
 /** Language entity data model. */
 class Language
 {
-    public float $cities_count;
+    public float $citiesCount;
     public string $id;
-    public string $iso_code;
+    public string $isoCode;
     public string $name;
-    public string $wikidata_id;
+    public string $wikidataId;
 }
 
 /** Request payload for Language#load. */
@@ -217,11 +217,11 @@ class LanguageLoadMatch
 /** Request payload for Language#list. */
 class LanguageListMatch
 {
-    public ?float $cities_count = null;
+    public ?float $citiesCount = null;
     public ?string $id = null;
-    public ?string $iso_code = null;
+    public ?string $isoCode = null;
     public ?string $name = null;
-    public ?string $wikidata_id = null;
+    public ?string $wikidataId = null;
 }
 
 /** Oneshot entity data model. */
@@ -246,14 +246,23 @@ class OneshotListMatch
 class Region
 {
     public string $code;
-    public mixed $country;
-    public string $country_id;
+    public string $countryId;
+    public string $drivingSide;
+    public string $emoji;
+    public string $headOfGovernment;
+    public string $headOfState;
     public string $id;
+    public string $isoCode;
     public float $latitude;
+    public string $licencePlateCode;
+    public ?string $localizedName = null;
     public float $longitude;
     public string $name;
     public float $population;
-    public string $wikidata_id;
+    public string $preferredLanguageId;
+    public string $telephoneCode;
+    public string $trunkPrefix;
+    public string $wikidataId;
 }
 
 /** Request payload for Region#load. */
@@ -274,8 +283,8 @@ class RegionTranslationDto
     public string $id;
     public string $language;
     public string $name;
-    public string $name_normalized;
-    public string $region_id;
+    public string $nameNormalized;
+    public string $regionId;
 }
 
 /** Request payload for RegionTranslationDto#list. */
@@ -290,8 +299,8 @@ class SettlementType
     public string $description;
     public string $id;
     public string $name;
-    public string $name_normalized;
-    public string $wikidata_id;
+    public string $nameNormalized;
+    public string $wikidataId;
 }
 
 /** Request payload for SettlementType#list. */

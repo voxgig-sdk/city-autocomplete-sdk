@@ -55,10 +55,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const city = await client.City().load({ id: "example_id" })
-  console.log(city)
+  const languages = await client.Language().list()
+  console.log(languages)
 } catch (err) {
-  console.error('load failed:', err)
+  console.error('list failed:', err)
 }
 ```
 
@@ -122,9 +122,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CityAutocompleteSDK.test()
 
-const city = await client.City().load({ id: 'test01' })
-// city is a bare entity populated with mock response data
-console.log(city)
+const language = await client.Language().list()
+// language is the entity, populated with mock response data
+// — call language.data() for the record itself
+console.log(language)
 ```
 
 You can also use the instance method:
@@ -139,10 +140,10 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.City()
+const entity = client.Language()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 'example' })
+await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -304,30 +305,30 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: load.
 
@@ -338,30 +339,30 @@ API path: `/cities/{id}`
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: list.
 
@@ -371,11 +372,11 @@ API path: `/cities/search`
 
 | Field | Description |
 | --- | --- |
-| `city_id` |  |
+| `cityId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: list.
 
@@ -385,21 +386,21 @@ API path: `/cities/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `driving_side` |  |
+| `drivingSide` |  |
 | `emoji` |  |
-| `head_of_government` |  |
-| `head_of_state` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
-| `iso_code` |  |
-| `licence_plate_code` |  |
-| `localized_name` |  |
+| `isoCode` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `name` |  |
-| `preferred_language_id` |  |
-| `region` |  |
-| `telephone_code` |  |
-| `translation` |  |
-| `trunk_prefix` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `regions` |  |
+| `telephoneCode` |  |
+| `translations` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: list, load.
 
@@ -409,11 +410,11 @@ API path: `/countries`
 
 | Field | Description |
 | --- | --- |
-| `country_id` |  |
+| `countryId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: list.
 
@@ -423,7 +424,7 @@ API path: `/countries/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `distance_km` |  |
+| `distanceKm` |  |
 
 Operations: load.
 
@@ -433,11 +434,11 @@ API path: `/cities/distance`
 
 | Field | Description |
 | --- | --- |
-| `cities_count` |  |
+| `citiesCount` |  |
 | `id` |  |
-| `iso_code` |  |
+| `isoCode` |  |
 | `name` |  |
-| `wikidata_id` |  |
+| `wikidataId` |  |
 
 Operations: list, load.
 
@@ -462,14 +463,23 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `code` |  |
-| `country` |  |
-| `country_id` |  |
+| `countryId` |  |
+| `drivingSide` |  |
+| `emoji` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
+| `isoCode` |  |
 | `latitude` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
 | `population` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `telephoneCode` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: list, load.
 
@@ -482,8 +492,8 @@ API path: `/countries/{id}/regions`
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `region_id` |  |
+| `nameNormalized` |  |
+| `regionId` |  |
 
 Operations: list.
 
@@ -496,8 +506,8 @@ API path: `/regions/{id}/translations`
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `wikidata_id` |  |
+| `nameNormalized` |  |
+| `wikidataId` |  |
 
 Operations: list.
 
@@ -523,30 +533,30 @@ Create an instance: `const city = client.City()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `number` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `number` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `number` |  |
 | `elevation` | `number` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `number` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `number` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `any[]` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `any[]` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -570,30 +580,30 @@ Create an instance: `const city_dto = client.CityDto()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `number` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `number` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `number` |  |
 | `elevation` | `number` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `number` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `number` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `any[]` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `any[]` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -616,16 +626,16 @@ Create an instance: `const city_translation_dto = client.CityTranslationDto()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city_id` | `string` |  |
+| `cityId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
 ```ts
-const city_translation_dtos = await client.CityTranslationDto().list()
+const city_translation_dtos = await client.CityTranslationDto().list({ id: "example" })
 ```
 
 
@@ -644,21 +654,21 @@ Create an instance: `const country = client.Country()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `driving_side` | `string` |  |
+| `drivingSide` | `string` |  |
 | `emoji` | `string` |  |
-| `head_of_government` | `string` |  |
-| `head_of_state` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
-| `licence_plate_code` | `string` |  |
-| `localized_name` | `string` |  |
+| `isoCode` | `string` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `name` | `string` |  |
-| `preferred_language_id` | `string` |  |
-| `region` | `any[]` |  |
-| `telephone_code` | `string` |  |
-| `translation` | `any[]` |  |
-| `trunk_prefix` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `regions` | `any[]` |  |
+| `telephoneCode` | `string` |  |
+| `translations` | `any[]` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -687,16 +697,16 @@ Create an instance: `const country_translation_dto = client.CountryTranslationDt
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
 ```ts
-const country_translation_dtos = await client.CountryTranslationDto().list()
+const country_translation_dtos = await client.CountryTranslationDto().list({ id: "example" })
 ```
 
 
@@ -714,7 +724,7 @@ Create an instance: `const distance = client.Distance()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `distance_km` | `number` |  |
+| `distanceKm` | `number` |  |
 
 #### Example: Load
 
@@ -738,11 +748,11 @@ Create an instance: `const language = client.Language()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cities_count` | `number` |  |
+| `citiesCount` | `number` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
+| `isoCode` | `string` |  |
 | `name` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -780,7 +790,7 @@ Create an instance: `const oneshot = client.Oneshot()`
 #### Example: List
 
 ```ts
-const oneshots = await client.Oneshot().list()
+const oneshots = await client.Oneshot().list({ city_name: "example", country: "example", language: "example" })
 ```
 
 
@@ -800,14 +810,23 @@ Create an instance: `const region = client.Region()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `string` |  |
-| `country` | `any` |  |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
+| `drivingSide` | `string` |  |
+| `emoji` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
+| `isoCode` | `string` |  |
 | `latitude` | `number` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
 | `population` | `number` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `telephoneCode` | `string` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -839,13 +858,13 @@ Create an instance: `const region_translation_dto = client.RegionTranslationDto(
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `region_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `regionId` | `string` |  |
 
 #### Example: List
 
 ```ts
-const region_translation_dtos = await client.RegionTranslationDto().list()
+const region_translation_dtos = await client.RegionTranslationDto().list({ id: "example" })
 ```
 
 
@@ -866,13 +885,13 @@ Create an instance: `const settlement_type = client.SettlementType()`
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
 ```ts
-const settlement_types = await client.SettlementType().list()
+const settlement_types = await client.SettlementType().list({ city_id: "example" })
 ```
 
 
@@ -940,16 +959,16 @@ import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const city = client.City()
-await city.load({ id: "example_id" })
+const language = client.Language()
+await language.list()
 
-// city.data() now returns the city data from the last `load`
-// city.match() returns { id: "example_id" }
+// language.data() now returns the language data from the last `list`
+// language.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

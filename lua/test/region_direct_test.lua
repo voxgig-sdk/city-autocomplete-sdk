@@ -127,16 +127,16 @@ function region_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["CITYAUTOCOMPLETE_TEST_REGION_ENTID"] = {},
-    ["CITYAUTOCOMPLETE_TEST_LIVE"] = "FALSE",
-    ["CITYAUTOCOMPLETE_APIKEY"] = "NONE",
+    ["CITY_AUTOCOMPLETE_TEST_REGION_ENTID"] = {},
+    ["CITY_AUTOCOMPLETE_TEST_LIVE"] = "FALSE",
+    ["CITY_AUTOCOMPLETE_APIKEY"] = "NONE",
   })
 
-  local live = env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE"
+  local live = env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["CITYAUTOCOMPLETE_APIKEY"],
+      apikey = env["CITY_AUTOCOMPLETE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

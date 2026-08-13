@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ CityAutocompleteUtility::setRegistrar(function (CityAutocompleteUtility $u): voi
     $u->prepare_params = [CityAutocompletePrepareParams::class, 'call'];
     $u->prepare_path = [CityAutocompletePreparePath::class, 'call'];
     $u->prepare_query = [CityAutocompletePrepareQuery::class, 'call'];
+    $u->graphql_body = [CityAutocompleteGraphql::class, 'body'];
+    $u->graphql_errors = [CityAutocompleteGraphql::class, 'errors'];
     $u->result_basic = [CityAutocompleteResultBasic::class, 'call'];
     $u->result_body = [CityAutocompleteResultBody::class, 'call'];
     $u->result_headers = [CityAutocompleteResultHeaders::class, 'call'];

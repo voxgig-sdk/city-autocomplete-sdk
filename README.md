@@ -23,7 +23,7 @@ support (`list`, `load`):
 
 ```ts
 const client = new CityAutocompleteSDK()
-const city = await client.City().load()
+const city = await client.City().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CityAutocompleteSDK.test()
-const city = await client.City().load({ id: 'test01' })
-// city is a bare City populated with mock data
-console.log(city)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CityAutocompleteSDK.test({
+  entity: {
+    language: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const languages = await client.Language().list()
+// languages is an array of Language entities, populated with mock data
+// — call languages[0].data() for the record itself
+console.log(languages)
 ```
 
 ### Python
 
 ```python
 client = CityAutocompleteSDK.test()
-city = client.City().load({"id": "test01"})
-print(city)
+languages = client.Language().list()
+print(languages)
 ```
 
 ### PHP
@@ -57,17 +66,17 @@ print(city)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CityAutocompleteSDK::test([
-    "entity" => ["city" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["language" => ["test01" => ["id" => "test01"]]],
 ]);
-$city = $client->City()->load(["id" => "test01"]);
+$languages = $client->Language()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.City(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+result, err := client.Language(nil).List(
+    nil, nil,
 )
 ```
 
@@ -76,16 +85,16 @@ result, err := client.City(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CityAutocompleteSDK.test({
-  "entity" => { "city" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "language" => { "test01" => { "id" => "test01" } } },
 })
-city = client.City.load({ "id" => "test01" })
+languages = client.Language.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:City():load({ id = "test01" })
+local results, err = client:Language():list()
 ```
 
 ## Packages
@@ -199,7 +208,7 @@ $client = new CityAutocompleteSDK([
 ]);
 
 
-// Load a specific city (returns the bare record; throws on error)
+// Load a specific city (returns the ENTITY; call data_get() for the record; throws on error)
 $city = $client->City()->load(["id" => "example_id"]);
 print_r($city);
 ```
@@ -231,7 +240,7 @@ client = CityAutocompleteSDK.new({
 })
 
 
-# Load a specific city (returns the bare record; raises on error)
+# Load a specific city (returns the ENTITY; call data_get for the record)
 city = client.City.load({ "id" => "example_id" })
 puts city
 ```
@@ -367,6 +376,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://geomelon.dev](https://geomelon.dev)
 

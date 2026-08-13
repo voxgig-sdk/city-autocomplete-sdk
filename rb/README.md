@@ -36,7 +36,7 @@ client = CityAutocompleteSDK.new({
 
 ```ruby
 begin
-  # load returns the bare City record (raises on error).
+  # load returns the ENTITY — call data_get for the City record (raises on error).
   city = client.City.load({ "id" => "example_id" })
   puts city
 rescue => err
@@ -51,9 +51,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  city = client.City.load({ "id" => "example_id" })
+  languages = client.Language.list()
 rescue => err
-  warn "load failed: #{err}"
+  warn "list failed: #{err}"
 end
 ```
 
@@ -119,12 +119,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
 client = CityAutocompleteSDK.test({
-  "entity" => { "city" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "language" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
-city = client.City.load({ "id" => "test01" })
-puts city
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+language = client.Language.list()
+puts language
 ```
 
 ### Use a custom fetch function
@@ -253,30 +254,30 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: Load.
 
@@ -287,30 +288,30 @@ API path: `/cities/{id}`
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: List.
 
@@ -320,11 +321,11 @@ API path: `/cities/search`
 
 | Field | Description |
 | --- | --- |
-| `city_id` |  |
+| `cityId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: List.
 
@@ -334,21 +335,21 @@ API path: `/cities/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `driving_side` |  |
+| `drivingSide` |  |
 | `emoji` |  |
-| `head_of_government` |  |
-| `head_of_state` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
-| `iso_code` |  |
-| `licence_plate_code` |  |
-| `localized_name` |  |
+| `isoCode` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `name` |  |
-| `preferred_language_id` |  |
-| `region` |  |
-| `telephone_code` |  |
-| `translation` |  |
-| `trunk_prefix` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `regions` |  |
+| `telephoneCode` |  |
+| `translations` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -358,11 +359,11 @@ API path: `/countries`
 
 | Field | Description |
 | --- | --- |
-| `country_id` |  |
+| `countryId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: List.
 
@@ -372,7 +373,7 @@ API path: `/countries/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `distance_km` |  |
+| `distanceKm` |  |
 
 Operations: Load.
 
@@ -382,11 +383,11 @@ API path: `/cities/distance`
 
 | Field | Description |
 | --- | --- |
-| `cities_count` |  |
+| `citiesCount` |  |
 | `id` |  |
-| `iso_code` |  |
+| `isoCode` |  |
 | `name` |  |
-| `wikidata_id` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -411,14 +412,23 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `code` |  |
-| `country` |  |
-| `country_id` |  |
+| `countryId` |  |
+| `drivingSide` |  |
+| `emoji` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
+| `isoCode` |  |
 | `latitude` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
 | `population` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `telephoneCode` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -431,8 +441,8 @@ API path: `/countries/{id}/regions`
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `region_id` |  |
+| `nameNormalized` |  |
+| `regionId` |  |
 
 Operations: List.
 
@@ -445,8 +455,8 @@ API path: `/regions/{id}/translations`
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `wikidata_id` |  |
+| `nameNormalized` |  |
+| `wikidataId` |  |
 
 Operations: List.
 
@@ -472,35 +482,35 @@ Create an instance: `city = client.City`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `Float` |  |
-| `country_code` | `String` |  |
-| `country_emoji` | `String` |  |
-| `country_id` | `String` |  |
-| `country_name` | `String` |  |
-| `country_telephone_code` | `String` |  |
-| `dialing_code` | `String` |  |
-| `distance_km` | `Float` |  |
+| `countryCode` | `String` |  |
+| `countryEmoji` | `String` |  |
+| `countryId` | `String` |  |
+| `countryName` | `String` |  |
+| `countryTelephoneCode` | `String` |  |
+| `dialingCode` | `String` |  |
+| `distanceKm` | `Float` |  |
 | `elevation` | `Float` |  |
-| `flag_image` | `String` |  |
+| `flagImage` | `String` |  |
 | `id` | `String` |  |
 | `latitude` | `Float` |  |
-| `localized_name` | `String` |  |
+| `localizedName` | `String` |  |
 | `longitude` | `Float` |  |
 | `name` | `String` |  |
-| `normalized_name` | `String` |  |
-| `official_website` | `String` |  |
+| `normalizedName` | `String` |  |
+| `officialWebsite` | `String` |  |
 | `population` | `Float` |  |
-| `postal_code` | `String` |  |
-| `region_code` | `String` |  |
-| `region_id` | `String` |  |
-| `region_name` | `String` |  |
-| `time_zone` | `String` |  |
-| `translation` | `Array` |  |
-| `wikidata_id` | `String` |  |
+| `postalCode` | `String` |  |
+| `regionCode` | `String` |  |
+| `regionId` | `String` |  |
+| `regionName` | `String` |  |
+| `timeZone` | `String` |  |
+| `translations` | `Array` |  |
+| `wikidataId` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare City record (raises on error).
+# load returns the ENTITY — call data_get for the City record (raises on error).
 city = client.City.load({ "id" => "city_id" })
 ```
 
@@ -520,30 +530,30 @@ Create an instance: `city_dto = client.CityDto`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `Float` |  |
-| `country_code` | `String` |  |
-| `country_emoji` | `String` |  |
-| `country_id` | `String` |  |
-| `country_name` | `String` |  |
-| `country_telephone_code` | `String` |  |
-| `dialing_code` | `String` |  |
-| `distance_km` | `Float` |  |
+| `countryCode` | `String` |  |
+| `countryEmoji` | `String` |  |
+| `countryId` | `String` |  |
+| `countryName` | `String` |  |
+| `countryTelephoneCode` | `String` |  |
+| `dialingCode` | `String` |  |
+| `distanceKm` | `Float` |  |
 | `elevation` | `Float` |  |
-| `flag_image` | `String` |  |
+| `flagImage` | `String` |  |
 | `id` | `String` |  |
 | `latitude` | `Float` |  |
-| `localized_name` | `String` |  |
+| `localizedName` | `String` |  |
 | `longitude` | `Float` |  |
 | `name` | `String` |  |
-| `normalized_name` | `String` |  |
-| `official_website` | `String` |  |
+| `normalizedName` | `String` |  |
+| `officialWebsite` | `String` |  |
 | `population` | `Float` |  |
-| `postal_code` | `String` |  |
-| `region_code` | `String` |  |
-| `region_id` | `String` |  |
-| `region_name` | `String` |  |
-| `time_zone` | `String` |  |
-| `translation` | `Array` |  |
-| `wikidata_id` | `String` |  |
+| `postalCode` | `String` |  |
+| `regionCode` | `String` |  |
+| `regionId` | `String` |  |
+| `regionName` | `String` |  |
+| `timeZone` | `String` |  |
+| `translations` | `Array` |  |
+| `wikidataId` | `String` |  |
 
 #### Example: List
 
@@ -567,11 +577,11 @@ Create an instance: `city_translation_dto = client.CityTranslationDto`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city_id` | `String` |  |
+| `cityId` | `String` |  |
 | `id` | `String` |  |
 | `language` | `String` |  |
 | `name` | `String` |  |
-| `name_normalized` | `String` |  |
+| `nameNormalized` | `String` |  |
 
 #### Example: List
 
@@ -596,26 +606,26 @@ Create an instance: `country = client.Country`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `driving_side` | `String` |  |
+| `drivingSide` | `String` |  |
 | `emoji` | `String` |  |
-| `head_of_government` | `String` |  |
-| `head_of_state` | `String` |  |
+| `headOfGovernment` | `String` |  |
+| `headOfState` | `String` |  |
 | `id` | `String` |  |
-| `iso_code` | `String` |  |
-| `licence_plate_code` | `String` |  |
-| `localized_name` | `String` |  |
+| `isoCode` | `String` |  |
+| `licencePlateCode` | `String` |  |
+| `localizedName` | `String` |  |
 | `name` | `String` |  |
-| `preferred_language_id` | `String` |  |
-| `region` | `Array` |  |
-| `telephone_code` | `String` |  |
-| `translation` | `Array` |  |
-| `trunk_prefix` | `String` |  |
-| `wikidata_id` | `String` |  |
+| `preferredLanguageId` | `String` |  |
+| `regions` | `Array` |  |
+| `telephoneCode` | `String` |  |
+| `translations` | `Array` |  |
+| `trunkPrefix` | `String` |  |
+| `wikidataId` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Country record (raises on error).
+# load returns the ENTITY — call data_get for the Country record (raises on error).
 country = client.Country.load({ "id" => "country_id" })
 ```
 
@@ -641,11 +651,11 @@ Create an instance: `country_translation_dto = client.CountryTranslationDto`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `country_id` | `String` |  |
+| `countryId` | `String` |  |
 | `id` | `String` |  |
 | `language` | `String` |  |
 | `name` | `String` |  |
-| `name_normalized` | `String` |  |
+| `nameNormalized` | `String` |  |
 
 #### Example: List
 
@@ -669,12 +679,12 @@ Create an instance: `distance = client.Distance`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `distance_km` | `Float` |  |
+| `distanceKm` | `Float` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Distance record (raises on error).
+# load returns the ENTITY — call data_get for the Distance record (raises on error).
 distance = client.Distance.load()
 ```
 
@@ -694,16 +704,16 @@ Create an instance: `language = client.Language`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cities_count` | `Float` |  |
+| `citiesCount` | `Float` |  |
 | `id` | `String` |  |
-| `iso_code` | `String` |  |
+| `isoCode` | `String` |  |
 | `name` | `String` |  |
-| `wikidata_id` | `String` |  |
+| `wikidataId` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Language record (raises on error).
+# load returns the ENTITY — call data_get for the Language record (raises on error).
 language = client.Language.load({ "id" => "language_id" })
 ```
 
@@ -759,19 +769,28 @@ Create an instance: `region = client.Region`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `String` |  |
-| `country` | `Object` |  |
-| `country_id` | `String` |  |
+| `countryId` | `String` |  |
+| `drivingSide` | `String` |  |
+| `emoji` | `String` |  |
+| `headOfGovernment` | `String` |  |
+| `headOfState` | `String` |  |
 | `id` | `String` |  |
+| `isoCode` | `String` |  |
 | `latitude` | `Float` |  |
+| `licencePlateCode` | `String` |  |
+| `localizedName` | `String` |  |
 | `longitude` | `Float` |  |
 | `name` | `String` |  |
 | `population` | `Float` |  |
-| `wikidata_id` | `String` |  |
+| `preferredLanguageId` | `String` |  |
+| `telephoneCode` | `String` |  |
+| `trunkPrefix` | `String` |  |
+| `wikidataId` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Region record (raises on error).
+# load returns the ENTITY — call data_get for the Region record (raises on error).
 region = client.Region.load({ "id" => "region_id" })
 ```
 
@@ -800,8 +819,8 @@ Create an instance: `region_translation_dto = client.RegionTranslationDto`
 | `id` | `String` |  |
 | `language` | `String` |  |
 | `name` | `String` |  |
-| `name_normalized` | `String` |  |
-| `region_id` | `String` |  |
+| `nameNormalized` | `String` |  |
+| `regionId` | `String` |  |
 
 #### Example: List
 
@@ -828,8 +847,8 @@ Create an instance: `settlement_type = client.SettlementType`
 | `description` | `String` |  |
 | `id` | `String` |  |
 | `name` | `String` |  |
-| `name_normalized` | `String` |  |
-| `wikidata_id` | `String` |  |
+| `nameNormalized` | `String` |  |
+| `wikidataId` | `String` |  |
 
 #### Example: List
 
@@ -911,15 +930,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-city = client.City
-city.load({ "id" => "example_id" })
+language = client.Language
+language.list()
 
-# city.data_get now returns the city data from the last load
-# city.match_get returns the last match criteria
+# language.data_get now returns the language data from the last list
+# language.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

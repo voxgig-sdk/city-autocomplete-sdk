@@ -129,30 +129,30 @@ city = client.City()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `float` | No |  |
-| `country_code` | `str` | Yes |  |
-| `country_emoji` | `str` | Yes |  |
-| `country_id` | `str` | Yes |  |
-| `country_name` | `str` | Yes |  |
-| `country_telephone_code` | `str` | No |  |
-| `dialing_code` | `str` | No |  |
-| `distance_km` | `float` | No |  |
+| `countryCode` | `str` | Yes |  |
+| `countryEmoji` | `str` | Yes |  |
+| `countryId` | `str` | Yes |  |
+| `countryName` | `str` | Yes |  |
+| `countryTelephoneCode` | `str` | No |  |
+| `dialingCode` | `str` | No |  |
+| `distanceKm` | `float` | No |  |
 | `elevation` | `float` | No |  |
-| `flag_image` | `str` | No |  |
+| `flagImage` | `str` | No |  |
 | `id` | `str` | Yes |  |
 | `latitude` | `float` | No |  |
-| `localized_name` | `str` | Yes |  |
+| `localizedName` | `str` | Yes |  |
 | `longitude` | `float` | No |  |
 | `name` | `str` | Yes |  |
-| `normalized_name` | `str` | Yes |  |
-| `official_website` | `str` | No |  |
+| `normalizedName` | `str` | Yes |  |
+| `officialWebsite` | `str` | No |  |
 | `population` | `float` | No |  |
-| `postal_code` | `str` | No |  |
-| `region_code` | `str` | Yes |  |
-| `region_id` | `str` | Yes |  |
-| `region_name` | `str` | Yes |  |
-| `time_zone` | `str` | No |  |
-| `translation` | `list` | Yes |  |
-| `wikidata_id` | `str` | Yes |  |
+| `postalCode` | `str` | No |  |
+| `regionCode` | `str` | Yes |  |
+| `regionId` | `str` | Yes |  |
+| `regionName` | `str` | Yes |  |
+| `timeZone` | `str` | No |  |
+| `translations` | `list` | Yes |  |
+| `wikidataId` | `str` | Yes |  |
 
 ### Operations
 
@@ -204,30 +204,30 @@ city_dto = client.CityDto()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `float` | No |  |
-| `country_code` | `str` | Yes |  |
-| `country_emoji` | `str` | Yes |  |
-| `country_id` | `str` | Yes |  |
-| `country_name` | `str` | Yes |  |
-| `country_telephone_code` | `str` | No |  |
-| `dialing_code` | `str` | No |  |
-| `distance_km` | `float` | No |  |
+| `countryCode` | `str` | Yes |  |
+| `countryEmoji` | `str` | Yes |  |
+| `countryId` | `str` | Yes |  |
+| `countryName` | `str` | Yes |  |
+| `countryTelephoneCode` | `str` | No |  |
+| `dialingCode` | `str` | No |  |
+| `distanceKm` | `float` | No |  |
 | `elevation` | `float` | No |  |
-| `flag_image` | `str` | No |  |
+| `flagImage` | `str` | No |  |
 | `id` | `str` | Yes |  |
 | `latitude` | `float` | No |  |
-| `localized_name` | `str` | Yes |  |
+| `localizedName` | `str` | Yes |  |
 | `longitude` | `float` | No |  |
 | `name` | `str` | Yes |  |
-| `normalized_name` | `str` | Yes |  |
-| `official_website` | `str` | No |  |
+| `normalizedName` | `str` | Yes |  |
+| `officialWebsite` | `str` | No |  |
 | `population` | `float` | No |  |
-| `postal_code` | `str` | No |  |
-| `region_code` | `str` | Yes |  |
-| `region_id` | `str` | Yes |  |
-| `region_name` | `str` | Yes |  |
-| `time_zone` | `str` | No |  |
-| `translation` | `list` | Yes |  |
-| `wikidata_id` | `str` | Yes |  |
+| `postalCode` | `str` | No |  |
+| `regionCode` | `str` | Yes |  |
+| `regionId` | `str` | Yes |  |
+| `regionName` | `str` | Yes |  |
+| `timeZone` | `str` | No |  |
+| `translations` | `list` | Yes |  |
+| `wikidataId` | `str` | Yes |  |
 
 ### Operations
 
@@ -280,11 +280,11 @@ city_translation_dto = client.CityTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city_id` | `str` | Yes |  |
+| `cityId` | `str` | Yes |  |
 | `id` | `str` | Yes |  |
 | `language` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
-| `name_normalized` | `str` | Yes |  |
+| `nameNormalized` | `str` | Yes |  |
 
 ### Operations
 
@@ -293,7 +293,7 @@ city_translation_dto = client.CityTranslationDto()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.CityTranslationDto().list()
+results = client.CityTranslationDto().list({"id": "example"})
 for city_translation_dto in results:
     print(city_translation_dto)
 ```
@@ -337,21 +337,21 @@ country = client.Country()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `driving_side` | `str` | Yes |  |
+| `drivingSide` | `str` | Yes |  |
 | `emoji` | `str` | Yes |  |
-| `head_of_government` | `str` | Yes |  |
-| `head_of_state` | `str` | Yes |  |
+| `headOfGovernment` | `str` | Yes |  |
+| `headOfState` | `str` | Yes |  |
 | `id` | `str` | Yes |  |
-| `iso_code` | `str` | Yes |  |
-| `licence_plate_code` | `str` | Yes |  |
-| `localized_name` | `str` | No |  |
+| `isoCode` | `str` | Yes |  |
+| `licencePlateCode` | `str` | Yes |  |
+| `localizedName` | `str` | No |  |
 | `name` | `str` | Yes |  |
-| `preferred_language_id` | `str` | Yes |  |
-| `region` | `list` | Yes |  |
-| `telephone_code` | `str` | Yes |  |
-| `translation` | `list` | Yes |  |
-| `trunk_prefix` | `str` | Yes |  |
-| `wikidata_id` | `str` | Yes |  |
+| `preferredLanguageId` | `str` | Yes |  |
+| `regions` | `list` | Yes |  |
+| `telephoneCode` | `str` | Yes |  |
+| `translations` | `list` | Yes |  |
+| `trunkPrefix` | `str` | Yes |  |
+| `wikidataId` | `str` | Yes |  |
 
 ### Operations
 
@@ -412,11 +412,11 @@ country_translation_dto = client.CountryTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `country_id` | `str` | Yes |  |
+| `countryId` | `str` | Yes |  |
 | `id` | `str` | Yes |  |
 | `language` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
-| `name_normalized` | `str` | Yes |  |
+| `nameNormalized` | `str` | Yes |  |
 
 ### Operations
 
@@ -425,7 +425,7 @@ country_translation_dto = client.CountryTranslationDto()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.CountryTranslationDto().list()
+results = client.CountryTranslationDto().list({"id": "example"})
 for country_translation_dto in results:
     print(country_translation_dto)
 ```
@@ -469,7 +469,7 @@ distance = client.Distance()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distance_km` | `float` | Yes |  |
+| `distanceKm` | `float` | Yes |  |
 
 ### Operations
 
@@ -520,11 +520,11 @@ language = client.Language()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cities_count` | `float` | Yes |  |
+| `citiesCount` | `float` | Yes |  |
 | `id` | `str` | Yes |  |
-| `iso_code` | `str` | Yes |  |
+| `isoCode` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
-| `wikidata_id` | `str` | Yes |  |
+| `wikidataId` | `str` | Yes |  |
 
 ### Operations
 
@@ -598,7 +598,7 @@ oneshot = client.Oneshot()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Oneshot().list()
+results = client.Oneshot().list({"city_name": "example", "country": "example", "language": "example"})
 for oneshot in results:
     print(oneshot)
 ```
@@ -643,14 +643,23 @@ region = client.Region()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `str` | Yes |  |
-| `country` | `Any` | Yes |  |
-| `country_id` | `str` | Yes |  |
+| `countryId` | `str` | Yes |  |
+| `drivingSide` | `str` | Yes |  |
+| `emoji` | `str` | Yes |  |
+| `headOfGovernment` | `str` | Yes |  |
+| `headOfState` | `str` | Yes |  |
 | `id` | `str` | Yes |  |
+| `isoCode` | `str` | Yes |  |
 | `latitude` | `float` | Yes |  |
+| `licencePlateCode` | `str` | Yes |  |
+| `localizedName` | `str` | No |  |
 | `longitude` | `float` | Yes |  |
 | `name` | `str` | Yes |  |
 | `population` | `float` | Yes |  |
-| `wikidata_id` | `str` | Yes |  |
+| `preferredLanguageId` | `str` | Yes |  |
+| `telephoneCode` | `str` | Yes |  |
+| `trunkPrefix` | `str` | Yes |  |
+| `wikidataId` | `str` | Yes |  |
 
 ### Operations
 
@@ -714,8 +723,8 @@ region_translation_dto = client.RegionTranslationDto()
 | `id` | `str` | Yes |  |
 | `language` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
-| `name_normalized` | `str` | Yes |  |
-| `region_id` | `str` | Yes |  |
+| `nameNormalized` | `str` | Yes |  |
+| `regionId` | `str` | Yes |  |
 
 ### Operations
 
@@ -724,7 +733,7 @@ region_translation_dto = client.RegionTranslationDto()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RegionTranslationDto().list()
+results = client.RegionTranslationDto().list({"id": "example"})
 for region_translation_dto in results:
     print(region_translation_dto)
 ```
@@ -771,8 +780,8 @@ settlement_type = client.SettlementType()
 | `description` | `str` | Yes |  |
 | `id` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
-| `name_normalized` | `str` | Yes |  |
-| `wikidata_id` | `str` | Yes |  |
+| `nameNormalized` | `str` | Yes |  |
+| `wikidataId` | `str` | Yes |  |
 
 ### Operations
 
@@ -781,7 +790,7 @@ settlement_type = client.SettlementType()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.SettlementType().list()
+results = client.SettlementType().list({"city_id": "example"})
 for settlement_type in results:
     print(settlement_type)
 ```

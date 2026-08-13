@@ -2,35 +2,35 @@
   "existing": {
     "country_translation_dto": {
       "COUNTRY_TRANSLATION_DTO00": {
-        "country_id": "COUNTRY01",
+        "countryId": "s32",
         "id": "COUNTRY_TRANSLATION_DTO00",
         "language": "s34",
         "name": "s35",
-        "name_normalized": "s36"
+        "nameNormalized": "s36"
       },
       "COUNTRY_TRANSLATION_DTO01": {
-        "country_id": "COUNTRY01",
+        "countryId": "s64",
         "id": "COUNTRY_TRANSLATION_DTO01",
         "language": "s66",
         "name": "s67",
-        "name_normalized": "s68"
+        "nameNormalized": "s68"
       },
       "COUNTRY_TRANSLATION_DTO02": {
-        "country_id": "COUNTRY01",
+        "countryId": "s96",
         "id": "COUNTRY_TRANSLATION_DTO02",
         "language": "s98",
         "name": "s99",
-        "name_normalized": "s9a"
+        "nameNormalized": "s9a"
       }
     }
   },
   "new": {
     "country_translation_dto": {
       "country_translation_dto_ref01": {
-        "country_id": "COUNTRY01",
+        "countryId": "sc8",
         "language": "sca",
         "name": "scb",
-        "name_normalized": "scc"
+        "nameNormalized": "scc"
       }
     }
   }

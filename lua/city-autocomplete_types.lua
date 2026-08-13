@@ -8,167 +8,167 @@
 
 ---@class City
 ---@field area? number
----@field country_code string
----@field country_emoji string
----@field country_id string
----@field country_name string
----@field country_telephone_code? string
----@field dialing_code? string
----@field distance_km? number
+---@field countryCode string
+---@field countryEmoji string
+---@field countryId string
+---@field countryName string
+---@field countryTelephoneCode? string
+---@field dialingCode? string
+---@field distanceKm? number
 ---@field elevation? number
----@field flag_image? string
+---@field flagImage? string
 ---@field id string
 ---@field latitude? number
----@field localized_name string
+---@field localizedName string
 ---@field longitude? number
 ---@field name string
----@field normalized_name string
----@field official_website? string
+---@field normalizedName string
+---@field officialWebsite? string
 ---@field population? number
----@field postal_code? string
----@field region_code string
----@field region_id string
----@field region_name string
----@field time_zone? string
----@field translation table
----@field wikidata_id string
+---@field postalCode? string
+---@field regionCode string
+---@field regionId string
+---@field regionName string
+---@field timeZone? string
+---@field translations table
+---@field wikidataId string
 
 ---@class CityLoadMatch
 ---@field id string
 
 ---@class CityDto
 ---@field area? number
----@field country_code string
----@field country_emoji string
----@field country_id string
----@field country_name string
----@field country_telephone_code? string
----@field dialing_code? string
----@field distance_km? number
+---@field countryCode string
+---@field countryEmoji string
+---@field countryId string
+---@field countryName string
+---@field countryTelephoneCode? string
+---@field dialingCode? string
+---@field distanceKm? number
 ---@field elevation? number
----@field flag_image? string
+---@field flagImage? string
 ---@field id string
 ---@field latitude? number
----@field localized_name string
+---@field localizedName string
 ---@field longitude? number
 ---@field name string
----@field normalized_name string
----@field official_website? string
+---@field normalizedName string
+---@field officialWebsite? string
 ---@field population? number
----@field postal_code? string
----@field region_code string
----@field region_id string
----@field region_name string
----@field time_zone? string
----@field translation table
----@field wikidata_id string
+---@field postalCode? string
+---@field regionCode string
+---@field regionId string
+---@field regionName string
+---@field timeZone? string
+---@field translations table
+---@field wikidataId string
 
 ---@class CityDtoListMatch
 ---@field area? number
----@field country_code? string
----@field country_emoji? string
----@field country_id? string
----@field country_name? string
----@field country_telephone_code? string
----@field dialing_code? string
----@field distance_km? number
+---@field countryCode? string
+---@field countryEmoji? string
+---@field countryId? string
+---@field countryName? string
+---@field countryTelephoneCode? string
+---@field dialingCode? string
+---@field distanceKm? number
 ---@field elevation? number
----@field flag_image? string
+---@field flagImage? string
 ---@field id? string
 ---@field latitude? number
----@field localized_name? string
+---@field localizedName? string
 ---@field longitude? number
 ---@field name? string
----@field normalized_name? string
----@field official_website? string
+---@field normalizedName? string
+---@field officialWebsite? string
 ---@field population? number
----@field postal_code? string
----@field region_code? string
----@field region_id? string
----@field region_name? string
----@field time_zone? string
----@field translation? table
----@field wikidata_id? string
+---@field postalCode? string
+---@field regionCode? string
+---@field regionId? string
+---@field regionName? string
+---@field timeZone? string
+---@field translations? table
+---@field wikidataId? string
 
 ---@class CityTranslationDto
----@field city_id string
+---@field cityId string
 ---@field id string
 ---@field language string
 ---@field name string
----@field name_normalized string
+---@field nameNormalized string
 
 ---@class CityTranslationDtoListMatch
 ---@field id string
 
 ---@class Country
----@field driving_side string
+---@field drivingSide string
 ---@field emoji string
----@field head_of_government string
----@field head_of_state string
+---@field headOfGovernment string
+---@field headOfState string
 ---@field id string
----@field iso_code string
----@field licence_plate_code string
----@field localized_name? string
+---@field isoCode string
+---@field licencePlateCode string
+---@field localizedName? string
 ---@field name string
----@field preferred_language_id string
----@field region table
----@field telephone_code string
----@field translation table
----@field trunk_prefix string
----@field wikidata_id string
+---@field preferredLanguageId string
+---@field regions table
+---@field telephoneCode string
+---@field translations table
+---@field trunkPrefix string
+---@field wikidataId string
 
 ---@class CountryLoadMatch
 ---@field id string
 
 ---@class CountryListMatch
----@field driving_side? string
+---@field drivingSide? string
 ---@field emoji? string
----@field head_of_government? string
----@field head_of_state? string
+---@field headOfGovernment? string
+---@field headOfState? string
 ---@field id? string
----@field iso_code? string
----@field licence_plate_code? string
----@field localized_name? string
+---@field isoCode? string
+---@field licencePlateCode? string
+---@field localizedName? string
 ---@field name? string
----@field preferred_language_id? string
----@field region? table
----@field telephone_code? string
----@field translation? table
----@field trunk_prefix? string
----@field wikidata_id? string
+---@field preferredLanguageId? string
+---@field regions? table
+---@field telephoneCode? string
+---@field translations? table
+---@field trunkPrefix? string
+---@field wikidataId? string
 
 ---@class CountryTranslationDto
----@field country_id string
+---@field countryId string
 ---@field id string
 ---@field language string
 ---@field name string
----@field name_normalized string
+---@field nameNormalized string
 
 ---@class CountryTranslationDtoListMatch
 ---@field id string
 
 ---@class Distance
----@field distance_km number
+---@field distanceKm number
 
 ---@class DistanceLoadMatch
----@field distance_km? number
+---@field distanceKm? number
 
 ---@class Language
----@field cities_count number
+---@field citiesCount number
 ---@field id string
----@field iso_code string
+---@field isoCode string
 ---@field name string
----@field wikidata_id string
+---@field wikidataId string
 
 ---@class LanguageLoadMatch
 ---@field id string
 
 ---@class LanguageListMatch
----@field cities_count? number
+---@field citiesCount? number
 ---@field id? string
----@field iso_code? string
+---@field isoCode? string
 ---@field name? string
----@field wikidata_id? string
+---@field wikidataId? string
 
 ---@class Oneshot
 ---@field emoji table
@@ -184,14 +184,23 @@
 
 ---@class Region
 ---@field code string
----@field country any
----@field country_id string
+---@field countryId string
+---@field drivingSide string
+---@field emoji string
+---@field headOfGovernment string
+---@field headOfState string
 ---@field id string
+---@field isoCode string
 ---@field latitude number
+---@field licencePlateCode string
+---@field localizedName? string
 ---@field longitude number
 ---@field name string
 ---@field population number
----@field wikidata_id string
+---@field preferredLanguageId string
+---@field telephoneCode string
+---@field trunkPrefix string
+---@field wikidataId string
 
 ---@class RegionLoadMatch
 ---@field id string
@@ -203,8 +212,8 @@
 ---@field id string
 ---@field language string
 ---@field name string
----@field name_normalized string
----@field region_id string
+---@field nameNormalized string
+---@field regionId string
 
 ---@class RegionTranslationDtoListMatch
 ---@field id string
@@ -213,8 +222,8 @@
 ---@field description string
 ---@field id string
 ---@field name string
----@field name_normalized string
----@field wikidata_id string
+---@field nameNormalized string
+---@field wikidataId string
 
 ---@class SettlementTypeListMatch
 ---@field city_id string

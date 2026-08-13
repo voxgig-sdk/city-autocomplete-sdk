@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CityAutocompleteUtility.registrar = ->(u) {
   u.prepare_params = CityAutocompleteUtilities::PrepareParams
   u.prepare_path = CityAutocompleteUtilities::PreparePath
   u.prepare_query = CityAutocompleteUtilities::PrepareQuery
+  u.graphql_body = CityAutocompleteUtilities::GraphqlBody
+  u.graphql_errors = CityAutocompleteUtilities::GraphqlErrors
   u.result_basic = CityAutocompleteUtilities::ResultBasic
   u.result_body = CityAutocompleteUtilities::ResultBody
   u.result_headers = CityAutocompleteUtilities::ResultHeaders

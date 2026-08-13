@@ -7,30 +7,30 @@
 
 export interface City {
   area?: number
-  country_code: string
-  country_emoji: string
-  country_id: string
-  country_name: string
-  country_telephone_code?: string
-  dialing_code?: string
-  distance_km?: number
+  countryCode: string
+  countryEmoji: string
+  countryId: string
+  countryName: string
+  countryTelephoneCode?: string
+  dialingCode?: string
+  distanceKm?: number
   elevation?: number
-  flag_image?: string
+  flagImage?: string
   id: string
   latitude?: number
-  localized_name: string
+  localizedName: string
   longitude?: number
   name: string
-  normalized_name: string
-  official_website?: string
+  normalizedName: string
+  officialWebsite?: string
   population?: number
-  postal_code?: string
-  region_code: string
-  region_id: string
-  region_name: string
-  time_zone?: string
-  translation: any[]
-  wikidata_id: string
+  postalCode?: string
+  regionCode: string
+  regionId: string
+  regionName: string
+  timeZone?: string
+  translations: any[]
+  wikidataId: string
 }
 
 export interface CityLoadMatch {
@@ -39,88 +39,94 @@ export interface CityLoadMatch {
 
 export interface CityDto {
   area?: number
-  country_code: string
-  country_emoji: string
-  country_id: string
-  country_name: string
-  country_telephone_code?: string
-  dialing_code?: string
-  distance_km?: number
+  countryCode: string
+  countryEmoji: string
+  countryId: string
+  countryName: string
+  countryTelephoneCode?: string
+  dialingCode?: string
+  distanceKm?: number
   elevation?: number
-  flag_image?: string
+  flagImage?: string
   id: string
   latitude?: number
-  localized_name: string
+  localizedName: string
   longitude?: number
   name: string
-  normalized_name: string
-  official_website?: string
+  normalizedName: string
+  officialWebsite?: string
   population?: number
-  postal_code?: string
-  region_code: string
-  region_id: string
-  region_name: string
-  time_zone?: string
-  translation: any[]
-  wikidata_id: string
+  postalCode?: string
+  regionCode: string
+  regionId: string
+  regionName: string
+  timeZone?: string
+  translations: any[]
+  wikidataId: string
 }
 
 export interface CityDtoListMatch {
   area?: number
-  country_code?: string
-  country_emoji?: string
-  country_id?: string
-  country_name?: string
-  country_telephone_code?: string
-  dialing_code?: string
-  distance_km?: number
+  countryCode?: string
+  countryEmoji?: string
+  countryId?: string
+  countryName?: string
+  countryTelephoneCode?: string
+  dialingCode?: string
+  distanceKm?: number
   elevation?: number
-  flag_image?: string
+  flagImage?: string
   id?: string
   latitude?: number
-  localized_name?: string
+  localizedName?: string
   longitude?: number
   name?: string
-  normalized_name?: string
-  official_website?: string
+  normalizedName?: string
+  officialWebsite?: string
   population?: number
-  postal_code?: string
-  region_code?: string
-  region_id?: string
-  region_name?: string
-  time_zone?: string
-  translation?: any[]
-  wikidata_id?: string
+  postalCode?: string
+  regionCode?: string
+  regionId?: string
+  regionName?: string
+  timeZone?: string
+  translations?: any[]
+  wikidataId?: string
 }
 
 export interface CityTranslationDto {
-  city_id: string
+  cityId: string
   id: string
   language: string
   name: string
-  name_normalized: string
+  nameNormalized: string
 }
 
 export interface CityTranslationDtoListMatch {
   id: string
+
+  // Selects a custom action instead of the plain list:
+  //   'translations'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Country {
-  driving_side: string
+  drivingSide: string
   emoji: string
-  head_of_government: string
-  head_of_state: string
+  headOfGovernment: string
+  headOfState: string
   id: string
-  iso_code: string
-  licence_plate_code: string
-  localized_name?: string
+  isoCode: string
+  licencePlateCode: string
+  localizedName?: string
   name: string
-  preferred_language_id: string
-  region: any[]
-  telephone_code: string
-  translation: any[]
-  trunk_prefix: string
-  wikidata_id: string
+  preferredLanguageId: string
+  regions: any[]
+  telephoneCode: string
+  translations: any[]
+  trunkPrefix: string
+  wikidataId: string
 }
 
 export interface CountryLoadMatch {
@@ -128,49 +134,55 @@ export interface CountryLoadMatch {
 }
 
 export interface CountryListMatch {
-  driving_side?: string
+  drivingSide?: string
   emoji?: string
-  head_of_government?: string
-  head_of_state?: string
+  headOfGovernment?: string
+  headOfState?: string
   id?: string
-  iso_code?: string
-  licence_plate_code?: string
-  localized_name?: string
+  isoCode?: string
+  licencePlateCode?: string
+  localizedName?: string
   name?: string
-  preferred_language_id?: string
-  region?: any[]
-  telephone_code?: string
-  translation?: any[]
-  trunk_prefix?: string
-  wikidata_id?: string
+  preferredLanguageId?: string
+  regions?: any[]
+  telephoneCode?: string
+  translations?: any[]
+  trunkPrefix?: string
+  wikidataId?: string
 }
 
 export interface CountryTranslationDto {
-  country_id: string
+  countryId: string
   id: string
   language: string
   name: string
-  name_normalized: string
+  nameNormalized: string
 }
 
 export interface CountryTranslationDtoListMatch {
   id: string
+
+  // Selects a custom action instead of the plain list:
+  //   'translations'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Distance {
-  distance_km: number
+  distanceKm: number
 }
 
 export interface DistanceLoadMatch {
-  distance_km?: number
+  distanceKm?: number
 }
 
 export interface Language {
-  cities_count: number
+  citiesCount: number
   id: string
-  iso_code: string
+  isoCode: string
   name: string
-  wikidata_id: string
+  wikidataId: string
 }
 
 export interface LanguageLoadMatch {
@@ -178,11 +190,11 @@ export interface LanguageLoadMatch {
 }
 
 export interface LanguageListMatch {
-  cities_count?: number
+  citiesCount?: number
   id?: string
-  iso_code?: string
+  isoCode?: string
   name?: string
-  wikidata_id?: string
+  wikidataId?: string
 }
 
 export interface Oneshot {
@@ -201,14 +213,23 @@ export interface OneshotListMatch {
 
 export interface Region {
   code: string
-  country: any
-  country_id: string
+  countryId: string
+  drivingSide: string
+  emoji: string
+  headOfGovernment: string
+  headOfState: string
   id: string
+  isoCode: string
   latitude: number
+  licencePlateCode: string
+  localizedName?: string
   longitude: number
   name: string
   population: number
-  wikidata_id: string
+  preferredLanguageId: string
+  telephoneCode: string
+  trunkPrefix: string
+  wikidataId: string
 }
 
 export interface RegionLoadMatch {
@@ -223,20 +244,26 @@ export interface RegionTranslationDto {
   id: string
   language: string
   name: string
-  name_normalized: string
-  region_id: string
+  nameNormalized: string
+  regionId: string
 }
 
 export interface RegionTranslationDtoListMatch {
   id: string
+
+  // Selects a custom action instead of the plain list:
+  //   'translations'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface SettlementType {
   description: string
   id: string
   name: string
-  name_normalized: string
-  wikidata_id: string
+  nameNormalized: string
+  wikidataId: string
 }
 
 export interface SettlementTypeListMatch {

@@ -21,12 +21,12 @@ main: kit: entity: region_translation_dto: {
       type: "`$STRING`"
     }
     {
-      name: "name_normalized"
+      name: "nameNormalized"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "region_id"
+      name: "regionId"
       req: true
       type: "`$STRING`"
     }

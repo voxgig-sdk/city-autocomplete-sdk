@@ -26,8 +26,8 @@ import {
 describe('CityEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CITYAUTOCOMPLETE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CITYAUTOCOMPLETE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CITY_AUTOCOMPLETE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CITY_AUTOCOMPLETE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CityAutocompleteSDK.test()
@@ -63,7 +63,7 @@ describe('CityEntity', async () => {
     const city_ref01_ent = client.City()
     const city_ref01_match_dt0: any = {}
     city_ref01_match_dt0.id = city_ref01_data.id
-    const city_ref01_data_dt0 = await city_ref01_ent.load(city_ref01_match_dt0)
+    const city_ref01_data_dt0 = (await city_ref01_ent.load(city_ref01_match_dt0)).data()
     assert(city_ref01_data_dt0.id === city_ref01_data.id)
 
 

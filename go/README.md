@@ -69,12 +69,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-city, err := client.City(nil).Load(map[string]any{"id": "example_id"}, nil)
+languages, err := client.Language(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = city
+_ = languages
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -138,13 +138,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-city, err := client.City(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+language, err := client.Language(nil).List(
+    nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(city) // the returned mock data
+fmt.Println(language) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -276,30 +276,30 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"area"` |  |
-| `"country_code"` |  |
-| `"country_emoji"` |  |
-| `"country_id"` |  |
-| `"country_name"` |  |
-| `"country_telephone_code"` |  |
-| `"dialing_code"` |  |
-| `"distance_km"` |  |
+| `"countryCode"` |  |
+| `"countryEmoji"` |  |
+| `"countryId"` |  |
+| `"countryName"` |  |
+| `"countryTelephoneCode"` |  |
+| `"dialingCode"` |  |
+| `"distanceKm"` |  |
 | `"elevation"` |  |
-| `"flag_image"` |  |
+| `"flagImage"` |  |
 | `"id"` |  |
 | `"latitude"` |  |
-| `"localized_name"` |  |
+| `"localizedName"` |  |
 | `"longitude"` |  |
 | `"name"` |  |
-| `"normalized_name"` |  |
-| `"official_website"` |  |
+| `"normalizedName"` |  |
+| `"officialWebsite"` |  |
 | `"population"` |  |
-| `"postal_code"` |  |
-| `"region_code"` |  |
-| `"region_id"` |  |
-| `"region_name"` |  |
-| `"time_zone"` |  |
-| `"translation"` |  |
-| `"wikidata_id"` |  |
+| `"postalCode"` |  |
+| `"regionCode"` |  |
+| `"regionId"` |  |
+| `"regionName"` |  |
+| `"timeZone"` |  |
+| `"translations"` |  |
+| `"wikidataId"` |  |
 
 Operations: Load.
 
@@ -310,30 +310,30 @@ API path: `/cities/{id}`
 | Field | Description |
 | --- | --- |
 | `"area"` |  |
-| `"country_code"` |  |
-| `"country_emoji"` |  |
-| `"country_id"` |  |
-| `"country_name"` |  |
-| `"country_telephone_code"` |  |
-| `"dialing_code"` |  |
-| `"distance_km"` |  |
+| `"countryCode"` |  |
+| `"countryEmoji"` |  |
+| `"countryId"` |  |
+| `"countryName"` |  |
+| `"countryTelephoneCode"` |  |
+| `"dialingCode"` |  |
+| `"distanceKm"` |  |
 | `"elevation"` |  |
-| `"flag_image"` |  |
+| `"flagImage"` |  |
 | `"id"` |  |
 | `"latitude"` |  |
-| `"localized_name"` |  |
+| `"localizedName"` |  |
 | `"longitude"` |  |
 | `"name"` |  |
-| `"normalized_name"` |  |
-| `"official_website"` |  |
+| `"normalizedName"` |  |
+| `"officialWebsite"` |  |
 | `"population"` |  |
-| `"postal_code"` |  |
-| `"region_code"` |  |
-| `"region_id"` |  |
-| `"region_name"` |  |
-| `"time_zone"` |  |
-| `"translation"` |  |
-| `"wikidata_id"` |  |
+| `"postalCode"` |  |
+| `"regionCode"` |  |
+| `"regionId"` |  |
+| `"regionName"` |  |
+| `"timeZone"` |  |
+| `"translations"` |  |
+| `"wikidataId"` |  |
 
 Operations: List.
 
@@ -343,11 +343,11 @@ API path: `/cities/search`
 
 | Field | Description |
 | --- | --- |
-| `"city_id"` |  |
+| `"cityId"` |  |
 | `"id"` |  |
 | `"language"` |  |
 | `"name"` |  |
-| `"name_normalized"` |  |
+| `"nameNormalized"` |  |
 
 Operations: List.
 
@@ -357,21 +357,21 @@ API path: `/cities/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `"driving_side"` |  |
+| `"drivingSide"` |  |
 | `"emoji"` |  |
-| `"head_of_government"` |  |
-| `"head_of_state"` |  |
+| `"headOfGovernment"` |  |
+| `"headOfState"` |  |
 | `"id"` |  |
-| `"iso_code"` |  |
-| `"licence_plate_code"` |  |
-| `"localized_name"` |  |
+| `"isoCode"` |  |
+| `"licencePlateCode"` |  |
+| `"localizedName"` |  |
 | `"name"` |  |
-| `"preferred_language_id"` |  |
-| `"region"` |  |
-| `"telephone_code"` |  |
-| `"translation"` |  |
-| `"trunk_prefix"` |  |
-| `"wikidata_id"` |  |
+| `"preferredLanguageId"` |  |
+| `"regions"` |  |
+| `"telephoneCode"` |  |
+| `"translations"` |  |
+| `"trunkPrefix"` |  |
+| `"wikidataId"` |  |
 
 Operations: List, Load.
 
@@ -381,11 +381,11 @@ API path: `/countries`
 
 | Field | Description |
 | --- | --- |
-| `"country_id"` |  |
+| `"countryId"` |  |
 | `"id"` |  |
 | `"language"` |  |
 | `"name"` |  |
-| `"name_normalized"` |  |
+| `"nameNormalized"` |  |
 
 Operations: List.
 
@@ -395,7 +395,7 @@ API path: `/countries/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `"distance_km"` |  |
+| `"distanceKm"` |  |
 
 Operations: Load.
 
@@ -405,11 +405,11 @@ API path: `/cities/distance`
 
 | Field | Description |
 | --- | --- |
-| `"cities_count"` |  |
+| `"citiesCount"` |  |
 | `"id"` |  |
-| `"iso_code"` |  |
+| `"isoCode"` |  |
 | `"name"` |  |
-| `"wikidata_id"` |  |
+| `"wikidataId"` |  |
 
 Operations: List, Load.
 
@@ -434,14 +434,23 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `"code"` |  |
-| `"country"` |  |
-| `"country_id"` |  |
+| `"countryId"` |  |
+| `"drivingSide"` |  |
+| `"emoji"` |  |
+| `"headOfGovernment"` |  |
+| `"headOfState"` |  |
 | `"id"` |  |
+| `"isoCode"` |  |
 | `"latitude"` |  |
+| `"licencePlateCode"` |  |
+| `"localizedName"` |  |
 | `"longitude"` |  |
 | `"name"` |  |
 | `"population"` |  |
-| `"wikidata_id"` |  |
+| `"preferredLanguageId"` |  |
+| `"telephoneCode"` |  |
+| `"trunkPrefix"` |  |
+| `"wikidataId"` |  |
 
 Operations: List, Load.
 
@@ -454,8 +463,8 @@ API path: `/countries/{id}/regions`
 | `"id"` |  |
 | `"language"` |  |
 | `"name"` |  |
-| `"name_normalized"` |  |
-| `"region_id"` |  |
+| `"nameNormalized"` |  |
+| `"regionId"` |  |
 
 Operations: List.
 
@@ -468,8 +477,8 @@ API path: `/regions/{id}/translations`
 | `"description"` |  |
 | `"id"` |  |
 | `"name"` |  |
-| `"name_normalized"` |  |
-| `"wikidata_id"` |  |
+| `"nameNormalized"` |  |
+| `"wikidataId"` |  |
 
 Operations: List.
 
@@ -495,30 +504,30 @@ Create an instance: `city := client.City(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `float64` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `float64` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `float64` |  |
 | `elevation` | `float64` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `float64` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `float64` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `float64` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `[]any` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `[]any` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -546,30 +555,30 @@ Create an instance: `cityDto := client.CityDto(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `float64` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `float64` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `float64` |  |
 | `elevation` | `float64` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `float64` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `float64` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `float64` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `[]any` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `[]any` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -596,11 +605,11 @@ Create an instance: `cityTranslationDto := client.CityTranslationDto(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city_id` | `string` |  |
+| `cityId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
@@ -628,21 +637,21 @@ Create an instance: `country := client.Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `driving_side` | `string` |  |
+| `drivingSide` | `string` |  |
 | `emoji` | `string` |  |
-| `head_of_government` | `string` |  |
-| `head_of_state` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
-| `licence_plate_code` | `string` |  |
-| `localized_name` | `string` |  |
+| `isoCode` | `string` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `name` | `string` |  |
-| `preferred_language_id` | `string` |  |
-| `region` | `[]any` |  |
-| `telephone_code` | `string` |  |
-| `translation` | `[]any` |  |
-| `trunk_prefix` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `regions` | `[]any` |  |
+| `telephoneCode` | `string` |  |
+| `translations` | `[]any` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -679,11 +688,11 @@ Create an instance: `countryTranslationDto := client.CountryTranslationDto(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
@@ -710,7 +719,7 @@ Create an instance: `distance := client.Distance(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `distance_km` | `float64` |  |
+| `distanceKm` | `float64` |  |
 
 #### Example: Load
 
@@ -738,11 +747,11 @@ Create an instance: `language := client.Language(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cities_count` | `float64` |  |
+| `citiesCount` | `float64` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
+| `isoCode` | `string` |  |
 | `name` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -812,14 +821,23 @@ Create an instance: `region := client.Region(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `string` |  |
-| `country` | `any` |  |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
+| `drivingSide` | `string` |  |
+| `emoji` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
+| `isoCode` | `string` |  |
 | `latitude` | `float64` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `float64` |  |
 | `name` | `string` |  |
 | `population` | `float64` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `telephoneCode` | `string` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -859,8 +877,8 @@ Create an instance: `regionTranslationDto := client.RegionTranslationDto(nil)`
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `region_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `regionId` | `string` |  |
 
 #### Example: List
 
@@ -890,8 +908,8 @@ Create an instance: `settlementType := client.SettlementType(nil)`
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -973,15 +991,15 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `Load`, the entity
+Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-city := client.City(nil)
-city.Load(map[string]any{"id": "example_id"}, nil)
+language := client.Language(nil)
+language.List(nil, nil)
 
-// city.Data() now returns the city data from the last load
-// city.Match() returns the last match criteria
+// language.Data() now returns the language data from the last list
+// language.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

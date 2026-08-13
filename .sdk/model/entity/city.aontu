@@ -11,37 +11,37 @@ main: kit: entity: city: {
       type: "`$NUMBER`"
     }
     {
-      name: "country_code"
+      name: "countryCode"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "country_emoji"
+      name: "countryEmoji"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "country_id"
+      name: "countryId"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "country_name"
+      name: "countryName"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "country_telephone_code"
+      name: "countryTelephoneCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "dialing_code"
+      name: "dialingCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "distance_km"
+      name: "distanceKm"
       req: false
       type: "`$NUMBER`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: city: {
       type: "`$NUMBER`"
     }
     {
-      name: "flag_image"
+      name: "flagImage"
       req: false
       type: "`$STRING`"
     }
@@ -66,7 +66,7 @@ main: kit: entity: city: {
       type: "`$NUMBER`"
     }
     {
-      name: "localized_name"
+      name: "localizedName"
       req: true
       type: "`$STRING`"
     }
@@ -81,12 +81,12 @@ main: kit: entity: city: {
       type: "`$STRING`"
     }
     {
-      name: "normalized_name"
+      name: "normalizedName"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "official_website"
+      name: "officialWebsite"
       req: false
       type: "`$STRING`"
     }
@@ -96,37 +96,37 @@ main: kit: entity: city: {
       type: "`$NUMBER`"
     }
     {
-      name: "postal_code"
+      name: "postalCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "region_code"
+      name: "regionCode"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "region_id"
+      name: "regionId"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "region_name"
+      name: "regionName"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "time_zone"
+      name: "timeZone"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "translation"
+      name: "translations"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "wikidata_id"
+      name: "wikidataId"
       req: true
       type: "`$STRING`"
     }

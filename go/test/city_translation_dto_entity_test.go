@@ -92,7 +92,7 @@ func TestCityTranslationDtoEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -160,38 +160,38 @@ func city_translation_dtoBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID")
+	entidEnvRaw := os.Getenv("CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID": idmap,
-		"CITYAUTOCOMPLETE_TEST_LIVE":      "FALSE",
-		"CITYAUTOCOMPLETE_TEST_EXPLAIN":   "FALSE",
-		"CITYAUTOCOMPLETE_APIKEY":         "NONE",
+		"CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID": idmap,
+		"CITY_AUTOCOMPLETE_TEST_LIVE":      "FALSE",
+		"CITY_AUTOCOMPLETE_TEST_EXPLAIN":   "FALSE",
+		"CITY_AUTOCOMPLETE_APIKEY":         "NONE",
 	})
 
-	idmapResolved := core.ToMapAny(env["CITYAUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID"])
+	idmapResolved := core.ToMapAny(env["CITY_AUTOCOMPLETE_TEST_CITY_TRANSLATION_DTO_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE" {
+	if env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["CITYAUTOCOMPLETE_APIKEY"],
+				"apikey": env["CITY_AUTOCOMPLETE_APIKEY"],
 			},
 			extra,
 		})
 		client = sdk.NewCityAutocompleteSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["CITYAUTOCOMPLETE_TEST_LIVE"] == "TRUE"
+	live := env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["CITYAUTOCOMPLETE_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["CITY_AUTOCOMPLETE_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

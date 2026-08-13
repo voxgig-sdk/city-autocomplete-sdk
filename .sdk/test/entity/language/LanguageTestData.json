@@ -2,35 +2,35 @@
   "existing": {
     "language": {
       "LANGUAGE00": {
-        "cities_count": 50,
+        "citiesCount": 50,
         "id": "LANGUAGE00",
-        "iso_code": "s34",
+        "isoCode": "s34",
         "name": "s35",
-        "wikidata_id": "WIKIDATA01"
+        "wikidataId": "s36"
       },
       "LANGUAGE01": {
-        "cities_count": 100,
+        "citiesCount": 100,
         "id": "LANGUAGE01",
-        "iso_code": "s66",
+        "isoCode": "s66",
         "name": "s67",
-        "wikidata_id": "WIKIDATA01"
+        "wikidataId": "s68"
       },
       "LANGUAGE02": {
-        "cities_count": 150,
+        "citiesCount": 150,
         "id": "LANGUAGE02",
-        "iso_code": "s98",
+        "isoCode": "s98",
         "name": "s99",
-        "wikidata_id": "WIKIDATA01"
+        "wikidataId": "s9a"
       }
     }
   },
   "new": {
     "language": {
       "language_ref01": {
-        "cities_count": 200,
-        "iso_code": "sca",
+        "citiesCount": 200,
+        "isoCode": "sca",
         "name": "scb",
-        "wikidata_id": "WIKIDATA01"
+        "wikidataId": "scc"
       }
     }
   }

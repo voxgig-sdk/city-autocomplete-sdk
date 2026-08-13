@@ -134,30 +134,30 @@ $city = $client->City();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `float` | No |  |
-| `country_code` | `string` | Yes |  |
-| `country_emoji` | `string` | Yes |  |
-| `country_id` | `string` | Yes |  |
-| `country_name` | `string` | Yes |  |
-| `country_telephone_code` | `string` | No |  |
-| `dialing_code` | `string` | No |  |
-| `distance_km` | `float` | No |  |
+| `countryCode` | `string` | Yes |  |
+| `countryEmoji` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `countryName` | `string` | Yes |  |
+| `countryTelephoneCode` | `string` | No |  |
+| `dialingCode` | `string` | No |  |
+| `distanceKm` | `float` | No |  |
 | `elevation` | `float` | No |  |
-| `flag_image` | `string` | No |  |
+| `flagImage` | `string` | No |  |
 | `id` | `string` | Yes |  |
 | `latitude` | `float` | No |  |
-| `localized_name` | `string` | Yes |  |
+| `localizedName` | `string` | Yes |  |
 | `longitude` | `float` | No |  |
 | `name` | `string` | Yes |  |
-| `normalized_name` | `string` | Yes |  |
-| `official_website` | `string` | No |  |
+| `normalizedName` | `string` | Yes |  |
+| `officialWebsite` | `string` | No |  |
 | `population` | `float` | No |  |
-| `postal_code` | `string` | No |  |
-| `region_code` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
-| `region_name` | `string` | Yes |  |
-| `time_zone` | `string` | No |  |
-| `translation` | `array` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `postalCode` | `string` | No |  |
+| `regionCode` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+| `regionName` | `string` | Yes |  |
+| `timeZone` | `string` | No |  |
+| `translations` | `array` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -210,30 +210,30 @@ $city_dto = $client->CityDto();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `float` | No |  |
-| `country_code` | `string` | Yes |  |
-| `country_emoji` | `string` | Yes |  |
-| `country_id` | `string` | Yes |  |
-| `country_name` | `string` | Yes |  |
-| `country_telephone_code` | `string` | No |  |
-| `dialing_code` | `string` | No |  |
-| `distance_km` | `float` | No |  |
+| `countryCode` | `string` | Yes |  |
+| `countryEmoji` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `countryName` | `string` | Yes |  |
+| `countryTelephoneCode` | `string` | No |  |
+| `dialingCode` | `string` | No |  |
+| `distanceKm` | `float` | No |  |
 | `elevation` | `float` | No |  |
-| `flag_image` | `string` | No |  |
+| `flagImage` | `string` | No |  |
 | `id` | `string` | Yes |  |
 | `latitude` | `float` | No |  |
-| `localized_name` | `string` | Yes |  |
+| `localizedName` | `string` | Yes |  |
 | `longitude` | `float` | No |  |
 | `name` | `string` | Yes |  |
-| `normalized_name` | `string` | Yes |  |
-| `official_website` | `string` | No |  |
+| `normalizedName` | `string` | Yes |  |
+| `officialWebsite` | `string` | No |  |
 | `population` | `float` | No |  |
-| `postal_code` | `string` | No |  |
-| `region_code` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
-| `region_name` | `string` | Yes |  |
-| `time_zone` | `string` | No |  |
-| `translation` | `array` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `postalCode` | `string` | No |  |
+| `regionCode` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+| `regionName` | `string` | Yes |  |
+| `timeZone` | `string` | No |  |
+| `translations` | `array` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -285,11 +285,11 @@ $city_translation_dto = $client->CityTranslationDto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city_id` | `string` | Yes |  |
+| `cityId` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
 
 ### Operations
 
@@ -341,21 +341,21 @@ $country = $client->Country();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `driving_side` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes |  |
 | `emoji` | `string` | Yes |  |
-| `head_of_government` | `string` | Yes |  |
-| `head_of_state` | `string` | Yes |  |
+| `headOfGovernment` | `string` | Yes |  |
+| `headOfState` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
-| `iso_code` | `string` | Yes |  |
-| `licence_plate_code` | `string` | Yes |  |
-| `localized_name` | `string` | No |  |
+| `isoCode` | `string` | Yes |  |
+| `licencePlateCode` | `string` | Yes |  |
+| `localizedName` | `string` | No |  |
 | `name` | `string` | Yes |  |
-| `preferred_language_id` | `string` | Yes |  |
-| `region` | `array` | Yes |  |
-| `telephone_code` | `string` | Yes |  |
-| `translation` | `array` | Yes |  |
-| `trunk_prefix` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `preferredLanguageId` | `string` | Yes |  |
+| `regions` | `array` | Yes |  |
+| `telephoneCode` | `string` | Yes |  |
+| `translations` | `array` | Yes |  |
+| `trunkPrefix` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -415,11 +415,11 @@ $country_translation_dto = $client->CountryTranslationDto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `country_id` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
 
 ### Operations
 
@@ -471,7 +471,7 @@ $distance = $client->Distance();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distance_km` | `float` | Yes |  |
+| `distanceKm` | `float` | Yes |  |
 
 ### Operations
 
@@ -523,11 +523,11 @@ $language = $client->Language();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cities_count` | `float` | Yes |  |
+| `citiesCount` | `float` | Yes |  |
 | `id` | `string` | Yes |  |
-| `iso_code` | `string` | Yes |  |
+| `isoCode` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -644,14 +644,23 @@ $region = $client->Region();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `string` | Yes |  |
-| `country` | `mixed` | Yes |  |
-| `country_id` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes |  |
+| `emoji` | `string` | Yes |  |
+| `headOfGovernment` | `string` | Yes |  |
+| `headOfState` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
+| `isoCode` | `string` | Yes |  |
 | `latitude` | `float` | Yes |  |
+| `licencePlateCode` | `string` | Yes |  |
+| `localizedName` | `string` | No |  |
 | `longitude` | `float` | Yes |  |
 | `name` | `string` | Yes |  |
 | `population` | `float` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `preferredLanguageId` | `string` | Yes |  |
+| `telephoneCode` | `string` | Yes |  |
+| `trunkPrefix` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -714,8 +723,8 @@ $region_translation_dto = $client->RegionTranslationDto();
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
 
 ### Operations
 
@@ -770,8 +779,8 @@ $settlement_type = $client->SettlementType();
 | `description` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 

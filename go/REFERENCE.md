@@ -140,30 +140,30 @@ fmt.Println(city.GetName()) // "city"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `float64` | No |  |
-| `country_code` | `string` | Yes |  |
-| `country_emoji` | `string` | Yes |  |
-| `country_id` | `string` | Yes |  |
-| `country_name` | `string` | Yes |  |
-| `country_telephone_code` | `string` | No |  |
-| `dialing_code` | `string` | No |  |
-| `distance_km` | `float64` | No |  |
+| `countryCode` | `string` | Yes |  |
+| `countryEmoji` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `countryName` | `string` | Yes |  |
+| `countryTelephoneCode` | `string` | No |  |
+| `dialingCode` | `string` | No |  |
+| `distanceKm` | `float64` | No |  |
 | `elevation` | `float64` | No |  |
-| `flag_image` | `string` | No |  |
+| `flagImage` | `string` | No |  |
 | `id` | `string` | Yes |  |
 | `latitude` | `float64` | No |  |
-| `localized_name` | `string` | Yes |  |
+| `localizedName` | `string` | Yes |  |
 | `longitude` | `float64` | No |  |
 | `name` | `string` | Yes |  |
-| `normalized_name` | `string` | Yes |  |
-| `official_website` | `string` | No |  |
+| `normalizedName` | `string` | Yes |  |
+| `officialWebsite` | `string` | No |  |
 | `population` | `float64` | No |  |
-| `postal_code` | `string` | No |  |
-| `region_code` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
-| `region_name` | `string` | Yes |  |
-| `time_zone` | `string` | No |  |
-| `translation` | `[]any` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `postalCode` | `string` | No |  |
+| `regionCode` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+| `regionName` | `string` | Yes |  |
+| `timeZone` | `string` | No |  |
+| `translations` | `[]any` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -215,30 +215,30 @@ fmt.Println(cityDto.GetName()) // "city_dto"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `area` | `float64` | No |  |
-| `country_code` | `string` | Yes |  |
-| `country_emoji` | `string` | Yes |  |
-| `country_id` | `string` | Yes |  |
-| `country_name` | `string` | Yes |  |
-| `country_telephone_code` | `string` | No |  |
-| `dialing_code` | `string` | No |  |
-| `distance_km` | `float64` | No |  |
+| `countryCode` | `string` | Yes |  |
+| `countryEmoji` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `countryName` | `string` | Yes |  |
+| `countryTelephoneCode` | `string` | No |  |
+| `dialingCode` | `string` | No |  |
+| `distanceKm` | `float64` | No |  |
 | `elevation` | `float64` | No |  |
-| `flag_image` | `string` | No |  |
+| `flagImage` | `string` | No |  |
 | `id` | `string` | Yes |  |
 | `latitude` | `float64` | No |  |
-| `localized_name` | `string` | Yes |  |
+| `localizedName` | `string` | Yes |  |
 | `longitude` | `float64` | No |  |
 | `name` | `string` | Yes |  |
-| `normalized_name` | `string` | Yes |  |
-| `official_website` | `string` | No |  |
+| `normalizedName` | `string` | Yes |  |
+| `officialWebsite` | `string` | No |  |
 | `population` | `float64` | No |  |
-| `postal_code` | `string` | No |  |
-| `region_code` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
-| `region_name` | `string` | Yes |  |
-| `time_zone` | `string` | No |  |
-| `translation` | `[]any` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `postalCode` | `string` | No |  |
+| `regionCode` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
+| `regionName` | `string` | Yes |  |
+| `timeZone` | `string` | No |  |
+| `translations` | `[]any` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -289,11 +289,11 @@ fmt.Println(cityTranslationDto.GetName()) // "city_translation_dto"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city_id` | `string` | Yes |  |
+| `cityId` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
 
 ### Operations
 
@@ -344,21 +344,21 @@ fmt.Println(country.GetName()) // "country"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `driving_side` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes |  |
 | `emoji` | `string` | Yes |  |
-| `head_of_government` | `string` | Yes |  |
-| `head_of_state` | `string` | Yes |  |
+| `headOfGovernment` | `string` | Yes |  |
+| `headOfState` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
-| `iso_code` | `string` | Yes |  |
-| `licence_plate_code` | `string` | Yes |  |
-| `localized_name` | `string` | No |  |
+| `isoCode` | `string` | Yes |  |
+| `licencePlateCode` | `string` | Yes |  |
+| `localizedName` | `string` | No |  |
 | `name` | `string` | Yes |  |
-| `preferred_language_id` | `string` | Yes |  |
-| `region` | `[]any` | Yes |  |
-| `telephone_code` | `string` | Yes |  |
-| `translation` | `[]any` | Yes |  |
-| `trunk_prefix` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `preferredLanguageId` | `string` | Yes |  |
+| `regions` | `[]any` | Yes |  |
+| `telephoneCode` | `string` | Yes |  |
+| `translations` | `[]any` | Yes |  |
+| `trunkPrefix` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -421,11 +421,11 @@ fmt.Println(countryTranslationDto.GetName()) // "country_translation_dto"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `country_id` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
 
 ### Operations
 
@@ -476,7 +476,7 @@ fmt.Println(distance.GetName()) // "distance"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distance_km` | `float64` | Yes |  |
+| `distanceKm` | `float64` | Yes |  |
 
 ### Operations
 
@@ -527,11 +527,11 @@ fmt.Println(language.GetName()) // "language"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cities_count` | `float64` | Yes |  |
+| `citiesCount` | `float64` | Yes |  |
 | `id` | `string` | Yes |  |
-| `iso_code` | `string` | Yes |  |
+| `isoCode` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -650,14 +650,23 @@ fmt.Println(region.GetName()) // "region"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `string` | Yes |  |
-| `country` | `any` | Yes |  |
-| `country_id` | `string` | Yes |  |
+| `countryId` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes |  |
+| `emoji` | `string` | Yes |  |
+| `headOfGovernment` | `string` | Yes |  |
+| `headOfState` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
+| `isoCode` | `string` | Yes |  |
 | `latitude` | `float64` | Yes |  |
+| `licencePlateCode` | `string` | Yes |  |
+| `localizedName` | `string` | No |  |
 | `longitude` | `float64` | Yes |  |
 | `name` | `string` | Yes |  |
 | `population` | `float64` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `preferredLanguageId` | `string` | Yes |  |
+| `telephoneCode` | `string` | Yes |  |
+| `trunkPrefix` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 
@@ -723,8 +732,8 @@ fmt.Println(regionTranslationDto.GetName()) // "region_translation_dto"
 | `id` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
-| `region_id` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+| `regionId` | `string` | Yes |  |
 
 ### Operations
 
@@ -778,8 +787,8 @@ fmt.Println(settlementType.GetName()) // "settlement_type"
 | `description` | `string` | Yes |  |
 | `id` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `name_normalized` | `string` | Yes |  |
-| `wikidata_id` | `string` | Yes |  |
+| `nameNormalized` | `string` | Yes |  |
+| `wikidataId` | `string` | Yes |  |
 
 ### Operations
 

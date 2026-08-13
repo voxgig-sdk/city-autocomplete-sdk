@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from cityautocomplete_sdk.utility.voxgig_struct import voxgig_struct as vs
 from cityautocomplete_sdk import CityAutocompleteSDK
-from core import helpers
+from cityautocomplete_sdk.core import helpers
 from test import runner
 
 
@@ -102,16 +102,16 @@ def _country_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CITYAUTOCOMPLETE_TEST_COUNTRY_ENTID": {},
-        "CITYAUTOCOMPLETE_TEST_LIVE": "FALSE",
-        "CITYAUTOCOMPLETE_APIKEY": "NONE",
+        "CITY_AUTOCOMPLETE_TEST_COUNTRY_ENTID": {},
+        "CITY_AUTOCOMPLETE_TEST_LIVE": "FALSE",
+        "CITY_AUTOCOMPLETE_APIKEY": "NONE",
     })
 
-    live = env.get("CITYAUTOCOMPLETE_TEST_LIVE") == "TRUE"
+    live = env.get("CITY_AUTOCOMPLETE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("CITYAUTOCOMPLETE_APIKEY"),
+            "apikey": env.get("CITY_AUTOCOMPLETE_APIKEY"),
         }
         client = CityAutocompleteSDK(merged_opts)
         return {

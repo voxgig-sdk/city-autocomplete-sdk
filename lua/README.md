@@ -50,7 +50,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local city, err = client:City():load({ id = "example_id" })
+local languages, err = client:Language():list()
 if err then error(err) end
 ```
 
@@ -108,7 +108,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:City():load({ id = "test01" })
+local result, err = client:Language():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -242,30 +242,30 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: Load.
 
@@ -276,30 +276,30 @@ API path: `/cities/{id}`
 | Field | Description |
 | --- | --- |
 | `area` |  |
-| `country_code` |  |
-| `country_emoji` |  |
-| `country_id` |  |
-| `country_name` |  |
-| `country_telephone_code` |  |
-| `dialing_code` |  |
-| `distance_km` |  |
+| `countryCode` |  |
+| `countryEmoji` |  |
+| `countryId` |  |
+| `countryName` |  |
+| `countryTelephoneCode` |  |
+| `dialingCode` |  |
+| `distanceKm` |  |
 | `elevation` |  |
-| `flag_image` |  |
+| `flagImage` |  |
 | `id` |  |
 | `latitude` |  |
-| `localized_name` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
-| `normalized_name` |  |
-| `official_website` |  |
+| `normalizedName` |  |
+| `officialWebsite` |  |
 | `population` |  |
-| `postal_code` |  |
-| `region_code` |  |
-| `region_id` |  |
-| `region_name` |  |
-| `time_zone` |  |
-| `translation` |  |
-| `wikidata_id` |  |
+| `postalCode` |  |
+| `regionCode` |  |
+| `regionId` |  |
+| `regionName` |  |
+| `timeZone` |  |
+| `translations` |  |
+| `wikidataId` |  |
 
 Operations: List.
 
@@ -309,11 +309,11 @@ API path: `/cities/search`
 
 | Field | Description |
 | --- | --- |
-| `city_id` |  |
+| `cityId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: List.
 
@@ -323,21 +323,21 @@ API path: `/cities/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `driving_side` |  |
+| `drivingSide` |  |
 | `emoji` |  |
-| `head_of_government` |  |
-| `head_of_state` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
-| `iso_code` |  |
-| `licence_plate_code` |  |
-| `localized_name` |  |
+| `isoCode` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `name` |  |
-| `preferred_language_id` |  |
-| `region` |  |
-| `telephone_code` |  |
-| `translation` |  |
-| `trunk_prefix` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `regions` |  |
+| `telephoneCode` |  |
+| `translations` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -347,11 +347,11 @@ API path: `/countries`
 
 | Field | Description |
 | --- | --- |
-| `country_id` |  |
+| `countryId` |  |
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
+| `nameNormalized` |  |
 
 Operations: List.
 
@@ -361,7 +361,7 @@ API path: `/countries/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `distance_km` |  |
+| `distanceKm` |  |
 
 Operations: Load.
 
@@ -371,11 +371,11 @@ API path: `/cities/distance`
 
 | Field | Description |
 | --- | --- |
-| `cities_count` |  |
+| `citiesCount` |  |
 | `id` |  |
-| `iso_code` |  |
+| `isoCode` |  |
 | `name` |  |
-| `wikidata_id` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -400,14 +400,23 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `code` |  |
-| `country` |  |
-| `country_id` |  |
+| `countryId` |  |
+| `drivingSide` |  |
+| `emoji` |  |
+| `headOfGovernment` |  |
+| `headOfState` |  |
 | `id` |  |
+| `isoCode` |  |
 | `latitude` |  |
+| `licencePlateCode` |  |
+| `localizedName` |  |
 | `longitude` |  |
 | `name` |  |
 | `population` |  |
-| `wikidata_id` |  |
+| `preferredLanguageId` |  |
+| `telephoneCode` |  |
+| `trunkPrefix` |  |
+| `wikidataId` |  |
 
 Operations: List, Load.
 
@@ -420,8 +429,8 @@ API path: `/countries/{id}/regions`
 | `id` |  |
 | `language` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `region_id` |  |
+| `nameNormalized` |  |
+| `regionId` |  |
 
 Operations: List.
 
@@ -434,8 +443,8 @@ API path: `/regions/{id}/translations`
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `name_normalized` |  |
-| `wikidata_id` |  |
+| `nameNormalized` |  |
+| `wikidataId` |  |
 
 Operations: List.
 
@@ -461,30 +470,30 @@ Create an instance: `local city = client:City(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `number` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `number` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `number` |  |
 | `elevation` | `number` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `number` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `number` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `table` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `table` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -508,30 +517,30 @@ Create an instance: `local city_dto = client:CityDto(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `area` | `number` |  |
-| `country_code` | `string` |  |
-| `country_emoji` | `string` |  |
-| `country_id` | `string` |  |
-| `country_name` | `string` |  |
-| `country_telephone_code` | `string` |  |
-| `dialing_code` | `string` |  |
-| `distance_km` | `number` |  |
+| `countryCode` | `string` |  |
+| `countryEmoji` | `string` |  |
+| `countryId` | `string` |  |
+| `countryName` | `string` |  |
+| `countryTelephoneCode` | `string` |  |
+| `dialingCode` | `string` |  |
+| `distanceKm` | `number` |  |
 | `elevation` | `number` |  |
-| `flag_image` | `string` |  |
+| `flagImage` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `number` |  |
-| `localized_name` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `normalized_name` | `string` |  |
-| `official_website` | `string` |  |
+| `normalizedName` | `string` |  |
+| `officialWebsite` | `string` |  |
 | `population` | `number` |  |
-| `postal_code` | `string` |  |
-| `region_code` | `string` |  |
-| `region_id` | `string` |  |
-| `region_name` | `string` |  |
-| `time_zone` | `string` |  |
-| `translation` | `table` |  |
-| `wikidata_id` | `string` |  |
+| `postalCode` | `string` |  |
+| `regionCode` | `string` |  |
+| `regionId` | `string` |  |
+| `regionName` | `string` |  |
+| `timeZone` | `string` |  |
+| `translations` | `table` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -554,11 +563,11 @@ Create an instance: `local city_translation_dto = client:CityTranslationDto(nil)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city_id` | `string` |  |
+| `cityId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
@@ -582,21 +591,21 @@ Create an instance: `local country = client:Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `driving_side` | `string` |  |
+| `drivingSide` | `string` |  |
 | `emoji` | `string` |  |
-| `head_of_government` | `string` |  |
-| `head_of_state` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
-| `licence_plate_code` | `string` |  |
-| `localized_name` | `string` |  |
+| `isoCode` | `string` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `name` | `string` |  |
-| `preferred_language_id` | `string` |  |
-| `region` | `table` |  |
-| `telephone_code` | `string` |  |
-| `translation` | `table` |  |
-| `trunk_prefix` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `regions` | `table` |  |
+| `telephoneCode` | `string` |  |
+| `translations` | `table` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -625,11 +634,11 @@ Create an instance: `local country_translation_dto = client:CountryTranslationDt
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
+| `nameNormalized` | `string` |  |
 
 #### Example: List
 
@@ -652,7 +661,7 @@ Create an instance: `local distance = client:Distance(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `distance_km` | `number` |  |
+| `distanceKm` | `number` |  |
 
 #### Example: Load
 
@@ -676,11 +685,11 @@ Create an instance: `local language = client:Language(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cities_count` | `number` |  |
+| `citiesCount` | `number` |  |
 | `id` | `string` |  |
-| `iso_code` | `string` |  |
+| `isoCode` | `string` |  |
 | `name` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -738,14 +747,23 @@ Create an instance: `local region = client:Region(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `string` |  |
-| `country` | `any` |  |
-| `country_id` | `string` |  |
+| `countryId` | `string` |  |
+| `drivingSide` | `string` |  |
+| `emoji` | `string` |  |
+| `headOfGovernment` | `string` |  |
+| `headOfState` | `string` |  |
 | `id` | `string` |  |
+| `isoCode` | `string` |  |
 | `latitude` | `number` |  |
+| `licencePlateCode` | `string` |  |
+| `localizedName` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
 | `population` | `number` |  |
-| `wikidata_id` | `string` |  |
+| `preferredLanguageId` | `string` |  |
+| `telephoneCode` | `string` |  |
+| `trunkPrefix` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: Load
 
@@ -777,8 +795,8 @@ Create an instance: `local region_translation_dto = client:RegionTranslationDto(
 | `id` | `string` |  |
 | `language` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `region_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `regionId` | `string` |  |
 
 #### Example: List
 
@@ -804,8 +822,8 @@ Create an instance: `local settlement_type = client:SettlementType(nil)`
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `name_normalized` | `string` |  |
-| `wikidata_id` | `string` |  |
+| `nameNormalized` | `string` |  |
+| `wikidataId` | `string` |  |
 
 #### Example: List
 
@@ -886,15 +904,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local city = client:City()
-city:load({ id = "example_id" })
+local language = client:Language()
+language:list()
 
--- city:data_get() now returns the city data from the last load
--- city:match_get() returns the last match criteria
+-- language:data_get() now returns the language data from the last list
+-- language:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

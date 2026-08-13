@@ -21,12 +21,12 @@ main: kit: entity: settlement_type: {
       type: "`$STRING`"
     }
     {
-      name: "name_normalized"
+      name: "nameNormalized"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "wikidata_id"
+      name: "wikidataId"
       req: true
       type: "`$STRING`"
     }

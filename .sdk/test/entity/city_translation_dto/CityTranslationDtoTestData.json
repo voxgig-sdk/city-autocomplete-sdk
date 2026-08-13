@@ -2,35 +2,35 @@
   "existing": {
     "city_translation_dto": {
       "CITY_TRANSLATION_DTO00": {
-        "city_id": "CITY01",
+        "cityId": "s32",
         "id": "CITY_TRANSLATION_DTO00",
         "language": "s34",
         "name": "s35",
-        "name_normalized": "s36"
+        "nameNormalized": "s36"
       },
       "CITY_TRANSLATION_DTO01": {
-        "city_id": "CITY01",
+        "cityId": "s64",
         "id": "CITY_TRANSLATION_DTO01",
         "language": "s66",
         "name": "s67",
-        "name_normalized": "s68"
+        "nameNormalized": "s68"
       },
       "CITY_TRANSLATION_DTO02": {
-        "city_id": "CITY01",
+        "cityId": "s96",
         "id": "CITY_TRANSLATION_DTO02",
         "language": "s98",
         "name": "s99",
-        "name_normalized": "s9a"
+        "nameNormalized": "s9a"
       }
     }
   },
   "new": {
     "city_translation_dto": {
       "city_translation_dto_ref01": {
-        "city_id": "CITY01",
+        "cityId": "sc8",
         "language": "sca",
         "name": "scb",
-        "name_normalized": "scc"
+        "nameNormalized": "scc"
       }
     }
   }

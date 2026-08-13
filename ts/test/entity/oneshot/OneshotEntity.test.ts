@@ -26,8 +26,8 @@ import {
 describe('OneshotEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CITYAUTOCOMPLETE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CITYAUTOCOMPLETE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CITY_AUTOCOMPLETE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CITY_AUTOCOMPLETE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CityAutocompleteSDK.test()
@@ -66,7 +66,7 @@ describe('OneshotEntity', async () => {
     oneshot_ref01_match['country'] = setup.idmap['country01']
     oneshot_ref01_match['language'] = setup.idmap['language01']
 
-    const oneshot_ref01_list = await oneshot_ref01_ent.list(oneshot_ref01_match)
+    const oneshot_ref01_list = (await oneshot_ref01_ent.list(oneshot_ref01_match)).map((e: any) => e.data())
 
 
   })

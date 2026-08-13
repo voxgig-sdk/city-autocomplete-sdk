@@ -77,6 +77,7 @@ guide: {
     }
     path: "/regions/{id}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.country`")|top
     }
   }
 

@@ -26,8 +26,8 @@ import {
 describe('CountryEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CITYAUTOCOMPLETE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CITYAUTOCOMPLETE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CITY_AUTOCOMPLETE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CITY_AUTOCOMPLETE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CityAutocompleteSDK.test()
@@ -63,13 +63,13 @@ describe('CountryEntity', async () => {
     const country_ref01_ent = client.Country()
     const country_ref01_match: any = {}
 
-    const country_ref01_list = await country_ref01_ent.list(country_ref01_match)
+    const country_ref01_list = (await country_ref01_ent.list(country_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const country_ref01_match_dt0: any = {}
     country_ref01_match_dt0.id = country_ref01_data.id
-    const country_ref01_data_dt0 = await country_ref01_ent.load(country_ref01_match_dt0)
+    const country_ref01_data_dt0 = (await country_ref01_ent.load(country_ref01_match_dt0)).data()
     assert(country_ref01_data_dt0.id === country_ref01_data.id)
 
 

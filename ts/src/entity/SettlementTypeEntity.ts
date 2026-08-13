@@ -37,7 +37,7 @@ class SettlementTypeEntity extends CityAutocompleteEntityBase<SettlementType> {
 
 
 
-  async list(this: any, reqmatch?: SettlementTypeListMatch, ctrl?: Control): Promise<SettlementType[]> {
+  async list(this: any, reqmatch?: SettlementTypeListMatch, ctrl?: Control): Promise<SettlementTypeEntity[]> {
 
     const utility = this._utility
 
