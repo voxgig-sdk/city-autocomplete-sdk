@@ -251,7 +251,24 @@ class RegionLoadMatch(TypedDict):
 
 
 class RegionListMatch(TypedDict, total=False):
-    country_id: str
+    code: str
+    countryId: str
+    drivingSide: str
+    emoji: str
+    headOfGovernment: str
+    headOfState: str
+    id: str
+    isoCode: str
+    latitude: float
+    licencePlateCode: str
+    localizedName: str
+    longitude: float
+    name: str
+    population: float
+    preferredLanguageId: str
+    telephoneCode: str
+    trunkPrefix: str
+    wikidataId: str
 
 
 class RegionTranslationDto(TypedDict):

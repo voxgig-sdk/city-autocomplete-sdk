@@ -28,7 +28,7 @@ class CityAutocompleteSDK
     utility = CityAutocompleteUtility.new
     @_utility = utility
 
-    config = CityAutocompleteConfig.make_config
+    config = CityAutocompleteConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -40,7 +40,7 @@ class CityAutocompleteSDK
         $utility = new CityAutocompleteUtility();
         $this->_utility = $utility;
 
-        $config = CityAutocompleteConfig::make_config();
+        $config = CityAutocompleteConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

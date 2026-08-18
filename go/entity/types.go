@@ -253,7 +253,24 @@ type RegionLoadMatch struct {
 
 // RegionListMatch is the typed request payload for Region.ListTyped.
 type RegionListMatch struct {
-	CountryId *string `json:"country_id,omitempty"`
+	Code *string `json:"code,omitempty"`
+	CountryId *string `json:"countryId,omitempty"`
+	DrivingSide *string `json:"drivingSide,omitempty"`
+	Emoji *string `json:"emoji,omitempty"`
+	HeadOfGovernment *string `json:"headOfGovernment,omitempty"`
+	HeadOfState *string `json:"headOfState,omitempty"`
+	Id *string `json:"id,omitempty"`
+	IsoCode *string `json:"isoCode,omitempty"`
+	Latitude *float64 `json:"latitude,omitempty"`
+	LicencePlateCode *string `json:"licencePlateCode,omitempty"`
+	LocalizedName *string `json:"localizedName,omitempty"`
+	Longitude *float64 `json:"longitude,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Population *float64 `json:"population,omitempty"`
+	PreferredLanguageId *string `json:"preferredLanguageId,omitempty"`
+	TelephoneCode *string `json:"telephoneCode,omitempty"`
+	TrunkPrefix *string `json:"trunkPrefix,omitempty"`
+	WikidataId *string `json:"wikidataId,omitempty"`
 }
 
 // RegionTranslationDto is the typed data model for the region_translation_dto entity.

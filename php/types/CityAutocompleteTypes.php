@@ -274,7 +274,24 @@ class RegionLoadMatch
 /** Request payload for Region#list. */
 class RegionListMatch
 {
-    public ?string $country_id = null;
+    public ?string $code = null;
+    public ?string $countryId = null;
+    public ?string $drivingSide = null;
+    public ?string $emoji = null;
+    public ?string $headOfGovernment = null;
+    public ?string $headOfState = null;
+    public ?string $id = null;
+    public ?string $isoCode = null;
+    public ?float $latitude = null;
+    public ?string $licencePlateCode = null;
+    public ?string $localizedName = null;
+    public ?float $longitude = null;
+    public ?string $name = null;
+    public ?float $population = null;
+    public ?string $preferredLanguageId = null;
+    public ?string $telephoneCode = null;
+    public ?string $trunkPrefix = null;
+    public ?string $wikidataId = null;
 }
 
 /** RegionTranslationDto entity data model. */

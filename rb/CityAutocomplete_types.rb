@@ -746,10 +746,78 @@ RegionLoadMatch = Struct.new(
 
 # Request payload for Region#list.
 #
-# @!attribute [rw] country_id
+# @!attribute [rw] code
+#   @return [String, nil]
+#
+# @!attribute [rw] countryId
+#   @return [String, nil]
+#
+# @!attribute [rw] drivingSide
+#   @return [String, nil]
+#
+# @!attribute [rw] emoji
+#   @return [String, nil]
+#
+# @!attribute [rw] headOfGovernment
+#   @return [String, nil]
+#
+# @!attribute [rw] headOfState
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] isoCode
+#   @return [String, nil]
+#
+# @!attribute [rw] latitude
+#   @return [Float, nil]
+#
+# @!attribute [rw] licencePlateCode
+#   @return [String, nil]
+#
+# @!attribute [rw] localizedName
+#   @return [String, nil]
+#
+# @!attribute [rw] longitude
+#   @return [Float, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] population
+#   @return [Float, nil]
+#
+# @!attribute [rw] preferredLanguageId
+#   @return [String, nil]
+#
+# @!attribute [rw] telephoneCode
+#   @return [String, nil]
+#
+# @!attribute [rw] trunkPrefix
+#   @return [String, nil]
+#
+# @!attribute [rw] wikidataId
 #   @return [String, nil]
 RegionListMatch = Struct.new(
-  :country_id,
+  :code,
+  :countryId,
+  :drivingSide,
+  :emoji,
+  :headOfGovernment,
+  :headOfState,
+  :id,
+  :isoCode,
+  :latitude,
+  :licencePlateCode,
+  :localizedName,
+  :longitude,
+  :name,
+  :population,
+  :preferredLanguageId,
+  :telephoneCode,
+  :trunkPrefix,
+  :wikidataId,
   keyword_init: true
 )
 

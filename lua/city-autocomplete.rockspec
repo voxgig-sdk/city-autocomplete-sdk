@@ -23,6 +23,7 @@ build = {
   modules = {
     ["city-autocomplete_sdk"] = "city-autocomplete_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

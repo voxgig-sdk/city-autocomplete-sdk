@@ -15,7 +15,7 @@ require_relative "../CityAutocomplete_sdk"
 module CityAutocompleteFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CityAutocompleteConfig.make_config["feature"]
+    f = CityAutocompleteConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

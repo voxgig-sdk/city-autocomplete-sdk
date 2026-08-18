@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from cityautocomplete_sdk.config import make_config
+from cityautocomplete_sdk.config import shared_config
 from cityautocomplete_sdk.features import _make_feature
 from cityautocomplete_sdk.core.control import CityAutocompleteControl
 from cityautocomplete_sdk.core.error import CityAutocompleteError
@@ -24,7 +24,7 @@ from cityautocomplete_sdk.core.spec import CityAutocompleteSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

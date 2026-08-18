@@ -206,7 +206,24 @@
 ---@field id string
 
 ---@class RegionListMatch
----@field country_id? string
+---@field code? string
+---@field countryId? string
+---@field drivingSide? string
+---@field emoji? string
+---@field headOfGovernment? string
+---@field headOfState? string
+---@field id? string
+---@field isoCode? string
+---@field latitude? number
+---@field licencePlateCode? string
+---@field localizedName? string
+---@field longitude? number
+---@field name? string
+---@field population? number
+---@field preferredLanguageId? string
+---@field telephoneCode? string
+---@field trunkPrefix? string
+---@field wikidataId? string
 
 ---@class RegionTranslationDto
 ---@field id string
