@@ -1,0 +1,13 @@
+# Flows
+
+@"BasicCityDtoFlow.aon"
+@"BasicCityFlow.aon"
+@"BasicCityTranslationDtoFlow.aon"
+@"BasicCountryFlow.aon"
+@"BasicCountryTranslationDtoFlow.aon"
+@"BasicDistanceFlow.aon"
+@"BasicLanguageFlow.aon"
+@"BasicOneshotFlow.aon"
+@"BasicRegionFlow.aon"
+@"BasicRegionTranslationDtoFlow.aon"
+@"BasicSettlementTypeFlow.aon"

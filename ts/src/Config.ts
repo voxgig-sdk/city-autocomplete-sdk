@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CityAutocomplete',
+        slug: "city-autocomplete",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -90,115 +101,140 @@ class Config {
       "fields": [
         {
           "name": "area",
+          "short": "Area in km²",
           "type": "`$NUMBER`"
         },
         {
           "name": "countryCode",
           "req": true,
+          "short": "ISO country code",
           "type": "`$STRING`"
         },
         {
           "name": "countryEmoji",
           "req": true,
+          "short": "Emoji flag of the country",
           "type": "`$STRING`"
         },
         {
           "name": "countryId",
           "req": true,
+          "short": "UUID of the country",
           "type": "`$STRING`"
         },
         {
           "name": "countryName",
           "req": true,
+          "short": "Country name",
           "type": "`$STRING`"
         },
         {
           "name": "countryTelephoneCode",
+          "short": "Telephone code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "dialingCode",
+          "short": "Dialing code",
           "type": "`$STRING`"
         },
         {
           "name": "distanceKm",
+          "short": "Distance from the given point in kilometers",
           "type": "`$NUMBER`"
         },
         {
           "name": "elevation",
+          "short": "Elevation in meters",
           "type": "`$NUMBER`"
         },
         {
           "name": "flagImage",
+          "short": "Flag image URL",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Geomelon UUID of the city",
           "type": "`$STRING`"
         },
         {
           "name": "latitude",
+          "short": "Latitude coordinate",
           "type": "`$NUMBER`"
         },
         {
           "name": "localizedName",
           "req": true,
+          "short": "Localized name according to preferred languages",
           "type": "`$STRING`"
         },
         {
           "name": "longitude",
+          "short": "Longitude coordinate",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "City name",
           "type": "`$STRING`"
         },
         {
           "name": "normalizedName",
           "req": true,
+          "short": "Normalized city name",
           "type": "`$STRING`"
         },
         {
           "name": "officialWebsite",
+          "short": "Official website URL",
           "type": "`$STRING`"
         },
         {
           "name": "population",
+          "short": "Population of the city",
           "type": "`$NUMBER`"
         },
         {
           "name": "postalCode",
+          "short": "Postal code",
           "type": "`$STRING`"
         },
         {
           "name": "regionCode",
           "req": true,
+          "short": "Region code",
           "type": "`$STRING`"
         },
         {
           "name": "regionId",
           "req": true,
+          "short": "UUID of the region",
           "type": "`$STRING`"
         },
         {
           "name": "regionName",
           "req": true,
+          "short": "Region name",
           "type": "`$STRING`"
         },
         {
           "name": "timeZone",
+          "short": "Time zone",
           "type": "`$STRING`"
         },
         {
           "name": "translations",
           "req": true,
+          "short": "Translations of the city name in requested languages",
           "type": "`$ARRAY`"
         },
         {
           "name": "wikidataId",
           "req": true,
+          "short": "Wikidata ID of the city",
           "type": "`$STRING`"
         }
       ],
@@ -248,115 +284,140 @@ class Config {
       "fields": [
         {
           "name": "area",
+          "short": "Area in km²",
           "type": "`$NUMBER`"
         },
         {
           "name": "countryCode",
           "req": true,
+          "short": "ISO country code",
           "type": "`$STRING`"
         },
         {
           "name": "countryEmoji",
           "req": true,
+          "short": "Emoji flag of the country",
           "type": "`$STRING`"
         },
         {
           "name": "countryId",
           "req": true,
+          "short": "UUID of the country",
           "type": "`$STRING`"
         },
         {
           "name": "countryName",
           "req": true,
+          "short": "Country name",
           "type": "`$STRING`"
         },
         {
           "name": "countryTelephoneCode",
+          "short": "Telephone code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "dialingCode",
+          "short": "Dialing code",
           "type": "`$STRING`"
         },
         {
           "name": "distanceKm",
+          "short": "Distance from the given point in kilometers",
           "type": "`$NUMBER`"
         },
         {
           "name": "elevation",
+          "short": "Elevation in meters",
           "type": "`$NUMBER`"
         },
         {
           "name": "flagImage",
+          "short": "Flag image URL",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Geomelon UUID of the city",
           "type": "`$STRING`"
         },
         {
           "name": "latitude",
+          "short": "Latitude coordinate",
           "type": "`$NUMBER`"
         },
         {
           "name": "localizedName",
           "req": true,
+          "short": "Localized name according to preferred languages",
           "type": "`$STRING`"
         },
         {
           "name": "longitude",
+          "short": "Longitude coordinate",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "City name",
           "type": "`$STRING`"
         },
         {
           "name": "normalizedName",
           "req": true,
+          "short": "Normalized city name",
           "type": "`$STRING`"
         },
         {
           "name": "officialWebsite",
+          "short": "Official website URL",
           "type": "`$STRING`"
         },
         {
           "name": "population",
+          "short": "Population of the city",
           "type": "`$NUMBER`"
         },
         {
           "name": "postalCode",
+          "short": "Postal code",
           "type": "`$STRING`"
         },
         {
           "name": "regionCode",
           "req": true,
+          "short": "Region code",
           "type": "`$STRING`"
         },
         {
           "name": "regionId",
           "req": true,
+          "short": "UUID of the region",
           "type": "`$STRING`"
         },
         {
           "name": "regionName",
           "req": true,
+          "short": "Region name",
           "type": "`$STRING`"
         },
         {
           "name": "timeZone",
+          "short": "Time zone",
           "type": "`$STRING`"
         },
         {
           "name": "translations",
           "req": true,
+          "short": "Translations of the city name in requested languages",
           "type": "`$ARRAY`"
         },
         {
           "name": "wikidataId",
           "req": true,
+          "short": "Wikidata ID of the city",
           "type": "`$STRING`"
         }
       ],
@@ -560,26 +621,31 @@ class Config {
         {
           "name": "cityId",
           "req": true,
+          "short": "City ID",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Translation ID",
           "type": "`$STRING`"
         },
         {
           "name": "language",
           "req": true,
+          "short": "Language code",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Translated name",
           "type": "`$STRING`"
         },
         {
           "name": "nameNormalized",
           "req": true,
+          "short": "Normalized translated name",
           "type": "`$STRING`"
         }
       ],
@@ -632,75 +698,90 @@ class Config {
         {
           "name": "drivingSide",
           "req": true,
+          "short": "Driving side of the country",
           "type": "`$STRING`"
         },
         {
           "name": "emoji",
           "req": true,
+          "short": "Emoji of the country",
           "type": "`$STRING`"
         },
         {
           "name": "headOfGovernment",
           "req": true,
+          "short": "Head of government of the country",
           "type": "`$STRING`"
         },
         {
           "name": "headOfState",
           "req": true,
+          "short": "Head of state of the country",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Country ID",
           "type": "`$STRING`"
         },
         {
           "name": "isoCode",
           "req": true,
+          "short": "ISO code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "licencePlateCode",
           "req": true,
+          "short": "Licence plate code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "localizedName",
+          "short": "Name in the first matched preferred language, falls back to name",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Name of the country",
           "type": "`$STRING`"
         },
         {
           "name": "preferredLanguageId",
           "req": true,
+          "short": "Preferred language ID for the country",
           "type": "`$STRING`"
         },
         {
           "name": "regions",
           "req": true,
+          "short": "Regions within the country",
           "type": "`$ARRAY`"
         },
         {
           "name": "telephoneCode",
           "req": true,
+          "short": "Telephone code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "translations",
           "req": true,
+          "short": "Country translations",
           "type": "`$ARRAY`"
         },
         {
           "name": "trunkPrefix",
           "req": true,
+          "short": "Trunk prefix of the country",
           "type": "`$STRING`"
         },
         {
           "name": "wikidataId",
           "req": true,
+          "short": "Wikidata ID",
           "type": "`$STRING`"
         }
       ],
@@ -818,26 +899,31 @@ class Config {
         {
           "name": "countryId",
           "req": true,
+          "short": "Country ID",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Translation ID",
           "type": "`$STRING`"
         },
         {
           "name": "language",
           "req": true,
+          "short": "Language code",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Translated name",
           "type": "`$STRING`"
         },
         {
           "name": "nameNormalized",
           "req": true,
+          "short": "Normalized translated name",
           "type": "`$STRING`"
         }
       ],
@@ -901,6 +987,7 @@ class Config {
         {
           "name": "distanceKm",
           "req": true,
+          "short": "Distance between cities",
           "type": "`$NUMBER`"
         }
       ],
@@ -959,26 +1046,31 @@ class Config {
         {
           "name": "citiesCount",
           "req": true,
+          "short": "Number of cities using this language",
           "type": "`$NUMBER`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "UUID of the language",
           "type": "`$STRING`"
         },
         {
           "name": "isoCode",
           "req": true,
+          "short": "ISO code of the language",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Name of the language",
           "type": "`$STRING`"
         },
         {
           "name": "wikidataId",
           "req": true,
+          "short": "Wikidata ID of the language",
           "type": "`$STRING`"
         }
       ],
@@ -1076,6 +1168,7 @@ class Config {
         },
         {
           "name": "en",
+          "short": "English name — omitted when the requested language is English or no English translation exists",
           "type": "`$STRING`"
         },
         {
@@ -1086,6 +1179,7 @@ class Config {
         {
           "name": "name",
           "req": true,
+          "short": "City name in the requested language",
           "type": "`$STRING`"
         },
         {
@@ -1167,90 +1261,108 @@ class Config {
         {
           "name": "code",
           "req": true,
+          "short": "Region code",
           "type": "`$STRING`"
         },
         {
           "name": "countryId",
           "req": true,
+          "short": "Country ID the region belongs to",
           "type": "`$STRING`"
         },
         {
           "name": "drivingSide",
           "req": true,
+          "short": "Driving side of the country",
           "type": "`$STRING`"
         },
         {
           "name": "emoji",
           "req": true,
+          "short": "Emoji of the country",
           "type": "`$STRING`"
         },
         {
           "name": "headOfGovernment",
           "req": true,
+          "short": "Head of government of the country",
           "type": "`$STRING`"
         },
         {
           "name": "headOfState",
           "req": true,
+          "short": "Head of state of the country",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Country ID",
           "type": "`$STRING`"
         },
         {
           "name": "isoCode",
           "req": true,
+          "short": "ISO code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "latitude",
           "req": true,
+          "short": "Latitude of the region center",
           "type": "`$NUMBER`"
         },
         {
           "name": "licencePlateCode",
           "req": true,
+          "short": "Licence plate code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "localizedName",
+          "short": "Name in the first matched preferred language, falls back to name",
           "type": "`$STRING`"
         },
         {
           "name": "longitude",
           "req": true,
+          "short": "Longitude of the region center",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Name of the country",
           "type": "`$STRING`"
         },
         {
           "name": "population",
           "req": true,
+          "short": "Population of the region",
           "type": "`$NUMBER`"
         },
         {
           "name": "preferredLanguageId",
           "req": true,
+          "short": "Preferred language ID for the country",
           "type": "`$STRING`"
         },
         {
           "name": "telephoneCode",
           "req": true,
+          "short": "Telephone code of the country",
           "type": "`$STRING`"
         },
         {
           "name": "trunkPrefix",
           "req": true,
+          "short": "Trunk prefix of the country",
           "type": "`$STRING`"
         },
         {
           "name": "wikidataId",
           "req": true,
+          "short": "Wikidata ID",
           "type": "`$STRING`"
         }
       ],
@@ -1376,26 +1488,31 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "Translation ID",
           "type": "`$STRING`"
         },
         {
           "name": "language",
           "req": true,
+          "short": "Language code",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Translated name",
           "type": "`$STRING`"
         },
         {
           "name": "nameNormalized",
           "req": true,
+          "short": "Normalized translated name",
           "type": "`$STRING`"
         },
         {
           "name": "regionId",
           "req": true,
+          "short": "Region ID",
           "type": "`$STRING`"
         }
       ],
@@ -1459,26 +1576,31 @@ class Config {
         {
           "name": "description",
           "req": true,
+          "short": "Description of the settlement type",
           "type": "`$STRING`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Settlement Type ID",
           "type": "`$STRING`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Name of the settlement type",
           "type": "`$STRING`"
         },
         {
           "name": "nameNormalized",
           "req": true,
+          "short": "Normalized name of the settlement type",
           "type": "`$STRING`"
         },
         {
           "name": "wikidataId",
           "req": true,
+          "short": "Wikidata ID",
           "type": "`$STRING`"
         }
       ],

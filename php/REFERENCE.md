@@ -133,31 +133,31 @@ $city = $client->City();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `float` | No |  |
-| `countryCode` | `string` | Yes |  |
-| `countryEmoji` | `string` | Yes |  |
-| `countryId` | `string` | Yes |  |
-| `countryName` | `string` | Yes |  |
-| `countryTelephoneCode` | `string` | No |  |
-| `dialingCode` | `string` | No |  |
-| `distanceKm` | `float` | No |  |
-| `elevation` | `float` | No |  |
-| `flagImage` | `string` | No |  |
-| `id` | `string` | Yes |  |
-| `latitude` | `float` | No |  |
-| `localizedName` | `string` | Yes |  |
-| `longitude` | `float` | No |  |
-| `name` | `string` | Yes |  |
-| `normalizedName` | `string` | Yes |  |
-| `officialWebsite` | `string` | No |  |
-| `population` | `float` | No |  |
-| `postalCode` | `string` | No |  |
-| `regionCode` | `string` | Yes |  |
-| `regionId` | `string` | Yes |  |
-| `regionName` | `string` | Yes |  |
-| `timeZone` | `string` | No |  |
-| `translations` | `array` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `area` | `float` | No | Area in km² |
+| `countryCode` | `string` | Yes | ISO country code |
+| `countryEmoji` | `string` | Yes | Emoji flag of the country |
+| `countryId` | `string` | Yes | UUID of the country |
+| `countryName` | `string` | Yes | Country name |
+| `countryTelephoneCode` | `string` | No | Telephone code of the country |
+| `dialingCode` | `string` | No | Dialing code |
+| `distanceKm` | `float` | No | Distance from the given point in kilometers |
+| `elevation` | `float` | No | Elevation in meters |
+| `flagImage` | `string` | No | Flag image URL |
+| `id` | `string` | Yes | Geomelon UUID of the city |
+| `latitude` | `float` | No | Latitude coordinate |
+| `localizedName` | `string` | Yes | Localized name according to preferred languages |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `string` | Yes | City name |
+| `normalizedName` | `string` | Yes | Normalized city name |
+| `officialWebsite` | `string` | No | Official website URL |
+| `population` | `float` | No | Population of the city |
+| `postalCode` | `string` | No | Postal code |
+| `regionCode` | `string` | Yes | Region code |
+| `regionId` | `string` | Yes | UUID of the region |
+| `regionName` | `string` | Yes | Region name |
+| `timeZone` | `string` | No | Time zone |
+| `translations` | `array` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `string` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -209,31 +209,31 @@ $city_dto = $client->CityDto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `float` | No |  |
-| `countryCode` | `string` | Yes |  |
-| `countryEmoji` | `string` | Yes |  |
-| `countryId` | `string` | Yes |  |
-| `countryName` | `string` | Yes |  |
-| `countryTelephoneCode` | `string` | No |  |
-| `dialingCode` | `string` | No |  |
-| `distanceKm` | `float` | No |  |
-| `elevation` | `float` | No |  |
-| `flagImage` | `string` | No |  |
-| `id` | `string` | Yes |  |
-| `latitude` | `float` | No |  |
-| `localizedName` | `string` | Yes |  |
-| `longitude` | `float` | No |  |
-| `name` | `string` | Yes |  |
-| `normalizedName` | `string` | Yes |  |
-| `officialWebsite` | `string` | No |  |
-| `population` | `float` | No |  |
-| `postalCode` | `string` | No |  |
-| `regionCode` | `string` | Yes |  |
-| `regionId` | `string` | Yes |  |
-| `regionName` | `string` | Yes |  |
-| `timeZone` | `string` | No |  |
-| `translations` | `array` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `area` | `float` | No | Area in km² |
+| `countryCode` | `string` | Yes | ISO country code |
+| `countryEmoji` | `string` | Yes | Emoji flag of the country |
+| `countryId` | `string` | Yes | UUID of the country |
+| `countryName` | `string` | Yes | Country name |
+| `countryTelephoneCode` | `string` | No | Telephone code of the country |
+| `dialingCode` | `string` | No | Dialing code |
+| `distanceKm` | `float` | No | Distance from the given point in kilometers |
+| `elevation` | `float` | No | Elevation in meters |
+| `flagImage` | `string` | No | Flag image URL |
+| `id` | `string` | Yes | Geomelon UUID of the city |
+| `latitude` | `float` | No | Latitude coordinate |
+| `localizedName` | `string` | Yes | Localized name according to preferred languages |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `string` | Yes | City name |
+| `normalizedName` | `string` | Yes | Normalized city name |
+| `officialWebsite` | `string` | No | Official website URL |
+| `population` | `float` | No | Population of the city |
+| `postalCode` | `string` | No | Postal code |
+| `regionCode` | `string` | Yes | Region code |
+| `regionId` | `string` | Yes | UUID of the region |
+| `regionName` | `string` | Yes | Region name |
+| `timeZone` | `string` | No | Time zone |
+| `translations` | `array` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `string` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -285,11 +285,11 @@ $city_translation_dto = $client->CityTranslationDto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cityId` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `language` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
+| `cityId` | `string` | Yes | City ID |
+| `id` | `string` | Yes | Translation ID |
+| `language` | `string` | Yes | Language code |
+| `name` | `string` | Yes | Translated name |
+| `nameNormalized` | `string` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -341,21 +341,21 @@ $country = $client->Country();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `drivingSide` | `string` | Yes |  |
-| `emoji` | `string` | Yes |  |
-| `headOfGovernment` | `string` | Yes |  |
-| `headOfState` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `isoCode` | `string` | Yes |  |
-| `licencePlateCode` | `string` | Yes |  |
-| `localizedName` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `preferredLanguageId` | `string` | Yes |  |
-| `regions` | `array` | Yes |  |
-| `telephoneCode` | `string` | Yes |  |
-| `translations` | `array` | Yes |  |
-| `trunkPrefix` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes | Driving side of the country |
+| `emoji` | `string` | Yes | Emoji of the country |
+| `headOfGovernment` | `string` | Yes | Head of government of the country |
+| `headOfState` | `string` | Yes | Head of state of the country |
+| `id` | `string` | Yes | Country ID |
+| `isoCode` | `string` | Yes | ISO code of the country |
+| `licencePlateCode` | `string` | Yes | Licence plate code of the country |
+| `localizedName` | `string` | No | Name in the first matched preferred language, falls back to name |
+| `name` | `string` | Yes | Name of the country |
+| `preferredLanguageId` | `string` | Yes | Preferred language ID for the country |
+| `regions` | `array` | Yes | Regions within the country |
+| `telephoneCode` | `string` | Yes | Telephone code of the country |
+| `translations` | `array` | Yes | Country translations |
+| `trunkPrefix` | `string` | Yes | Trunk prefix of the country |
+| `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -415,11 +415,11 @@ $country_translation_dto = $client->CountryTranslationDto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `countryId` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `language` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
+| `countryId` | `string` | Yes | Country ID |
+| `id` | `string` | Yes | Translation ID |
+| `language` | `string` | Yes | Language code |
+| `name` | `string` | Yes | Translated name |
+| `nameNormalized` | `string` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -471,7 +471,7 @@ $distance = $client->Distance();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distanceKm` | `float` | Yes |  |
+| `distanceKm` | `float` | Yes | Distance between cities |
 
 ### Operations
 
@@ -523,11 +523,11 @@ $language = $client->Language();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `citiesCount` | `float` | Yes |  |
-| `id` | `string` | Yes |  |
-| `isoCode` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `citiesCount` | `float` | Yes | Number of cities using this language |
+| `id` | `string` | Yes | UUID of the language |
+| `isoCode` | `string` | Yes | ISO code of the language |
+| `name` | `string` | Yes | Name of the language |
+| `wikidataId` | `string` | Yes | Wikidata ID of the language |
 
 ### Operations
 
@@ -588,9 +588,9 @@ $oneshot = $client->Oneshot();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `emoji` | `array` | Yes |  |
-| `en` | `string` | No |  |
+| `en` | `string` | No | English name — omitted when the requested language is English or no English translation exists |
 | `id` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
+| `name` | `string` | Yes | City name in the requested language |
 | `population` | `array` | Yes |  |
 
 ### Operations
@@ -643,24 +643,24 @@ $region = $client->Region();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `string` | Yes |  |
-| `countryId` | `string` | Yes |  |
-| `drivingSide` | `string` | Yes |  |
-| `emoji` | `string` | Yes |  |
-| `headOfGovernment` | `string` | Yes |  |
-| `headOfState` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `isoCode` | `string` | Yes |  |
-| `latitude` | `float` | Yes |  |
-| `licencePlateCode` | `string` | Yes |  |
-| `localizedName` | `string` | No |  |
-| `longitude` | `float` | Yes |  |
-| `name` | `string` | Yes |  |
-| `population` | `float` | Yes |  |
-| `preferredLanguageId` | `string` | Yes |  |
-| `telephoneCode` | `string` | Yes |  |
-| `trunkPrefix` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `code` | `string` | Yes | Region code |
+| `countryId` | `string` | Yes | Country ID the region belongs to |
+| `drivingSide` | `string` | Yes | Driving side of the country |
+| `emoji` | `string` | Yes | Emoji of the country |
+| `headOfGovernment` | `string` | Yes | Head of government of the country |
+| `headOfState` | `string` | Yes | Head of state of the country |
+| `id` | `string` | Yes | Country ID |
+| `isoCode` | `string` | Yes | ISO code of the country |
+| `latitude` | `float` | Yes | Latitude of the region center |
+| `licencePlateCode` | `string` | Yes | Licence plate code of the country |
+| `localizedName` | `string` | No | Name in the first matched preferred language, falls back to name |
+| `longitude` | `float` | Yes | Longitude of the region center |
+| `name` | `string` | Yes | Name of the country |
+| `population` | `float` | Yes | Population of the region |
+| `preferredLanguageId` | `string` | Yes | Preferred language ID for the country |
+| `telephoneCode` | `string` | Yes | Telephone code of the country |
+| `trunkPrefix` | `string` | Yes | Trunk prefix of the country |
+| `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -720,11 +720,11 @@ $region_translation_dto = $client->RegionTranslationDto();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `language` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
-| `regionId` | `string` | Yes |  |
+| `id` | `string` | Yes | Translation ID |
+| `language` | `string` | Yes | Language code |
+| `name` | `string` | Yes | Translated name |
+| `nameNormalized` | `string` | Yes | Normalized translated name |
+| `regionId` | `string` | Yes | Region ID |
 
 ### Operations
 
@@ -776,11 +776,11 @@ $settlement_type = $client->SettlementType();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `description` | `string` | Yes | Description of the settlement type |
+| `id` | `string` | Yes | Settlement Type ID |
+| `name` | `string` | Yes | Name of the settlement type |
+| `nameNormalized` | `string` | Yes | Normalized name of the settlement type |
+| `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations
 

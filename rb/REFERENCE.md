@@ -134,31 +134,31 @@ city = client.City
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `Float` | No |  |
-| `countryCode` | `String` | Yes |  |
-| `countryEmoji` | `String` | Yes |  |
-| `countryId` | `String` | Yes |  |
-| `countryName` | `String` | Yes |  |
-| `countryTelephoneCode` | `String` | No |  |
-| `dialingCode` | `String` | No |  |
-| `distanceKm` | `Float` | No |  |
-| `elevation` | `Float` | No |  |
-| `flagImage` | `String` | No |  |
-| `id` | `String` | Yes |  |
-| `latitude` | `Float` | No |  |
-| `localizedName` | `String` | Yes |  |
-| `longitude` | `Float` | No |  |
-| `name` | `String` | Yes |  |
-| `normalizedName` | `String` | Yes |  |
-| `officialWebsite` | `String` | No |  |
-| `population` | `Float` | No |  |
-| `postalCode` | `String` | No |  |
-| `regionCode` | `String` | Yes |  |
-| `regionId` | `String` | Yes |  |
-| `regionName` | `String` | Yes |  |
-| `timeZone` | `String` | No |  |
-| `translations` | `Array` | Yes |  |
-| `wikidataId` | `String` | Yes |  |
+| `area` | `Float` | No | Area in km² |
+| `countryCode` | `String` | Yes | ISO country code |
+| `countryEmoji` | `String` | Yes | Emoji flag of the country |
+| `countryId` | `String` | Yes | UUID of the country |
+| `countryName` | `String` | Yes | Country name |
+| `countryTelephoneCode` | `String` | No | Telephone code of the country |
+| `dialingCode` | `String` | No | Dialing code |
+| `distanceKm` | `Float` | No | Distance from the given point in kilometers |
+| `elevation` | `Float` | No | Elevation in meters |
+| `flagImage` | `String` | No | Flag image URL |
+| `id` | `String` | Yes | Geomelon UUID of the city |
+| `latitude` | `Float` | No | Latitude coordinate |
+| `localizedName` | `String` | Yes | Localized name according to preferred languages |
+| `longitude` | `Float` | No | Longitude coordinate |
+| `name` | `String` | Yes | City name |
+| `normalizedName` | `String` | Yes | Normalized city name |
+| `officialWebsite` | `String` | No | Official website URL |
+| `population` | `Float` | No | Population of the city |
+| `postalCode` | `String` | No | Postal code |
+| `regionCode` | `String` | Yes | Region code |
+| `regionId` | `String` | Yes | UUID of the region |
+| `regionName` | `String` | Yes | Region name |
+| `timeZone` | `String` | No | Time zone |
+| `translations` | `Array` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `String` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -210,31 +210,31 @@ city_dto = client.CityDto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `Float` | No |  |
-| `countryCode` | `String` | Yes |  |
-| `countryEmoji` | `String` | Yes |  |
-| `countryId` | `String` | Yes |  |
-| `countryName` | `String` | Yes |  |
-| `countryTelephoneCode` | `String` | No |  |
-| `dialingCode` | `String` | No |  |
-| `distanceKm` | `Float` | No |  |
-| `elevation` | `Float` | No |  |
-| `flagImage` | `String` | No |  |
-| `id` | `String` | Yes |  |
-| `latitude` | `Float` | No |  |
-| `localizedName` | `String` | Yes |  |
-| `longitude` | `Float` | No |  |
-| `name` | `String` | Yes |  |
-| `normalizedName` | `String` | Yes |  |
-| `officialWebsite` | `String` | No |  |
-| `population` | `Float` | No |  |
-| `postalCode` | `String` | No |  |
-| `regionCode` | `String` | Yes |  |
-| `regionId` | `String` | Yes |  |
-| `regionName` | `String` | Yes |  |
-| `timeZone` | `String` | No |  |
-| `translations` | `Array` | Yes |  |
-| `wikidataId` | `String` | Yes |  |
+| `area` | `Float` | No | Area in km² |
+| `countryCode` | `String` | Yes | ISO country code |
+| `countryEmoji` | `String` | Yes | Emoji flag of the country |
+| `countryId` | `String` | Yes | UUID of the country |
+| `countryName` | `String` | Yes | Country name |
+| `countryTelephoneCode` | `String` | No | Telephone code of the country |
+| `dialingCode` | `String` | No | Dialing code |
+| `distanceKm` | `Float` | No | Distance from the given point in kilometers |
+| `elevation` | `Float` | No | Elevation in meters |
+| `flagImage` | `String` | No | Flag image URL |
+| `id` | `String` | Yes | Geomelon UUID of the city |
+| `latitude` | `Float` | No | Latitude coordinate |
+| `localizedName` | `String` | Yes | Localized name according to preferred languages |
+| `longitude` | `Float` | No | Longitude coordinate |
+| `name` | `String` | Yes | City name |
+| `normalizedName` | `String` | Yes | Normalized city name |
+| `officialWebsite` | `String` | No | Official website URL |
+| `population` | `Float` | No | Population of the city |
+| `postalCode` | `String` | No | Postal code |
+| `regionCode` | `String` | Yes | Region code |
+| `regionId` | `String` | Yes | UUID of the region |
+| `regionName` | `String` | Yes | Region name |
+| `timeZone` | `String` | No | Time zone |
+| `translations` | `Array` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `String` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -286,11 +286,11 @@ city_translation_dto = client.CityTranslationDto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cityId` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `language` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `nameNormalized` | `String` | Yes |  |
+| `cityId` | `String` | Yes | City ID |
+| `id` | `String` | Yes | Translation ID |
+| `language` | `String` | Yes | Language code |
+| `name` | `String` | Yes | Translated name |
+| `nameNormalized` | `String` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -342,21 +342,21 @@ country = client.Country
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `drivingSide` | `String` | Yes |  |
-| `emoji` | `String` | Yes |  |
-| `headOfGovernment` | `String` | Yes |  |
-| `headOfState` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `isoCode` | `String` | Yes |  |
-| `licencePlateCode` | `String` | Yes |  |
-| `localizedName` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `preferredLanguageId` | `String` | Yes |  |
-| `regions` | `Array` | Yes |  |
-| `telephoneCode` | `String` | Yes |  |
-| `translations` | `Array` | Yes |  |
-| `trunkPrefix` | `String` | Yes |  |
-| `wikidataId` | `String` | Yes |  |
+| `drivingSide` | `String` | Yes | Driving side of the country |
+| `emoji` | `String` | Yes | Emoji of the country |
+| `headOfGovernment` | `String` | Yes | Head of government of the country |
+| `headOfState` | `String` | Yes | Head of state of the country |
+| `id` | `String` | Yes | Country ID |
+| `isoCode` | `String` | Yes | ISO code of the country |
+| `licencePlateCode` | `String` | Yes | Licence plate code of the country |
+| `localizedName` | `String` | No | Name in the first matched preferred language, falls back to name |
+| `name` | `String` | Yes | Name of the country |
+| `preferredLanguageId` | `String` | Yes | Preferred language ID for the country |
+| `regions` | `Array` | Yes | Regions within the country |
+| `telephoneCode` | `String` | Yes | Telephone code of the country |
+| `translations` | `Array` | Yes | Country translations |
+| `trunkPrefix` | `String` | Yes | Trunk prefix of the country |
+| `wikidataId` | `String` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -416,11 +416,11 @@ country_translation_dto = client.CountryTranslationDto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `countryId` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `language` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `nameNormalized` | `String` | Yes |  |
+| `countryId` | `String` | Yes | Country ID |
+| `id` | `String` | Yes | Translation ID |
+| `language` | `String` | Yes | Language code |
+| `name` | `String` | Yes | Translated name |
+| `nameNormalized` | `String` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -472,7 +472,7 @@ distance = client.Distance
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distanceKm` | `Float` | Yes |  |
+| `distanceKm` | `Float` | Yes | Distance between cities |
 
 ### Operations
 
@@ -524,11 +524,11 @@ language = client.Language
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `citiesCount` | `Float` | Yes |  |
-| `id` | `String` | Yes |  |
-| `isoCode` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `wikidataId` | `String` | Yes |  |
+| `citiesCount` | `Float` | Yes | Number of cities using this language |
+| `id` | `String` | Yes | UUID of the language |
+| `isoCode` | `String` | Yes | ISO code of the language |
+| `name` | `String` | Yes | Name of the language |
+| `wikidataId` | `String` | Yes | Wikidata ID of the language |
 
 ### Operations
 
@@ -589,9 +589,9 @@ oneshot = client.Oneshot
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `emoji` | `Hash` | Yes |  |
-| `en` | `String` | No |  |
+| `en` | `String` | No | English name — omitted when the requested language is English or no English translation exists |
 | `id` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
+| `name` | `String` | Yes | City name in the requested language |
 | `population` | `Hash` | Yes |  |
 
 ### Operations
@@ -644,24 +644,24 @@ region = client.Region
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `String` | Yes |  |
-| `countryId` | `String` | Yes |  |
-| `drivingSide` | `String` | Yes |  |
-| `emoji` | `String` | Yes |  |
-| `headOfGovernment` | `String` | Yes |  |
-| `headOfState` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `isoCode` | `String` | Yes |  |
-| `latitude` | `Float` | Yes |  |
-| `licencePlateCode` | `String` | Yes |  |
-| `localizedName` | `String` | No |  |
-| `longitude` | `Float` | Yes |  |
-| `name` | `String` | Yes |  |
-| `population` | `Float` | Yes |  |
-| `preferredLanguageId` | `String` | Yes |  |
-| `telephoneCode` | `String` | Yes |  |
-| `trunkPrefix` | `String` | Yes |  |
-| `wikidataId` | `String` | Yes |  |
+| `code` | `String` | Yes | Region code |
+| `countryId` | `String` | Yes | Country ID the region belongs to |
+| `drivingSide` | `String` | Yes | Driving side of the country |
+| `emoji` | `String` | Yes | Emoji of the country |
+| `headOfGovernment` | `String` | Yes | Head of government of the country |
+| `headOfState` | `String` | Yes | Head of state of the country |
+| `id` | `String` | Yes | Country ID |
+| `isoCode` | `String` | Yes | ISO code of the country |
+| `latitude` | `Float` | Yes | Latitude of the region center |
+| `licencePlateCode` | `String` | Yes | Licence plate code of the country |
+| `localizedName` | `String` | No | Name in the first matched preferred language, falls back to name |
+| `longitude` | `Float` | Yes | Longitude of the region center |
+| `name` | `String` | Yes | Name of the country |
+| `population` | `Float` | Yes | Population of the region |
+| `preferredLanguageId` | `String` | Yes | Preferred language ID for the country |
+| `telephoneCode` | `String` | Yes | Telephone code of the country |
+| `trunkPrefix` | `String` | Yes | Trunk prefix of the country |
+| `wikidataId` | `String` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -721,11 +721,11 @@ region_translation_dto = client.RegionTranslationDto
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | Yes |  |
-| `language` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `nameNormalized` | `String` | Yes |  |
-| `regionId` | `String` | Yes |  |
+| `id` | `String` | Yes | Translation ID |
+| `language` | `String` | Yes | Language code |
+| `name` | `String` | Yes | Translated name |
+| `nameNormalized` | `String` | Yes | Normalized translated name |
+| `regionId` | `String` | Yes | Region ID |
 
 ### Operations
 
@@ -777,11 +777,11 @@ settlement_type = client.SettlementType
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `nameNormalized` | `String` | Yes |  |
-| `wikidataId` | `String` | Yes |  |
+| `description` | `String` | Yes | Description of the settlement type |
+| `id` | `String` | Yes | Settlement Type ID |
+| `name` | `String` | Yes | Name of the settlement type |
+| `nameNormalized` | `String` | Yes | Normalized name of the settlement type |
+| `wikidataId` | `String` | Yes | Wikidata ID |
 
 ### Operations
 

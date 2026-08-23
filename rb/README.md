@@ -253,31 +253,31 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `area` |  |
-| `countryCode` |  |
-| `countryEmoji` |  |
-| `countryId` |  |
-| `countryName` |  |
-| `countryTelephoneCode` |  |
-| `dialingCode` |  |
-| `distanceKm` |  |
-| `elevation` |  |
-| `flagImage` |  |
-| `id` |  |
-| `latitude` |  |
-| `localizedName` |  |
-| `longitude` |  |
-| `name` |  |
-| `normalizedName` |  |
-| `officialWebsite` |  |
-| `population` |  |
-| `postalCode` |  |
-| `regionCode` |  |
-| `regionId` |  |
-| `regionName` |  |
-| `timeZone` |  |
-| `translations` |  |
-| `wikidataId` |  |
+| `area` | Area in km² |
+| `countryCode` | ISO country code |
+| `countryEmoji` | Emoji flag of the country |
+| `countryId` | UUID of the country |
+| `countryName` | Country name |
+| `countryTelephoneCode` | Telephone code of the country |
+| `dialingCode` | Dialing code |
+| `distanceKm` | Distance from the given point in kilometers |
+| `elevation` | Elevation in meters |
+| `flagImage` | Flag image URL |
+| `id` | Geomelon UUID of the city |
+| `latitude` | Latitude coordinate |
+| `localizedName` | Localized name according to preferred languages |
+| `longitude` | Longitude coordinate |
+| `name` | City name |
+| `normalizedName` | Normalized city name |
+| `officialWebsite` | Official website URL |
+| `population` | Population of the city |
+| `postalCode` | Postal code |
+| `regionCode` | Region code |
+| `regionId` | UUID of the region |
+| `regionName` | Region name |
+| `timeZone` | Time zone |
+| `translations` | Translations of the city name in requested languages |
+| `wikidataId` | Wikidata ID of the city |
 
 Operations: Load.
 
@@ -287,31 +287,31 @@ API path: `/cities/{id}`
 
 | Field | Description |
 | --- | --- |
-| `area` |  |
-| `countryCode` |  |
-| `countryEmoji` |  |
-| `countryId` |  |
-| `countryName` |  |
-| `countryTelephoneCode` |  |
-| `dialingCode` |  |
-| `distanceKm` |  |
-| `elevation` |  |
-| `flagImage` |  |
-| `id` |  |
-| `latitude` |  |
-| `localizedName` |  |
-| `longitude` |  |
-| `name` |  |
-| `normalizedName` |  |
-| `officialWebsite` |  |
-| `population` |  |
-| `postalCode` |  |
-| `regionCode` |  |
-| `regionId` |  |
-| `regionName` |  |
-| `timeZone` |  |
-| `translations` |  |
-| `wikidataId` |  |
+| `area` | Area in km² |
+| `countryCode` | ISO country code |
+| `countryEmoji` | Emoji flag of the country |
+| `countryId` | UUID of the country |
+| `countryName` | Country name |
+| `countryTelephoneCode` | Telephone code of the country |
+| `dialingCode` | Dialing code |
+| `distanceKm` | Distance from the given point in kilometers |
+| `elevation` | Elevation in meters |
+| `flagImage` | Flag image URL |
+| `id` | Geomelon UUID of the city |
+| `latitude` | Latitude coordinate |
+| `localizedName` | Localized name according to preferred languages |
+| `longitude` | Longitude coordinate |
+| `name` | City name |
+| `normalizedName` | Normalized city name |
+| `officialWebsite` | Official website URL |
+| `population` | Population of the city |
+| `postalCode` | Postal code |
+| `regionCode` | Region code |
+| `regionId` | UUID of the region |
+| `regionName` | Region name |
+| `timeZone` | Time zone |
+| `translations` | Translations of the city name in requested languages |
+| `wikidataId` | Wikidata ID of the city |
 
 Operations: List.
 
@@ -321,11 +321,11 @@ API path: `/cities/search`
 
 | Field | Description |
 | --- | --- |
-| `cityId` |  |
-| `id` |  |
-| `language` |  |
-| `name` |  |
-| `nameNormalized` |  |
+| `cityId` | City ID |
+| `id` | Translation ID |
+| `language` | Language code |
+| `name` | Translated name |
+| `nameNormalized` | Normalized translated name |
 
 Operations: List.
 
@@ -335,21 +335,21 @@ API path: `/cities/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `drivingSide` |  |
-| `emoji` |  |
-| `headOfGovernment` |  |
-| `headOfState` |  |
-| `id` |  |
-| `isoCode` |  |
-| `licencePlateCode` |  |
-| `localizedName` |  |
-| `name` |  |
-| `preferredLanguageId` |  |
-| `regions` |  |
-| `telephoneCode` |  |
-| `translations` |  |
-| `trunkPrefix` |  |
-| `wikidataId` |  |
+| `drivingSide` | Driving side of the country |
+| `emoji` | Emoji of the country |
+| `headOfGovernment` | Head of government of the country |
+| `headOfState` | Head of state of the country |
+| `id` | Country ID |
+| `isoCode` | ISO code of the country |
+| `licencePlateCode` | Licence plate code of the country |
+| `localizedName` | Name in the first matched preferred language, falls back to name |
+| `name` | Name of the country |
+| `preferredLanguageId` | Preferred language ID for the country |
+| `regions` | Regions within the country |
+| `telephoneCode` | Telephone code of the country |
+| `translations` | Country translations |
+| `trunkPrefix` | Trunk prefix of the country |
+| `wikidataId` | Wikidata ID |
 
 Operations: List, Load.
 
@@ -359,11 +359,11 @@ API path: `/countries`
 
 | Field | Description |
 | --- | --- |
-| `countryId` |  |
-| `id` |  |
-| `language` |  |
-| `name` |  |
-| `nameNormalized` |  |
+| `countryId` | Country ID |
+| `id` | Translation ID |
+| `language` | Language code |
+| `name` | Translated name |
+| `nameNormalized` | Normalized translated name |
 
 Operations: List.
 
@@ -373,7 +373,7 @@ API path: `/countries/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `distanceKm` |  |
+| `distanceKm` | Distance between cities |
 
 Operations: Load.
 
@@ -383,11 +383,11 @@ API path: `/cities/distance`
 
 | Field | Description |
 | --- | --- |
-| `citiesCount` |  |
-| `id` |  |
-| `isoCode` |  |
-| `name` |  |
-| `wikidataId` |  |
+| `citiesCount` | Number of cities using this language |
+| `id` | UUID of the language |
+| `isoCode` | ISO code of the language |
+| `name` | Name of the language |
+| `wikidataId` | Wikidata ID of the language |
 
 Operations: List, Load.
 
@@ -398,9 +398,9 @@ API path: `/languages`
 | Field | Description |
 | --- | --- |
 | `emoji` |  |
-| `en` |  |
+| `en` | English name — omitted when the requested language is English or no English translation exists |
 | `id` |  |
-| `name` |  |
+| `name` | City name in the requested language |
 | `population` |  |
 
 Operations: List.
@@ -411,24 +411,24 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `countryId` |  |
-| `drivingSide` |  |
-| `emoji` |  |
-| `headOfGovernment` |  |
-| `headOfState` |  |
-| `id` |  |
-| `isoCode` |  |
-| `latitude` |  |
-| `licencePlateCode` |  |
-| `localizedName` |  |
-| `longitude` |  |
-| `name` |  |
-| `population` |  |
-| `preferredLanguageId` |  |
-| `telephoneCode` |  |
-| `trunkPrefix` |  |
-| `wikidataId` |  |
+| `code` | Region code |
+| `countryId` | Country ID the region belongs to |
+| `drivingSide` | Driving side of the country |
+| `emoji` | Emoji of the country |
+| `headOfGovernment` | Head of government of the country |
+| `headOfState` | Head of state of the country |
+| `id` | Country ID |
+| `isoCode` | ISO code of the country |
+| `latitude` | Latitude of the region center |
+| `licencePlateCode` | Licence plate code of the country |
+| `localizedName` | Name in the first matched preferred language, falls back to name |
+| `longitude` | Longitude of the region center |
+| `name` | Name of the country |
+| `population` | Population of the region |
+| `preferredLanguageId` | Preferred language ID for the country |
+| `telephoneCode` | Telephone code of the country |
+| `trunkPrefix` | Trunk prefix of the country |
+| `wikidataId` | Wikidata ID |
 
 Operations: List, Load.
 
@@ -438,11 +438,11 @@ API path: `/countries/{id}/regions`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `name` |  |
-| `nameNormalized` |  |
-| `regionId` |  |
+| `id` | Translation ID |
+| `language` | Language code |
+| `name` | Translated name |
+| `nameNormalized` | Normalized translated name |
+| `regionId` | Region ID |
 
 Operations: List.
 
@@ -452,11 +452,11 @@ API path: `/regions/{id}/translations`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `name` |  |
-| `nameNormalized` |  |
-| `wikidataId` |  |
+| `description` | Description of the settlement type |
+| `id` | Settlement Type ID |
+| `name` | Name of the settlement type |
+| `nameNormalized` | Normalized name of the settlement type |
+| `wikidataId` | Wikidata ID |
 
 Operations: List.
 
@@ -481,31 +481,31 @@ Create an instance: `city = client.City`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `area` | `Float` |  |
-| `countryCode` | `String` |  |
-| `countryEmoji` | `String` |  |
-| `countryId` | `String` |  |
-| `countryName` | `String` |  |
-| `countryTelephoneCode` | `String` |  |
-| `dialingCode` | `String` |  |
-| `distanceKm` | `Float` |  |
-| `elevation` | `Float` |  |
-| `flagImage` | `String` |  |
-| `id` | `String` |  |
-| `latitude` | `Float` |  |
-| `localizedName` | `String` |  |
-| `longitude` | `Float` |  |
-| `name` | `String` |  |
-| `normalizedName` | `String` |  |
-| `officialWebsite` | `String` |  |
-| `population` | `Float` |  |
-| `postalCode` | `String` |  |
-| `regionCode` | `String` |  |
-| `regionId` | `String` |  |
-| `regionName` | `String` |  |
-| `timeZone` | `String` |  |
-| `translations` | `Array` |  |
-| `wikidataId` | `String` |  |
+| `area` | `Float` | Area in km² |
+| `countryCode` | `String` | ISO country code |
+| `countryEmoji` | `String` | Emoji flag of the country |
+| `countryId` | `String` | UUID of the country |
+| `countryName` | `String` | Country name |
+| `countryTelephoneCode` | `String` | Telephone code of the country |
+| `dialingCode` | `String` | Dialing code |
+| `distanceKm` | `Float` | Distance from the given point in kilometers |
+| `elevation` | `Float` | Elevation in meters |
+| `flagImage` | `String` | Flag image URL |
+| `id` | `String` | Geomelon UUID of the city |
+| `latitude` | `Float` | Latitude coordinate |
+| `localizedName` | `String` | Localized name according to preferred languages |
+| `longitude` | `Float` | Longitude coordinate |
+| `name` | `String` | City name |
+| `normalizedName` | `String` | Normalized city name |
+| `officialWebsite` | `String` | Official website URL |
+| `population` | `Float` | Population of the city |
+| `postalCode` | `String` | Postal code |
+| `regionCode` | `String` | Region code |
+| `regionId` | `String` | UUID of the region |
+| `regionName` | `String` | Region name |
+| `timeZone` | `String` | Time zone |
+| `translations` | `Array` | Translations of the city name in requested languages |
+| `wikidataId` | `String` | Wikidata ID of the city |
 
 #### Example: Load
 
@@ -529,31 +529,31 @@ Create an instance: `city_dto = client.CityDto`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `area` | `Float` |  |
-| `countryCode` | `String` |  |
-| `countryEmoji` | `String` |  |
-| `countryId` | `String` |  |
-| `countryName` | `String` |  |
-| `countryTelephoneCode` | `String` |  |
-| `dialingCode` | `String` |  |
-| `distanceKm` | `Float` |  |
-| `elevation` | `Float` |  |
-| `flagImage` | `String` |  |
-| `id` | `String` |  |
-| `latitude` | `Float` |  |
-| `localizedName` | `String` |  |
-| `longitude` | `Float` |  |
-| `name` | `String` |  |
-| `normalizedName` | `String` |  |
-| `officialWebsite` | `String` |  |
-| `population` | `Float` |  |
-| `postalCode` | `String` |  |
-| `regionCode` | `String` |  |
-| `regionId` | `String` |  |
-| `regionName` | `String` |  |
-| `timeZone` | `String` |  |
-| `translations` | `Array` |  |
-| `wikidataId` | `String` |  |
+| `area` | `Float` | Area in km² |
+| `countryCode` | `String` | ISO country code |
+| `countryEmoji` | `String` | Emoji flag of the country |
+| `countryId` | `String` | UUID of the country |
+| `countryName` | `String` | Country name |
+| `countryTelephoneCode` | `String` | Telephone code of the country |
+| `dialingCode` | `String` | Dialing code |
+| `distanceKm` | `Float` | Distance from the given point in kilometers |
+| `elevation` | `Float` | Elevation in meters |
+| `flagImage` | `String` | Flag image URL |
+| `id` | `String` | Geomelon UUID of the city |
+| `latitude` | `Float` | Latitude coordinate |
+| `localizedName` | `String` | Localized name according to preferred languages |
+| `longitude` | `Float` | Longitude coordinate |
+| `name` | `String` | City name |
+| `normalizedName` | `String` | Normalized city name |
+| `officialWebsite` | `String` | Official website URL |
+| `population` | `Float` | Population of the city |
+| `postalCode` | `String` | Postal code |
+| `regionCode` | `String` | Region code |
+| `regionId` | `String` | UUID of the region |
+| `regionName` | `String` | Region name |
+| `timeZone` | `String` | Time zone |
+| `translations` | `Array` | Translations of the city name in requested languages |
+| `wikidataId` | `String` | Wikidata ID of the city |
 
 #### Example: List
 
@@ -577,11 +577,11 @@ Create an instance: `city_translation_dto = client.CityTranslationDto`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cityId` | `String` |  |
-| `id` | `String` |  |
-| `language` | `String` |  |
-| `name` | `String` |  |
-| `nameNormalized` | `String` |  |
+| `cityId` | `String` | City ID |
+| `id` | `String` | Translation ID |
+| `language` | `String` | Language code |
+| `name` | `String` | Translated name |
+| `nameNormalized` | `String` | Normalized translated name |
 
 #### Example: List
 
@@ -606,21 +606,21 @@ Create an instance: `country = client.Country`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `drivingSide` | `String` |  |
-| `emoji` | `String` |  |
-| `headOfGovernment` | `String` |  |
-| `headOfState` | `String` |  |
-| `id` | `String` |  |
-| `isoCode` | `String` |  |
-| `licencePlateCode` | `String` |  |
-| `localizedName` | `String` |  |
-| `name` | `String` |  |
-| `preferredLanguageId` | `String` |  |
-| `regions` | `Array` |  |
-| `telephoneCode` | `String` |  |
-| `translations` | `Array` |  |
-| `trunkPrefix` | `String` |  |
-| `wikidataId` | `String` |  |
+| `drivingSide` | `String` | Driving side of the country |
+| `emoji` | `String` | Emoji of the country |
+| `headOfGovernment` | `String` | Head of government of the country |
+| `headOfState` | `String` | Head of state of the country |
+| `id` | `String` | Country ID |
+| `isoCode` | `String` | ISO code of the country |
+| `licencePlateCode` | `String` | Licence plate code of the country |
+| `localizedName` | `String` | Name in the first matched preferred language, falls back to name |
+| `name` | `String` | Name of the country |
+| `preferredLanguageId` | `String` | Preferred language ID for the country |
+| `regions` | `Array` | Regions within the country |
+| `telephoneCode` | `String` | Telephone code of the country |
+| `translations` | `Array` | Country translations |
+| `trunkPrefix` | `String` | Trunk prefix of the country |
+| `wikidataId` | `String` | Wikidata ID |
 
 #### Example: Load
 
@@ -651,11 +651,11 @@ Create an instance: `country_translation_dto = client.CountryTranslationDto`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `countryId` | `String` |  |
-| `id` | `String` |  |
-| `language` | `String` |  |
-| `name` | `String` |  |
-| `nameNormalized` | `String` |  |
+| `countryId` | `String` | Country ID |
+| `id` | `String` | Translation ID |
+| `language` | `String` | Language code |
+| `name` | `String` | Translated name |
+| `nameNormalized` | `String` | Normalized translated name |
 
 #### Example: List
 
@@ -679,7 +679,7 @@ Create an instance: `distance = client.Distance`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `distanceKm` | `Float` |  |
+| `distanceKm` | `Float` | Distance between cities |
 
 #### Example: Load
 
@@ -704,11 +704,11 @@ Create an instance: `language = client.Language`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `citiesCount` | `Float` |  |
-| `id` | `String` |  |
-| `isoCode` | `String` |  |
-| `name` | `String` |  |
-| `wikidataId` | `String` |  |
+| `citiesCount` | `Float` | Number of cities using this language |
+| `id` | `String` | UUID of the language |
+| `isoCode` | `String` | ISO code of the language |
+| `name` | `String` | Name of the language |
+| `wikidataId` | `String` | Wikidata ID of the language |
 
 #### Example: Load
 
@@ -740,9 +740,9 @@ Create an instance: `oneshot = client.Oneshot`
 | Field | Type | Description |
 | --- | --- | --- |
 | `emoji` | `Hash` |  |
-| `en` | `String` |  |
+| `en` | `String` | English name — omitted when the requested language is English or no English translation exists |
 | `id` | `String` |  |
-| `name` | `String` |  |
+| `name` | `String` | City name in the requested language |
 | `population` | `Hash` |  |
 
 #### Example: List
@@ -768,24 +768,24 @@ Create an instance: `region = client.Region`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `String` |  |
-| `countryId` | `String` |  |
-| `drivingSide` | `String` |  |
-| `emoji` | `String` |  |
-| `headOfGovernment` | `String` |  |
-| `headOfState` | `String` |  |
-| `id` | `String` |  |
-| `isoCode` | `String` |  |
-| `latitude` | `Float` |  |
-| `licencePlateCode` | `String` |  |
-| `localizedName` | `String` |  |
-| `longitude` | `Float` |  |
-| `name` | `String` |  |
-| `population` | `Float` |  |
-| `preferredLanguageId` | `String` |  |
-| `telephoneCode` | `String` |  |
-| `trunkPrefix` | `String` |  |
-| `wikidataId` | `String` |  |
+| `code` | `String` | Region code |
+| `countryId` | `String` | Country ID the region belongs to |
+| `drivingSide` | `String` | Driving side of the country |
+| `emoji` | `String` | Emoji of the country |
+| `headOfGovernment` | `String` | Head of government of the country |
+| `headOfState` | `String` | Head of state of the country |
+| `id` | `String` | Country ID |
+| `isoCode` | `String` | ISO code of the country |
+| `latitude` | `Float` | Latitude of the region center |
+| `licencePlateCode` | `String` | Licence plate code of the country |
+| `localizedName` | `String` | Name in the first matched preferred language, falls back to name |
+| `longitude` | `Float` | Longitude of the region center |
+| `name` | `String` | Name of the country |
+| `population` | `Float` | Population of the region |
+| `preferredLanguageId` | `String` | Preferred language ID for the country |
+| `telephoneCode` | `String` | Telephone code of the country |
+| `trunkPrefix` | `String` | Trunk prefix of the country |
+| `wikidataId` | `String` | Wikidata ID |
 
 #### Example: Load
 
@@ -816,11 +816,11 @@ Create an instance: `region_translation_dto = client.RegionTranslationDto`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `language` | `String` |  |
-| `name` | `String` |  |
-| `nameNormalized` | `String` |  |
-| `regionId` | `String` |  |
+| `id` | `String` | Translation ID |
+| `language` | `String` | Language code |
+| `name` | `String` | Translated name |
+| `nameNormalized` | `String` | Normalized translated name |
+| `regionId` | `String` | Region ID |
 
 #### Example: List
 
@@ -844,11 +844,11 @@ Create an instance: `settlement_type = client.SettlementType`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `id` | `String` |  |
-| `name` | `String` |  |
-| `nameNormalized` | `String` |  |
-| `wikidataId` | `String` |  |
+| `description` | `String` | Description of the settlement type |
+| `id` | `String` | Settlement Type ID |
+| `name` | `String` | Name of the settlement type |
+| `nameNormalized` | `String` | Normalized name of the settlement type |
+| `wikidataId` | `String` | Wikidata ID |
 
 #### Example: List
 

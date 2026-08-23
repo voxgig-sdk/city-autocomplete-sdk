@@ -128,31 +128,31 @@ city = client.City()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `float` | No |  |
-| `countryCode` | `str` | Yes |  |
-| `countryEmoji` | `str` | Yes |  |
-| `countryId` | `str` | Yes |  |
-| `countryName` | `str` | Yes |  |
-| `countryTelephoneCode` | `str` | No |  |
-| `dialingCode` | `str` | No |  |
-| `distanceKm` | `float` | No |  |
-| `elevation` | `float` | No |  |
-| `flagImage` | `str` | No |  |
-| `id` | `str` | Yes |  |
-| `latitude` | `float` | No |  |
-| `localizedName` | `str` | Yes |  |
-| `longitude` | `float` | No |  |
-| `name` | `str` | Yes |  |
-| `normalizedName` | `str` | Yes |  |
-| `officialWebsite` | `str` | No |  |
-| `population` | `float` | No |  |
-| `postalCode` | `str` | No |  |
-| `regionCode` | `str` | Yes |  |
-| `regionId` | `str` | Yes |  |
-| `regionName` | `str` | Yes |  |
-| `timeZone` | `str` | No |  |
-| `translations` | `list` | Yes |  |
-| `wikidataId` | `str` | Yes |  |
+| `area` | `float` | No | Area in km² |
+| `countryCode` | `str` | Yes | ISO country code |
+| `countryEmoji` | `str` | Yes | Emoji flag of the country |
+| `countryId` | `str` | Yes | UUID of the country |
+| `countryName` | `str` | Yes | Country name |
+| `countryTelephoneCode` | `str` | No | Telephone code of the country |
+| `dialingCode` | `str` | No | Dialing code |
+| `distanceKm` | `float` | No | Distance from the given point in kilometers |
+| `elevation` | `float` | No | Elevation in meters |
+| `flagImage` | `str` | No | Flag image URL |
+| `id` | `str` | Yes | Geomelon UUID of the city |
+| `latitude` | `float` | No | Latitude coordinate |
+| `localizedName` | `str` | Yes | Localized name according to preferred languages |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `str` | Yes | City name |
+| `normalizedName` | `str` | Yes | Normalized city name |
+| `officialWebsite` | `str` | No | Official website URL |
+| `population` | `float` | No | Population of the city |
+| `postalCode` | `str` | No | Postal code |
+| `regionCode` | `str` | Yes | Region code |
+| `regionId` | `str` | Yes | UUID of the region |
+| `regionName` | `str` | Yes | Region name |
+| `timeZone` | `str` | No | Time zone |
+| `translations` | `list` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `str` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -203,31 +203,31 @@ city_dto = client.CityDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `float` | No |  |
-| `countryCode` | `str` | Yes |  |
-| `countryEmoji` | `str` | Yes |  |
-| `countryId` | `str` | Yes |  |
-| `countryName` | `str` | Yes |  |
-| `countryTelephoneCode` | `str` | No |  |
-| `dialingCode` | `str` | No |  |
-| `distanceKm` | `float` | No |  |
-| `elevation` | `float` | No |  |
-| `flagImage` | `str` | No |  |
-| `id` | `str` | Yes |  |
-| `latitude` | `float` | No |  |
-| `localizedName` | `str` | Yes |  |
-| `longitude` | `float` | No |  |
-| `name` | `str` | Yes |  |
-| `normalizedName` | `str` | Yes |  |
-| `officialWebsite` | `str` | No |  |
-| `population` | `float` | No |  |
-| `postalCode` | `str` | No |  |
-| `regionCode` | `str` | Yes |  |
-| `regionId` | `str` | Yes |  |
-| `regionName` | `str` | Yes |  |
-| `timeZone` | `str` | No |  |
-| `translations` | `list` | Yes |  |
-| `wikidataId` | `str` | Yes |  |
+| `area` | `float` | No | Area in km² |
+| `countryCode` | `str` | Yes | ISO country code |
+| `countryEmoji` | `str` | Yes | Emoji flag of the country |
+| `countryId` | `str` | Yes | UUID of the country |
+| `countryName` | `str` | Yes | Country name |
+| `countryTelephoneCode` | `str` | No | Telephone code of the country |
+| `dialingCode` | `str` | No | Dialing code |
+| `distanceKm` | `float` | No | Distance from the given point in kilometers |
+| `elevation` | `float` | No | Elevation in meters |
+| `flagImage` | `str` | No | Flag image URL |
+| `id` | `str` | Yes | Geomelon UUID of the city |
+| `latitude` | `float` | No | Latitude coordinate |
+| `localizedName` | `str` | Yes | Localized name according to preferred languages |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `str` | Yes | City name |
+| `normalizedName` | `str` | Yes | Normalized city name |
+| `officialWebsite` | `str` | No | Official website URL |
+| `population` | `float` | No | Population of the city |
+| `postalCode` | `str` | No | Postal code |
+| `regionCode` | `str` | Yes | Region code |
+| `regionId` | `str` | Yes | UUID of the region |
+| `regionName` | `str` | Yes | Region name |
+| `timeZone` | `str` | No | Time zone |
+| `translations` | `list` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `str` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -280,11 +280,11 @@ city_translation_dto = client.CityTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cityId` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `language` | `str` | Yes |  |
-| `name` | `str` | Yes |  |
-| `nameNormalized` | `str` | Yes |  |
+| `cityId` | `str` | Yes | City ID |
+| `id` | `str` | Yes | Translation ID |
+| `language` | `str` | Yes | Language code |
+| `name` | `str` | Yes | Translated name |
+| `nameNormalized` | `str` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -337,21 +337,21 @@ country = client.Country()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `drivingSide` | `str` | Yes |  |
-| `emoji` | `str` | Yes |  |
-| `headOfGovernment` | `str` | Yes |  |
-| `headOfState` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `isoCode` | `str` | Yes |  |
-| `licencePlateCode` | `str` | Yes |  |
-| `localizedName` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `preferredLanguageId` | `str` | Yes |  |
-| `regions` | `list` | Yes |  |
-| `telephoneCode` | `str` | Yes |  |
-| `translations` | `list` | Yes |  |
-| `trunkPrefix` | `str` | Yes |  |
-| `wikidataId` | `str` | Yes |  |
+| `drivingSide` | `str` | Yes | Driving side of the country |
+| `emoji` | `str` | Yes | Emoji of the country |
+| `headOfGovernment` | `str` | Yes | Head of government of the country |
+| `headOfState` | `str` | Yes | Head of state of the country |
+| `id` | `str` | Yes | Country ID |
+| `isoCode` | `str` | Yes | ISO code of the country |
+| `licencePlateCode` | `str` | Yes | Licence plate code of the country |
+| `localizedName` | `str` | No | Name in the first matched preferred language, falls back to name |
+| `name` | `str` | Yes | Name of the country |
+| `preferredLanguageId` | `str` | Yes | Preferred language ID for the country |
+| `regions` | `list` | Yes | Regions within the country |
+| `telephoneCode` | `str` | Yes | Telephone code of the country |
+| `translations` | `list` | Yes | Country translations |
+| `trunkPrefix` | `str` | Yes | Trunk prefix of the country |
+| `wikidataId` | `str` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -412,11 +412,11 @@ country_translation_dto = client.CountryTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `countryId` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `language` | `str` | Yes |  |
-| `name` | `str` | Yes |  |
-| `nameNormalized` | `str` | Yes |  |
+| `countryId` | `str` | Yes | Country ID |
+| `id` | `str` | Yes | Translation ID |
+| `language` | `str` | Yes | Language code |
+| `name` | `str` | Yes | Translated name |
+| `nameNormalized` | `str` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -469,7 +469,7 @@ distance = client.Distance()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distanceKm` | `float` | Yes |  |
+| `distanceKm` | `float` | Yes | Distance between cities |
 
 ### Operations
 
@@ -520,11 +520,11 @@ language = client.Language()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `citiesCount` | `float` | Yes |  |
-| `id` | `str` | Yes |  |
-| `isoCode` | `str` | Yes |  |
-| `name` | `str` | Yes |  |
-| `wikidataId` | `str` | Yes |  |
+| `citiesCount` | `float` | Yes | Number of cities using this language |
+| `id` | `str` | Yes | UUID of the language |
+| `isoCode` | `str` | Yes | ISO code of the language |
+| `name` | `str` | Yes | Name of the language |
+| `wikidataId` | `str` | Yes | Wikidata ID of the language |
 
 ### Operations
 
@@ -586,9 +586,9 @@ oneshot = client.Oneshot()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `emoji` | `dict` | Yes |  |
-| `en` | `str` | No |  |
+| `en` | `str` | No | English name — omitted when the requested language is English or no English translation exists |
 | `id` | `str` | Yes |  |
-| `name` | `str` | Yes |  |
+| `name` | `str` | Yes | City name in the requested language |
 | `population` | `dict` | Yes |  |
 
 ### Operations
@@ -642,24 +642,24 @@ region = client.Region()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `str` | Yes |  |
-| `countryId` | `str` | Yes |  |
-| `drivingSide` | `str` | Yes |  |
-| `emoji` | `str` | Yes |  |
-| `headOfGovernment` | `str` | Yes |  |
-| `headOfState` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `isoCode` | `str` | Yes |  |
-| `latitude` | `float` | Yes |  |
-| `licencePlateCode` | `str` | Yes |  |
-| `localizedName` | `str` | No |  |
-| `longitude` | `float` | Yes |  |
-| `name` | `str` | Yes |  |
-| `population` | `float` | Yes |  |
-| `preferredLanguageId` | `str` | Yes |  |
-| `telephoneCode` | `str` | Yes |  |
-| `trunkPrefix` | `str` | Yes |  |
-| `wikidataId` | `str` | Yes |  |
+| `code` | `str` | Yes | Region code |
+| `countryId` | `str` | Yes | Country ID the region belongs to |
+| `drivingSide` | `str` | Yes | Driving side of the country |
+| `emoji` | `str` | Yes | Emoji of the country |
+| `headOfGovernment` | `str` | Yes | Head of government of the country |
+| `headOfState` | `str` | Yes | Head of state of the country |
+| `id` | `str` | Yes | Country ID |
+| `isoCode` | `str` | Yes | ISO code of the country |
+| `latitude` | `float` | Yes | Latitude of the region center |
+| `licencePlateCode` | `str` | Yes | Licence plate code of the country |
+| `localizedName` | `str` | No | Name in the first matched preferred language, falls back to name |
+| `longitude` | `float` | Yes | Longitude of the region center |
+| `name` | `str` | Yes | Name of the country |
+| `population` | `float` | Yes | Population of the region |
+| `preferredLanguageId` | `str` | Yes | Preferred language ID for the country |
+| `telephoneCode` | `str` | Yes | Telephone code of the country |
+| `trunkPrefix` | `str` | Yes | Trunk prefix of the country |
+| `wikidataId` | `str` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -720,11 +720,11 @@ region_translation_dto = client.RegionTranslationDto()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | Yes |  |
-| `language` | `str` | Yes |  |
-| `name` | `str` | Yes |  |
-| `nameNormalized` | `str` | Yes |  |
-| `regionId` | `str` | Yes |  |
+| `id` | `str` | Yes | Translation ID |
+| `language` | `str` | Yes | Language code |
+| `name` | `str` | Yes | Translated name |
+| `nameNormalized` | `str` | Yes | Normalized translated name |
+| `regionId` | `str` | Yes | Region ID |
 
 ### Operations
 
@@ -777,11 +777,11 @@ settlement_type = client.SettlementType()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `name` | `str` | Yes |  |
-| `nameNormalized` | `str` | Yes |  |
-| `wikidataId` | `str` | Yes |  |
+| `description` | `str` | Yes | Description of the settlement type |
+| `id` | `str` | Yes | Settlement Type ID |
+| `name` | `str` | Yes | Name of the settlement type |
+| `nameNormalized` | `str` | Yes | Normalized name of the settlement type |
+| `wikidataId` | `str` | Yes | Wikidata ID |
 
 ### Operations
 

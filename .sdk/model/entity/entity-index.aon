@@ -1,0 +1,13 @@
+# Entity Models
+
+@"city.aon"
+@"city_dto.aon"
+@"city_translation_dto.aon"
+@"country.aon"
+@"country_translation_dto.aon"
+@"distance.aon"
+@"language.aon"
+@"oneshot.aon"
+@"region.aon"
+@"region_translation_dto.aon"
+@"settlement_type.aon"

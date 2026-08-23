@@ -1,0 +1,111 @@
+# Entity: oneshot
+
+main: kit: entity: oneshot: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "emoji"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "en"
+      req: false
+      short: "English name — omitted when the requested language is English or no English translation exists"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "City name in the requested language"
+      type: "`$STRING`"
+    }
+    {
+      name: "population"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "oneshot"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "bar"
+                kind: "param"
+                name: "city_name"
+                orig: "city_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "es"
+                kind: "param"
+                name: "country"
+                orig: "country"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "es"
+                kind: "param"
+                name: "language"
+                orig: "language"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cities/oneshot/{country}/{language}/{city_name}"
+          parts: [
+            "cities"
+            "oneshot"
+            "{country}"
+            "{language}"
+            "{city_name}"
+          ]
+          select: {
+            exist: [
+              "city_name"
+              "country"
+              "language"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "oneshot"
+      ]
+    ]
+  }
+
+
+
+}

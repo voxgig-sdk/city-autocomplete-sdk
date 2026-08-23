@@ -1,0 +1,86 @@
+# Entity: city_translation_dto
+
+main: kit: entity: city_translation_dto: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "cityId"
+      req: true
+      short: "City ID"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "Translation ID"
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: true
+      short: "Language code"
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "Translated name"
+      type: "`$STRING`"
+    }
+    {
+      name: "nameNormalized"
+      req: true
+      short: "Normalized translated name"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "city_translation_dto"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cities/{id}/translations"
+          parts: [
+            "cities"
+            "{id}"
+            "translations"
+          ]
+          select: {
+            "$action": "translations"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

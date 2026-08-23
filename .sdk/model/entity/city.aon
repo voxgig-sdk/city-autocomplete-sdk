@@ -1,0 +1,204 @@
+# Entity: city
+
+main: kit: entity: city: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "area"
+      req: false
+      short: "Area in km²"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "countryCode"
+      req: true
+      short: "ISO country code"
+      type: "`$STRING`"
+    }
+    {
+      name: "countryEmoji"
+      req: true
+      short: "Emoji flag of the country"
+      type: "`$STRING`"
+    }
+    {
+      name: "countryId"
+      req: true
+      short: "UUID of the country"
+      type: "`$STRING`"
+    }
+    {
+      name: "countryName"
+      req: true
+      short: "Country name"
+      type: "`$STRING`"
+    }
+    {
+      name: "countryTelephoneCode"
+      req: false
+      short: "Telephone code of the country"
+      type: "`$STRING`"
+    }
+    {
+      name: "dialingCode"
+      req: false
+      short: "Dialing code"
+      type: "`$STRING`"
+    }
+    {
+      name: "distanceKm"
+      req: false
+      short: "Distance from the given point in kilometers"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "elevation"
+      req: false
+      short: "Elevation in meters"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "flagImage"
+      req: false
+      short: "Flag image URL"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "Geomelon UUID of the city"
+      type: "`$STRING`"
+    }
+    {
+      name: "latitude"
+      req: false
+      short: "Latitude coordinate"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "localizedName"
+      req: true
+      short: "Localized name according to preferred languages"
+      type: "`$STRING`"
+    }
+    {
+      name: "longitude"
+      req: false
+      short: "Longitude coordinate"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "City name"
+      type: "`$STRING`"
+    }
+    {
+      name: "normalizedName"
+      req: true
+      short: "Normalized city name"
+      type: "`$STRING`"
+    }
+    {
+      name: "officialWebsite"
+      req: false
+      short: "Official website URL"
+      type: "`$STRING`"
+    }
+    {
+      name: "population"
+      req: false
+      short: "Population of the city"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "postalCode"
+      req: false
+      short: "Postal code"
+      type: "`$STRING`"
+    }
+    {
+      name: "regionCode"
+      req: true
+      short: "Region code"
+      type: "`$STRING`"
+    }
+    {
+      name: "regionId"
+      req: true
+      short: "UUID of the region"
+      type: "`$STRING`"
+    }
+    {
+      name: "regionName"
+      req: true
+      short: "Region name"
+      type: "`$STRING`"
+    }
+    {
+      name: "timeZone"
+      req: false
+      short: "Time zone"
+      type: "`$STRING`"
+    }
+    {
+      name: "translations"
+      req: true
+      short: "Translations of the city name in requested languages"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "wikidataId"
+      req: true
+      short: "Wikidata ID of the city"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "city"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cities/{id}"
+          parts: [
+            "cities"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

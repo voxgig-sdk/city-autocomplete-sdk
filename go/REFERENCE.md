@@ -139,31 +139,31 @@ fmt.Println(city.GetName()) // "city"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `float64` | No |  |
-| `countryCode` | `string` | Yes |  |
-| `countryEmoji` | `string` | Yes |  |
-| `countryId` | `string` | Yes |  |
-| `countryName` | `string` | Yes |  |
-| `countryTelephoneCode` | `string` | No |  |
-| `dialingCode` | `string` | No |  |
-| `distanceKm` | `float64` | No |  |
-| `elevation` | `float64` | No |  |
-| `flagImage` | `string` | No |  |
-| `id` | `string` | Yes |  |
-| `latitude` | `float64` | No |  |
-| `localizedName` | `string` | Yes |  |
-| `longitude` | `float64` | No |  |
-| `name` | `string` | Yes |  |
-| `normalizedName` | `string` | Yes |  |
-| `officialWebsite` | `string` | No |  |
-| `population` | `float64` | No |  |
-| `postalCode` | `string` | No |  |
-| `regionCode` | `string` | Yes |  |
-| `regionId` | `string` | Yes |  |
-| `regionName` | `string` | Yes |  |
-| `timeZone` | `string` | No |  |
-| `translations` | `[]any` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `area` | `float64` | No | Area in km² |
+| `countryCode` | `string` | Yes | ISO country code |
+| `countryEmoji` | `string` | Yes | Emoji flag of the country |
+| `countryId` | `string` | Yes | UUID of the country |
+| `countryName` | `string` | Yes | Country name |
+| `countryTelephoneCode` | `string` | No | Telephone code of the country |
+| `dialingCode` | `string` | No | Dialing code |
+| `distanceKm` | `float64` | No | Distance from the given point in kilometers |
+| `elevation` | `float64` | No | Elevation in meters |
+| `flagImage` | `string` | No | Flag image URL |
+| `id` | `string` | Yes | Geomelon UUID of the city |
+| `latitude` | `float64` | No | Latitude coordinate |
+| `localizedName` | `string` | Yes | Localized name according to preferred languages |
+| `longitude` | `float64` | No | Longitude coordinate |
+| `name` | `string` | Yes | City name |
+| `normalizedName` | `string` | Yes | Normalized city name |
+| `officialWebsite` | `string` | No | Official website URL |
+| `population` | `float64` | No | Population of the city |
+| `postalCode` | `string` | No | Postal code |
+| `regionCode` | `string` | Yes | Region code |
+| `regionId` | `string` | Yes | UUID of the region |
+| `regionName` | `string` | Yes | Region name |
+| `timeZone` | `string` | No | Time zone |
+| `translations` | `[]any` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `string` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -214,31 +214,31 @@ fmt.Println(cityDto.GetName()) // "city_dto"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `area` | `float64` | No |  |
-| `countryCode` | `string` | Yes |  |
-| `countryEmoji` | `string` | Yes |  |
-| `countryId` | `string` | Yes |  |
-| `countryName` | `string` | Yes |  |
-| `countryTelephoneCode` | `string` | No |  |
-| `dialingCode` | `string` | No |  |
-| `distanceKm` | `float64` | No |  |
-| `elevation` | `float64` | No |  |
-| `flagImage` | `string` | No |  |
-| `id` | `string` | Yes |  |
-| `latitude` | `float64` | No |  |
-| `localizedName` | `string` | Yes |  |
-| `longitude` | `float64` | No |  |
-| `name` | `string` | Yes |  |
-| `normalizedName` | `string` | Yes |  |
-| `officialWebsite` | `string` | No |  |
-| `population` | `float64` | No |  |
-| `postalCode` | `string` | No |  |
-| `regionCode` | `string` | Yes |  |
-| `regionId` | `string` | Yes |  |
-| `regionName` | `string` | Yes |  |
-| `timeZone` | `string` | No |  |
-| `translations` | `[]any` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `area` | `float64` | No | Area in km² |
+| `countryCode` | `string` | Yes | ISO country code |
+| `countryEmoji` | `string` | Yes | Emoji flag of the country |
+| `countryId` | `string` | Yes | UUID of the country |
+| `countryName` | `string` | Yes | Country name |
+| `countryTelephoneCode` | `string` | No | Telephone code of the country |
+| `dialingCode` | `string` | No | Dialing code |
+| `distanceKm` | `float64` | No | Distance from the given point in kilometers |
+| `elevation` | `float64` | No | Elevation in meters |
+| `flagImage` | `string` | No | Flag image URL |
+| `id` | `string` | Yes | Geomelon UUID of the city |
+| `latitude` | `float64` | No | Latitude coordinate |
+| `localizedName` | `string` | Yes | Localized name according to preferred languages |
+| `longitude` | `float64` | No | Longitude coordinate |
+| `name` | `string` | Yes | City name |
+| `normalizedName` | `string` | Yes | Normalized city name |
+| `officialWebsite` | `string` | No | Official website URL |
+| `population` | `float64` | No | Population of the city |
+| `postalCode` | `string` | No | Postal code |
+| `regionCode` | `string` | Yes | Region code |
+| `regionId` | `string` | Yes | UUID of the region |
+| `regionName` | `string` | Yes | Region name |
+| `timeZone` | `string` | No | Time zone |
+| `translations` | `[]any` | Yes | Translations of the city name in requested languages |
+| `wikidataId` | `string` | Yes | Wikidata ID of the city |
 
 ### Operations
 
@@ -289,11 +289,11 @@ fmt.Println(cityTranslationDto.GetName()) // "city_translation_dto"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cityId` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `language` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
+| `cityId` | `string` | Yes | City ID |
+| `id` | `string` | Yes | Translation ID |
+| `language` | `string` | Yes | Language code |
+| `name` | `string` | Yes | Translated name |
+| `nameNormalized` | `string` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -344,21 +344,21 @@ fmt.Println(country.GetName()) // "country"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `drivingSide` | `string` | Yes |  |
-| `emoji` | `string` | Yes |  |
-| `headOfGovernment` | `string` | Yes |  |
-| `headOfState` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `isoCode` | `string` | Yes |  |
-| `licencePlateCode` | `string` | Yes |  |
-| `localizedName` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `preferredLanguageId` | `string` | Yes |  |
-| `regions` | `[]any` | Yes |  |
-| `telephoneCode` | `string` | Yes |  |
-| `translations` | `[]any` | Yes |  |
-| `trunkPrefix` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `drivingSide` | `string` | Yes | Driving side of the country |
+| `emoji` | `string` | Yes | Emoji of the country |
+| `headOfGovernment` | `string` | Yes | Head of government of the country |
+| `headOfState` | `string` | Yes | Head of state of the country |
+| `id` | `string` | Yes | Country ID |
+| `isoCode` | `string` | Yes | ISO code of the country |
+| `licencePlateCode` | `string` | Yes | Licence plate code of the country |
+| `localizedName` | `string` | No | Name in the first matched preferred language, falls back to name |
+| `name` | `string` | Yes | Name of the country |
+| `preferredLanguageId` | `string` | Yes | Preferred language ID for the country |
+| `regions` | `[]any` | Yes | Regions within the country |
+| `telephoneCode` | `string` | Yes | Telephone code of the country |
+| `translations` | `[]any` | Yes | Country translations |
+| `trunkPrefix` | `string` | Yes | Trunk prefix of the country |
+| `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -421,11 +421,11 @@ fmt.Println(countryTranslationDto.GetName()) // "country_translation_dto"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `countryId` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `language` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
+| `countryId` | `string` | Yes | Country ID |
+| `id` | `string` | Yes | Translation ID |
+| `language` | `string` | Yes | Language code |
+| `name` | `string` | Yes | Translated name |
+| `nameNormalized` | `string` | Yes | Normalized translated name |
 
 ### Operations
 
@@ -476,7 +476,7 @@ fmt.Println(distance.GetName()) // "distance"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `distanceKm` | `float64` | Yes |  |
+| `distanceKm` | `float64` | Yes | Distance between cities |
 
 ### Operations
 
@@ -527,11 +527,11 @@ fmt.Println(language.GetName()) // "language"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `citiesCount` | `float64` | Yes |  |
-| `id` | `string` | Yes |  |
-| `isoCode` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `citiesCount` | `float64` | Yes | Number of cities using this language |
+| `id` | `string` | Yes | UUID of the language |
+| `isoCode` | `string` | Yes | ISO code of the language |
+| `name` | `string` | Yes | Name of the language |
+| `wikidataId` | `string` | Yes | Wikidata ID of the language |
 
 ### Operations
 
@@ -595,9 +595,9 @@ fmt.Println(oneshot.GetName()) // "oneshot"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `emoji` | `map[string]any` | Yes |  |
-| `en` | `string` | No |  |
+| `en` | `string` | No | English name — omitted when the requested language is English or no English translation exists |
 | `id` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
+| `name` | `string` | Yes | City name in the requested language |
 | `population` | `map[string]any` | Yes |  |
 
 ### Operations
@@ -649,24 +649,24 @@ fmt.Println(region.GetName()) // "region"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `string` | Yes |  |
-| `countryId` | `string` | Yes |  |
-| `drivingSide` | `string` | Yes |  |
-| `emoji` | `string` | Yes |  |
-| `headOfGovernment` | `string` | Yes |  |
-| `headOfState` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `isoCode` | `string` | Yes |  |
-| `latitude` | `float64` | Yes |  |
-| `licencePlateCode` | `string` | Yes |  |
-| `localizedName` | `string` | No |  |
-| `longitude` | `float64` | Yes |  |
-| `name` | `string` | Yes |  |
-| `population` | `float64` | Yes |  |
-| `preferredLanguageId` | `string` | Yes |  |
-| `telephoneCode` | `string` | Yes |  |
-| `trunkPrefix` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `code` | `string` | Yes | Region code |
+| `countryId` | `string` | Yes | Country ID the region belongs to |
+| `drivingSide` | `string` | Yes | Driving side of the country |
+| `emoji` | `string` | Yes | Emoji of the country |
+| `headOfGovernment` | `string` | Yes | Head of government of the country |
+| `headOfState` | `string` | Yes | Head of state of the country |
+| `id` | `string` | Yes | Country ID |
+| `isoCode` | `string` | Yes | ISO code of the country |
+| `latitude` | `float64` | Yes | Latitude of the region center |
+| `licencePlateCode` | `string` | Yes | Licence plate code of the country |
+| `localizedName` | `string` | No | Name in the first matched preferred language, falls back to name |
+| `longitude` | `float64` | Yes | Longitude of the region center |
+| `name` | `string` | Yes | Name of the country |
+| `population` | `float64` | Yes | Population of the region |
+| `preferredLanguageId` | `string` | Yes | Preferred language ID for the country |
+| `telephoneCode` | `string` | Yes | Telephone code of the country |
+| `trunkPrefix` | `string` | Yes | Trunk prefix of the country |
+| `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations
 
@@ -729,11 +729,11 @@ fmt.Println(regionTranslationDto.GetName()) // "region_translation_dto"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `language` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
-| `regionId` | `string` | Yes |  |
+| `id` | `string` | Yes | Translation ID |
+| `language` | `string` | Yes | Language code |
+| `name` | `string` | Yes | Translated name |
+| `nameNormalized` | `string` | Yes | Normalized translated name |
+| `regionId` | `string` | Yes | Region ID |
 
 ### Operations
 
@@ -784,11 +784,11 @@ fmt.Println(settlementType.GetName()) // "settlement_type"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
-| `nameNormalized` | `string` | Yes |  |
-| `wikidataId` | `string` | Yes |  |
+| `description` | `string` | Yes | Description of the settlement type |
+| `id` | `string` | Yes | Settlement Type ID |
+| `name` | `string` | Yes | Name of the settlement type |
+| `nameNormalized` | `string` | Yes | Normalized name of the settlement type |
+| `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations
 

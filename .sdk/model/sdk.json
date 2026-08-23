@@ -36,150 +36,175 @@
               "active": true,
               "name": "area",
               "req": false,
+              "short": "Area in km²",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "countryCode",
               "req": true,
+              "short": "ISO country code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryEmoji",
               "req": true,
+              "short": "Emoji flag of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryId",
               "req": true,
+              "short": "UUID of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryName",
               "req": true,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryTelephoneCode",
               "req": false,
+              "short": "Telephone code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "dialingCode",
               "req": false,
+              "short": "Dialing code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "distanceKm",
               "req": false,
+              "short": "Distance from the given point in kilometers",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "elevation",
               "req": false,
+              "short": "Elevation in meters",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "flagImage",
               "req": false,
+              "short": "Flag image URL",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Geomelon UUID of the city",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "localizedName",
               "req": true,
+              "short": "Localized name according to preferred languages",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "City name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "normalizedName",
               "req": true,
+              "short": "Normalized city name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "officialWebsite",
               "req": false,
+              "short": "Official website URL",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "population",
               "req": false,
+              "short": "Population of the city",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "postalCode",
               "req": false,
+              "short": "Postal code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionCode",
               "req": true,
+              "short": "Region code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionId",
               "req": true,
+              "short": "UUID of the region",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionName",
               "req": true,
+              "short": "Region name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timeZone",
               "req": false,
+              "short": "Time zone",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "translations",
               "req": true,
+              "short": "Translations of the city name in requested languages",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "wikidataId",
               "req": true,
+              "short": "Wikidata ID of the city",
               "type": "`$STRING`"
             }
           ],
@@ -241,150 +266,175 @@
               "active": true,
               "name": "area",
               "req": false,
+              "short": "Area in km²",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "countryCode",
               "req": true,
+              "short": "ISO country code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryEmoji",
               "req": true,
+              "short": "Emoji flag of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryId",
               "req": true,
+              "short": "UUID of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryName",
               "req": true,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryTelephoneCode",
               "req": false,
+              "short": "Telephone code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "dialingCode",
               "req": false,
+              "short": "Dialing code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "distanceKm",
               "req": false,
+              "short": "Distance from the given point in kilometers",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "elevation",
               "req": false,
+              "short": "Elevation in meters",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "flagImage",
               "req": false,
+              "short": "Flag image URL",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Geomelon UUID of the city",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "localizedName",
               "req": true,
+              "short": "Localized name according to preferred languages",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "City name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "normalizedName",
               "req": true,
+              "short": "Normalized city name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "officialWebsite",
               "req": false,
+              "short": "Official website URL",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "population",
               "req": false,
+              "short": "Population of the city",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "postalCode",
               "req": false,
+              "short": "Postal code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionCode",
               "req": true,
+              "short": "Region code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionId",
               "req": true,
+              "short": "UUID of the region",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionName",
               "req": true,
+              "short": "Region name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timeZone",
               "req": false,
+              "short": "Time zone",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "translations",
               "req": true,
+              "short": "Translations of the city name in requested languages",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "wikidataId",
               "req": true,
+              "short": "Wikidata ID of the city",
               "type": "`$STRING`"
             }
           ],
@@ -626,30 +676,35 @@
               "active": true,
               "name": "cityId",
               "req": true,
+              "short": "City ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Translation ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "language",
               "req": true,
+              "short": "Language code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Translated name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameNormalized",
               "req": true,
+              "short": "Normalized translated name",
               "type": "`$STRING`"
             }
           ],
@@ -713,90 +768,105 @@
               "active": true,
               "name": "drivingSide",
               "req": true,
+              "short": "Driving side of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "emoji",
               "req": true,
+              "short": "Emoji of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "headOfGovernment",
               "req": true,
+              "short": "Head of government of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "headOfState",
               "req": true,
+              "short": "Head of state of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Country ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isoCode",
               "req": true,
+              "short": "ISO code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "licencePlateCode",
               "req": true,
+              "short": "Licence plate code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "localizedName",
               "req": false,
+              "short": "Name in the first matched preferred language, falls back to name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "preferredLanguageId",
               "req": true,
+              "short": "Preferred language ID for the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regions",
               "req": true,
+              "short": "Regions within the country",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "telephoneCode",
               "req": true,
+              "short": "Telephone code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "translations",
               "req": true,
+              "short": "Country translations",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "trunkPrefix",
               "req": true,
+              "short": "Trunk prefix of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wikidataId",
               "req": true,
+              "short": "Wikidata ID",
               "type": "`$STRING`"
             }
           ],
@@ -936,30 +1006,35 @@
               "active": true,
               "name": "countryId",
               "req": true,
+              "short": "Country ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Translation ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "language",
               "req": true,
+              "short": "Language code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Translated name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameNormalized",
               "req": true,
+              "short": "Normalized translated name",
               "type": "`$STRING`"
             }
           ],
@@ -1036,6 +1111,7 @@
               "active": true,
               "name": "distanceKm",
               "req": true,
+              "short": "Distance between cities",
               "type": "`$NUMBER`"
             }
           ],
@@ -1102,30 +1178,35 @@
               "active": true,
               "name": "citiesCount",
               "req": true,
+              "short": "Number of cities using this language",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "UUID of the language",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isoCode",
               "req": true,
+              "short": "ISO code of the language",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the language",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wikidataId",
               "req": true,
+              "short": "Wikidata ID of the language",
               "type": "`$STRING`"
             }
           ],
@@ -1241,6 +1322,7 @@
               "active": true,
               "name": "en",
               "req": false,
+              "short": "English name — omitted when the requested language is English or no English translation exists",
               "type": "`$STRING`"
             },
             {
@@ -1253,6 +1335,7 @@
               "active": true,
               "name": "name",
               "req": true,
+              "short": "City name in the requested language",
               "type": "`$STRING`"
             },
             {
@@ -1348,108 +1431,126 @@
               "active": true,
               "name": "code",
               "req": true,
+              "short": "Region code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryId",
               "req": true,
+              "short": "Country ID the region belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "drivingSide",
               "req": true,
+              "short": "Driving side of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "emoji",
               "req": true,
+              "short": "Emoji of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "headOfGovernment",
               "req": true,
+              "short": "Head of government of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "headOfState",
               "req": true,
+              "short": "Head of state of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Country ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isoCode",
               "req": true,
+              "short": "ISO code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": true,
+              "short": "Latitude of the region center",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "licencePlateCode",
               "req": true,
+              "short": "Licence plate code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "localizedName",
               "req": false,
+              "short": "Name in the first matched preferred language, falls back to name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": true,
+              "short": "Longitude of the region center",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "population",
               "req": true,
+              "short": "Population of the region",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "preferredLanguageId",
               "req": true,
+              "short": "Preferred language ID for the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "telephoneCode",
               "req": true,
+              "short": "Telephone code of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "trunkPrefix",
               "req": true,
+              "short": "Trunk prefix of the country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wikidataId",
               "req": true,
+              "short": "Wikidata ID",
               "type": "`$STRING`"
             }
           ],
@@ -1591,30 +1692,35 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Translation ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "language",
               "req": true,
+              "short": "Language code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Translated name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameNormalized",
               "req": true,
+              "short": "Normalized translated name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionId",
               "req": true,
+              "short": "Region ID",
               "type": "`$STRING`"
             }
           ],
@@ -1691,30 +1797,35 @@
               "active": true,
               "name": "description",
               "req": true,
+              "short": "Description of the settlement type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Settlement Type ID",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the settlement type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameNormalized",
               "req": true,
+              "short": "Normalized name of the settlement type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wikidataId",
               "req": true,
+              "short": "Wikidata ID",
               "type": "`$STRING`"
             }
           ],
