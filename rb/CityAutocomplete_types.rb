@@ -229,106 +229,42 @@ CityDto = Struct.new(
 
 # Request payload for CityDto#list.
 #
-# @!attribute [rw] area
+# @!attribute [rw] country_code
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
 #   @return [Float, nil]
 #
-# @!attribute [rw] countryCode
-#   @return [String, nil]
-#
-# @!attribute [rw] countryEmoji
-#   @return [String, nil]
-#
-# @!attribute [rw] countryId
-#   @return [String, nil]
-#
-# @!attribute [rw] countryName
-#   @return [String, nil]
-#
-# @!attribute [rw] countryTelephoneCode
-#   @return [String, nil]
-#
-# @!attribute [rw] dialingCode
-#   @return [String, nil]
-#
-# @!attribute [rw] distanceKm
+# @!attribute [rw] max_population
 #   @return [Float, nil]
 #
-# @!attribute [rw] elevation
-#   @return [Float, nil]
-#
-# @!attribute [rw] flagImage
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] latitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] localizedName
-#   @return [String, nil]
-#
-# @!attribute [rw] longitude
+# @!attribute [rw] min_population
 #   @return [Float, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] normalizedName
-#   @return [String, nil]
-#
-# @!attribute [rw] officialWebsite
-#   @return [String, nil]
-#
-# @!attribute [rw] population
+# @!attribute [rw] offset
 #   @return [Float, nil]
 #
-# @!attribute [rw] postalCode
+# @!attribute [rw] preferred_language
 #   @return [String, nil]
 #
-# @!attribute [rw] regionCode
+# @!attribute [rw] region_id
 #   @return [String, nil]
 #
-# @!attribute [rw] regionId
-#   @return [String, nil]
-#
-# @!attribute [rw] regionName
-#   @return [String, nil]
-#
-# @!attribute [rw] timeZone
-#   @return [String, nil]
-#
-# @!attribute [rw] translations
-#   @return [Array, nil]
-#
-# @!attribute [rw] wikidataId
+# @!attribute [rw] sort
 #   @return [String, nil]
 CityDtoListMatch = Struct.new(
-  :area,
-  :countryCode,
-  :countryEmoji,
-  :countryId,
-  :countryName,
-  :countryTelephoneCode,
-  :dialingCode,
-  :distanceKm,
-  :elevation,
-  :flagImage,
-  :id,
-  :latitude,
-  :localizedName,
-  :longitude,
+  :country_code,
+  :limit,
+  :max_population,
+  :min_population,
   :name,
-  :normalizedName,
-  :officialWebsite,
-  :population,
-  :postalCode,
-  :regionCode,
-  :regionId,
-  :regionName,
-  :timeZone,
-  :translations,
-  :wikidataId,
+  :offset,
+  :preferred_language,
+  :region_id,
+  :sort,
   keyword_init: true
 )
 
@@ -442,66 +378,26 @@ CountryLoadMatch = Struct.new(
 
 # Request payload for Country#list.
 #
-# @!attribute [rw] drivingSide
-#   @return [String, nil]
-#
-# @!attribute [rw] emoji
-#   @return [String, nil]
-#
-# @!attribute [rw] headOfGovernment
-#   @return [String, nil]
-#
-# @!attribute [rw] headOfState
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] isoCode
-#   @return [String, nil]
-#
-# @!attribute [rw] licencePlateCode
-#   @return [String, nil]
-#
-# @!attribute [rw] localizedName
-#   @return [String, nil]
+# @!attribute [rw] limit
+#   @return [Float, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] preferredLanguageId
+# @!attribute [rw] offset
+#   @return [Float, nil]
+#
+# @!attribute [rw] preferred_language
 #   @return [String, nil]
 #
-# @!attribute [rw] regions
-#   @return [Array, nil]
-#
-# @!attribute [rw] telephoneCode
-#   @return [String, nil]
-#
-# @!attribute [rw] translations
-#   @return [Array, nil]
-#
-# @!attribute [rw] trunkPrefix
-#   @return [String, nil]
-#
-# @!attribute [rw] wikidataId
+# @!attribute [rw] telephone_code
 #   @return [String, nil]
 CountryListMatch = Struct.new(
-  :drivingSide,
-  :emoji,
-  :headOfGovernment,
-  :headOfState,
-  :id,
-  :isoCode,
-  :licencePlateCode,
-  :localizedName,
+  :limit,
   :name,
-  :preferredLanguageId,
-  :regions,
-  :telephoneCode,
-  :translations,
-  :trunkPrefix,
-  :wikidataId,
+  :offset,
+  :preferred_language,
+  :telephone_code,
   keyword_init: true
 )
 
@@ -534,8 +430,12 @@ CountryTranslationDto = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] preferred_language
+#   @return [String, nil]
 CountryTranslationDtoListMatch = Struct.new(
   :id,
+  :preferred_language,
   keyword_init: true
 )
 
@@ -550,10 +450,14 @@ Distance = Struct.new(
 
 # Request payload for Distance#load.
 #
-# @!attribute [rw] distanceKm
-#   @return [Float, nil]
+# @!attribute [rw] city1
+#   @return [String]
+#
+# @!attribute [rw] city2
+#   @return [String]
 DistanceLoadMatch = Struct.new(
-  :distanceKm,
+  :city1,
+  :city2,
   keyword_init: true
 )
 
@@ -593,26 +497,14 @@ LanguageLoadMatch = Struct.new(
 
 # Request payload for Language#list.
 #
-# @!attribute [rw] citiesCount
+# @!attribute [rw] limit
 #   @return [Float, nil]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] isoCode
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] wikidataId
-#   @return [String, nil]
+# @!attribute [rw] offset
+#   @return [Float, nil]
 LanguageListMatch = Struct.new(
-  :citiesCount,
-  :id,
-  :isoCode,
-  :name,
-  :wikidataId,
+  :limit,
+  :offset,
   keyword_init: true
 )
 
@@ -746,78 +638,10 @@ RegionLoadMatch = Struct.new(
 
 # Request payload for Region#list.
 #
-# @!attribute [rw] code
-#   @return [String, nil]
-#
-# @!attribute [rw] countryId
-#   @return [String, nil]
-#
-# @!attribute [rw] drivingSide
-#   @return [String, nil]
-#
-# @!attribute [rw] emoji
-#   @return [String, nil]
-#
-# @!attribute [rw] headOfGovernment
-#   @return [String, nil]
-#
-# @!attribute [rw] headOfState
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] isoCode
-#   @return [String, nil]
-#
-# @!attribute [rw] latitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] licencePlateCode
-#   @return [String, nil]
-#
-# @!attribute [rw] localizedName
-#   @return [String, nil]
-#
-# @!attribute [rw] longitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] population
-#   @return [Float, nil]
-#
-# @!attribute [rw] preferredLanguageId
-#   @return [String, nil]
-#
-# @!attribute [rw] telephoneCode
-#   @return [String, nil]
-#
-# @!attribute [rw] trunkPrefix
-#   @return [String, nil]
-#
-# @!attribute [rw] wikidataId
+# @!attribute [rw] country_id
 #   @return [String, nil]
 RegionListMatch = Struct.new(
-  :code,
-  :countryId,
-  :drivingSide,
-  :emoji,
-  :headOfGovernment,
-  :headOfState,
-  :id,
-  :isoCode,
-  :latitude,
-  :licencePlateCode,
-  :localizedName,
-  :longitude,
-  :name,
-  :population,
-  :preferredLanguageId,
-  :telephoneCode,
-  :trunkPrefix,
-  :wikidataId,
+  :country_id,
   keyword_init: true
 )
 
@@ -850,8 +674,12 @@ RegionTranslationDto = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] preferred_language
+#   @return [String, nil]
 RegionTranslationDtoListMatch = Struct.new(
   :id,
+  :preferred_language,
   keyword_init: true
 )
 

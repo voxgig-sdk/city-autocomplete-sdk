@@ -83,31 +83,15 @@ class CityDto(CityDtoRequired, total=False):
 
 
 class CityDtoListMatch(TypedDict, total=False):
-    area: float
-    countryCode: str
-    countryEmoji: str
-    countryId: str
-    countryName: str
-    countryTelephoneCode: str
-    dialingCode: str
-    distanceKm: float
-    elevation: float
-    flagImage: str
-    id: str
-    latitude: float
-    localizedName: str
-    longitude: float
+    country_code: str
+    limit: float
+    max_population: float
+    min_population: float
     name: str
-    normalizedName: str
-    officialWebsite: str
-    population: float
-    postalCode: str
-    regionCode: str
-    regionId: str
-    regionName: str
-    timeZone: str
-    translations: list
-    wikidataId: str
+    offset: float
+    preferred_language: str
+    region_id: str
+    sort: str
 
 
 class CityTranslationDto(TypedDict):
@@ -148,21 +132,11 @@ class CountryLoadMatch(TypedDict):
 
 
 class CountryListMatch(TypedDict, total=False):
-    drivingSide: str
-    emoji: str
-    headOfGovernment: str
-    headOfState: str
-    id: str
-    isoCode: str
-    licencePlateCode: str
-    localizedName: str
+    limit: float
     name: str
-    preferredLanguageId: str
-    regions: list
-    telephoneCode: str
-    translations: list
-    trunkPrefix: str
-    wikidataId: str
+    offset: float
+    preferred_language: str
+    telephone_code: str
 
 
 class CountryTranslationDto(TypedDict):
@@ -173,16 +147,21 @@ class CountryTranslationDto(TypedDict):
     nameNormalized: str
 
 
-class CountryTranslationDtoListMatch(TypedDict):
+class CountryTranslationDtoListMatchRequired(TypedDict):
     id: str
+
+
+class CountryTranslationDtoListMatch(CountryTranslationDtoListMatchRequired, total=False):
+    preferred_language: str
 
 
 class Distance(TypedDict):
     distanceKm: float
 
 
-class DistanceLoadMatch(TypedDict, total=False):
-    distanceKm: float
+class DistanceLoadMatch(TypedDict):
+    city1: str
+    city2: str
 
 
 class Language(TypedDict):
@@ -198,11 +177,8 @@ class LanguageLoadMatch(TypedDict):
 
 
 class LanguageListMatch(TypedDict, total=False):
-    citiesCount: float
-    id: str
-    isoCode: str
-    name: str
-    wikidataId: str
+    limit: float
+    offset: float
 
 
 class OneshotRequired(TypedDict):
@@ -251,24 +227,7 @@ class RegionLoadMatch(TypedDict):
 
 
 class RegionListMatch(TypedDict, total=False):
-    code: str
-    countryId: str
-    drivingSide: str
-    emoji: str
-    headOfGovernment: str
-    headOfState: str
-    id: str
-    isoCode: str
-    latitude: float
-    licencePlateCode: str
-    localizedName: str
-    longitude: float
-    name: str
-    population: float
-    preferredLanguageId: str
-    telephoneCode: str
-    trunkPrefix: str
-    wikidataId: str
+    country_id: str
 
 
 class RegionTranslationDto(TypedDict):
@@ -279,8 +238,12 @@ class RegionTranslationDto(TypedDict):
     regionId: str
 
 
-class RegionTranslationDtoListMatch(TypedDict):
+class RegionTranslationDtoListMatchRequired(TypedDict):
     id: str
+
+
+class RegionTranslationDtoListMatch(RegionTranslationDtoListMatchRequired, total=False):
+    preferred_language: str
 
 
 class SettlementType(TypedDict):

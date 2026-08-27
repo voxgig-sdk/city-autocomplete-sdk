@@ -64,31 +64,15 @@
 ---@field wikidataId string
 
 ---@class CityDtoListMatch
----@field area? number
----@field countryCode? string
----@field countryEmoji? string
----@field countryId? string
----@field countryName? string
----@field countryTelephoneCode? string
----@field dialingCode? string
----@field distanceKm? number
----@field elevation? number
----@field flagImage? string
----@field id? string
----@field latitude? number
----@field localizedName? string
----@field longitude? number
+---@field country_code? string
+---@field limit? number
+---@field max_population? number
+---@field min_population? number
 ---@field name? string
----@field normalizedName? string
----@field officialWebsite? string
----@field population? number
----@field postalCode? string
----@field regionCode? string
----@field regionId? string
----@field regionName? string
----@field timeZone? string
----@field translations? table
----@field wikidataId? string
+---@field offset? number
+---@field preferred_language? string
+---@field region_id? string
+---@field sort? string
 
 ---@class CityTranslationDto
 ---@field cityId string
@@ -121,21 +105,11 @@
 ---@field id string
 
 ---@class CountryListMatch
----@field drivingSide? string
----@field emoji? string
----@field headOfGovernment? string
----@field headOfState? string
----@field id? string
----@field isoCode? string
----@field licencePlateCode? string
----@field localizedName? string
+---@field limit? number
 ---@field name? string
----@field preferredLanguageId? string
----@field regions? table
----@field telephoneCode? string
----@field translations? table
----@field trunkPrefix? string
----@field wikidataId? string
+---@field offset? number
+---@field preferred_language? string
+---@field telephone_code? string
 
 ---@class CountryTranslationDto
 ---@field countryId string
@@ -146,12 +120,14 @@
 
 ---@class CountryTranslationDtoListMatch
 ---@field id string
+---@field preferred_language? string
 
 ---@class Distance
 ---@field distanceKm number
 
 ---@class DistanceLoadMatch
----@field distanceKm? number
+---@field city1 string
+---@field city2 string
 
 ---@class Language
 ---@field citiesCount number
@@ -164,11 +140,8 @@
 ---@field id string
 
 ---@class LanguageListMatch
----@field citiesCount? number
----@field id? string
----@field isoCode? string
----@field name? string
----@field wikidataId? string
+---@field limit? number
+---@field offset? number
 
 ---@class Oneshot
 ---@field emoji table
@@ -206,24 +179,7 @@
 ---@field id string
 
 ---@class RegionListMatch
----@field code? string
----@field countryId? string
----@field drivingSide? string
----@field emoji? string
----@field headOfGovernment? string
----@field headOfState? string
----@field id? string
----@field isoCode? string
----@field latitude? number
----@field licencePlateCode? string
----@field localizedName? string
----@field longitude? number
----@field name? string
----@field population? number
----@field preferredLanguageId? string
----@field telephoneCode? string
----@field trunkPrefix? string
----@field wikidataId? string
+---@field country_id? string
 
 ---@class RegionTranslationDto
 ---@field id string
@@ -234,6 +190,7 @@
 
 ---@class RegionTranslationDtoListMatch
 ---@field id string
+---@field preferred_language? string
 
 ---@class SettlementType
 ---@field description string

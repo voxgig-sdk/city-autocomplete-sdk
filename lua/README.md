@@ -666,7 +666,7 @@ Create an instance: `local distance = client:Distance(nil)`
 #### Example: Load
 
 ```lua
-local distance, err = client:Distance():load()
+local distance, err = client:Distance():load({ city1 = "city1", city2 = "city2" })
 ```
 
 
@@ -830,6 +830,29 @@ Create an instance: `local settlement_type = client:SettlementType(nil)`
 ```lua
 local settlement_types, err = client:SettlementType():list()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

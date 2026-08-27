@@ -66,31 +66,15 @@ export interface CityDto {
 }
 
 export interface CityDtoListMatch {
-  area?: number
-  countryCode?: string
-  countryEmoji?: string
-  countryId?: string
-  countryName?: string
-  countryTelephoneCode?: string
-  dialingCode?: string
-  distanceKm?: number
-  elevation?: number
-  flagImage?: string
-  id?: string
-  latitude?: number
-  localizedName?: string
-  longitude?: number
+  country_code?: string
+  limit?: number
+  max_population?: number
+  min_population?: number
   name?: string
-  normalizedName?: string
-  officialWebsite?: string
-  population?: number
-  postalCode?: string
-  regionCode?: string
-  regionId?: string
-  regionName?: string
-  timeZone?: string
-  translations?: any[]
-  wikidataId?: string
+  offset?: number
+  preferred_language?: string
+  region_id?: string
+  sort?: string
 }
 
 export interface CityTranslationDto {
@@ -134,21 +118,11 @@ export interface CountryLoadMatch {
 }
 
 export interface CountryListMatch {
-  drivingSide?: string
-  emoji?: string
-  headOfGovernment?: string
-  headOfState?: string
-  id?: string
-  isoCode?: string
-  licencePlateCode?: string
-  localizedName?: string
+  limit?: number
   name?: string
-  preferredLanguageId?: string
-  regions?: any[]
-  telephoneCode?: string
-  translations?: any[]
-  trunkPrefix?: string
-  wikidataId?: string
+  offset?: number
+  preferred_language?: string
+  telephone_code?: string
 }
 
 export interface CountryTranslationDto {
@@ -161,6 +135,7 @@ export interface CountryTranslationDto {
 
 export interface CountryTranslationDtoListMatch {
   id: string
+  preferred_language?: string
 
   // Selects a custom action instead of the plain list:
   //   'translations'
@@ -174,7 +149,8 @@ export interface Distance {
 }
 
 export interface DistanceLoadMatch {
-  distanceKm?: number
+  city1: string
+  city2: string
 }
 
 export interface Language {
@@ -190,11 +166,8 @@ export interface LanguageLoadMatch {
 }
 
 export interface LanguageListMatch {
-  citiesCount?: number
-  id?: string
-  isoCode?: string
-  name?: string
-  wikidataId?: string
+  limit?: number
+  offset?: number
 }
 
 export interface Oneshot {
@@ -237,24 +210,7 @@ export interface RegionLoadMatch {
 }
 
 export interface RegionListMatch {
-  code?: string
-  countryId?: string
-  drivingSide?: string
-  emoji?: string
-  headOfGovernment?: string
-  headOfState?: string
-  id?: string
-  isoCode?: string
-  latitude?: number
-  licencePlateCode?: string
-  localizedName?: string
-  longitude?: number
-  name?: string
-  population?: number
-  preferredLanguageId?: string
-  telephoneCode?: string
-  trunkPrefix?: string
-  wikidataId?: string
+  country_id?: string
 }
 
 export interface RegionTranslationDto {
@@ -267,6 +223,7 @@ export interface RegionTranslationDto {
 
 export interface RegionTranslationDtoListMatch {
   id: string
+  preferred_language?: string
 
   // Selects a custom action instead of the plain list:
   //   'translations'

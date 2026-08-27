@@ -77,31 +77,15 @@ type CityDto struct {
 
 // CityDtoListMatch is the typed request payload for CityDto.ListTyped.
 type CityDtoListMatch struct {
-	Area *float64 `json:"area,omitempty"`
-	CountryCode *string `json:"countryCode,omitempty"`
-	CountryEmoji *string `json:"countryEmoji,omitempty"`
-	CountryId *string `json:"countryId,omitempty"`
-	CountryName *string `json:"countryName,omitempty"`
-	CountryTelephoneCode *string `json:"countryTelephoneCode,omitempty"`
-	DialingCode *string `json:"dialingCode,omitempty"`
-	DistanceKm *float64 `json:"distanceKm,omitempty"`
-	Elevation *float64 `json:"elevation,omitempty"`
-	FlagImage *string `json:"flagImage,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	LocalizedName *string `json:"localizedName,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
+	CountryCode *string `json:"country_code,omitempty"`
+	Limit *float64 `json:"limit,omitempty"`
+	MaxPopulation *float64 `json:"max_population,omitempty"`
+	MinPopulation *float64 `json:"min_population,omitempty"`
 	Name *string `json:"name,omitempty"`
-	NormalizedName *string `json:"normalizedName,omitempty"`
-	OfficialWebsite *string `json:"officialWebsite,omitempty"`
-	Population *float64 `json:"population,omitempty"`
-	PostalCode *string `json:"postalCode,omitempty"`
-	RegionCode *string `json:"regionCode,omitempty"`
-	RegionId *string `json:"regionId,omitempty"`
-	RegionName *string `json:"regionName,omitempty"`
-	TimeZone *string `json:"timeZone,omitempty"`
-	Translations *[]any `json:"translations,omitempty"`
-	WikidataId *string `json:"wikidataId,omitempty"`
+	Offset *float64 `json:"offset,omitempty"`
+	PreferredLanguage *string `json:"preferred_language,omitempty"`
+	RegionId *string `json:"region_id,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // CityTranslationDto is the typed data model for the city_translation_dto entity.
@@ -144,21 +128,11 @@ type CountryLoadMatch struct {
 
 // CountryListMatch is the typed request payload for Country.ListTyped.
 type CountryListMatch struct {
-	DrivingSide *string `json:"drivingSide,omitempty"`
-	Emoji *string `json:"emoji,omitempty"`
-	HeadOfGovernment *string `json:"headOfGovernment,omitempty"`
-	HeadOfState *string `json:"headOfState,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsoCode *string `json:"isoCode,omitempty"`
-	LicencePlateCode *string `json:"licencePlateCode,omitempty"`
-	LocalizedName *string `json:"localizedName,omitempty"`
+	Limit *float64 `json:"limit,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PreferredLanguageId *string `json:"preferredLanguageId,omitempty"`
-	Regions *[]any `json:"regions,omitempty"`
-	TelephoneCode *string `json:"telephoneCode,omitempty"`
-	Translations *[]any `json:"translations,omitempty"`
-	TrunkPrefix *string `json:"trunkPrefix,omitempty"`
-	WikidataId *string `json:"wikidataId,omitempty"`
+	Offset *float64 `json:"offset,omitempty"`
+	PreferredLanguage *string `json:"preferred_language,omitempty"`
+	TelephoneCode *string `json:"telephone_code,omitempty"`
 }
 
 // CountryTranslationDto is the typed data model for the country_translation_dto entity.
@@ -173,6 +147,7 @@ type CountryTranslationDto struct {
 // CountryTranslationDtoListMatch is the typed request payload for CountryTranslationDto.ListTyped.
 type CountryTranslationDtoListMatch struct {
 	Id string `json:"id"`
+	PreferredLanguage *string `json:"preferred_language,omitempty"`
 }
 
 // Distance is the typed data model for the distance entity.
@@ -182,7 +157,8 @@ type Distance struct {
 
 // DistanceLoadMatch is the typed request payload for Distance.LoadTyped.
 type DistanceLoadMatch struct {
-	DistanceKm *float64 `json:"distanceKm,omitempty"`
+	City1 string `json:"city1"`
+	City2 string `json:"city2"`
 }
 
 // Language is the typed data model for the language entity.
@@ -201,11 +177,8 @@ type LanguageLoadMatch struct {
 
 // LanguageListMatch is the typed request payload for Language.ListTyped.
 type LanguageListMatch struct {
-	CitiesCount *float64 `json:"citiesCount,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsoCode *string `json:"isoCode,omitempty"`
-	Name *string `json:"name,omitempty"`
-	WikidataId *string `json:"wikidataId,omitempty"`
+	Limit *float64 `json:"limit,omitempty"`
+	Offset *float64 `json:"offset,omitempty"`
 }
 
 // Oneshot is the typed data model for the oneshot entity.
@@ -253,24 +226,7 @@ type RegionLoadMatch struct {
 
 // RegionListMatch is the typed request payload for Region.ListTyped.
 type RegionListMatch struct {
-	Code *string `json:"code,omitempty"`
-	CountryId *string `json:"countryId,omitempty"`
-	DrivingSide *string `json:"drivingSide,omitempty"`
-	Emoji *string `json:"emoji,omitempty"`
-	HeadOfGovernment *string `json:"headOfGovernment,omitempty"`
-	HeadOfState *string `json:"headOfState,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsoCode *string `json:"isoCode,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	LicencePlateCode *string `json:"licencePlateCode,omitempty"`
-	LocalizedName *string `json:"localizedName,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Population *float64 `json:"population,omitempty"`
-	PreferredLanguageId *string `json:"preferredLanguageId,omitempty"`
-	TelephoneCode *string `json:"telephoneCode,omitempty"`
-	TrunkPrefix *string `json:"trunkPrefix,omitempty"`
-	WikidataId *string `json:"wikidataId,omitempty"`
+	CountryId *string `json:"country_id,omitempty"`
 }
 
 // RegionTranslationDto is the typed data model for the region_translation_dto entity.
@@ -285,6 +241,7 @@ type RegionTranslationDto struct {
 // RegionTranslationDtoListMatch is the typed request payload for RegionTranslationDto.ListTyped.
 type RegionTranslationDtoListMatch struct {
 	Id string `json:"id"`
+	PreferredLanguage *string `json:"preferred_language,omitempty"`
 }
 
 // SettlementType is the typed data model for the settlement_type entity.
