@@ -140,16 +140,22 @@ main: kit: entity: region: {
           }
           method: "GET"
           orig: "/countries/{id}/regions"
-          parts: [
-            "countries"
-            "{country_id}"
-            "regions"
-          ]
           rename: {
             param: {
               id: "country_id"
             }
           }
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              var: "country_id"
+            }
+            {
+              lit: "regions"
+            }
+          ]
           select: {
             exist: [
               "country_id"
@@ -175,8 +181,10 @@ main: kit: entity: region: {
           }
           method: "GET"
           orig: "/regions"
-          parts: [
-            "regions"
+          segments: [
+            {
+              lit: "regions"
+            }
           ]
           select: {
             exist: [
@@ -208,9 +216,13 @@ main: kit: entity: region: {
           }
           method: "GET"
           orig: "/regions/{id}"
-          parts: [
-            "regions"
-            "{id}"
+          segments: [
+            {
+              lit: "regions"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

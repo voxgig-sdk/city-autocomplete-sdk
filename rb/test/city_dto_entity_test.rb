@@ -118,7 +118,7 @@ def city_dto_basic_setup(extra)
     "CITY_AUTOCOMPLETE_TEST_CITY_DTO_ENTID" => idmap,
     "CITY_AUTOCOMPLETE_TEST_LIVE" => "FALSE",
     "CITY_AUTOCOMPLETE_TEST_EXPLAIN" => "FALSE",
-    "CITY_AUTOCOMPLETE_APIKEY" => "NONE",
+    "CITY_AUTOCOMPLETE_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -129,6 +129,9 @@ def city_dto_basic_setup(extra)
 
   if env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["CITY_AUTOCOMPLETE_APIKEY"],
       },

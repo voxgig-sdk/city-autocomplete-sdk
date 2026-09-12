@@ -61,10 +61,16 @@ main: kit: entity: city_translation_dto: {
           }
           method: "GET"
           orig: "/cities/{id}/translations"
-          parts: [
-            "cities"
-            "{id}"
-            "translations"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "translations"
+            }
           ]
           select: {
             "$action": "translations"

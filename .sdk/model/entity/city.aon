@@ -181,9 +181,13 @@ main: kit: entity: city: {
           }
           method: "GET"
           orig: "/cities/{id}"
-          parts: [
-            "cities"
-            "{id}"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

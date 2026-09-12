@@ -154,8 +154,10 @@ main: kit: entity: country: {
           }
           method: "GET"
           orig: "/countries"
-          parts: [
-            "countries"
+          segments: [
+            {
+              lit: "countries"
+            }
           ]
           select: {
             exist: [
@@ -191,9 +193,13 @@ main: kit: entity: country: {
           }
           method: "GET"
           orig: "/countries/{id}"
-          parts: [
-            "countries"
-            "{id}"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

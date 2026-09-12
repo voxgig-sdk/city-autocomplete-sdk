@@ -95,7 +95,7 @@ function city_basic_setup(extra)
     ["CITY_AUTOCOMPLETE_TEST_CITY_ENTID"] = idmap,
     ["CITY_AUTOCOMPLETE_TEST_LIVE"] = "FALSE",
     ["CITY_AUTOCOMPLETE_TEST_EXPLAIN"] = "FALSE",
-    ["CITY_AUTOCOMPLETE_APIKEY"] = "NONE",
+    ["CITY_AUTOCOMPLETE_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -106,6 +106,9 @@ function city_basic_setup(extra)
 
   if env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["CITY_AUTOCOMPLETE_APIKEY"],
       },

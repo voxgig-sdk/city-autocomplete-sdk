@@ -115,7 +115,7 @@ function language_direct_setup(mockres)
   local env = runner.env_override({
     ["CITY_AUTOCOMPLETE_TEST_LANGUAGE_ENTID"] = {},
     ["CITY_AUTOCOMPLETE_TEST_LIVE"] = "FALSE",
-    ["CITY_AUTOCOMPLETE_APIKEY"] = "NONE",
+    ["CITY_AUTOCOMPLETE_APIKEY"] = "",
   })
 
   local live = env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
@@ -124,6 +124,13 @@ function language_direct_setup(mockres)
     local merged_opts = {
       apikey = env["CITY_AUTOCOMPLETE_APIKEY"],
     }
+    -- sdk-test-control.json's test.client.options goes UNDER the generated
+    -- fields: it adds to the live client, it does not redirect it.
+    for _k, _v in pairs(runner.live_client_options()) do
+      if merged_opts[_k] == nil then
+        merged_opts[_k] = _v
+      end
+    end
     local client = sdk.new(merged_opts)
     return {
       client = client,

@@ -1,6 +1,14 @@
 # CityAutocomplete SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -204,6 +212,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "city",
         "op": {
           "load": {
@@ -225,9 +237,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/{id}",
-                "parts": [
-                  "cities",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -238,6 +254,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -387,6 +407,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "city_dto",
         "op": {
           "list": {
@@ -461,9 +485,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/search",
-                "parts": [
-                  "cities",
-                  "search",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -482,6 +510,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "search",
+                ],
               },
               {
                 "args": {
@@ -512,10 +544,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/byCoordinates/closest",
-                "parts": [
-                  "cities",
-                  "byCoordinates",
-                  "closest",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "lit": "byCoordinates",
+                  },
+                  {
+                    "lit": "closest",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -528,6 +566,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "byCoordinates",
+                  "closest",
+                ],
               },
               {
                 "args": {
@@ -558,10 +601,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/byCoordinates/largest",
-                "parts": [
-                  "cities",
-                  "byCoordinates",
-                  "largest",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "lit": "byCoordinates",
+                  },
+                  {
+                    "lit": "largest",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -574,6 +623,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "byCoordinates",
+                  "largest",
+                ],
               },
             ],
           },
@@ -615,6 +669,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "city_translation_dto",
         "op": {
           "list": {
@@ -636,10 +694,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/{id}/translations",
-                "parts": [
-                  "cities",
-                  "{id}",
-                  "translations",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "translations",
+                  },
                 ],
                 "select": {
                   "$action": "translations",
@@ -651,6 +715,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "{id}",
+                  "translations",
+                ],
               },
             ],
           },
@@ -751,6 +820,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "country",
         "op": {
           "list": {
@@ -800,8 +873,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/countries",
-                "parts": [
-                  "countries",
+                "segments": [
+                  {
+                    "lit": "countries",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -816,6 +891,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "countries",
+                ],
               },
             ],
           },
@@ -839,9 +917,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/countries/{id}",
-                "parts": [
-                  "countries",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "countries",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -852,6 +934,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "countries",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -893,6 +979,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "country_translation_dto",
         "op": {
           "list": {
@@ -924,10 +1014,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/countries/{id}/translations",
-                "parts": [
-                  "countries",
-                  "{id}",
-                  "translations",
+                "segments": [
+                  {
+                    "lit": "countries",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "translations",
+                  },
                 ],
                 "select": {
                   "$action": "translations",
@@ -940,6 +1036,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "countries",
+                  "{id}",
+                  "translations",
+                ],
               },
             ],
           },
@@ -985,9 +1086,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/distance",
-                "parts": [
-                  "cities",
-                  "distance",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "lit": "distance",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -999,6 +1104,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "distance",
+                ],
               },
             ],
           },
@@ -1040,6 +1149,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "language",
         "op": {
           "list": {
@@ -1068,8 +1181,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/languages",
-                "parts": [
-                  "languages",
+                "segments": [
+                  {
+                    "lit": "languages",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1081,6 +1196,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "languages",
+                ],
               },
             ],
           },
@@ -1104,9 +1222,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/languages/{id}",
-                "parts": [
-                  "languages",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "languages",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1117,6 +1239,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "languages",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1154,6 +1280,10 @@ def make_config():
             "type": "`$OBJECT`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "oneshot",
         "op": {
           "list": {
@@ -1192,12 +1322,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/oneshot/{country}/{language}/{city_name}",
-                "parts": [
-                  "cities",
-                  "oneshot",
-                  "{country}",
-                  "{language}",
-                  "{city_name}",
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "lit": "oneshot",
+                  },
+                  {
+                    "var": "country",
+                  },
+                  {
+                    "var": "language",
+                  },
+                  {
+                    "var": "city_name",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1210,6 +1350,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "oneshot",
+                  "{country}",
+                  "{language}",
+                  "{city_name}",
+                ],
               },
             ],
           },
@@ -1332,6 +1479,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "region",
         "op": {
           "list": {
@@ -1354,16 +1505,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/countries/{id}/regions",
-                "parts": [
-                  "countries",
-                  "{country_id}",
-                  "regions",
-                ],
                 "rename": {
                   "param": {
                     "id": "country_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "countries",
+                  },
+                  {
+                    "var": "country_id",
+                  },
+                  {
+                    "lit": "regions",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "country_id",
@@ -1373,6 +1530,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "countries",
+                  "{country_id}",
+                  "regions",
+                ],
               },
               {
                 "args": {
@@ -1389,8 +1551,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/regions",
-                "parts": [
-                  "regions",
+                "segments": [
+                  {
+                    "lit": "regions",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1401,6 +1565,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "regions",
+                ],
               },
             ],
           },
@@ -1424,9 +1591,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/regions/{id}",
-                "parts": [
-                  "regions",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "regions",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -1437,6 +1608,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.country`",
                 },
+                "parts": [
+                  "regions",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -1482,6 +1657,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "region_translation_dto",
         "op": {
           "list": {
@@ -1513,10 +1692,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/regions/{id}/translations",
-                "parts": [
-                  "regions",
-                  "{id}",
-                  "translations",
+                "segments": [
+                  {
+                    "lit": "regions",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "translations",
+                  },
                 ],
                 "select": {
                   "$action": "translations",
@@ -1529,6 +1714,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "regions",
+                  "{id}",
+                  "translations",
+                ],
               },
             ],
           },
@@ -1570,6 +1760,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "settlement_type",
         "op": {
           "list": {
@@ -1591,16 +1785,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cities/{id}/settlement-types",
-                "parts": [
-                  "cities",
-                  "{city_id}",
-                  "settlement-types",
-                ],
                 "rename": {
                   "param": {
                     "id": "city_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "cities",
+                  },
+                  {
+                    "var": "city_id",
+                  },
+                  {
+                    "lit": "settlement-types",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "city_id",
@@ -1610,6 +1810,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "cities",
+                  "{city_id}",
+                  "settlement-types",
+                ],
               },
             ],
           },

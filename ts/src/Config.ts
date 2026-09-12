@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -239,6 +250,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "city",
       "op": {
         "load": {
@@ -260,9 +275,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}",
-              "parts": [
-                "cities",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -272,7 +291,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "{id}"
+              ]
             }
           ]
         }
@@ -422,6 +445,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "city_dto",
       "op": {
         "list": {
@@ -496,9 +523,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/search",
-              "parts": [
-                "cities",
-                "search"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "lit": "search"
+                }
               ],
               "select": {
                 "exist": [
@@ -516,7 +547,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "search"
+              ]
             },
             {
               "args": {
@@ -547,10 +582,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/byCoordinates/closest",
-              "parts": [
-                "cities",
-                "byCoordinates",
-                "closest"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "lit": "byCoordinates"
+                },
+                {
+                  "lit": "closest"
+                }
               ],
               "select": {
                 "exist": [
@@ -562,7 +603,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "byCoordinates",
+                "closest"
+              ]
             },
             {
               "args": {
@@ -593,10 +639,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/byCoordinates/largest",
-              "parts": [
-                "cities",
-                "byCoordinates",
-                "largest"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "lit": "byCoordinates"
+                },
+                {
+                  "lit": "largest"
+                }
               ],
               "select": {
                 "exist": [
@@ -608,7 +660,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "byCoordinates",
+                "largest"
+              ]
             }
           ]
         }
@@ -650,6 +707,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "city_translation_dto",
       "op": {
         "list": {
@@ -671,10 +732,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}/translations",
-              "parts": [
-                "cities",
-                "{id}",
-                "translations"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "var": "id"
+                },
+                {
+                  "lit": "translations"
+                }
               ],
               "select": {
                 "$action": "translations",
@@ -685,7 +752,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "{id}",
+                "translations"
+              ]
             }
           ]
         }
@@ -786,6 +858,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "country",
       "op": {
         "list": {
@@ -835,8 +911,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/countries",
-              "parts": [
-                "countries"
+              "segments": [
+                {
+                  "lit": "countries"
+                }
               ],
               "select": {
                 "exist": [
@@ -850,7 +928,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "countries"
+              ]
             }
           ]
         },
@@ -874,9 +955,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}",
-              "parts": [
-                "countries",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "countries"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -886,7 +971,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "countries",
+                "{id}"
+              ]
             }
           ]
         }
@@ -928,6 +1017,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "country_translation_dto",
       "op": {
         "list": {
@@ -959,10 +1052,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}/translations",
-              "parts": [
-                "countries",
-                "{id}",
-                "translations"
+              "segments": [
+                {
+                  "lit": "countries"
+                },
+                {
+                  "var": "id"
+                },
+                {
+                  "lit": "translations"
+                }
               ],
               "select": {
                 "$action": "translations",
@@ -974,7 +1073,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "countries",
+                "{id}",
+                "translations"
+              ]
             }
           ]
         }
@@ -1020,9 +1124,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/distance",
-              "parts": [
-                "cities",
-                "distance"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "lit": "distance"
+                }
               ],
               "select": {
                 "exist": [
@@ -1033,7 +1141,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "distance"
+              ]
             }
           ]
         }
@@ -1075,6 +1187,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "language",
       "op": {
         "list": {
@@ -1103,8 +1219,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/languages",
-              "parts": [
-                "languages"
+              "segments": [
+                {
+                  "lit": "languages"
+                }
               ],
               "select": {
                 "exist": [
@@ -1115,7 +1233,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "languages"
+              ]
             }
           ]
         },
@@ -1139,9 +1260,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/languages/{id}",
-              "parts": [
-                "languages",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "languages"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -1151,7 +1276,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "languages",
+                "{id}"
+              ]
             }
           ]
         }
@@ -1189,6 +1318,10 @@ class Config {
           "type": "`$OBJECT`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "oneshot",
       "op": {
         "list": {
@@ -1227,12 +1360,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/oneshot/{country}/{language}/{city_name}",
-              "parts": [
-                "cities",
-                "oneshot",
-                "{country}",
-                "{language}",
-                "{city_name}"
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "lit": "oneshot"
+                },
+                {
+                  "var": "country"
+                },
+                {
+                  "var": "language"
+                },
+                {
+                  "var": "city_name"
+                }
               ],
               "select": {
                 "exist": [
@@ -1244,7 +1387,14 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "oneshot",
+                "{country}",
+                "{language}",
+                "{city_name}"
+              ]
             }
           ]
         }
@@ -1367,6 +1517,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "region",
       "op": {
         "list": {
@@ -1389,16 +1543,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}/regions",
-              "parts": [
-                "countries",
-                "{country_id}",
-                "regions"
-              ],
               "rename": {
                 "param": {
                   "id": "country_id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "countries"
+                },
+                {
+                  "var": "country_id"
+                },
+                {
+                  "lit": "regions"
+                }
+              ],
               "select": {
                 "exist": [
                   "country_id"
@@ -1407,7 +1567,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "countries",
+                "{country_id}",
+                "regions"
+              ]
             },
             {
               "args": {
@@ -1424,8 +1589,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/regions",
-              "parts": [
-                "regions"
+              "segments": [
+                {
+                  "lit": "regions"
+                }
               ],
               "select": {
                 "exist": [
@@ -1435,7 +1602,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "regions"
+              ]
             }
           ]
         },
@@ -1459,9 +1629,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/regions/{id}",
-              "parts": [
-                "regions",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "regions"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -1471,7 +1645,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.country`"
-              }
+              },
+              "parts": [
+                "regions",
+                "{id}"
+              ]
             }
           ]
         }
@@ -1517,6 +1695,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "region_translation_dto",
       "op": {
         "list": {
@@ -1548,10 +1730,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/regions/{id}/translations",
-              "parts": [
-                "regions",
-                "{id}",
-                "translations"
+              "segments": [
+                {
+                  "lit": "regions"
+                },
+                {
+                  "var": "id"
+                },
+                {
+                  "lit": "translations"
+                }
               ],
               "select": {
                 "$action": "translations",
@@ -1563,7 +1751,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "regions",
+                "{id}",
+                "translations"
+              ]
             }
           ]
         }
@@ -1605,6 +1798,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "settlement_type",
       "op": {
         "list": {
@@ -1626,16 +1823,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}/settlement-types",
-              "parts": [
-                "cities",
-                "{city_id}",
-                "settlement-types"
-              ],
               "rename": {
                 "param": {
                   "id": "city_id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "cities"
+                },
+                {
+                  "var": "city_id"
+                },
+                {
+                  "lit": "settlement-types"
+                }
+              ],
               "select": {
                 "exist": [
                   "city_id"
@@ -1644,7 +1847,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "cities",
+                "{city_id}",
+                "settlement-types"
+              ]
             }
           ]
         }
@@ -1664,6 +1872,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

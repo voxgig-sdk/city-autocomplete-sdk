@@ -98,7 +98,7 @@ func TestSettlementTypeEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		settlementTypeRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.settlement_type", setup.data)))
+		settlementTypeRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.settlement_type")))
 		var settlementTypeRef01Data map[string]any
 		if len(settlementTypeRef01DataRaw) > 0 {
 			settlementTypeRef01Data = core.ToMapAny(settlementTypeRef01DataRaw[0][1])
@@ -149,7 +149,7 @@ func settlement_typeBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"settlement_type01", "settlement_type02", "settlement_type03", "city01", "city02", "city03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -169,7 +169,7 @@ func settlement_typeBasicSetup(extra map[string]any) *entityTestSetup {
 		"CITY_AUTOCOMPLETE_TEST_SETTLEMENT_TYPE_ENTID": idmap,
 		"CITY_AUTOCOMPLETE_TEST_LIVE":      "FALSE",
 		"CITY_AUTOCOMPLETE_TEST_EXPLAIN":   "FALSE",
-		"CITY_AUTOCOMPLETE_APIKEY":         "NONE",
+		"CITY_AUTOCOMPLETE_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CITY_AUTOCOMPLETE_TEST_SETTLEMENT_TYPE_ENTID"])
@@ -178,11 +178,23 @@ func settlement_typeBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CITY_AUTOCOMPLETE_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCityAutocompleteSDK(core.ToMapAny(mergedOpts))
 	}

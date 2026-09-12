@@ -72,15 +72,18 @@ def _region_translation_dto_direct_setup(mockres):
     env = runner.env_override({
         "CITY_AUTOCOMPLETE_TEST_REGION_TRANSLATION_DTO_ENTID": {},
         "CITY_AUTOCOMPLETE_TEST_LIVE": "FALSE",
-        "CITY_AUTOCOMPLETE_APIKEY": "NONE",
+        "CITY_AUTOCOMPLETE_APIKEY": "",
     })
 
     live = env.get("CITY_AUTOCOMPLETE_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
             "apikey": env.get("CITY_AUTOCOMPLETE_APIKEY"),
-        }
+        })
         client = CityAutocompleteSDK(merged_opts)
         return {
             "client": client,

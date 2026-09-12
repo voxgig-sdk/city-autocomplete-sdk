@@ -235,9 +235,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/{id}",
-                  "parts": [
-                    "cities",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -535,9 +539,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/search",
-                  "parts": [
-                    "cities",
-                    "search"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "search"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -591,10 +599,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/byCoordinates/closest",
-                  "parts": [
-                    "cities",
-                    "byCoordinates",
-                    "closest"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "byCoordinates"
+                    },
+                    {
+                      "lit": "closest"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -642,10 +656,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/byCoordinates/largest",
-                  "parts": [
-                    "cities",
-                    "byCoordinates",
-                    "largest"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "byCoordinates"
+                    },
+                    {
+                      "lit": "largest"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -735,10 +755,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/{id}/translations",
-                  "parts": [
-                    "cities",
-                    "{id}",
-                    "translations"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "translations"
+                    }
                   ],
                   "select": {
                     "$action": "translations",
@@ -934,8 +960,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/countries",
-                  "parts": [
-                    "countries"
+                  "segments": [
+                    {
+                      "lit": "countries"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -975,9 +1003,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/countries/{id}",
-                  "parts": [
-                    "countries",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "countries"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1077,10 +1109,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/countries/{id}/translations",
-                  "parts": [
-                    "countries",
-                    "{id}",
-                    "translations"
+                  "segments": [
+                    {
+                      "lit": "countries"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "translations"
+                    }
                   ],
                   "select": {
                     "$action": "translations",
@@ -1146,9 +1184,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/distance",
-                  "parts": [
-                    "cities",
-                    "distance"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "distance"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1247,8 +1289,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/languages",
-                  "parts": [
-                    "languages"
+                  "segments": [
+                    {
+                      "lit": "languages"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1285,9 +1329,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/languages/{id}",
-                  "parts": [
-                    "languages",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "languages"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1391,12 +1439,22 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/oneshot/{country}/{language}/{city_name}",
-                  "parts": [
-                    "cities",
-                    "oneshot",
-                    "{country}",
-                    "{language}",
-                    "{city_name}"
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "oneshot"
+                    },
+                    {
+                      "var": "country"
+                    },
+                    {
+                      "var": "language"
+                    },
+                    {
+                      "var": "city_name"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1582,16 +1640,22 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/countries/{id}/regions",
-                  "parts": [
-                    "countries",
-                    "{country_id}",
-                    "regions"
-                  ],
                   "rename": {
                     "param": {
                       "id": "country_id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "countries"
+                    },
+                    {
+                      "var": "country_id"
+                    },
+                    {
+                      "lit": "regions"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "country_id"
@@ -1620,8 +1684,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/regions",
-                  "parts": [
-                    "regions"
+                  "segments": [
+                    {
+                      "lit": "regions"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1657,9 +1723,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/regions/{id}",
-                  "parts": [
-                    "regions",
-                    "{id}"
+                  "segments": [
+                    {
+                      "lit": "regions"
+                    },
+                    {
+                      "var": "id"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -1763,10 +1833,16 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/regions/{id}/translations",
-                  "parts": [
-                    "regions",
-                    "{id}",
-                    "translations"
+                  "segments": [
+                    {
+                      "lit": "regions"
+                    },
+                    {
+                      "var": "id"
+                    },
+                    {
+                      "lit": "translations"
+                    }
                   ],
                   "select": {
                     "$action": "translations",
@@ -1856,16 +1932,22 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cities/{id}/settlement-types",
-                  "parts": [
-                    "cities",
-                    "{city_id}",
-                    "settlement-types"
-                  ],
                   "rename": {
                     "param": {
                       "id": "city_id"
                     }
                   },
+                  "segments": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "var": "city_id"
+                    },
+                    {
+                      "lit": "settlement-types"
+                    }
+                  ],
                   "select": {
                     "exist": [
                       "city_id"
@@ -1952,8 +2034,11 @@
             }
           },
           "name": "test",
+          "needs": {},
           "origname": "",
           "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
           "target": {
             "go": {
               "deps": {}
@@ -2421,6 +2506,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2446,6 +2534,10 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
           "title": "Golang"
         },
         "go-cli": {
@@ -2497,6 +2589,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -2521,6 +2614,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go CLI"
         },
         "go-mcp": {
@@ -2572,6 +2666,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -2596,6 +2691,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go MCP server"
         },
         "lua": {
@@ -2636,6 +2732,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2661,6 +2760,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
           "title": "Lua"
         },
         "php": {
@@ -2695,6 +2797,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2720,6 +2825,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
           "title": "PHP"
         },
         "py": {
@@ -2760,6 +2868,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2785,6 +2896,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
           "title": "Python"
         },
         "rb": {
@@ -2830,6 +2944,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2855,6 +2972,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
           "title": "Ruby"
         },
         "ts": {
@@ -2872,11 +2992,6 @@
               "active": true,
               "kind": "dev",
               "version": "^25.6.0"
-            },
-            "dotenv": {
-              "active": true,
-              "kind": "dev",
-              "version": "^17.4.2"
             },
             "typescript": {
               "active": true,
@@ -2905,6 +3020,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -2929,6 +3047,14 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
           "title": "TypeScript"
         }
       },

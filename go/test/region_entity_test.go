@@ -98,7 +98,7 @@ func TestRegionEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		regionRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.region", setup.data)))
+		regionRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.region")))
 		var regionRef01Data map[string]any
 		if len(regionRef01DataRaw) > 0 {
 			regionRef01Data = core.ToMapAny(regionRef01DataRaw[0][1])
@@ -163,7 +163,7 @@ func regionBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"region01", "region02", "region03", "country01", "country02", "country03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -183,7 +183,7 @@ func regionBasicSetup(extra map[string]any) *entityTestSetup {
 		"CITY_AUTOCOMPLETE_TEST_REGION_ENTID": idmap,
 		"CITY_AUTOCOMPLETE_TEST_LIVE":      "FALSE",
 		"CITY_AUTOCOMPLETE_TEST_EXPLAIN":   "FALSE",
-		"CITY_AUTOCOMPLETE_APIKEY":         "NONE",
+		"CITY_AUTOCOMPLETE_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["CITY_AUTOCOMPLETE_TEST_REGION_ENTID"])
@@ -192,11 +192,23 @@ func regionBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["CITY_AUTOCOMPLETE_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCityAutocompleteSDK(core.ToMapAny(mergedOpts))
 	}

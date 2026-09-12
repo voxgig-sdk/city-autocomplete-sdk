@@ -70,8 +70,10 @@ main: kit: entity: language: {
           }
           method: "GET"
           orig: "/languages"
-          parts: [
-            "languages"
+          segments: [
+            {
+              lit: "languages"
+            }
           ]
           select: {
             exist: [
@@ -104,9 +106,13 @@ main: kit: entity: language: {
           }
           method: "GET"
           orig: "/languages/{id}"
-          parts: [
-            "languages"
-            "{id}"
+          segments: [
+            {
+              lit: "languages"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

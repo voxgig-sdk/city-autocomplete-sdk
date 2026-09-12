@@ -75,12 +75,22 @@ main: kit: entity: oneshot: {
           }
           method: "GET"
           orig: "/cities/oneshot/{country}/{language}/{city_name}"
-          parts: [
-            "cities"
-            "oneshot"
-            "{country}"
-            "{language}"
-            "{city_name}"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "oneshot"
+            }
+            {
+              var: "country"
+            }
+            {
+              var: "language"
+            }
+            {
+              var: "city_name"
+            }
           ]
           select: {
             exist: [

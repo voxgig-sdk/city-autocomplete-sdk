@@ -61,16 +61,22 @@ main: kit: entity: settlement_type: {
           }
           method: "GET"
           orig: "/cities/{id}/settlement-types"
-          parts: [
-            "cities"
-            "{city_id}"
-            "settlement-types"
-          ]
           rename: {
             param: {
               id: "city_id"
             }
           }
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              var: "city_id"
+            }
+            {
+              lit: "settlement-types"
+            }
+          ]
           select: {
             exist: [
               "city_id"

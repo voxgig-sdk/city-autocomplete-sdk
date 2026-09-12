@@ -243,9 +243,13 @@ main: kit: entity: city_dto: {
           }
           method: "GET"
           orig: "/cities/search"
-          parts: [
-            "cities"
-            "search"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [
@@ -294,10 +298,16 @@ main: kit: entity: city_dto: {
           }
           method: "GET"
           orig: "/cities/byCoordinates/closest"
-          parts: [
-            "cities"
-            "byCoordinates"
-            "closest"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "byCoordinates"
+            }
+            {
+              lit: "closest"
+            }
           ]
           select: {
             exist: [
@@ -340,10 +350,16 @@ main: kit: entity: city_dto: {
           }
           method: "GET"
           orig: "/cities/byCoordinates/largest"
-          parts: [
-            "cities"
-            "byCoordinates"
-            "largest"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "byCoordinates"
+            }
+            {
+              lit: "largest"
+            }
           ]
           select: {
             exist: [

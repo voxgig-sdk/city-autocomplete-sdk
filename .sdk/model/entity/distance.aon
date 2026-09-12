@@ -39,9 +39,13 @@ main: kit: entity: distance: {
           }
           method: "GET"
           orig: "/cities/distance"
-          parts: [
-            "cities"
-            "distance"
+          segments: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "distance"
+            }
           ]
           select: {
             exist: [

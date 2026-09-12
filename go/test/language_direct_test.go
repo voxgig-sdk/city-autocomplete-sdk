@@ -177,14 +177,22 @@ func languageDirectSetup(mockres any) *languageDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CITY_AUTOCOMPLETE_TEST_LANGUAGE_ENTID": map[string]any{},
 		"CITY_AUTOCOMPLETE_TEST_LIVE":    "FALSE",
-		"CITY_AUTOCOMPLETE_APIKEY":       "NONE",
+		"CITY_AUTOCOMPLETE_APIKEY":       "",
 	})
 
 	live := env["CITY_AUTOCOMPLETE_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
 			"apikey": env["CITY_AUTOCOMPLETE_APIKEY"],
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewCityAutocompleteSDK(mergedOpts)
 
