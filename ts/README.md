@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete'
+import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete-sdk'
 
 const client = new CityAutocompleteSDK({
   apikey: process.env.CITY_AUTOCOMPLETE_APIKEY,
@@ -977,7 +977,7 @@ city-autocomplete/
 Import the SDK from the package root:
 
 ```ts
-import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete'
+import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete-sdk'
 ```
 
 ### Entity state

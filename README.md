@@ -105,7 +105,7 @@ local results, err = client:Language():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/city-autocomplete` | publish pending — [install from git tag](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases) |
+| TypeScript | `@voxgig-sdk/city-autocomplete-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases) |
 | Python | `voxgig-sdk-city-autocomplete` | publish pending — [install from git tag](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases) |
 | PHP | `voxgig-sdk/city-autocomplete` | publish pending — [install from git tag](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/city-autocomplete-sdk/go` | `go get github.com/voxgig-sdk/city-autocomplete-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Language():list()
 ### TypeScript
 
 ```ts
-import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete'
+import { CityAutocompleteSDK } from '@voxgig-sdk/city-autocomplete-sdk'
 
 const client = new CityAutocompleteSDK({
   apikey: process.env.CITY_AUTOCOMPLETE_APIKEY,
