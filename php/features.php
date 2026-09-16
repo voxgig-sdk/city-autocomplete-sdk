@@ -4,7 +4,10 @@ declare(strict_types=1);
 // CityAutocomplete SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CityAutocompleteFeatures
@@ -14,8 +17,14 @@ class CityAutocompleteFeatures
         switch ($name) {
             case "base":
                 return new CityAutocompleteBaseFeature();
+            case "ratelimit":
+                return new CityAutocompleteRatelimitFeature();
+            case "retry":
+                return new CityAutocompleteRetryFeature();
             case "test":
                 return new CityAutocompleteTestFeature();
+            case "timeout":
+                return new CityAutocompleteTimeoutFeature();
             default:
                 return new CityAutocompleteBaseFeature();
         }
@@ -31,7 +40,10 @@ class CityAutocompleteFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

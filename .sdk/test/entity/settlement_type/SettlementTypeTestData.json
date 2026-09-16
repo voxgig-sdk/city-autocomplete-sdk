@@ -36,5 +36,87 @@
         "wikidataId": "scc"
       }
     }
+  },
+  "requests": {
+    "GET /cities/{id}/settlement-types": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": ":id/settlement-types",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "description": {
+                        "description": "Description of the settlement type",
+                        "example": "administrative division of Catalonia, Spain",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Settlement Type ID",
+                        "example": "5bdb4631-a170-4bd8-bf1a-2d447d3523b1",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the settlement type",
+                        "example": "municipality of Catalonia",
+                        "type": "string"
+                      },
+                      "nameNormalized": {
+                        "description": "Normalized name of the settlement type",
+                        "example": "municipality of catalonia",
+                        "type": "string"
+                      },
+                      "wikidataId": {
+                        "description": "Wikidata ID",
+                        "example": "Q33146843",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "wikidataId",
+                      "name",
+                      "nameNormalized",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "City settlement types"
+          }
+        },
+        "security": [
+          {
+            "RapidApiKey": []
+          }
+        ],
+        "securitySchemes": {
+          "RapidApiKey": {
+            "description": "RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon",
+            "in": "header",
+            "name": "x-rapidapi-key",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

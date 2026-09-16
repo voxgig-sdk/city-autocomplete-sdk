@@ -33,5 +33,98 @@
         "regionId": "scc"
       }
     }
+  },
+  "requests": {
+    "GET /regions/{id}/translations": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": ":id/translations",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "preferredLanguages",
+            "required": false,
+            "schema": {
+              "default": "en",
+              "example": "en,fr,hi",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "description": "Translation ID",
+                        "example": "ada3e6fd-61dc-4b83-973d-a91d79498203",
+                        "type": "string"
+                      },
+                      "language": {
+                        "description": "Language code",
+                        "example": "csb",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Translated name",
+                        "example": "Katalońskô",
+                        "type": "string"
+                      },
+                      "nameNormalized": {
+                        "description": "Normalized translated name",
+                        "example": "katalonsko",
+                        "type": "string"
+                      },
+                      "regionId": {
+                        "description": "Region ID",
+                        "example": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "regionId",
+                      "language",
+                      "name",
+                      "nameNormalized"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Region translations"
+          }
+        },
+        "security": [
+          {
+            "RapidApiKey": []
+          }
+        ],
+        "securitySchemes": {
+          "RapidApiKey": {
+            "description": "RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon",
+            "in": "header",
+            "name": "x-rapidapi-key",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }
