@@ -81,6 +81,7 @@ func MakeConfig() map[string]any {
 			"base": "https://geomelon.p.rapidapi.com",
 			"auth": map[string]any{
 				"prefix": "",
+				"name": "x-rapidapi-key",
 			},
 			"headers": map[string]any{
 				"content-type": "application/json",

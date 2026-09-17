@@ -106,6 +106,7 @@ def make_config():
             "base": "https://geomelon.p.rapidapi.com",
             "auth": {
                 "prefix": "",
+                "name": "x-rapidapi-key",
             },
             "headers": {
         "content-type": "application/json",

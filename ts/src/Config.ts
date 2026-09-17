@@ -123,6 +123,7 @@ class Config {
 
     auth: {
       prefix: '',
+      name: 'x-rapidapi-key',
     },
 
     headers: {
@@ -131,39 +132,39 @@ class Config {
 
     entity: {
       
-      city: {
-      },
-
-      city_dto: {
-      },
-
-      city_translation_dto: {
-      },
-
-      country: {
-      },
-
-      country_translation_dto: {
-      },
-
-      distance: {
-      },
-
-      language: {
-      },
-
-      oneshot: {
-      },
-
-      region: {
-      },
-
-      region_translation_dto: {
-      },
-
-      settlement_type: {
-      },
-
+        city: {
+        },
+  
+        city_dto: {
+        },
+  
+        city_translation_dto: {
+        },
+  
+        country: {
+        },
+  
+        country_translation_dto: {
+        },
+  
+        distance: {
+        },
+  
+        language: {
+        },
+  
+        oneshot: {
+        },
+  
+        region: {
+        },
+  
+        region_translation_dto: {
+        },
+  
+        settlement_type: {
+        },
+  
     }
   }
 
