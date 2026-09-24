@@ -19,7 +19,6 @@ import type {
   RegionTranslationDtoListMatch,
 } from '../CityAutocompleteTypes'
 
-// TODO: needs Entity superclass
 class RegionTranslationDtoEntity extends CityAutocompleteEntityBase<RegionTranslationDto> {
 
   constructor(client: CityAutocompleteSDK, entopts: any) {

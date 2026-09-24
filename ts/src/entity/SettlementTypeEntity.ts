@@ -19,7 +19,6 @@ import type {
   SettlementTypeListMatch,
 } from '../CityAutocompleteTypes'
 
-// TODO: needs Entity superclass
 class SettlementTypeEntity extends CityAutocompleteEntityBase<SettlementType> {
 
   constructor(client: CityAutocompleteSDK, entopts: any) {

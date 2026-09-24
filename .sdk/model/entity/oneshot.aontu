@@ -1,0 +1,123 @@
+# Entity: oneshot
+
+main: kit: entity: oneshot: {
+
+  alias: field: {}
+
+  fields: {
+    emoji: {
+      h: "Emoji"
+      n: "emoji"
+      r: true
+      t: "`$OBJECT`"
+    }
+    en: {
+      h: "En"
+      n: "en"
+      r: false
+      sh: "English name — omitted when the requested language is English or no English translation exists"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "City name in the requested language"
+      t: "`$STRING`"
+    }
+    population: {
+      h: "Population"
+      n: "population"
+      r: true
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "oneshot"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /cities/oneshot/{country}/{language}/{city_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "bar"
+                k: "param"
+                n: "city_name"
+                or: "city_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "es"
+                k: "param"
+                n: "country"
+                or: "country"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "es"
+                k: "param"
+                n: "language"
+                or: "language"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cities/oneshot/{country}/{language}/{city_name}"
+          q: {
+            exist: [
+              "city_name"
+              "country"
+              "language"
+            ]
+          }
+          s: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "oneshot"
+            }
+            {
+              var: "country"
+            }
+            {
+              var: "language"
+            }
+            {
+              var: "city_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -19,7 +19,6 @@ import type {
   OneshotListMatch,
 } from '../CityAutocompleteTypes'
 
-// TODO: needs Entity superclass
 class OneshotEntity extends CityAutocompleteEntityBase<Oneshot> {
 
   constructor(client: CityAutocompleteSDK, entopts: any) {

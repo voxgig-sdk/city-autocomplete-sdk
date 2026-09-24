@@ -1,7 +1,7 @@
 // Typed models for the CityAutocomplete SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,31 +14,6 @@ import (
 
 // City is the typed data model for the city entity.
 type City struct {
-	Area *float64 `json:"area,omitempty"`
-	CountryCode string `json:"countryCode"`
-	CountryEmoji string `json:"countryEmoji"`
-	CountryId string `json:"countryId"`
-	CountryName string `json:"countryName"`
-	CountryTelephoneCode *string `json:"countryTelephoneCode,omitempty"`
-	DialingCode *string `json:"dialingCode,omitempty"`
-	DistanceKm *float64 `json:"distanceKm,omitempty"`
-	Elevation *float64 `json:"elevation,omitempty"`
-	FlagImage *string `json:"flagImage,omitempty"`
-	Id string `json:"id"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	LocalizedName string `json:"localizedName"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Name string `json:"name"`
-	NormalizedName string `json:"normalizedName"`
-	OfficialWebsite *string `json:"officialWebsite,omitempty"`
-	Population *float64 `json:"population,omitempty"`
-	PostalCode *string `json:"postalCode,omitempty"`
-	RegionCode string `json:"regionCode"`
-	RegionId string `json:"regionId"`
-	RegionName string `json:"regionName"`
-	TimeZone *string `json:"timeZone,omitempty"`
-	Translations []any `json:"translations"`
-	WikidataId string `json:"wikidataId"`
 }
 
 // CityLoadMatch is the typed request payload for City.LoadTyped.
@@ -48,31 +23,6 @@ type CityLoadMatch struct {
 
 // CityDto is the typed data model for the city_dto entity.
 type CityDto struct {
-	Area *float64 `json:"area,omitempty"`
-	CountryCode string `json:"countryCode"`
-	CountryEmoji string `json:"countryEmoji"`
-	CountryId string `json:"countryId"`
-	CountryName string `json:"countryName"`
-	CountryTelephoneCode *string `json:"countryTelephoneCode,omitempty"`
-	DialingCode *string `json:"dialingCode,omitempty"`
-	DistanceKm *float64 `json:"distanceKm,omitempty"`
-	Elevation *float64 `json:"elevation,omitempty"`
-	FlagImage *string `json:"flagImage,omitempty"`
-	Id string `json:"id"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	LocalizedName string `json:"localizedName"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Name string `json:"name"`
-	NormalizedName string `json:"normalizedName"`
-	OfficialWebsite *string `json:"officialWebsite,omitempty"`
-	Population *float64 `json:"population,omitempty"`
-	PostalCode *string `json:"postalCode,omitempty"`
-	RegionCode string `json:"regionCode"`
-	RegionId string `json:"regionId"`
-	RegionName string `json:"regionName"`
-	TimeZone *string `json:"timeZone,omitempty"`
-	Translations []any `json:"translations"`
-	WikidataId string `json:"wikidataId"`
 }
 
 // CityDtoListMatch is the typed request payload for CityDto.ListTyped.
@@ -90,11 +40,6 @@ type CityDtoListMatch struct {
 
 // CityTranslationDto is the typed data model for the city_translation_dto entity.
 type CityTranslationDto struct {
-	CityId string `json:"cityId"`
-	Id string `json:"id"`
-	Language string `json:"language"`
-	Name string `json:"name"`
-	NameNormalized string `json:"nameNormalized"`
 }
 
 // CityTranslationDtoListMatch is the typed request payload for CityTranslationDto.ListTyped.
@@ -104,21 +49,6 @@ type CityTranslationDtoListMatch struct {
 
 // Country is the typed data model for the country entity.
 type Country struct {
-	DrivingSide string `json:"drivingSide"`
-	Emoji string `json:"emoji"`
-	HeadOfGovernment string `json:"headOfGovernment"`
-	HeadOfState string `json:"headOfState"`
-	Id string `json:"id"`
-	IsoCode string `json:"isoCode"`
-	LicencePlateCode string `json:"licencePlateCode"`
-	LocalizedName *string `json:"localizedName,omitempty"`
-	Name string `json:"name"`
-	PreferredLanguageId string `json:"preferredLanguageId"`
-	Regions []any `json:"regions"`
-	TelephoneCode string `json:"telephoneCode"`
-	Translations []any `json:"translations"`
-	TrunkPrefix string `json:"trunkPrefix"`
-	WikidataId string `json:"wikidataId"`
 }
 
 // CountryLoadMatch is the typed request payload for Country.LoadTyped.
@@ -137,11 +67,6 @@ type CountryListMatch struct {
 
 // CountryTranslationDto is the typed data model for the country_translation_dto entity.
 type CountryTranslationDto struct {
-	CountryId string `json:"countryId"`
-	Id string `json:"id"`
-	Language string `json:"language"`
-	Name string `json:"name"`
-	NameNormalized string `json:"nameNormalized"`
 }
 
 // CountryTranslationDtoListMatch is the typed request payload for CountryTranslationDto.ListTyped.
@@ -152,7 +77,6 @@ type CountryTranslationDtoListMatch struct {
 
 // Distance is the typed data model for the distance entity.
 type Distance struct {
-	DistanceKm float64 `json:"distanceKm"`
 }
 
 // DistanceLoadMatch is the typed request payload for Distance.LoadTyped.
@@ -163,11 +87,6 @@ type DistanceLoadMatch struct {
 
 // Language is the typed data model for the language entity.
 type Language struct {
-	CitiesCount float64 `json:"citiesCount"`
-	Id string `json:"id"`
-	IsoCode string `json:"isoCode"`
-	Name string `json:"name"`
-	WikidataId string `json:"wikidataId"`
 }
 
 // LanguageLoadMatch is the typed request payload for Language.LoadTyped.
@@ -183,11 +102,6 @@ type LanguageListMatch struct {
 
 // Oneshot is the typed data model for the oneshot entity.
 type Oneshot struct {
-	Emoji map[string]any `json:"emoji"`
-	En *string `json:"en,omitempty"`
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Population map[string]any `json:"population"`
 }
 
 // OneshotListMatch is the typed request payload for Oneshot.ListTyped.
@@ -199,24 +113,6 @@ type OneshotListMatch struct {
 
 // Region is the typed data model for the region entity.
 type Region struct {
-	Code string `json:"code"`
-	CountryId string `json:"countryId"`
-	DrivingSide string `json:"drivingSide"`
-	Emoji string `json:"emoji"`
-	HeadOfGovernment string `json:"headOfGovernment"`
-	HeadOfState string `json:"headOfState"`
-	Id string `json:"id"`
-	IsoCode string `json:"isoCode"`
-	Latitude float64 `json:"latitude"`
-	LicencePlateCode string `json:"licencePlateCode"`
-	LocalizedName *string `json:"localizedName,omitempty"`
-	Longitude float64 `json:"longitude"`
-	Name string `json:"name"`
-	Population float64 `json:"population"`
-	PreferredLanguageId string `json:"preferredLanguageId"`
-	TelephoneCode string `json:"telephoneCode"`
-	TrunkPrefix string `json:"trunkPrefix"`
-	WikidataId string `json:"wikidataId"`
 }
 
 // RegionLoadMatch is the typed request payload for Region.LoadTyped.
@@ -231,11 +127,6 @@ type RegionListMatch struct {
 
 // RegionTranslationDto is the typed data model for the region_translation_dto entity.
 type RegionTranslationDto struct {
-	Id string `json:"id"`
-	Language string `json:"language"`
-	Name string `json:"name"`
-	NameNormalized string `json:"nameNormalized"`
-	RegionId string `json:"regionId"`
 }
 
 // RegionTranslationDtoListMatch is the typed request payload for RegionTranslationDto.ListTyped.
@@ -246,11 +137,6 @@ type RegionTranslationDtoListMatch struct {
 
 // SettlementType is the typed data model for the settlement_type entity.
 type SettlementType struct {
-	Description string `json:"description"`
-	Id string `json:"id"`
-	Name string `json:"name"`
-	NameNormalized string `json:"nameNormalized"`
-	WikidataId string `json:"wikidataId"`
 }
 
 // SettlementTypeListMatch is the typed request payload for SettlementType.ListTyped.

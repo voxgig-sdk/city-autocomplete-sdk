@@ -24,189 +24,280 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "city": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "area",
-              "req": false,
-              "short": "Area in km²",
-              "type": "`$NUMBER`"
+          "fields": {
+            "area": {
+              "a": true,
+              "h": "Area",
+              "n": "area",
+              "r": false,
+              "sh": "Area in km²",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "countryCode",
-              "req": true,
-              "short": "ISO country code",
-              "type": "`$STRING`"
+            "countryCode": {
+              "a": true,
+              "h": "Country Code",
+              "n": "countryCode",
+              "r": true,
+              "sh": "ISO country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryEmoji",
-              "req": true,
-              "short": "Emoji flag of the country",
-              "type": "`$STRING`"
+            "countryEmoji": {
+              "a": true,
+              "h": "Country Emoji",
+              "n": "countryEmoji",
+              "r": true,
+              "sh": "Emoji flag of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryId",
-              "req": true,
-              "short": "UUID of the country",
-              "type": "`$STRING`"
+            "countryId": {
+              "a": true,
+              "h": "Country Id",
+              "n": "countryId",
+              "r": true,
+              "sh": "UUID of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryName",
-              "req": true,
-              "short": "Country name",
-              "type": "`$STRING`"
+            "countryName": {
+              "a": true,
+              "h": "Country Name",
+              "n": "countryName",
+              "r": true,
+              "sh": "Country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryTelephoneCode",
-              "req": false,
-              "short": "Telephone code of the country",
-              "type": "`$STRING`"
+            "countryTelephoneCode": {
+              "a": true,
+              "h": "Country Telephone Code",
+              "n": "countryTelephoneCode",
+              "r": false,
+              "sh": "Telephone code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "dialingCode",
-              "req": false,
-              "short": "Dialing code",
-              "type": "`$STRING`"
+            "dialingCode": {
+              "a": true,
+              "h": "Dialing Code",
+              "n": "dialingCode",
+              "r": false,
+              "sh": "Dialing code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "distanceKm",
-              "req": false,
-              "short": "Distance from the given point in kilometers",
-              "type": "`$NUMBER`"
+            "distanceKm": {
+              "a": true,
+              "h": "Distance Km",
+              "n": "distanceKm",
+              "r": false,
+              "sh": "Distance from the given point in kilometers",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "elevation",
-              "req": false,
-              "short": "Elevation in meters",
-              "type": "`$NUMBER`"
+            "elevation": {
+              "a": true,
+              "h": "Elevation",
+              "n": "elevation",
+              "r": false,
+              "sh": "Elevation in meters",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "flagImage",
-              "req": false,
-              "short": "Flag image URL",
-              "type": "`$STRING`"
+            "flagImage": {
+              "a": true,
+              "h": "Flag Image",
+              "n": "flagImage",
+              "r": false,
+              "sh": "Flag image URL",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Geomelon UUID of the city",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Geomelon UUID of the city",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "latitude",
-              "req": false,
-              "short": "Latitude coordinate",
-              "type": "`$NUMBER`"
+            "latitude": {
+              "a": true,
+              "h": "Latitude",
+              "n": "latitude",
+              "r": false,
+              "sh": "Latitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "localizedName",
-              "req": true,
-              "short": "Localized name according to preferred languages",
-              "type": "`$STRING`"
+            "localizedName": {
+              "a": true,
+              "h": "Localized Name",
+              "n": "localizedName",
+              "r": true,
+              "sh": "Localized name according to preferred languages",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "longitude",
-              "req": false,
-              "short": "Longitude coordinate",
-              "type": "`$NUMBER`"
+            "longitude": {
+              "a": true,
+              "h": "Longitude",
+              "n": "longitude",
+              "r": false,
+              "sh": "Longitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "City name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "normalizedName",
-              "req": true,
-              "short": "Normalized city name",
-              "type": "`$STRING`"
+            "normalizedName": {
+              "a": true,
+              "h": "Normalized Name",
+              "n": "normalizedName",
+              "r": true,
+              "sh": "Normalized city name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "officialWebsite",
-              "req": false,
-              "short": "Official website URL",
-              "type": "`$STRING`"
+            "officialWebsite": {
+              "a": true,
+              "h": "Official Website",
+              "n": "officialWebsite",
+              "r": false,
+              "sh": "Official website URL",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "population",
-              "req": false,
-              "short": "Population of the city",
-              "type": "`$NUMBER`"
+            "population": {
+              "a": true,
+              "h": "Population",
+              "n": "population",
+              "r": false,
+              "sh": "Population of the city",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "postalCode",
-              "req": false,
-              "short": "Postal code",
-              "type": "`$STRING`"
+            "postalCode": {
+              "a": true,
+              "h": "Postal Code",
+              "n": "postalCode",
+              "r": false,
+              "sh": "Postal code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionCode",
-              "req": true,
-              "short": "Region code",
-              "type": "`$STRING`"
+            "regionCode": {
+              "a": true,
+              "h": "Region Code",
+              "n": "regionCode",
+              "r": true,
+              "sh": "Region code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionId",
-              "req": true,
-              "short": "UUID of the region",
-              "type": "`$STRING`"
+            "regionId": {
+              "a": true,
+              "h": "Region Id",
+              "n": "regionId",
+              "r": true,
+              "sh": "UUID of the region",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionName",
-              "req": true,
-              "short": "Region name",
-              "type": "`$STRING`"
+            "regionName": {
+              "a": true,
+              "h": "Region Name",
+              "n": "regionName",
+              "r": true,
+              "sh": "Region name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "timeZone",
-              "req": false,
-              "short": "Time zone",
-              "type": "`$STRING`"
+            "timeZone": {
+              "a": true,
+              "h": "Time Zone",
+              "n": "timeZone",
+              "r": false,
+              "sh": "Time zone",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "translations",
-              "req": true,
-              "short": "Translations of the city name in requested languages",
-              "type": "`$ARRAY`"
+            "translations": {
+              "a": true,
+              "h": "Translations",
+              "n": "translations",
+              "r": true,
+              "sh": "Translations of the city name in requested languages",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "wikidataId",
-              "req": true,
-              "short": "Wikidata ID of the city",
-              "type": "`$STRING`"
+            "wikidataId": {
+              "a": true,
+              "h": "Wikidata Id",
+              "n": "wikidataId",
+              "r": true,
+              "sh": "Wikidata ID of the city",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -218,29 +309,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/{id}",
-                    "json": "{\"operationId\":\":id\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"area\":{\"description\":\"Area in km²\",\"example\":101.3,\"type\":\"number\"},\"countryCode\":{\"description\":\"ISO country code\",\"example\":\"ES\",\"type\":\"string\"},\"countryEmoji\":{\"description\":\"Emoji flag of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"countryId\":{\"description\":\"UUID of the country\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"countryName\":{\"description\":\"Country name\",\"example\":\"Spain\",\"type\":\"string\"},\"countryTelephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"dialingCode\":{\"description\":\"Dialing code\",\"example\":\"93\",\"type\":\"string\"},\"distanceKm\":{\"description\":\"Distance from the given point in kilometers\",\"example\":12.5,\"type\":\"number\"},\"elevation\":{\"description\":\"Elevation in meters\",\"example\":9,\"type\":\"number\"},\"flagImage\":{\"description\":\"Flag image URL\",\"example\":\"http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Barcelona.svg\",\"type\":\"string\"},\"id\":{\"description\":\"Geomelon UUID of the city\",\"example\":\"964512d1-f150-4876-87ec-0ba47aef694a\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":41.3825,\"type\":\"number\"},\"localizedName\":{\"description\":\"Localized name according to preferred languages\",\"example\":\"Q1492\",\"type\":\"string\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":2.176944444,\"type\":\"number\"},\"name\":{\"description\":\"City name\",\"example\":\"Barcelona\",\"type\":\"string\"},\"normalizedName\":{\"description\":\"Normalized city name\",\"example\":\"barcelona\",\"type\":\"string\"},\"officialWebsite\":{\"description\":\"Official website URL\",\"example\":\"https://www.barcelona.cat\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the city\",\"example\":1702547,\"type\":\"number\"},\"postalCode\":{\"description\":\"Postal code\",\"example\":\"08001–08042\",\"type\":\"string\"},\"regionCode\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"regionId\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"regionName\":{\"description\":\"Region name\",\"example\":\"Catalonia\",\"type\":\"string\"},\"timeZone\":{\"description\":\"Time zone\",\"example\":\"UTC+01:00\",\"type\":\"string\"},\"translations\":{\"description\":\"Translations of the city name in requested languages\",\"example\":[{\"language\":\"en\",\"name\":\"Barcelona\"},{\"language\":\"ja\",\"name\":\"バルセロナ\"}],\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"wikidataId\":{\"description\":\"Wikidata ID of the city\",\"example\":\"Q1492\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"localizedName\",\"normalizedName\",\"translations\",\"countryId\",\"countryName\",\"countryCode\",\"countryEmoji\",\"regionName\",\"regionCode\",\"regionId\"],\"type\":\"object\"}}},\"description\":\"City details\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -248,12 +344,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -270,183 +361,208 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "area",
-              "req": false,
-              "short": "Area in km²",
-              "type": "`$NUMBER`"
+          "fields": {
+            "area": {
+              "a": true,
+              "h": "Area",
+              "n": "area",
+              "r": false,
+              "sh": "Area in km²",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "countryCode",
-              "req": true,
-              "short": "ISO country code",
-              "type": "`$STRING`"
+            "countryCode": {
+              "a": true,
+              "h": "Country Code",
+              "n": "countryCode",
+              "r": true,
+              "sh": "ISO country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryEmoji",
-              "req": true,
-              "short": "Emoji flag of the country",
-              "type": "`$STRING`"
+            "countryEmoji": {
+              "a": true,
+              "h": "Country Emoji",
+              "n": "countryEmoji",
+              "r": true,
+              "sh": "Emoji flag of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryId",
-              "req": true,
-              "short": "UUID of the country",
-              "type": "`$STRING`"
+            "countryId": {
+              "a": true,
+              "h": "Country Id",
+              "n": "countryId",
+              "r": true,
+              "sh": "UUID of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryName",
-              "req": true,
-              "short": "Country name",
-              "type": "`$STRING`"
+            "countryName": {
+              "a": true,
+              "h": "Country Name",
+              "n": "countryName",
+              "r": true,
+              "sh": "Country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryTelephoneCode",
-              "req": false,
-              "short": "Telephone code of the country",
-              "type": "`$STRING`"
+            "countryTelephoneCode": {
+              "a": true,
+              "h": "Country Telephone Code",
+              "n": "countryTelephoneCode",
+              "r": false,
+              "sh": "Telephone code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "dialingCode",
-              "req": false,
-              "short": "Dialing code",
-              "type": "`$STRING`"
+            "dialingCode": {
+              "a": true,
+              "h": "Dialing Code",
+              "n": "dialingCode",
+              "r": false,
+              "sh": "Dialing code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "distanceKm",
-              "req": false,
-              "short": "Distance from the given point in kilometers",
-              "type": "`$NUMBER`"
+            "distanceKm": {
+              "a": true,
+              "h": "Distance Km",
+              "n": "distanceKm",
+              "r": false,
+              "sh": "Distance from the given point in kilometers",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "elevation",
-              "req": false,
-              "short": "Elevation in meters",
-              "type": "`$NUMBER`"
+            "elevation": {
+              "a": true,
+              "h": "Elevation",
+              "n": "elevation",
+              "r": false,
+              "sh": "Elevation in meters",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "flagImage",
-              "req": false,
-              "short": "Flag image URL",
-              "type": "`$STRING`"
+            "flagImage": {
+              "a": true,
+              "h": "Flag Image",
+              "n": "flagImage",
+              "r": false,
+              "sh": "Flag image URL",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Geomelon UUID of the city",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Geomelon UUID of the city",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "latitude",
-              "req": false,
-              "short": "Latitude coordinate",
-              "type": "`$NUMBER`"
+            "latitude": {
+              "a": true,
+              "h": "Latitude",
+              "n": "latitude",
+              "r": false,
+              "sh": "Latitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "localizedName",
-              "req": true,
-              "short": "Localized name according to preferred languages",
-              "type": "`$STRING`"
+            "localizedName": {
+              "a": true,
+              "h": "Localized Name",
+              "n": "localizedName",
+              "r": true,
+              "sh": "Localized name according to preferred languages",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "longitude",
-              "req": false,
-              "short": "Longitude coordinate",
-              "type": "`$NUMBER`"
+            "longitude": {
+              "a": true,
+              "h": "Longitude",
+              "n": "longitude",
+              "r": false,
+              "sh": "Longitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "City name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "normalizedName",
-              "req": true,
-              "short": "Normalized city name",
-              "type": "`$STRING`"
+            "normalizedName": {
+              "a": true,
+              "h": "Normalized Name",
+              "n": "normalizedName",
+              "r": true,
+              "sh": "Normalized city name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "officialWebsite",
-              "req": false,
-              "short": "Official website URL",
-              "type": "`$STRING`"
+            "officialWebsite": {
+              "a": true,
+              "h": "Official Website",
+              "n": "officialWebsite",
+              "r": false,
+              "sh": "Official website URL",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "population",
-              "req": false,
-              "short": "Population of the city",
-              "type": "`$NUMBER`"
+            "population": {
+              "a": true,
+              "h": "Population",
+              "n": "population",
+              "r": false,
+              "sh": "Population of the city",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "postalCode",
-              "req": false,
-              "short": "Postal code",
-              "type": "`$STRING`"
+            "postalCode": {
+              "a": true,
+              "h": "Postal Code",
+              "n": "postalCode",
+              "r": false,
+              "sh": "Postal code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionCode",
-              "req": true,
-              "short": "Region code",
-              "type": "`$STRING`"
+            "regionCode": {
+              "a": true,
+              "h": "Region Code",
+              "n": "regionCode",
+              "r": true,
+              "sh": "Region code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionId",
-              "req": true,
-              "short": "UUID of the region",
-              "type": "`$STRING`"
+            "regionId": {
+              "a": true,
+              "h": "Region Id",
+              "n": "regionId",
+              "r": true,
+              "sh": "UUID of the region",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionName",
-              "req": true,
-              "short": "Region name",
-              "type": "`$STRING`"
+            "regionName": {
+              "a": true,
+              "h": "Region Name",
+              "n": "regionName",
+              "r": true,
+              "sh": "Region name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "timeZone",
-              "req": false,
-              "short": "Time zone",
-              "type": "`$STRING`"
+            "timeZone": {
+              "a": true,
+              "h": "Time Zone",
+              "n": "timeZone",
+              "r": false,
+              "sh": "Time zone",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "translations",
-              "req": true,
-              "short": "Translations of the city name in requested languages",
-              "type": "`$ARRAY`"
+            "translations": {
+              "a": true,
+              "h": "Translations",
+              "n": "translations",
+              "r": true,
+              "sh": "Translations of the city name in requested languages",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "wikidataId",
-              "req": true,
-              "short": "Wikidata ID of the city",
-              "type": "`$STRING`"
+            "wikidataId": {
+              "a": true,
+              "h": "Wikidata Id",
+              "n": "wikidataId",
+              "r": true,
+              "sh": "Wikidata ID of the city",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -458,107 +574,98 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "us",
-                        "kind": "query",
-                        "name": "country_code",
-                        "orig": "country_code",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "us",
+                        "k": "query",
+                        "n": "country_code",
+                        "or": "country_code",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "max_population",
-                        "orig": "max_population",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "max_population",
+                        "or": "max_population",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "min_population",
-                        "orig": "min_population",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "min_population",
+                        "or": "min_population",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "dallas",
-                        "kind": "query",
-                        "name": "name",
-                        "orig": "name",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "dallas",
+                        "k": "query",
+                        "n": "name",
+                        "or": "name",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "en,fr,ja,hi",
-                        "kind": "query",
-                        "name": "preferred_language",
-                        "orig": "preferred_language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en,fr,ja,hi",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferred_language",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "region_id",
-                        "orig": "region_id",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "region_id",
+                        "or": "region_id",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "population_desc",
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "population_desc",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/search",
-                    "json": "{\"operationId\":\"search\",\"parameters\":[{\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"example\":\"population_desc\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"number\"}},{\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":20,\"type\":\"number\"}},{\"in\":\"query\",\"name\":\"preferredLanguages\",\"required\":false,\"schema\":{\"default\":\"en,fr,ja,hi\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"example\":\"dallas\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"maxPopulation\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"in\":\"query\",\"name\":\"minPopulation\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"in\":\"query\",\"name\":\"regionId\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"countryCode\",\"required\":false,\"schema\":{\"example\":\"us\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"area\":{\"description\":\"Area in km²\",\"example\":101.3,\"type\":\"number\"},\"countryCode\":{\"description\":\"ISO country code\",\"example\":\"ES\",\"type\":\"string\"},\"countryEmoji\":{\"description\":\"Emoji flag of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"countryId\":{\"description\":\"UUID of the country\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"countryName\":{\"description\":\"Country name\",\"example\":\"Spain\",\"type\":\"string\"},\"countryTelephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"dialingCode\":{\"description\":\"Dialing code\",\"example\":\"93\",\"type\":\"string\"},\"distanceKm\":{\"description\":\"Distance from the given point in kilometers\",\"example\":12.5,\"type\":\"number\"},\"elevation\":{\"description\":\"Elevation in meters\",\"example\":9,\"type\":\"number\"},\"flagImage\":{\"description\":\"Flag image URL\",\"example\":\"http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Barcelona.svg\",\"type\":\"string\"},\"id\":{\"description\":\"Geomelon UUID of the city\",\"example\":\"964512d1-f150-4876-87ec-0ba47aef694a\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":41.3825,\"type\":\"number\"},\"localizedName\":{\"description\":\"Localized name according to preferred languages\",\"example\":\"Q1492\",\"type\":\"string\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":2.176944444,\"type\":\"number\"},\"name\":{\"description\":\"City name\",\"example\":\"Barcelona\",\"type\":\"string\"},\"normalizedName\":{\"description\":\"Normalized city name\",\"example\":\"barcelona\",\"type\":\"string\"},\"officialWebsite\":{\"description\":\"Official website URL\",\"example\":\"https://www.barcelona.cat\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the city\",\"example\":1702547,\"type\":\"number\"},\"postalCode\":{\"description\":\"Postal code\",\"example\":\"08001–08042\",\"type\":\"string\"},\"regionCode\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"regionId\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"regionName\":{\"description\":\"Region name\",\"example\":\"Catalonia\",\"type\":\"string\"},\"timeZone\":{\"description\":\"Time zone\",\"example\":\"UTC+01:00\",\"type\":\"string\"},\"translations\":{\"description\":\"Translations of the city name in requested languages\",\"example\":[{\"language\":\"en\",\"name\":\"Barcelona\"},{\"language\":\"ja\",\"name\":\"バルセロナ\"}],\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"wikidataId\":{\"description\":\"Wikidata ID of the city\",\"example\":\"Q1492\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"localizedName\",\"normalizedName\",\"translations\",\"countryId\",\"countryName\",\"countryCode\",\"countryEmoji\",\"regionName\",\"regionCode\",\"regionId\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of cities\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/search",
-                  "segments": [
-                    {
-                      "lit": "cities"
-                    },
-                    {
-                      "lit": "search"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/search",
+                  "q": {
                     "exist": [
                       "country_code",
                       "limit",
@@ -571,52 +678,68 @@
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "search"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/byCoordinates/closest",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lat",
-                        "orig": "lat",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": true,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lon",
-                        "orig": "lon",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "lon",
+                        "or": "lon",
+                        "r": true,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "en",
-                        "kind": "query",
-                        "name": "preferred_language",
-                        "orig": "preferred_language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferred_language",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/byCoordinates/closest",
-                    "json": "{\"operationId\":\"byCoordinates/closest\",\"parameters\":[{\"in\":\"query\",\"name\":\"preferredLanguages\",\"required\":false,\"schema\":{\"default\":\"en\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"lon\",\"required\":true,\"schema\":{\"type\":\"number\"}},{\"in\":\"query\",\"name\":\"lat\",\"required\":true,\"schema\":{\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"area\":{\"description\":\"Area in km²\",\"example\":101.3,\"type\":\"number\"},\"countryCode\":{\"description\":\"ISO country code\",\"example\":\"ES\",\"type\":\"string\"},\"countryEmoji\":{\"description\":\"Emoji flag of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"countryId\":{\"description\":\"UUID of the country\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"countryName\":{\"description\":\"Country name\",\"example\":\"Spain\",\"type\":\"string\"},\"countryTelephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"dialingCode\":{\"description\":\"Dialing code\",\"example\":\"93\",\"type\":\"string\"},\"distanceKm\":{\"description\":\"Distance from the given point in kilometers\",\"example\":12.5,\"type\":\"number\"},\"elevation\":{\"description\":\"Elevation in meters\",\"example\":9,\"type\":\"number\"},\"flagImage\":{\"description\":\"Flag image URL\",\"example\":\"http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Barcelona.svg\",\"type\":\"string\"},\"id\":{\"description\":\"Geomelon UUID of the city\",\"example\":\"964512d1-f150-4876-87ec-0ba47aef694a\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":41.3825,\"type\":\"number\"},\"localizedName\":{\"description\":\"Localized name according to preferred languages\",\"example\":\"Q1492\",\"type\":\"string\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":2.176944444,\"type\":\"number\"},\"name\":{\"description\":\"City name\",\"example\":\"Barcelona\",\"type\":\"string\"},\"normalizedName\":{\"description\":\"Normalized city name\",\"example\":\"barcelona\",\"type\":\"string\"},\"officialWebsite\":{\"description\":\"Official website URL\",\"example\":\"https://www.barcelona.cat\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the city\",\"example\":1702547,\"type\":\"number\"},\"postalCode\":{\"description\":\"Postal code\",\"example\":\"08001–08042\",\"type\":\"string\"},\"regionCode\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"regionId\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"regionName\":{\"description\":\"Region name\",\"example\":\"Catalonia\",\"type\":\"string\"},\"timeZone\":{\"description\":\"Time zone\",\"example\":\"UTC+01:00\",\"type\":\"string\"},\"translations\":{\"description\":\"Translations of the city name in requested languages\",\"example\":[{\"language\":\"en\",\"name\":\"Barcelona\"},{\"language\":\"ja\",\"name\":\"バルセロナ\"}],\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"wikidataId\":{\"description\":\"Wikidata ID of the city\",\"example\":\"Q1492\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"localizedName\",\"normalizedName\",\"translations\",\"countryId\",\"countryName\",\"countryCode\",\"countryEmoji\",\"regionName\",\"regionCode\",\"regionId\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Closest cities at lat/lon\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/byCoordinates/closest",
+                  "q": {
+                    "exist": [
+                      "lat",
+                      "lon",
+                      "preferred_language"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/byCoordinates/closest",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -627,59 +750,59 @@
                       "lit": "closest"
                     }
                   ],
-                  "select": {
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/byCoordinates/largest",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lon",
+                        "or": "lon",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "en",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferred_language",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/byCoordinates/largest",
+                  "q": {
                     "exist": [
                       "lat",
                       "lon",
                       "preferred_language"
                     ]
                   },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
-                    "query": [
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lat",
-                        "orig": "lat",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
-                      },
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lon",
-                        "orig": "lon",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
-                      },
-                      {
-                        "active": true,
-                        "example": "en",
-                        "kind": "query",
-                        "name": "preferred_language",
-                        "orig": "preferred_language",
-                        "reqd": false,
-                        "type": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "contract": {
-                    "id": "GET /cities/byCoordinates/largest",
-                    "json": "{\"operationId\":\"byCoordinates/largest\",\"parameters\":[{\"in\":\"query\",\"name\":\"preferredLanguages\",\"required\":false,\"schema\":{\"default\":\"en\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"lon\",\"required\":true,\"schema\":{\"type\":\"number\"}},{\"in\":\"query\",\"name\":\"lat\",\"required\":true,\"schema\":{\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"area\":{\"description\":\"Area in km²\",\"example\":101.3,\"type\":\"number\"},\"countryCode\":{\"description\":\"ISO country code\",\"example\":\"ES\",\"type\":\"string\"},\"countryEmoji\":{\"description\":\"Emoji flag of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"countryId\":{\"description\":\"UUID of the country\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"countryName\":{\"description\":\"Country name\",\"example\":\"Spain\",\"type\":\"string\"},\"countryTelephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"dialingCode\":{\"description\":\"Dialing code\",\"example\":\"93\",\"type\":\"string\"},\"distanceKm\":{\"description\":\"Distance from the given point in kilometers\",\"example\":12.5,\"type\":\"number\"},\"elevation\":{\"description\":\"Elevation in meters\",\"example\":9,\"type\":\"number\"},\"flagImage\":{\"description\":\"Flag image URL\",\"example\":\"http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Barcelona.svg\",\"type\":\"string\"},\"id\":{\"description\":\"Geomelon UUID of the city\",\"example\":\"964512d1-f150-4876-87ec-0ba47aef694a\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":41.3825,\"type\":\"number\"},\"localizedName\":{\"description\":\"Localized name according to preferred languages\",\"example\":\"Q1492\",\"type\":\"string\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":2.176944444,\"type\":\"number\"},\"name\":{\"description\":\"City name\",\"example\":\"Barcelona\",\"type\":\"string\"},\"normalizedName\":{\"description\":\"Normalized city name\",\"example\":\"barcelona\",\"type\":\"string\"},\"officialWebsite\":{\"description\":\"Official website URL\",\"example\":\"https://www.barcelona.cat\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the city\",\"example\":1702547,\"type\":\"number\"},\"postalCode\":{\"description\":\"Postal code\",\"example\":\"08001–08042\",\"type\":\"string\"},\"regionCode\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"regionId\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"regionName\":{\"description\":\"Region name\",\"example\":\"Catalonia\",\"type\":\"string\"},\"timeZone\":{\"description\":\"Time zone\",\"example\":\"UTC+01:00\",\"type\":\"string\"},\"translations\":{\"description\":\"Translations of the city name in requested languages\",\"example\":[{\"language\":\"en\",\"name\":\"Barcelona\"},{\"language\":\"ja\",\"name\":\"バルセロナ\"}],\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"wikidataId\":{\"description\":\"Wikidata ID of the city\",\"example\":\"Q1492\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"localizedName\",\"normalizedName\",\"translations\",\"countryId\",\"countryName\",\"countryCode\",\"countryEmoji\",\"regionName\",\"regionCode\",\"regionId\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Most populated cities nearby\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/byCoordinates/largest",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -690,14 +813,7 @@
                       "lit": "largest"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "lat",
-                      "lon",
-                      "preferred_language"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -714,43 +830,48 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "cityId",
-              "req": true,
-              "short": "City ID",
-              "type": "`$STRING`"
+          "fields": {
+            "cityId": {
+              "a": true,
+              "h": "City Id",
+              "n": "cityId",
+              "r": true,
+              "sh": "City ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Translation ID",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Translation ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "language",
-              "req": true,
-              "short": "Language code",
-              "type": "`$STRING`"
+            "language": {
+              "a": true,
+              "h": "Language",
+              "n": "language",
+              "r": true,
+              "sh": "Language code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Translated name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Translated name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nameNormalized",
-              "req": true,
-              "short": "Normalized translated name",
-              "type": "`$STRING`"
+            "nameNormalized": {
+              "a": true,
+              "h": "Name Normalized",
+              "n": "nameNormalized",
+              "r": true,
+              "sh": "Normalized translated name",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -762,29 +883,35 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/{id}/translations",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/{id}/translations",
-                    "json": "{\"operationId\":\":id/translations\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"cityId\":{\"description\":\"City ID\",\"example\":\"964512d1-f150-4876-87ec-0ba47aef694a\",\"type\":\"string\"},\"id\":{\"description\":\"Translation ID\",\"example\":\"eabda784-b9cc-4ee8-84fa-6c311fbea8b5\",\"type\":\"string\"},\"language\":{\"description\":\"Language code\",\"example\":\"azb\",\"type\":\"string\"},\"name\":{\"description\":\"Translated name\",\"example\":\"بارسلونا\",\"type\":\"string\"},\"nameNormalized\":{\"description\":\"Normalized translated name\",\"example\":\"بارسلونا\",\"type\":\"string\"}},\"required\":[\"id\",\"cityId\",\"language\",\"name\",\"nameNormalized\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"City translations\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/{id}/translations",
+                  "q": {
+                    "$action": "translations",
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/{id}/translations",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -795,13 +922,7 @@
                       "lit": "translations"
                     }
                   ],
-                  "select": {
-                    "$action": "translations",
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -818,113 +939,128 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "drivingSide",
-              "req": true,
-              "short": "Driving side of the country",
-              "type": "`$STRING`"
+          "fields": {
+            "drivingSide": {
+              "a": true,
+              "h": "Driving Side",
+              "n": "drivingSide",
+              "r": true,
+              "sh": "Driving side of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "emoji",
-              "req": true,
-              "short": "Emoji of the country",
-              "type": "`$STRING`"
+            "emoji": {
+              "a": true,
+              "h": "Emoji",
+              "n": "emoji",
+              "r": true,
+              "sh": "Emoji of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "headOfGovernment",
-              "req": true,
-              "short": "Head of government of the country",
-              "type": "`$STRING`"
+            "headOfGovernment": {
+              "a": true,
+              "h": "Head Of Government",
+              "n": "headOfGovernment",
+              "r": true,
+              "sh": "Head of government of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "headOfState",
-              "req": true,
-              "short": "Head of state of the country",
-              "type": "`$STRING`"
+            "headOfState": {
+              "a": true,
+              "h": "Head Of State",
+              "n": "headOfState",
+              "r": true,
+              "sh": "Head of state of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Country ID",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Country ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isoCode",
-              "req": true,
-              "short": "ISO code of the country",
-              "type": "`$STRING`"
+            "isoCode": {
+              "a": true,
+              "h": "Iso Code",
+              "n": "isoCode",
+              "r": true,
+              "sh": "ISO code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "licencePlateCode",
-              "req": true,
-              "short": "Licence plate code of the country",
-              "type": "`$STRING`"
+            "licencePlateCode": {
+              "a": true,
+              "h": "Licence Plate Code",
+              "n": "licencePlateCode",
+              "r": true,
+              "sh": "Licence plate code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "localizedName",
-              "req": false,
-              "short": "Name in the first matched preferred language, falls back to name",
-              "type": "`$STRING`"
+            "localizedName": {
+              "a": true,
+              "h": "Localized Name",
+              "n": "localizedName",
+              "r": false,
+              "sh": "Name in the first matched preferred language, falls back to name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Name of the country",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Name of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "preferredLanguageId",
-              "req": true,
-              "short": "Preferred language ID for the country",
-              "type": "`$STRING`"
+            "preferredLanguageId": {
+              "a": true,
+              "h": "Preferred Language Id",
+              "n": "preferredLanguageId",
+              "r": true,
+              "sh": "Preferred language ID for the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regions",
-              "req": true,
-              "short": "Regions within the country",
-              "type": "`$ARRAY`"
+            "regions": {
+              "a": true,
+              "h": "Regions",
+              "n": "regions",
+              "r": true,
+              "sh": "Regions within the country",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "telephoneCode",
-              "req": true,
-              "short": "Telephone code of the country",
-              "type": "`$STRING`"
+            "telephoneCode": {
+              "a": true,
+              "h": "Telephone Code",
+              "n": "telephoneCode",
+              "r": true,
+              "sh": "Telephone code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "translations",
-              "req": true,
-              "short": "Country translations",
-              "type": "`$ARRAY`"
+            "translations": {
+              "a": true,
+              "h": "Translations",
+              "n": "translations",
+              "r": true,
+              "sh": "Country translations",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "trunkPrefix",
-              "req": true,
-              "short": "Trunk prefix of the country",
-              "type": "`$STRING`"
+            "trunkPrefix": {
+              "a": true,
+              "h": "Trunk Prefix",
+              "n": "trunkPrefix",
+              "r": true,
+              "sh": "Trunk prefix of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wikidataId",
-              "req": true,
-              "short": "Wikidata ID",
-              "type": "`$STRING`"
+            "wikidataId": {
+              "a": true,
+              "h": "Wikidata Id",
+              "n": "wikidataId",
+              "r": true,
+              "sh": "Wikidata ID",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -936,71 +1072,65 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /countries",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 200,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 200,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "Spa",
-                        "kind": "query",
-                        "name": "name",
-                        "orig": "name",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "Spa",
+                        "k": "query",
+                        "n": "name",
+                        "or": "name",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "fr,es,en",
-                        "kind": "query",
-                        "name": "preferred_language",
-                        "orig": "preferred_language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "fr,es,en",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferred_language",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "+34",
-                        "kind": "query",
-                        "name": "telephone_code",
-                        "orig": "telephone_code",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "+34",
+                        "k": "query",
+                        "n": "telephone_code",
+                        "or": "telephone_code",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /countries",
-                    "json": "{\"operationId\":\"/\",\"parameters\":[{\"description\":\"Maximum number of results\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":200,\"example\":200,\"type\":\"number\"}},{\"description\":\"Number of results to skip\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"example\":0,\"type\":\"number\"}},{\"description\":\"Filter by telephone code\",\"in\":\"query\",\"name\":\"telephoneCode\",\"required\":false,\"schema\":{\"example\":\"+34\",\"type\":\"string\"}},{\"description\":\"Prefix search on country name (English and preferred-language translations)\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"example\":\"Spa\",\"type\":\"string\"}},{\"description\":\"Comma-separated language codes. Affects localizedName and translation name search.\",\"in\":\"query\",\"name\":\"preferredLanguages\",\"required\":false,\"schema\":{\"example\":\"fr,es,en\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"drivingSide\":{\"description\":\"Driving side of the country\",\"example\":\"right\",\"type\":\"string\"},\"emoji\":{\"description\":\"Emoji of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"headOfGovernment\":{\"description\":\"Head of government of the country\",\"example\":\"Pedro Sánchez\",\"type\":\"string\"},\"headOfState\":{\"description\":\"Head of state of the country\",\"example\":\"Felipe VI of Spain\",\"type\":\"string\"},\"id\":{\"description\":\"Country ID\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"isoCode\":{\"description\":\"ISO code of the country\",\"example\":\"ES\",\"type\":\"string\"},\"licencePlateCode\":{\"description\":\"Licence plate code of the country\",\"example\":\"E\",\"type\":\"string\"},\"localizedName\":{\"description\":\"Name in the first matched preferred language, falls back to name\",\"example\":\"España\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the country\",\"example\":\"Spain\",\"type\":\"string\"},\"preferredLanguageId\":{\"description\":\"Preferred language ID for the country\",\"example\":\"a3d69219-5e64-4fef-a137-10bceb326e3d\",\"type\":\"string\"},\"telephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"trunkPrefix\":{\"description\":\"Trunk prefix of the country\",\"example\":\"0\",\"type\":\"string\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q29\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"emoji\",\"headOfState\",\"headOfGovernment\",\"isoCode\",\"telephoneCode\",\"trunkPrefix\",\"licencePlateCode\",\"drivingSide\",\"preferredLanguageId\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of countries\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries",
-                  "segments": [
-                    {
-                      "lit": "countries"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries",
+                  "q": {
                     "exist": [
                       "limit",
                       "name",
@@ -1009,7 +1139,13 @@
                       "telephone_code"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "countries"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1021,30 +1157,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /countries/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /countries/{id}",
-                    "json": "{\"operationId\":\":id\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":\"509a2a0a-5ec6-483e-8381-4bea4422ac26\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"drivingSide\":{\"description\":\"Driving side of the country\",\"example\":\"right\",\"type\":\"string\"},\"emoji\":{\"description\":\"Emoji of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"headOfGovernment\":{\"description\":\"Head of government of the country\",\"example\":\"Pedro Sánchez\",\"type\":\"string\"},\"headOfState\":{\"description\":\"Head of state of the country\",\"example\":\"Felipe VI of Spain\",\"type\":\"string\"},\"id\":{\"description\":\"Country ID\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"isoCode\":{\"description\":\"ISO code of the country\",\"example\":\"ES\",\"type\":\"string\"},\"licencePlateCode\":{\"description\":\"Licence plate code of the country\",\"example\":\"E\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the country\",\"example\":\"Spain\",\"type\":\"string\"},\"preferredLanguageId\":{\"description\":\"Preferred language ID for the country\",\"example\":\"a3d69219-5e64-4fef-a137-10bceb326e3d\",\"type\":\"string\"},\"regions\":{\"description\":\"Regions within the country\",\"items\":{\"properties\":{\"code\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"countryId\":{\"description\":\"Country ID the region belongs to\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"id\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude of the region center\",\"example\":41.85,\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude of the region center\",\"example\":1.566666666,\"type\":\"number\"},\"name\":{\"description\":\"Name of the region\",\"example\":\"Catalonia\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the region\",\"example\":8034743,\"type\":\"number\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q5705\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"countryId\",\"population\",\"code\",\"latitude\",\"longitude\"],\"type\":\"object\"},\"type\":\"array\"},\"telephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"translations\":{\"description\":\"Country translations\",\"items\":{\"properties\":{\"countryId\":{\"description\":\"Country ID\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"id\":{\"description\":\"Translation ID\",\"example\":\"0230694f-5673-403d-a10d-716ee43ac702\",\"type\":\"string\"},\"language\":{\"description\":\"Language code\",\"example\":\"diq\",\"type\":\"string\"},\"name\":{\"description\":\"Translated name\",\"example\":\"İspanya\",\"type\":\"string\"},\"nameNormalized\":{\"description\":\"Normalized translated name\",\"example\":\"ispanya\",\"type\":\"string\"}},\"required\":[\"id\",\"countryId\",\"language\",\"name\",\"nameNormalized\"],\"type\":\"object\"},\"type\":\"array\"},\"trunkPrefix\":{\"description\":\"Trunk prefix of the country\",\"example\":\"0\",\"type\":\"string\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q29\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"emoji\",\"headOfState\",\"headOfGovernment\",\"isoCode\",\"telephoneCode\",\"trunkPrefix\",\"licencePlateCode\",\"drivingSide\",\"preferredLanguageId\",\"translations\",\"regions\"],\"type\":\"object\"}}},\"description\":\"Extended country information\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -1052,12 +1193,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1074,43 +1210,48 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "countryId",
-              "req": true,
-              "short": "Country ID",
-              "type": "`$STRING`"
+          "fields": {
+            "countryId": {
+              "a": true,
+              "h": "Country Id",
+              "n": "countryId",
+              "r": true,
+              "sh": "Country ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Translation ID",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Translation ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "language",
-              "req": true,
-              "short": "Language code",
-              "type": "`$STRING`"
+            "language": {
+              "a": true,
+              "h": "Language",
+              "n": "language",
+              "r": true,
+              "sh": "Language code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Translated name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Translated name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nameNormalized",
-              "req": true,
-              "short": "Normalized translated name",
-              "type": "`$STRING`"
+            "nameNormalized": {
+              "a": true,
+              "h": "Name Normalized",
+              "n": "nameNormalized",
+              "r": true,
+              "sh": "Normalized translated name",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -1122,41 +1263,48 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /countries/{id}/translations",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": "en,fr,hi",
-                        "kind": "query",
-                        "name": "preferred_language",
-                        "orig": "preferred_language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en,fr,hi",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferred_language",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /countries/{id}/translations",
-                    "json": "{\"operationId\":\":id/translations\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":\"509a2a0a-5ec6-483e-8381-4bea4422ac26\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"preferredLanguages\",\"required\":false,\"schema\":{\"default\":\"en\",\"example\":\"en,fr,hi\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"countryId\":{\"description\":\"Country ID\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"id\":{\"description\":\"Translation ID\",\"example\":\"0230694f-5673-403d-a10d-716ee43ac702\",\"type\":\"string\"},\"language\":{\"description\":\"Language code\",\"example\":\"diq\",\"type\":\"string\"},\"name\":{\"description\":\"Translated name\",\"example\":\"İspanya\",\"type\":\"string\"},\"nameNormalized\":{\"description\":\"Normalized translated name\",\"example\":\"ispanya\",\"type\":\"string\"}},\"required\":[\"id\",\"countryId\",\"language\",\"name\",\"nameNormalized\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Country translations\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/{id}/translations",
+                  "q": {
+                    "$action": "translations",
+                    "exist": [
+                      "id",
+                      "preferred_language"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/{id}/translations",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -1167,14 +1315,7 @@
                       "lit": "translations"
                     }
                   ],
-                  "select": {
-                    "$action": "translations",
-                    "exist": [
-                      "id",
-                      "preferred_language"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1191,15 +1332,16 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "distanceKm",
-              "req": true,
-              "short": "Distance between cities",
-              "type": "`$NUMBER`"
+          "fields": {
+            "distanceKm": {
+              "a": true,
+              "h": "Distance Km",
+              "n": "distanceKm",
+              "r": true,
+              "sh": "Distance between cities",
+              "t": "`$NUMBER`"
             }
-          ],
+          },
           "name": "distance",
           "op": {
             "load": {
@@ -1207,37 +1349,43 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/distance",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "city1",
-                        "orig": "city1",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "city1",
+                        "or": "city1",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "city2",
-                        "orig": "city2",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "city2",
+                        "or": "city2",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/distance",
-                    "json": "{\"operationId\":\"distance\",\"parameters\":[{\"in\":\"query\",\"name\":\"city2\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"city1\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"distanceKm\":{\"description\":\"Distance between cities\",\"type\":\"number\"}},\"required\":[\"distanceKm\"],\"type\":\"object\"}}},\"description\":\"Distance result\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/distance",
+                  "q": {
+                    "exist": [
+                      "city1",
+                      "city2"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/distance",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -1245,13 +1393,7 @@
                       "lit": "distance"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "city1",
-                      "city2"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1268,43 +1410,48 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "citiesCount",
-              "req": true,
-              "short": "Number of cities using this language",
-              "type": "`$NUMBER`"
+          "fields": {
+            "citiesCount": {
+              "a": true,
+              "h": "Cities Count",
+              "n": "citiesCount",
+              "r": true,
+              "sh": "Number of cities using this language",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "UUID of the language",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "UUID of the language",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isoCode",
-              "req": true,
-              "short": "ISO code of the language",
-              "type": "`$STRING`"
+            "isoCode": {
+              "a": true,
+              "h": "Iso Code",
+              "n": "isoCode",
+              "r": true,
+              "sh": "ISO code of the language",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Name of the language",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Name of the language",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wikidataId",
-              "req": true,
-              "short": "Wikidata ID of the language",
-              "type": "`$STRING`"
+            "wikidataId": {
+              "a": true,
+              "h": "Wikidata Id",
+              "n": "wikidataId",
+              "r": true,
+              "sh": "Wikidata ID of the language",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -1316,50 +1463,50 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /languages",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 200,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 200,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /languages",
-                    "json": "{\"operationId\":\"/\",\"parameters\":[{\"description\":\"Maximum number of results\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":200,\"example\":200,\"type\":\"number\"}},{\"description\":\"Number of results to skip\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"example\":0,\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"citiesCount\":{\"description\":\"Number of cities using this language\",\"example\":252088,\"type\":\"number\"},\"id\":{\"description\":\"UUID of the language\",\"example\":\"abbf9d44-2b77-464b-bca4-90026a66182c\",\"type\":\"string\"},\"isoCode\":{\"description\":\"ISO code of the language\",\"example\":\"tr\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the language\",\"example\":\"Turkish\",\"type\":\"string\"},\"wikidataId\":{\"description\":\"Wikidata ID of the language\",\"example\":\"Q256\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"isoCode\",\"citiesCount\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of languages\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/languages",
-                  "segments": [
-                    {
-                      "lit": "languages"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/languages",
+                  "q": {
                     "exist": [
                       "limit",
                       "offset"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "languages"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1371,30 +1518,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /languages/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /languages/{id}",
-                    "json": "{\"operationId\":\":id\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":\"6aa910e2-07b2-4f0e-a1ec-194e85c4f35b\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"citiesCount\":{\"description\":\"Number of cities using this language\",\"example\":252088,\"type\":\"number\"},\"id\":{\"description\":\"UUID of the language\",\"example\":\"abbf9d44-2b77-464b-bca4-90026a66182c\",\"type\":\"string\"},\"isoCode\":{\"description\":\"ISO code of the language\",\"example\":\"tr\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the language\",\"example\":\"Turkish\",\"type\":\"string\"},\"wikidataId\":{\"description\":\"Wikidata ID of the language\",\"example\":\"Q256\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"isoCode\",\"citiesCount\"],\"type\":\"object\"}}},\"description\":\"Language details\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/languages/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/languages/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "languages"
                     },
@@ -1402,12 +1554,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1424,40 +1571,45 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "emoji",
-              "req": true,
-              "type": "`$OBJECT`"
+          "fields": {
+            "emoji": {
+              "a": true,
+              "h": "Emoji",
+              "n": "emoji",
+              "r": true,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "en",
-              "req": false,
-              "short": "English name — omitted when the requested language is English or no English translation exists",
-              "type": "`$STRING`"
+            "en": {
+              "a": true,
+              "h": "En",
+              "n": "en",
+              "r": false,
+              "sh": "English name — omitted when the requested language is English or no English translation exists",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "City name in the requested language",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "City name in the requested language",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "population",
-              "req": true,
-              "type": "`$OBJECT`"
+            "population": {
+              "a": true,
+              "h": "Population",
+              "n": "population",
+              "r": true,
+              "t": "`$OBJECT`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -1469,48 +1621,55 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/oneshot/{country}/{language}/{city_name}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "bar",
-                        "kind": "param",
-                        "name": "city_name",
-                        "orig": "city_name",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "bar",
+                        "k": "param",
+                        "n": "city_name",
+                        "or": "city_name",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "es",
-                        "kind": "param",
-                        "name": "country",
-                        "orig": "country",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "es",
+                        "k": "param",
+                        "n": "country",
+                        "or": "country",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "es",
-                        "kind": "param",
-                        "name": "language",
-                        "orig": "language",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "es",
+                        "k": "param",
+                        "n": "language",
+                        "or": "language",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/oneshot/{country}/{language}/{city_name}",
-                    "json": "{\"operationId\":\"OneshotController_byCountryLang\",\"parameters\":[{\"description\":\"Lowercase ISO 3166-1 alpha-2 country code\",\"in\":\"path\",\"name\":\"country\",\"required\":true,\"schema\":{\"example\":\"es\",\"type\":\"string\"}},{\"description\":\"BCP 47 language code\",\"in\":\"path\",\"name\":\"language\",\"required\":true,\"schema\":{\"example\":\"es\",\"type\":\"string\"}},{\"description\":\"City name prefix in the given language (1+ chars)\",\"in\":\"path\",\"name\":\"city_name\",\"required\":true,\"schema\":{\"example\":\"bar\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"emoji\":{\"example\":\"🇷🇸\",\"nullable\":true,\"type\":\"object\"},\"en\":{\"description\":\"English name — omitted when the requested language is English or no English translation exists\",\"example\":\"Belgrade\",\"type\":\"string\"},\"id\":{\"example\":\"9c4eae2b-095b-48ab-9184-8f079b7dea25\",\"type\":\"string\"},\"name\":{\"description\":\"City name in the requested language\",\"example\":\"Београд\",\"type\":\"string\"},\"population\":{\"example\":1197714,\"nullable\":true,\"type\":\"object\"}},\"required\":[\"id\",\"name\",\"population\",\"emoji\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/oneshot/{country}/{language}/{city_name}",
+                  "q": {
+                    "exist": [
+                      "city_name",
+                      "country",
+                      "language"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/oneshot/{country}/{language}/{city_name}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -1527,14 +1686,7 @@
                       "var": "city_name"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "city_name",
-                      "country",
-                      "language"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1543,11 +1695,7 @@
             }
           },
           "relations": {
-            "ancestors": [
-              [
-                "oneshot"
-              ]
-            ]
+            "ancestors": []
           }
         },
         "region": {
@@ -1555,134 +1703,152 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "code",
-              "req": true,
-              "short": "Region code",
-              "type": "`$STRING`"
+          "fields": {
+            "code": {
+              "a": true,
+              "h": "Code",
+              "n": "code",
+              "r": true,
+              "sh": "Region code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryId",
-              "req": true,
-              "short": "Country ID the region belongs to",
-              "type": "`$STRING`"
+            "countryId": {
+              "a": true,
+              "h": "Country Id",
+              "n": "countryId",
+              "r": true,
+              "sh": "Country ID the region belongs to",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "drivingSide",
-              "req": true,
-              "short": "Driving side of the country",
-              "type": "`$STRING`"
+            "drivingSide": {
+              "a": true,
+              "h": "Driving Side",
+              "n": "drivingSide",
+              "r": true,
+              "sh": "Driving side of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "emoji",
-              "req": true,
-              "short": "Emoji of the country",
-              "type": "`$STRING`"
+            "emoji": {
+              "a": true,
+              "h": "Emoji",
+              "n": "emoji",
+              "r": true,
+              "sh": "Emoji of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "headOfGovernment",
-              "req": true,
-              "short": "Head of government of the country",
-              "type": "`$STRING`"
+            "headOfGovernment": {
+              "a": true,
+              "h": "Head Of Government",
+              "n": "headOfGovernment",
+              "r": true,
+              "sh": "Head of government of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "headOfState",
-              "req": true,
-              "short": "Head of state of the country",
-              "type": "`$STRING`"
+            "headOfState": {
+              "a": true,
+              "h": "Head Of State",
+              "n": "headOfState",
+              "r": true,
+              "sh": "Head of state of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Country ID",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Country ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isoCode",
-              "req": true,
-              "short": "ISO code of the country",
-              "type": "`$STRING`"
+            "isoCode": {
+              "a": true,
+              "h": "Iso Code",
+              "n": "isoCode",
+              "r": true,
+              "sh": "ISO code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "latitude",
-              "req": true,
-              "short": "Latitude of the region center",
-              "type": "`$NUMBER`"
+            "latitude": {
+              "a": true,
+              "h": "Latitude",
+              "n": "latitude",
+              "r": true,
+              "sh": "Latitude of the region center",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "licencePlateCode",
-              "req": true,
-              "short": "Licence plate code of the country",
-              "type": "`$STRING`"
+            "licencePlateCode": {
+              "a": true,
+              "h": "Licence Plate Code",
+              "n": "licencePlateCode",
+              "r": true,
+              "sh": "Licence plate code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "localizedName",
-              "req": false,
-              "short": "Name in the first matched preferred language, falls back to name",
-              "type": "`$STRING`"
+            "localizedName": {
+              "a": true,
+              "h": "Localized Name",
+              "n": "localizedName",
+              "r": false,
+              "sh": "Name in the first matched preferred language, falls back to name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "longitude",
-              "req": true,
-              "short": "Longitude of the region center",
-              "type": "`$NUMBER`"
+            "longitude": {
+              "a": true,
+              "h": "Longitude",
+              "n": "longitude",
+              "r": true,
+              "sh": "Longitude of the region center",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Name of the country",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Name of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "population",
-              "req": true,
-              "short": "Population of the region",
-              "type": "`$NUMBER`"
+            "population": {
+              "a": true,
+              "h": "Population",
+              "n": "population",
+              "r": true,
+              "sh": "Population of the region",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "preferredLanguageId",
-              "req": true,
-              "short": "Preferred language ID for the country",
-              "type": "`$STRING`"
+            "preferredLanguageId": {
+              "a": true,
+              "h": "Preferred Language Id",
+              "n": "preferredLanguageId",
+              "r": true,
+              "sh": "Preferred language ID for the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "telephoneCode",
-              "req": true,
-              "short": "Telephone code of the country",
-              "type": "`$STRING`"
+            "telephoneCode": {
+              "a": true,
+              "h": "Telephone Code",
+              "n": "telephoneCode",
+              "r": true,
+              "sh": "Telephone code of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "trunkPrefix",
-              "req": true,
-              "short": "Trunk prefix of the country",
-              "type": "`$STRING`"
+            "trunkPrefix": {
+              "a": true,
+              "h": "Trunk Prefix",
+              "n": "trunkPrefix",
+              "r": true,
+              "sh": "Trunk prefix of the country",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wikidataId",
-              "req": true,
-              "short": "Wikidata ID",
-              "type": "`$STRING`"
+            "wikidataId": {
+              "a": true,
+              "h": "Wikidata Id",
+              "n": "wikidataId",
+              "r": true,
+              "sh": "Wikidata ID",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -1694,35 +1860,39 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /countries/{id}/regions",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                        "kind": "param",
-                        "name": "country_id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                        "k": "param",
+                        "n": "country_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /countries/{id}/regions",
-                    "json": "{\"operationId\":\":id/regions\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":\"509a2a0a-5ec6-483e-8381-4bea4422ac26\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"code\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"countryId\":{\"description\":\"Country ID the region belongs to\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"id\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude of the region center\",\"example\":41.85,\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude of the region center\",\"example\":1.566666666,\"type\":\"number\"},\"name\":{\"description\":\"Name of the region\",\"example\":\"Catalonia\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the region\",\"example\":8034743,\"type\":\"number\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q5705\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"countryId\",\"population\",\"code\",\"latitude\",\"longitude\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Country regions\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/{id}/regions",
+                  "q": {
+                    "exist": [
+                      "country_id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/{id}/regions",
-                  "rename": {
+                  "r": {
                     "param": {
                       "id": "country_id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -1733,51 +1903,46 @@
                       "lit": "regions"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "country_id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /regions",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                        "kind": "query",
-                        "name": "country_id",
-                        "orig": "country_id",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                        "k": "query",
+                        "n": "country_id",
+                        "or": "country_id",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /regions",
-                    "json": "{\"operationId\":\"/\",\"parameters\":[{\"in\":\"query\",\"name\":\"countryId\",\"required\":false,\"schema\":{\"example\":\"509a2a0a-5ec6-483e-8381-4bea4422ac26\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"code\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"countryId\":{\"description\":\"Country ID the region belongs to\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"id\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude of the region center\",\"example\":41.85,\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude of the region center\",\"example\":1.566666666,\"type\":\"number\"},\"name\":{\"description\":\"Name of the region\",\"example\":\"Catalonia\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the region\",\"example\":8034743,\"type\":\"number\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q5705\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"countryId\",\"population\",\"code\",\"latitude\",\"longitude\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Country regions\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/regions",
-                  "segments": [
-                    {
-                      "lit": "regions"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/regions",
+                  "q": {
                     "exist": [
                       "country_id"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "regions"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1789,30 +1954,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /regions/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /regions/{id}",
-                    "json": "{\"operationId\":\":id\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":\"63df31a3-ca32-4970-8b5e-bcf9a11426e6\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Region code\",\"example\":\"ES-CT\",\"type\":\"string\"},\"country\":{\"allOf\":[{\"properties\":{\"drivingSide\":{\"description\":\"Driving side of the country\",\"example\":\"right\",\"type\":\"string\"},\"emoji\":{\"description\":\"Emoji of the country\",\"example\":\"🇪🇸\",\"type\":\"string\"},\"headOfGovernment\":{\"description\":\"Head of government of the country\",\"example\":\"Pedro Sánchez\",\"type\":\"string\"},\"headOfState\":{\"description\":\"Head of state of the country\",\"example\":\"Felipe VI of Spain\",\"type\":\"string\"},\"id\":{\"description\":\"Country ID\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"isoCode\":{\"description\":\"ISO code of the country\",\"example\":\"ES\",\"type\":\"string\"},\"licencePlateCode\":{\"description\":\"Licence plate code of the country\",\"example\":\"E\",\"type\":\"string\"},\"localizedName\":{\"description\":\"Name in the first matched preferred language, falls back to name\",\"example\":\"España\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the country\",\"example\":\"Spain\",\"type\":\"string\"},\"preferredLanguageId\":{\"description\":\"Preferred language ID for the country\",\"example\":\"a3d69219-5e64-4fef-a137-10bceb326e3d\",\"type\":\"string\"},\"telephoneCode\":{\"description\":\"Telephone code of the country\",\"example\":\"+34\",\"type\":\"string\"},\"trunkPrefix\":{\"description\":\"Trunk prefix of the country\",\"example\":\"0\",\"type\":\"string\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q29\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"emoji\",\"headOfState\",\"headOfGovernment\",\"isoCode\",\"telephoneCode\",\"trunkPrefix\",\"licencePlateCode\",\"drivingSide\",\"preferredLanguageId\"],\"type\":\"object\"}],\"description\":\"Country details\"},\"countryId\":{\"description\":\"Country ID the region belongs to\",\"example\":\"a1e06cc1-817c-429f-84f4-6ab51dac9bfa\",\"type\":\"string\"},\"id\":{\"description\":\"UUID of the region\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude of the region center\",\"example\":41.85,\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude of the region center\",\"example\":1.566666666,\"type\":\"number\"},\"name\":{\"description\":\"Name of the region\",\"example\":\"Catalonia\",\"type\":\"string\"},\"population\":{\"description\":\"Population of the region\",\"example\":8034743,\"type\":\"number\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q5705\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"countryId\",\"population\",\"code\",\"latitude\",\"longitude\",\"country\"],\"type\":\"object\"}}},\"description\":\"Region details\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/regions/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/regions/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "regions"
                     },
@@ -1820,12 +1990,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.country`"
                   }
@@ -1836,7 +2001,7 @@
           "relations": {
             "ancestors": [
               [
-                "country"
+                "$.main.kit.entity.country"
               ]
             ]
           }
@@ -1846,43 +2011,48 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Translation ID",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Translation ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "language",
-              "req": true,
-              "short": "Language code",
-              "type": "`$STRING`"
+            "language": {
+              "a": true,
+              "h": "Language",
+              "n": "language",
+              "r": true,
+              "sh": "Language code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Translated name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Translated name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nameNormalized",
-              "req": true,
-              "short": "Normalized translated name",
-              "type": "`$STRING`"
+            "nameNormalized": {
+              "a": true,
+              "h": "Name Normalized",
+              "n": "nameNormalized",
+              "r": true,
+              "sh": "Normalized translated name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionId",
-              "req": true,
-              "short": "Region ID",
-              "type": "`$STRING`"
+            "regionId": {
+              "a": true,
+              "h": "Region Id",
+              "n": "regionId",
+              "r": true,
+              "sh": "Region ID",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -1894,41 +2064,48 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /regions/{id}/translations",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": "en,fr,hi",
-                        "kind": "query",
-                        "name": "preferred_language",
-                        "orig": "preferred_language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en,fr,hi",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferred_language",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /regions/{id}/translations",
-                    "json": "{\"operationId\":\":id/translations\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":\"63df31a3-ca32-4970-8b5e-bcf9a11426e6\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"preferredLanguages\",\"required\":false,\"schema\":{\"default\":\"en\",\"example\":\"en,fr,hi\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"id\":{\"description\":\"Translation ID\",\"example\":\"ada3e6fd-61dc-4b83-973d-a91d79498203\",\"type\":\"string\"},\"language\":{\"description\":\"Language code\",\"example\":\"csb\",\"type\":\"string\"},\"name\":{\"description\":\"Translated name\",\"example\":\"Katalońskô\",\"type\":\"string\"},\"nameNormalized\":{\"description\":\"Normalized translated name\",\"example\":\"katalonsko\",\"type\":\"string\"},\"regionId\":{\"description\":\"Region ID\",\"example\":\"dde1e1c6-ca22-48e6-8ad7-f97b141c1929\",\"type\":\"string\"}},\"required\":[\"id\",\"regionId\",\"language\",\"name\",\"nameNormalized\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Region translations\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/regions/{id}/translations",
+                  "q": {
+                    "$action": "translations",
+                    "exist": [
+                      "id",
+                      "preferred_language"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/regions/{id}/translations",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "regions"
                     },
@@ -1939,14 +2116,7 @@
                       "lit": "translations"
                     }
                   ],
-                  "select": {
-                    "$action": "translations",
-                    "exist": [
-                      "id",
-                      "preferred_language"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1963,43 +2133,48 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "description",
-              "req": true,
-              "short": "Description of the settlement type",
-              "type": "`$STRING`"
+          "fields": {
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": true,
+              "sh": "Description of the settlement type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Settlement Type ID",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Settlement Type ID",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Name of the settlement type",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Name of the settlement type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nameNormalized",
-              "req": true,
-              "short": "Normalized name of the settlement type",
-              "type": "`$STRING`"
+            "nameNormalized": {
+              "a": true,
+              "h": "Name Normalized",
+              "n": "nameNormalized",
+              "r": true,
+              "sh": "Normalized name of the settlement type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wikidataId",
-              "req": true,
-              "short": "Wikidata ID",
-              "type": "`$STRING`"
+            "wikidataId": {
+              "a": true,
+              "h": "Wikidata Id",
+              "n": "wikidataId",
+              "r": true,
+              "sh": "Wikidata ID",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -2011,34 +2186,38 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/{id}/settlement-types",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "city_id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "city_id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /cities/{id}/settlement-types",
-                    "json": "{\"operationId\":\":id/settlement-types\",\"parameters\":[{\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the settlement type\",\"example\":\"administrative division of Catalonia, Spain\",\"type\":\"string\"},\"id\":{\"description\":\"Settlement Type ID\",\"example\":\"5bdb4631-a170-4bd8-bf1a-2d447d3523b1\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the settlement type\",\"example\":\"municipality of Catalonia\",\"type\":\"string\"},\"nameNormalized\":{\"description\":\"Normalized name of the settlement type\",\"example\":\"municipality of catalonia\",\"type\":\"string\"},\"wikidataId\":{\"description\":\"Wikidata ID\",\"example\":\"Q33146843\",\"type\":\"string\"}},\"required\":[\"id\",\"wikidataId\",\"name\",\"nameNormalized\",\"description\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"City settlement types\"}},\"security\":[{\"RapidApiKey\":[]}],\"securitySchemes\":{\"RapidApiKey\":{\"description\":\"RapidAPI key — get one at https://rapidapi.com/hom3chuk/api/geomelon\",\"in\":\"header\",\"name\":\"x-rapidapi-key\",\"type\":\"apiKey\"}},\"securitySource\":\"definition\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/{id}/settlement-types",
+                  "q": {
+                    "exist": [
+                      "city_id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/cities/{id}/settlement-types",
-                  "rename": {
+                  "r": {
                     "param": {
                       "id": "city_id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "cities"
                     },
@@ -2049,12 +2228,7 @@
                       "lit": "settlement-types"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "city_id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -2065,7 +2239,7 @@
           "relations": {
             "ancestors": [
               [
-                "city"
+                "$.main.kit.entity.city"
               ]
             ]
           }
@@ -2487,13 +2661,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2513,19 +2687,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "city_ref01",
                 "srcdatavar": "city_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "city01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -2545,13 +2719,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2571,13 +2745,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2587,19 +2761,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "country_ref01",
                 "srcdatavar": "country_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "country01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -2619,13 +2793,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2645,17 +2819,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "distance_ref01",
                 "srcdatavar": "distance_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -2675,13 +2849,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2691,19 +2865,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "language_ref01",
                 "srcdatavar": "language_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "language01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -2723,17 +2897,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
                 "city_name": "city_name01",
                 "country": "country01",
                 "language": "language01"
               },
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2753,13 +2927,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2769,19 +2943,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "region_ref01",
                 "srcdatavar": "region_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "region01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -2801,13 +2975,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -2827,15 +3001,15 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
                 "city_id": "city01"
               },
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

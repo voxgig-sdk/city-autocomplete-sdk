@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -174,141 +167,166 @@ class Config {
       "fields": [
         {
           "name": "area",
-          "short": "Area in km²",
-          "type": "`$NUMBER`"
+          "title": "Area",
+          "type": "`$NUMBER`",
+          "short": "Area in km²"
         },
         {
           "name": "countryCode",
+          "title": "Country Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "ISO country code",
-          "type": "`$STRING`"
+          "short": "ISO country code"
         },
         {
           "name": "countryEmoji",
+          "title": "Country Emoji",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Emoji flag of the country",
-          "type": "`$STRING`"
+          "short": "Emoji flag of the country"
         },
         {
           "name": "countryId",
+          "title": "Country Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "UUID of the country",
-          "type": "`$STRING`"
+          "short": "UUID of the country"
         },
         {
           "name": "countryName",
+          "title": "Country Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Country name",
-          "type": "`$STRING`"
+          "short": "Country name"
         },
         {
           "name": "countryTelephoneCode",
-          "short": "Telephone code of the country",
-          "type": "`$STRING`"
+          "title": "Country Telephone Code",
+          "type": "`$STRING`",
+          "short": "Telephone code of the country"
         },
         {
           "name": "dialingCode",
-          "short": "Dialing code",
-          "type": "`$STRING`"
+          "title": "Dialing Code",
+          "type": "`$STRING`",
+          "short": "Dialing code"
         },
         {
           "name": "distanceKm",
-          "short": "Distance from the given point in kilometers",
-          "type": "`$NUMBER`"
+          "title": "Distance Km",
+          "type": "`$NUMBER`",
+          "short": "Distance from the given point in kilometers"
         },
         {
           "name": "elevation",
-          "short": "Elevation in meters",
-          "type": "`$NUMBER`"
+          "title": "Elevation",
+          "type": "`$NUMBER`",
+          "short": "Elevation in meters"
         },
         {
           "name": "flagImage",
-          "short": "Flag image URL",
-          "type": "`$STRING`"
+          "title": "Flag Image",
+          "type": "`$STRING`",
+          "short": "Flag image URL"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Geomelon UUID of the city",
-          "type": "`$STRING`"
+          "short": "Geomelon UUID of the city"
         },
         {
           "name": "latitude",
-          "short": "Latitude coordinate",
-          "type": "`$NUMBER`"
+          "title": "Latitude",
+          "type": "`$NUMBER`",
+          "short": "Latitude coordinate"
         },
         {
           "name": "localizedName",
+          "title": "Localized Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Localized name according to preferred languages",
-          "type": "`$STRING`"
+          "short": "Localized name according to preferred languages"
         },
         {
           "name": "longitude",
-          "short": "Longitude coordinate",
-          "type": "`$NUMBER`"
+          "title": "Longitude",
+          "type": "`$NUMBER`",
+          "short": "Longitude coordinate"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "City name",
-          "type": "`$STRING`"
+          "short": "City name"
         },
         {
           "name": "normalizedName",
+          "title": "Normalized Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Normalized city name",
-          "type": "`$STRING`"
+          "short": "Normalized city name"
         },
         {
           "name": "officialWebsite",
-          "short": "Official website URL",
-          "type": "`$STRING`"
+          "title": "Official Website",
+          "type": "`$STRING`",
+          "short": "Official website URL"
         },
         {
           "name": "population",
-          "short": "Population of the city",
-          "type": "`$NUMBER`"
+          "title": "Population",
+          "type": "`$NUMBER`",
+          "short": "Population of the city"
         },
         {
           "name": "postalCode",
-          "short": "Postal code",
-          "type": "`$STRING`"
+          "title": "Postal Code",
+          "type": "`$STRING`",
+          "short": "Postal code"
         },
         {
           "name": "regionCode",
+          "title": "Region Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Region code",
-          "type": "`$STRING`"
+          "short": "Region code"
         },
         {
           "name": "regionId",
+          "title": "Region Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "UUID of the region",
-          "type": "`$STRING`"
+          "short": "UUID of the region"
         },
         {
           "name": "regionName",
+          "title": "Region Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Region name",
-          "type": "`$STRING`"
+          "short": "Region name"
         },
         {
           "name": "timeZone",
-          "short": "Time zone",
-          "type": "`$STRING`"
+          "title": "Time Zone",
+          "type": "`$STRING`",
+          "short": "Time zone"
         },
         {
           "name": "translations",
+          "title": "Translations",
+          "type": "`$ARRAY`",
           "req": true,
-          "short": "Translations of the city name in requested languages",
-          "type": "`$ARRAY`"
+          "short": "Translations of the city name in requested languages"
         },
         {
           "name": "wikidataId",
+          "title": "Wikidata Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Wikidata ID of the city",
-          "type": "`$STRING`"
+          "short": "Wikidata ID of the city"
         }
       ],
       "id": {
@@ -322,17 +340,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}",
@@ -344,19 +351,31 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "cities",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "cities",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -369,141 +388,166 @@ class Config {
       "fields": [
         {
           "name": "area",
-          "short": "Area in km²",
-          "type": "`$NUMBER`"
+          "title": "Area",
+          "type": "`$NUMBER`",
+          "short": "Area in km²"
         },
         {
           "name": "countryCode",
+          "title": "Country Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "ISO country code",
-          "type": "`$STRING`"
+          "short": "ISO country code"
         },
         {
           "name": "countryEmoji",
+          "title": "Country Emoji",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Emoji flag of the country",
-          "type": "`$STRING`"
+          "short": "Emoji flag of the country"
         },
         {
           "name": "countryId",
+          "title": "Country Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "UUID of the country",
-          "type": "`$STRING`"
+          "short": "UUID of the country"
         },
         {
           "name": "countryName",
+          "title": "Country Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Country name",
-          "type": "`$STRING`"
+          "short": "Country name"
         },
         {
           "name": "countryTelephoneCode",
-          "short": "Telephone code of the country",
-          "type": "`$STRING`"
+          "title": "Country Telephone Code",
+          "type": "`$STRING`",
+          "short": "Telephone code of the country"
         },
         {
           "name": "dialingCode",
-          "short": "Dialing code",
-          "type": "`$STRING`"
+          "title": "Dialing Code",
+          "type": "`$STRING`",
+          "short": "Dialing code"
         },
         {
           "name": "distanceKm",
-          "short": "Distance from the given point in kilometers",
-          "type": "`$NUMBER`"
+          "title": "Distance Km",
+          "type": "`$NUMBER`",
+          "short": "Distance from the given point in kilometers"
         },
         {
           "name": "elevation",
-          "short": "Elevation in meters",
-          "type": "`$NUMBER`"
+          "title": "Elevation",
+          "type": "`$NUMBER`",
+          "short": "Elevation in meters"
         },
         {
           "name": "flagImage",
-          "short": "Flag image URL",
-          "type": "`$STRING`"
+          "title": "Flag Image",
+          "type": "`$STRING`",
+          "short": "Flag image URL"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Geomelon UUID of the city",
-          "type": "`$STRING`"
+          "short": "Geomelon UUID of the city"
         },
         {
           "name": "latitude",
-          "short": "Latitude coordinate",
-          "type": "`$NUMBER`"
+          "title": "Latitude",
+          "type": "`$NUMBER`",
+          "short": "Latitude coordinate"
         },
         {
           "name": "localizedName",
+          "title": "Localized Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Localized name according to preferred languages",
-          "type": "`$STRING`"
+          "short": "Localized name according to preferred languages"
         },
         {
           "name": "longitude",
-          "short": "Longitude coordinate",
-          "type": "`$NUMBER`"
+          "title": "Longitude",
+          "type": "`$NUMBER`",
+          "short": "Longitude coordinate"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "City name",
-          "type": "`$STRING`"
+          "short": "City name"
         },
         {
           "name": "normalizedName",
+          "title": "Normalized Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Normalized city name",
-          "type": "`$STRING`"
+          "short": "Normalized city name"
         },
         {
           "name": "officialWebsite",
-          "short": "Official website URL",
-          "type": "`$STRING`"
+          "title": "Official Website",
+          "type": "`$STRING`",
+          "short": "Official website URL"
         },
         {
           "name": "population",
-          "short": "Population of the city",
-          "type": "`$NUMBER`"
+          "title": "Population",
+          "type": "`$NUMBER`",
+          "short": "Population of the city"
         },
         {
           "name": "postalCode",
-          "short": "Postal code",
-          "type": "`$STRING`"
+          "title": "Postal Code",
+          "type": "`$STRING`",
+          "short": "Postal code"
         },
         {
           "name": "regionCode",
+          "title": "Region Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Region code",
-          "type": "`$STRING`"
+          "short": "Region code"
         },
         {
           "name": "regionId",
+          "title": "Region Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "UUID of the region",
-          "type": "`$STRING`"
+          "short": "UUID of the region"
         },
         {
           "name": "regionName",
+          "title": "Region Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Region name",
-          "type": "`$STRING`"
+          "short": "Region name"
         },
         {
           "name": "timeZone",
-          "short": "Time zone",
-          "type": "`$STRING`"
+          "title": "Time Zone",
+          "type": "`$STRING`",
+          "short": "Time zone"
         },
         {
           "name": "translations",
+          "title": "Translations",
+          "type": "`$ARRAY`",
           "req": true,
-          "short": "Translations of the city name in requested languages",
-          "type": "`$ARRAY`"
+          "short": "Translations of the city name in requested languages"
         },
         {
           "name": "wikidataId",
+          "title": "Wikidata Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Wikidata ID of the city",
-          "type": "`$STRING`"
+          "short": "Wikidata ID of the city"
         }
       ],
       "id": {
@@ -517,70 +561,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "us",
-                    "kind": "query",
-                    "name": "country_code",
-                    "orig": "country_code",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 20,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "max_population",
-                    "orig": "max_population",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "min_population",
-                    "orig": "min_population",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": "dallas",
-                    "kind": "query",
-                    "name": "name",
-                    "orig": "name",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "offset",
-                    "orig": "offset",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": "en,fr,ja,hi",
-                    "kind": "query",
-                    "name": "preferred_language",
-                    "orig": "preferred_language",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "region_id",
-                    "orig": "region_id",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "population_desc",
-                    "kind": "query",
-                    "name": "sort",
-                    "orig": "sort",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/search",
@@ -592,6 +572,79 @@ class Config {
                   "lit": "search"
                 }
               ],
+              "parts": [
+                "cities",
+                "search"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "country_code",
+                    "orig": "country_code",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "us"
+                  },
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "example": 20
+                  },
+                  {
+                    "name": "max_population",
+                    "orig": "max_population",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "min_population",
+                    "orig": "min_population",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "name",
+                    "orig": "name",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "dallas"
+                  },
+                  {
+                    "name": "offset",
+                    "orig": "offset",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "preferred_language",
+                    "orig": "preferred_language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "en,fr,ja,hi"
+                  },
+                  {
+                    "name": "region_id",
+                    "orig": "region_id",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "sort",
+                    "orig": "sort",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "population_desc"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "country_code",
@@ -604,42 +657,9 @@ class Config {
                   "region_id",
                   "sort"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cities",
-                "search"
-              ]
+              }
             },
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "lat",
-                    "orig": "lat",
-                    "reqd": true,
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "lon",
-                    "orig": "lon",
-                    "reqd": true,
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": "en",
-                    "kind": "query",
-                    "name": "preferred_language",
-                    "orig": "preferred_language",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/byCoordinates/closest",
@@ -654,49 +674,50 @@ class Config {
                   "lit": "closest"
                 }
               ],
+              "parts": [
+                "cities",
+                "byCoordinates",
+                "closest"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "lat",
+                    "orig": "lat",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "lon",
+                    "orig": "lon",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "preferred_language",
+                    "orig": "preferred_language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "en"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "lat",
                   "lon",
                   "preferred_language"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cities",
-                "byCoordinates",
-                "closest"
-              ]
+              }
             },
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "lat",
-                    "orig": "lat",
-                    "reqd": true,
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "lon",
-                    "orig": "lon",
-                    "reqd": true,
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": "en",
-                    "kind": "query",
-                    "name": "preferred_language",
-                    "orig": "preferred_language",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/byCoordinates/largest",
@@ -711,22 +732,48 @@ class Config {
                   "lit": "largest"
                 }
               ],
+              "parts": [
+                "cities",
+                "byCoordinates",
+                "largest"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "lat",
+                    "orig": "lat",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "lon",
+                    "orig": "lon",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "preferred_language",
+                    "orig": "preferred_language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "en"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "lat",
                   "lon",
                   "preferred_language"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cities",
-                "byCoordinates",
-                "largest"
-              ]
+              }
             }
           ]
         }
@@ -739,33 +786,38 @@ class Config {
       "fields": [
         {
           "name": "cityId",
+          "title": "City Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "City ID",
-          "type": "`$STRING`"
+          "short": "City ID"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Translation ID",
-          "type": "`$STRING`"
+          "short": "Translation ID"
         },
         {
           "name": "language",
+          "title": "Language",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Language code",
-          "type": "`$STRING`"
+          "short": "Language code"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Translated name",
-          "type": "`$STRING`"
+          "short": "Translated name"
         },
         {
           "name": "nameNormalized",
+          "title": "Name Normalized",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Normalized translated name",
-          "type": "`$STRING`"
+          "short": "Normalized translated name"
         }
       ],
       "id": {
@@ -779,17 +831,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}/translations",
@@ -804,21 +845,33 @@ class Config {
                   "lit": "translations"
                 }
               ],
+              "parts": [
+                "cities",
+                "{id}",
+                "translations"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
               "select": {
                 "$action": "translations",
                 "exist": [
                   "id"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cities",
-                "{id}",
-                "translations"
-              ]
+              }
             }
           ]
         }
@@ -831,92 +884,107 @@ class Config {
       "fields": [
         {
           "name": "drivingSide",
+          "title": "Driving Side",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Driving side of the country",
-          "type": "`$STRING`"
+          "short": "Driving side of the country"
         },
         {
           "name": "emoji",
+          "title": "Emoji",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Emoji of the country",
-          "type": "`$STRING`"
+          "short": "Emoji of the country"
         },
         {
           "name": "headOfGovernment",
+          "title": "Head Of Government",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Head of government of the country",
-          "type": "`$STRING`"
+          "short": "Head of government of the country"
         },
         {
           "name": "headOfState",
+          "title": "Head Of State",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Head of state of the country",
-          "type": "`$STRING`"
+          "short": "Head of state of the country"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Country ID",
-          "type": "`$STRING`"
+          "short": "Country ID"
         },
         {
           "name": "isoCode",
+          "title": "Iso Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "ISO code of the country",
-          "type": "`$STRING`"
+          "short": "ISO code of the country"
         },
         {
           "name": "licencePlateCode",
+          "title": "Licence Plate Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Licence plate code of the country",
-          "type": "`$STRING`"
+          "short": "Licence plate code of the country"
         },
         {
           "name": "localizedName",
-          "short": "Name in the first matched preferred language, falls back to name",
-          "type": "`$STRING`"
+          "title": "Localized Name",
+          "type": "`$STRING`",
+          "short": "Name in the first matched preferred language, falls back to name"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Name of the country",
-          "type": "`$STRING`"
+          "short": "Name of the country"
         },
         {
           "name": "preferredLanguageId",
+          "title": "Preferred Language Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Preferred language ID for the country",
-          "type": "`$STRING`"
+          "short": "Preferred language ID for the country"
         },
         {
           "name": "regions",
+          "title": "Regions",
+          "type": "`$ARRAY`",
           "req": true,
-          "short": "Regions within the country",
-          "type": "`$ARRAY`"
+          "short": "Regions within the country"
         },
         {
           "name": "telephoneCode",
+          "title": "Telephone Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Telephone code of the country",
-          "type": "`$STRING`"
+          "short": "Telephone code of the country"
         },
         {
           "name": "translations",
+          "title": "Translations",
+          "type": "`$ARRAY`",
           "req": true,
-          "short": "Country translations",
-          "type": "`$ARRAY`"
+          "short": "Country translations"
         },
         {
           "name": "trunkPrefix",
+          "title": "Trunk Prefix",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Trunk prefix of the country",
-          "type": "`$STRING`"
+          "short": "Trunk prefix of the country"
         },
         {
           "name": "wikidataId",
+          "title": "Wikidata Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Wikidata ID",
-          "type": "`$STRING`"
+          "short": "Wikidata ID"
         }
       ],
       "id": {
@@ -930,45 +998,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": 200,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": "Spa",
-                    "kind": "query",
-                    "name": "name",
-                    "orig": "name",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "offset",
-                    "orig": "offset",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": "fr,es,en",
-                    "kind": "query",
-                    "name": "preferred_language",
-                    "orig": "preferred_language",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "+34",
-                    "kind": "query",
-                    "name": "telephone_code",
-                    "orig": "telephone_code",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/countries",
@@ -977,6 +1006,53 @@ class Config {
                   "lit": "countries"
                 }
               ],
+              "parts": [
+                "countries"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "example": 200
+                  },
+                  {
+                    "name": "name",
+                    "orig": "name",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Spa"
+                  },
+                  {
+                    "name": "offset",
+                    "orig": "offset",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "preferred_language",
+                    "orig": "preferred_language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "fr,es,en"
+                  },
+                  {
+                    "name": "telephone_code",
+                    "orig": "telephone_code",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "+34"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "limit",
@@ -985,14 +1061,7 @@ class Config {
                   "preferred_language",
                   "telephone_code"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "countries"
-              ]
+              }
             }
           ]
         },
@@ -1001,18 +1070,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}",
@@ -1024,19 +1081,32 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "countries",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "countries",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -1049,33 +1119,38 @@ class Config {
       "fields": [
         {
           "name": "countryId",
+          "title": "Country Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Country ID",
-          "type": "`$STRING`"
+          "short": "Country ID"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Translation ID",
-          "type": "`$STRING`"
+          "short": "Translation ID"
         },
         {
           "name": "language",
+          "title": "Language",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Language code",
-          "type": "`$STRING`"
+          "short": "Language code"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Translated name",
-          "type": "`$STRING`"
+          "short": "Translated name"
         },
         {
           "name": "nameNormalized",
+          "title": "Name Normalized",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Normalized translated name",
-          "type": "`$STRING`"
+          "short": "Normalized translated name"
         }
       ],
       "id": {
@@ -1089,27 +1164,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ],
-                "query": [
-                  {
-                    "example": "en,fr,hi",
-                    "kind": "query",
-                    "name": "preferred_language",
-                    "orig": "preferred_language",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}/translations",
@@ -1124,22 +1178,44 @@ class Config {
                   "lit": "translations"
                 }
               ],
+              "parts": [
+                "countries",
+                "{id}",
+                "translations"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26"
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "preferred_language",
+                    "orig": "preferred_language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "en,fr,hi"
+                  }
+                ]
+              },
               "select": {
                 "$action": "translations",
                 "exist": [
                   "id",
                   "preferred_language"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "countries",
-                "{id}",
-                "translations"
-              ]
+              }
             }
           ]
         }
@@ -1152,9 +1228,10 @@ class Config {
       "fields": [
         {
           "name": "distanceKm",
+          "title": "Distance Km",
+          "type": "`$NUMBER`",
           "req": true,
-          "short": "Distance between cities",
-          "type": "`$NUMBER`"
+          "short": "Distance between cities"
         }
       ],
       "name": "distance",
@@ -1164,24 +1241,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "city1",
-                    "orig": "city1",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "city2",
-                    "orig": "city2",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/distance",
@@ -1193,20 +1252,39 @@ class Config {
                   "lit": "distance"
                 }
               ],
+              "parts": [
+                "cities",
+                "distance"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "city1",
+                    "orig": "city1",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "city2",
+                    "orig": "city2",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "city1",
                   "city2"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "cities",
-                "distance"
-              ]
+              }
             }
           ]
         }
@@ -1219,33 +1297,38 @@ class Config {
       "fields": [
         {
           "name": "citiesCount",
+          "title": "Cities Count",
+          "type": "`$NUMBER`",
           "req": true,
-          "short": "Number of cities using this language",
-          "type": "`$NUMBER`"
+          "short": "Number of cities using this language"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "UUID of the language",
-          "type": "`$STRING`"
+          "short": "UUID of the language"
         },
         {
           "name": "isoCode",
+          "title": "Iso Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "ISO code of the language",
-          "type": "`$STRING`"
+          "short": "ISO code of the language"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Name of the language",
-          "type": "`$STRING`"
+          "short": "Name of the language"
         },
         {
           "name": "wikidataId",
+          "title": "Wikidata Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Wikidata ID of the language",
-          "type": "`$STRING`"
+          "short": "Wikidata ID of the language"
         }
       ],
       "id": {
@@ -1259,24 +1342,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": 200,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "offset",
-                    "orig": "offset",
-                    "type": "`$NUMBER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/languages",
@@ -1285,19 +1350,38 @@ class Config {
                   "lit": "languages"
                 }
               ],
+              "parts": [
+                "languages"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "example": 200
+                  },
+                  {
+                    "name": "offset",
+                    "orig": "offset",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "example": 0
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "limit",
                   "offset"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "languages"
-              ]
+              }
             }
           ]
         },
@@ -1306,18 +1390,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/languages/{id}",
@@ -1329,19 +1401,32 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "languages",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "languages",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -1354,29 +1439,34 @@ class Config {
       "fields": [
         {
           "name": "emoji",
-          "req": true,
-          "type": "`$OBJECT`"
+          "title": "Emoji",
+          "type": "`$OBJECT`",
+          "req": true
         },
         {
           "name": "en",
-          "short": "English name — omitted when the requested language is English or no English translation exists",
-          "type": "`$STRING`"
+          "title": "En",
+          "type": "`$STRING`",
+          "short": "English name — omitted when the requested language is English or no English translation exists"
         },
         {
           "name": "id",
-          "req": true,
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "req": true
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "City name in the requested language",
-          "type": "`$STRING`"
+          "short": "City name in the requested language"
         },
         {
           "name": "population",
-          "req": true,
-          "type": "`$OBJECT`"
+          "title": "Population",
+          "type": "`$OBJECT`",
+          "req": true
         }
       ],
       "id": {
@@ -1390,34 +1480,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "bar",
-                    "kind": "param",
-                    "name": "city_name",
-                    "orig": "city_name",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "es",
-                    "kind": "param",
-                    "name": "country",
-                    "orig": "country",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "es",
-                    "kind": "param",
-                    "name": "language",
-                    "orig": "language",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/oneshot/{country}/{language}/{city_name}",
@@ -1438,144 +1500,187 @@ class Config {
                   "var": "city_name"
                 }
               ],
-              "select": {
-                "exist": [
-                  "city_name",
-                  "country",
-                  "language"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "cities",
                 "oneshot",
                 "{country}",
                 "{language}",
                 "{city_name}"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "city_name",
+                    "orig": "city_name",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "bar"
+                  },
+                  {
+                    "name": "country",
+                    "orig": "country",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "es"
+                  },
+                  {
+                    "name": "language",
+                    "orig": "language",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "es"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "city_name",
+                  "country",
+                  "language"
+                ]
+              }
             }
           ]
         }
       },
       "relations": {
-        "ancestors": [
-          [
-            "oneshot"
-          ]
-        ]
+        "ancestors": []
       }
     },
     "region": {
       "fields": [
         {
           "name": "code",
+          "title": "Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Region code",
-          "type": "`$STRING`"
+          "short": "Region code"
         },
         {
           "name": "countryId",
+          "title": "Country Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Country ID the region belongs to",
-          "type": "`$STRING`"
+          "short": "Country ID the region belongs to"
         },
         {
           "name": "drivingSide",
+          "title": "Driving Side",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Driving side of the country",
-          "type": "`$STRING`"
+          "short": "Driving side of the country"
         },
         {
           "name": "emoji",
+          "title": "Emoji",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Emoji of the country",
-          "type": "`$STRING`"
+          "short": "Emoji of the country"
         },
         {
           "name": "headOfGovernment",
+          "title": "Head Of Government",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Head of government of the country",
-          "type": "`$STRING`"
+          "short": "Head of government of the country"
         },
         {
           "name": "headOfState",
+          "title": "Head Of State",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Head of state of the country",
-          "type": "`$STRING`"
+          "short": "Head of state of the country"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Country ID",
-          "type": "`$STRING`"
+          "short": "Country ID"
         },
         {
           "name": "isoCode",
+          "title": "Iso Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "ISO code of the country",
-          "type": "`$STRING`"
+          "short": "ISO code of the country"
         },
         {
           "name": "latitude",
+          "title": "Latitude",
+          "type": "`$NUMBER`",
           "req": true,
-          "short": "Latitude of the region center",
-          "type": "`$NUMBER`"
+          "short": "Latitude of the region center"
         },
         {
           "name": "licencePlateCode",
+          "title": "Licence Plate Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Licence plate code of the country",
-          "type": "`$STRING`"
+          "short": "Licence plate code of the country"
         },
         {
           "name": "localizedName",
-          "short": "Name in the first matched preferred language, falls back to name",
-          "type": "`$STRING`"
+          "title": "Localized Name",
+          "type": "`$STRING`",
+          "short": "Name in the first matched preferred language, falls back to name"
         },
         {
           "name": "longitude",
+          "title": "Longitude",
+          "type": "`$NUMBER`",
           "req": true,
-          "short": "Longitude of the region center",
-          "type": "`$NUMBER`"
+          "short": "Longitude of the region center"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Name of the country",
-          "type": "`$STRING`"
+          "short": "Name of the country"
         },
         {
           "name": "population",
+          "title": "Population",
+          "type": "`$NUMBER`",
           "req": true,
-          "short": "Population of the region",
-          "type": "`$NUMBER`"
+          "short": "Population of the region"
         },
         {
           "name": "preferredLanguageId",
+          "title": "Preferred Language Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Preferred language ID for the country",
-          "type": "`$STRING`"
+          "short": "Preferred language ID for the country"
         },
         {
           "name": "telephoneCode",
+          "title": "Telephone Code",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Telephone code of the country",
-          "type": "`$STRING`"
+          "short": "Telephone code of the country"
         },
         {
           "name": "trunkPrefix",
+          "title": "Trunk Prefix",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Trunk prefix of the country",
-          "type": "`$STRING`"
+          "short": "Trunk prefix of the country"
         },
         {
           "name": "wikidataId",
+          "title": "Wikidata Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Wikidata ID",
-          "type": "`$STRING`"
+          "short": "Wikidata ID"
         }
       ],
       "id": {
@@ -1589,26 +1694,9 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                    "kind": "param",
-                    "name": "country_id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/countries/{id}/regions",
-              "rename": {
-                "param": {
-                  "id": "country_id"
-                }
-              },
               "segments": [
                 {
                   "lit": "countries"
@@ -1620,33 +1708,39 @@ class Config {
                   "lit": "regions"
                 }
               ],
-              "select": {
-                "exist": [
-                  "country_id"
-                ]
+              "parts": [
+                "countries",
+                "{country_id}",
+                "regions"
+              ],
+              "rename": {
+                "param": {
+                  "id": "country_id"
+                }
               },
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "countries",
-                "{country_id}",
-                "regions"
-              ]
-            },
-            {
               "args": {
-                "query": [
+                "params": [
                   {
-                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                    "kind": "query",
                     "name": "country_id",
-                    "orig": "country_id",
-                    "type": "`$STRING`"
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26"
                   }
                 ]
               },
+              "select": {
+                "exist": [
+                  "country_id"
+                ]
+              }
+            },
+            {
               "kind": "http",
               "method": "GET",
               "orig": "/regions",
@@ -1655,18 +1749,30 @@ class Config {
                   "lit": "regions"
                 }
               ],
-              "select": {
-                "exist": [
-                  "country_id"
-                ]
-              },
+              "parts": [
+                "regions"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "regions"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "country_id",
+                    "orig": "country_id",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "509a2a0a-5ec6-483e-8381-4bea4422ac26"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "country_id"
+                ]
+              }
             }
           ]
         },
@@ -1675,18 +1781,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/regions/{id}",
@@ -1698,19 +1792,32 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "regions",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.country`"
               },
-              "parts": [
-                "regions",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -1718,7 +1825,7 @@ class Config {
       "relations": {
         "ancestors": [
           [
-            "country"
+            "$.main.kit.entity.country"
           ]
         ]
       }
@@ -1727,33 +1834,38 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Translation ID",
-          "type": "`$STRING`"
+          "short": "Translation ID"
         },
         {
           "name": "language",
+          "title": "Language",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Language code",
-          "type": "`$STRING`"
+          "short": "Language code"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Translated name",
-          "type": "`$STRING`"
+          "short": "Translated name"
         },
         {
           "name": "nameNormalized",
+          "title": "Name Normalized",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Normalized translated name",
-          "type": "`$STRING`"
+          "short": "Normalized translated name"
         },
         {
           "name": "regionId",
+          "title": "Region Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Region ID",
-          "type": "`$STRING`"
+          "short": "Region ID"
         }
       ],
       "id": {
@@ -1767,27 +1879,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ],
-                "query": [
-                  {
-                    "example": "en,fr,hi",
-                    "kind": "query",
-                    "name": "preferred_language",
-                    "orig": "preferred_language",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/regions/{id}/translations",
@@ -1802,22 +1893,44 @@ class Config {
                   "lit": "translations"
                 }
               ],
+              "parts": [
+                "regions",
+                "{id}",
+                "translations"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6"
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "preferred_language",
+                    "orig": "preferred_language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "en,fr,hi"
+                  }
+                ]
+              },
               "select": {
                 "$action": "translations",
                 "exist": [
                   "id",
                   "preferred_language"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "regions",
-                "{id}",
-                "translations"
-              ]
+              }
             }
           ]
         }
@@ -1830,33 +1943,38 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "title": "Description",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Description of the settlement type",
-          "type": "`$STRING`"
+          "short": "Description of the settlement type"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Settlement Type ID",
-          "type": "`$STRING`"
+          "short": "Settlement Type ID"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Name of the settlement type",
-          "type": "`$STRING`"
+          "short": "Name of the settlement type"
         },
         {
           "name": "nameNormalized",
+          "title": "Name Normalized",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Normalized name of the settlement type",
-          "type": "`$STRING`"
+          "short": "Normalized name of the settlement type"
         },
         {
           "name": "wikidataId",
+          "title": "Wikidata Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Wikidata ID",
-          "type": "`$STRING`"
+          "short": "Wikidata ID"
         }
       ],
       "id": {
@@ -1870,25 +1988,9 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "city_id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cities/{id}/settlement-types",
-              "rename": {
-                "param": {
-                  "id": "city_id"
-                }
-              },
               "segments": [
                 {
                   "lit": "cities"
@@ -1900,20 +2002,36 @@ class Config {
                   "lit": "settlement-types"
                 }
               ],
-              "select": {
-                "exist": [
-                  "city_id"
-                ]
+              "parts": [
+                "cities",
+                "{city_id}",
+                "settlement-types"
+              ],
+              "rename": {
+                "param": {
+                  "id": "city_id"
+                }
               },
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "cities",
-                "{city_id}",
-                "settlement-types"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "city_id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "city_id"
+                ]
+              }
             }
           ]
         }
@@ -1921,7 +2039,7 @@ class Config {
       "relations": {
         "ancestors": [
           [
-            "city"
+            "$.main.kit.entity.city"
           ]
         ]
       }

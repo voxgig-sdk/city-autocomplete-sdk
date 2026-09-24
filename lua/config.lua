@@ -101,141 +101,166 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "area",
-            ["short"] = "Area in km²",
+            ["title"] = "Area",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Area in km²",
           },
           {
             ["name"] = "countryCode",
+            ["title"] = "Country Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "ISO country code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryEmoji",
+            ["title"] = "Country Emoji",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Emoji flag of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryId",
+            ["title"] = "Country Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "UUID of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryName",
+            ["title"] = "Country Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Country name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryTelephoneCode",
-            ["short"] = "Telephone code of the country",
+            ["title"] = "Country Telephone Code",
             ["type"] = "`$STRING`",
+            ["short"] = "Telephone code of the country",
           },
           {
             ["name"] = "dialingCode",
-            ["short"] = "Dialing code",
+            ["title"] = "Dialing Code",
             ["type"] = "`$STRING`",
+            ["short"] = "Dialing code",
           },
           {
             ["name"] = "distanceKm",
-            ["short"] = "Distance from the given point in kilometers",
+            ["title"] = "Distance Km",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Distance from the given point in kilometers",
           },
           {
             ["name"] = "elevation",
-            ["short"] = "Elevation in meters",
+            ["title"] = "Elevation",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Elevation in meters",
           },
           {
             ["name"] = "flagImage",
-            ["short"] = "Flag image URL",
+            ["title"] = "Flag Image",
             ["type"] = "`$STRING`",
+            ["short"] = "Flag image URL",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Geomelon UUID of the city",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "latitude",
-            ["short"] = "Latitude coordinate",
+            ["title"] = "Latitude",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Latitude coordinate",
           },
           {
             ["name"] = "localizedName",
+            ["title"] = "Localized Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Localized name according to preferred languages",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "longitude",
-            ["short"] = "Longitude coordinate",
+            ["title"] = "Longitude",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Longitude coordinate",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "City name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "normalizedName",
+            ["title"] = "Normalized Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Normalized city name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "officialWebsite",
-            ["short"] = "Official website URL",
+            ["title"] = "Official Website",
             ["type"] = "`$STRING`",
+            ["short"] = "Official website URL",
           },
           {
             ["name"] = "population",
-            ["short"] = "Population of the city",
+            ["title"] = "Population",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Population of the city",
           },
           {
             ["name"] = "postalCode",
-            ["short"] = "Postal code",
+            ["title"] = "Postal Code",
             ["type"] = "`$STRING`",
+            ["short"] = "Postal code",
           },
           {
             ["name"] = "regionCode",
+            ["title"] = "Region Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Region code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "regionId",
+            ["title"] = "Region Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "UUID of the region",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "regionName",
+            ["title"] = "Region Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Region name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "timeZone",
-            ["short"] = "Time zone",
+            ["title"] = "Time Zone",
             ["type"] = "`$STRING`",
+            ["short"] = "Time zone",
           },
           {
             ["name"] = "translations",
+            ["title"] = "Translations",
+            ["type"] = "`$ARRAY`",
             ["req"] = true,
             ["short"] = "Translations of the city name in requested languages",
-            ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "wikidataId",
+            ["title"] = "Wikidata Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Wikidata ID of the city",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -249,17 +274,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/{id}",
@@ -271,18 +285,30 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
+                ["parts"] = {
+                  "cities",
+                  "{id}",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "cities",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -296,141 +322,166 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "area",
-            ["short"] = "Area in km²",
+            ["title"] = "Area",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Area in km²",
           },
           {
             ["name"] = "countryCode",
+            ["title"] = "Country Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "ISO country code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryEmoji",
+            ["title"] = "Country Emoji",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Emoji flag of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryId",
+            ["title"] = "Country Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "UUID of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryName",
+            ["title"] = "Country Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Country name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryTelephoneCode",
-            ["short"] = "Telephone code of the country",
+            ["title"] = "Country Telephone Code",
             ["type"] = "`$STRING`",
+            ["short"] = "Telephone code of the country",
           },
           {
             ["name"] = "dialingCode",
-            ["short"] = "Dialing code",
+            ["title"] = "Dialing Code",
             ["type"] = "`$STRING`",
+            ["short"] = "Dialing code",
           },
           {
             ["name"] = "distanceKm",
-            ["short"] = "Distance from the given point in kilometers",
+            ["title"] = "Distance Km",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Distance from the given point in kilometers",
           },
           {
             ["name"] = "elevation",
-            ["short"] = "Elevation in meters",
+            ["title"] = "Elevation",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Elevation in meters",
           },
           {
             ["name"] = "flagImage",
-            ["short"] = "Flag image URL",
+            ["title"] = "Flag Image",
             ["type"] = "`$STRING`",
+            ["short"] = "Flag image URL",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Geomelon UUID of the city",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "latitude",
-            ["short"] = "Latitude coordinate",
+            ["title"] = "Latitude",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Latitude coordinate",
           },
           {
             ["name"] = "localizedName",
+            ["title"] = "Localized Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Localized name according to preferred languages",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "longitude",
-            ["short"] = "Longitude coordinate",
+            ["title"] = "Longitude",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Longitude coordinate",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "City name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "normalizedName",
+            ["title"] = "Normalized Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Normalized city name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "officialWebsite",
-            ["short"] = "Official website URL",
+            ["title"] = "Official Website",
             ["type"] = "`$STRING`",
+            ["short"] = "Official website URL",
           },
           {
             ["name"] = "population",
-            ["short"] = "Population of the city",
+            ["title"] = "Population",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Population of the city",
           },
           {
             ["name"] = "postalCode",
-            ["short"] = "Postal code",
+            ["title"] = "Postal Code",
             ["type"] = "`$STRING`",
+            ["short"] = "Postal code",
           },
           {
             ["name"] = "regionCode",
+            ["title"] = "Region Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Region code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "regionId",
+            ["title"] = "Region Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "UUID of the region",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "regionName",
+            ["title"] = "Region Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Region name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "timeZone",
-            ["short"] = "Time zone",
+            ["title"] = "Time Zone",
             ["type"] = "`$STRING`",
+            ["short"] = "Time zone",
           },
           {
             ["name"] = "translations",
+            ["title"] = "Translations",
+            ["type"] = "`$ARRAY`",
             ["req"] = true,
             ["short"] = "Translations of the city name in requested languages",
-            ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "wikidataId",
+            ["title"] = "Wikidata Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Wikidata ID of the city",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -444,70 +495,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = "us",
-                      ["kind"] = "query",
-                      ["name"] = "country_code",
-                      ["orig"] = "country_code",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = 20,
-                      ["kind"] = "query",
-                      ["name"] = "limit",
-                      ["orig"] = "limit",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "max_population",
-                      ["orig"] = "max_population",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "min_population",
-                      ["orig"] = "min_population",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = "dallas",
-                      ["kind"] = "query",
-                      ["name"] = "name",
-                      ["orig"] = "name",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = 0,
-                      ["kind"] = "query",
-                      ["name"] = "offset",
-                      ["orig"] = "offset",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = "en,fr,ja,hi",
-                      ["kind"] = "query",
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferred_language",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "region_id",
-                      ["orig"] = "region_id",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "population_desc",
-                      ["kind"] = "query",
-                      ["name"] = "sort",
-                      ["orig"] = "sort",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/search",
@@ -517,6 +504,79 @@ local function make_config()
                   },
                   {
                     ["lit"] = "search",
+                  },
+                },
+                ["parts"] = {
+                  "cities",
+                  "search",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "country_code",
+                      ["orig"] = "country_code",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "us",
+                    },
+                    {
+                      ["name"] = "limit",
+                      ["orig"] = "limit",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 20,
+                    },
+                    {
+                      ["name"] = "max_population",
+                      ["orig"] = "max_population",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "min_population",
+                      ["orig"] = "min_population",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "name",
+                      ["orig"] = "name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "dallas",
+                    },
+                    {
+                      ["name"] = "offset",
+                      ["orig"] = "offset",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 0,
+                    },
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferred_language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "en,fr,ja,hi",
+                    },
+                    {
+                      ["name"] = "region_id",
+                      ["orig"] = "region_id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "sort",
+                      ["orig"] = "sort",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "population_desc",
+                    },
                   },
                 },
                 ["select"] = {
@@ -532,41 +592,8 @@ local function make_config()
                     "sort",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cities",
-                  "search",
-                },
               },
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "lat",
-                      ["orig"] = "lat",
-                      ["reqd"] = true,
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "lon",
-                      ["orig"] = "lon",
-                      ["reqd"] = true,
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = "en",
-                      ["kind"] = "query",
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferred_language",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/byCoordinates/closest",
@@ -581,6 +608,41 @@ local function make_config()
                     ["lit"] = "closest",
                   },
                 },
+                ["parts"] = {
+                  "cities",
+                  "byCoordinates",
+                  "closest",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "lat",
+                      ["orig"] = "lat",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                    },
+                    {
+                      ["name"] = "lon",
+                      ["orig"] = "lon",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                    },
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferred_language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "en",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "lat",
@@ -588,42 +650,8 @@ local function make_config()
                     "preferred_language",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cities",
-                  "byCoordinates",
-                  "closest",
-                },
               },
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "lat",
-                      ["orig"] = "lat",
-                      ["reqd"] = true,
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "lon",
-                      ["orig"] = "lon",
-                      ["reqd"] = true,
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = "en",
-                      ["kind"] = "query",
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferred_language",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/byCoordinates/largest",
@@ -638,21 +666,47 @@ local function make_config()
                     ["lit"] = "largest",
                   },
                 },
+                ["parts"] = {
+                  "cities",
+                  "byCoordinates",
+                  "largest",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "lat",
+                      ["orig"] = "lat",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                    },
+                    {
+                      ["name"] = "lon",
+                      ["orig"] = "lon",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                    },
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferred_language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "en",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "lat",
                     "lon",
                     "preferred_language",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cities",
-                  "byCoordinates",
-                  "largest",
                 },
               },
             },
@@ -666,33 +720,38 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "cityId",
+            ["title"] = "City Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "City ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Translation ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "language",
+            ["title"] = "Language",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Language code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Translated name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "nameNormalized",
+            ["title"] = "Name Normalized",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Normalized translated name",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -706,17 +765,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/{id}/translations",
@@ -731,20 +779,32 @@ local function make_config()
                     ["lit"] = "translations",
                   },
                 },
+                ["parts"] = {
+                  "cities",
+                  "{id}",
+                  "translations",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
                 ["select"] = {
                   ["$action"] = "translations",
                   ["exist"] = {
                     "id",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cities",
-                  "{id}",
-                  "translations",
                 },
               },
             },
@@ -758,92 +818,107 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "drivingSide",
+            ["title"] = "Driving Side",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Driving side of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "emoji",
+            ["title"] = "Emoji",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Emoji of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "headOfGovernment",
+            ["title"] = "Head Of Government",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Head of government of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "headOfState",
+            ["title"] = "Head Of State",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Head of state of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Country ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "isoCode",
+            ["title"] = "Iso Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "ISO code of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "licencePlateCode",
+            ["title"] = "Licence Plate Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Licence plate code of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "localizedName",
-            ["short"] = "Name in the first matched preferred language, falls back to name",
+            ["title"] = "Localized Name",
             ["type"] = "`$STRING`",
+            ["short"] = "Name in the first matched preferred language, falls back to name",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Name of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "preferredLanguageId",
+            ["title"] = "Preferred Language Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Preferred language ID for the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "regions",
+            ["title"] = "Regions",
+            ["type"] = "`$ARRAY`",
             ["req"] = true,
             ["short"] = "Regions within the country",
-            ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "telephoneCode",
+            ["title"] = "Telephone Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Telephone code of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "translations",
+            ["title"] = "Translations",
+            ["type"] = "`$ARRAY`",
             ["req"] = true,
             ["short"] = "Country translations",
-            ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "trunkPrefix",
+            ["title"] = "Trunk Prefix",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Trunk prefix of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "wikidataId",
+            ["title"] = "Wikidata Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Wikidata ID",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -857,51 +932,59 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = 200,
-                      ["kind"] = "query",
-                      ["name"] = "limit",
-                      ["orig"] = "limit",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = "Spa",
-                      ["kind"] = "query",
-                      ["name"] = "name",
-                      ["orig"] = "name",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = 0,
-                      ["kind"] = "query",
-                      ["name"] = "offset",
-                      ["orig"] = "offset",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = "fr,es,en",
-                      ["kind"] = "query",
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferred_language",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "+34",
-                      ["kind"] = "query",
-                      ["name"] = "telephone_code",
-                      ["orig"] = "telephone_code",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries",
                 ["segments"] = {
                   {
                     ["lit"] = "countries",
+                  },
+                },
+                ["parts"] = {
+                  "countries",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "limit",
+                      ["orig"] = "limit",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 200,
+                    },
+                    {
+                      ["name"] = "name",
+                      ["orig"] = "name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "Spa",
+                    },
+                    {
+                      ["name"] = "offset",
+                      ["orig"] = "offset",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 0,
+                    },
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferred_language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "fr,es,en",
+                    },
+                    {
+                      ["name"] = "telephone_code",
+                      ["orig"] = "telephone_code",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "+34",
+                    },
                   },
                 },
                 ["select"] = {
@@ -913,13 +996,6 @@ local function make_config()
                     "telephone_code",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "countries",
-                },
               },
             },
           },
@@ -928,18 +1004,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/{id}",
@@ -951,18 +1015,31 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
+                ["parts"] = {
+                  "countries",
+                  "{id}",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "countries",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -976,33 +1053,38 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "countryId",
+            ["title"] = "Country Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Country ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Translation ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "language",
+            ["title"] = "Language",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Language code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Translated name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "nameNormalized",
+            ["title"] = "Name Normalized",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Normalized translated name",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -1016,27 +1098,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["example"] = "en,fr,hi",
-                      ["kind"] = "query",
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferred_language",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/{id}/translations",
@@ -1051,21 +1112,43 @@ local function make_config()
                     ["lit"] = "translations",
                   },
                 },
+                ["parts"] = {
+                  "countries",
+                  "{id}",
+                  "translations",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferred_language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "en,fr,hi",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["$action"] = "translations",
                   ["exist"] = {
                     "id",
                     "preferred_language",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "countries",
-                  "{id}",
-                  "translations",
                 },
               },
             },
@@ -1079,9 +1162,10 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "distanceKm",
+            ["title"] = "Distance Km",
+            ["type"] = "`$NUMBER`",
             ["req"] = true,
             ["short"] = "Distance between cities",
-            ["type"] = "`$NUMBER`",
           },
         },
         ["name"] = "distance",
@@ -1091,24 +1175,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "city1",
-                      ["orig"] = "city1",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "city2",
-                      ["orig"] = "city2",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/distance",
@@ -1120,19 +1186,38 @@ local function make_config()
                     ["lit"] = "distance",
                   },
                 },
+                ["parts"] = {
+                  "cities",
+                  "distance",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "city1",
+                      ["orig"] = "city1",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                    },
+                    {
+                      ["name"] = "city2",
+                      ["orig"] = "city2",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "city1",
                     "city2",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "cities",
-                  "distance",
                 },
               },
             },
@@ -1146,33 +1231,38 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "citiesCount",
+            ["title"] = "Cities Count",
+            ["type"] = "`$NUMBER`",
             ["req"] = true,
             ["short"] = "Number of cities using this language",
-            ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "UUID of the language",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "isoCode",
+            ["title"] = "Iso Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "ISO code of the language",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Name of the language",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "wikidataId",
+            ["title"] = "Wikidata Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Wikidata ID of the language",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -1186,24 +1276,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = 200,
-                      ["kind"] = "query",
-                      ["name"] = "limit",
-                      ["orig"] = "limit",
-                      ["type"] = "`$NUMBER`",
-                    },
-                    {
-                      ["example"] = 0,
-                      ["kind"] = "query",
-                      ["name"] = "offset",
-                      ["orig"] = "offset",
-                      ["type"] = "`$NUMBER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/languages",
@@ -1212,18 +1284,37 @@ local function make_config()
                     ["lit"] = "languages",
                   },
                 },
+                ["parts"] = {
+                  "languages",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "limit",
+                      ["orig"] = "limit",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 200,
+                    },
+                    {
+                      ["name"] = "offset",
+                      ["orig"] = "offset",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 0,
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "limit",
                     "offset",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "languages",
                 },
               },
             },
@@ -1233,18 +1324,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/languages/{id}",
@@ -1256,18 +1335,31 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
+                ["parts"] = {
+                  "languages",
+                  "{id}",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "languages",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -1281,29 +1373,34 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "emoji",
-            ["req"] = true,
+            ["title"] = "Emoji",
             ["type"] = "`$OBJECT`",
+            ["req"] = true,
           },
           {
             ["name"] = "en",
-            ["short"] = "English name — omitted when the requested language is English or no English translation exists",
+            ["title"] = "En",
             ["type"] = "`$STRING`",
+            ["short"] = "English name — omitted when the requested language is English or no English translation exists",
           },
           {
             ["name"] = "id",
-            ["req"] = true,
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
+            ["req"] = true,
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "City name in the requested language",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "population",
-            ["req"] = true,
+            ["title"] = "Population",
             ["type"] = "`$OBJECT`",
+            ["req"] = true,
           },
         },
         ["id"] = {
@@ -1317,34 +1414,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "bar",
-                      ["kind"] = "param",
-                      ["name"] = "city_name",
-                      ["orig"] = "city_name",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "es",
-                      ["kind"] = "param",
-                      ["name"] = "country",
-                      ["orig"] = "country",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "es",
-                      ["kind"] = "param",
-                      ["name"] = "language",
-                      ["orig"] = "language",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/oneshot/{country}/{language}/{city_name}",
@@ -1365,17 +1434,6 @@ local function make_config()
                     ["var"] = "city_name",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "city_name",
-                    "country",
-                    "language",
-                  },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "cities",
                   "oneshot",
@@ -1383,126 +1441,180 @@ local function make_config()
                   "{language}",
                   "{city_name}",
                 },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "city_name",
+                      ["orig"] = "city_name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "bar",
+                    },
+                    {
+                      ["name"] = "country",
+                      ["orig"] = "country",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "es",
+                    },
+                    {
+                      ["name"] = "language",
+                      ["orig"] = "language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "es",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "city_name",
+                    "country",
+                    "language",
+                  },
+                },
               },
             },
           },
         },
         ["relations"] = {
-          ["ancestors"] = {
-            {
-              "oneshot",
-            },
-          },
+          ["ancestors"] = {},
         },
       },
       ["region"] = {
         ["fields"] = {
           {
             ["name"] = "code",
+            ["title"] = "Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Region code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "countryId",
+            ["title"] = "Country Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Country ID the region belongs to",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "drivingSide",
+            ["title"] = "Driving Side",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Driving side of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "emoji",
+            ["title"] = "Emoji",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Emoji of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "headOfGovernment",
+            ["title"] = "Head Of Government",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Head of government of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "headOfState",
+            ["title"] = "Head Of State",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Head of state of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Country ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "isoCode",
+            ["title"] = "Iso Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "ISO code of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "latitude",
+            ["title"] = "Latitude",
+            ["type"] = "`$NUMBER`",
             ["req"] = true,
             ["short"] = "Latitude of the region center",
-            ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "licencePlateCode",
+            ["title"] = "Licence Plate Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Licence plate code of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "localizedName",
-            ["short"] = "Name in the first matched preferred language, falls back to name",
+            ["title"] = "Localized Name",
             ["type"] = "`$STRING`",
+            ["short"] = "Name in the first matched preferred language, falls back to name",
           },
           {
             ["name"] = "longitude",
+            ["title"] = "Longitude",
+            ["type"] = "`$NUMBER`",
             ["req"] = true,
             ["short"] = "Longitude of the region center",
-            ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Name of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "population",
+            ["title"] = "Population",
+            ["type"] = "`$NUMBER`",
             ["req"] = true,
             ["short"] = "Population of the region",
-            ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "preferredLanguageId",
+            ["title"] = "Preferred Language Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Preferred language ID for the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "telephoneCode",
+            ["title"] = "Telephone Code",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Telephone code of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "trunkPrefix",
+            ["title"] = "Trunk Prefix",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Trunk prefix of the country",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "wikidataId",
+            ["title"] = "Wikidata Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Wikidata ID",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -1516,26 +1628,9 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                      ["kind"] = "param",
-                      ["name"] = "country_id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/{id}/regions",
-                ["rename"] = {
-                  ["param"] = {
-                    ["id"] = "country_id",
-                  },
-                },
                 ["segments"] = {
                   {
                     ["lit"] = "countries",
@@ -1547,33 +1642,39 @@ local function make_config()
                     ["lit"] = "regions",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "country_id",
+                ["parts"] = {
+                  "countries",
+                  "{country_id}",
+                  "regions",
+                },
+                ["rename"] = {
+                  ["param"] = {
+                    ["id"] = "country_id",
                   },
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "countries",
-                  "{country_id}",
-                  "regions",
-                },
-              },
-              {
                 ["args"] = {
-                  ["query"] = {
+                  ["params"] = {
                     {
-                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
-                      ["kind"] = "query",
                       ["name"] = "country_id",
-                      ["orig"] = "country_id",
+                      ["orig"] = "id",
                       ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
                     },
                   },
                 },
+                ["select"] = {
+                  ["exist"] = {
+                    "country_id",
+                  },
+                },
+              },
+              {
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/regions",
@@ -1582,17 +1683,29 @@ local function make_config()
                     ["lit"] = "regions",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "country_id",
-                  },
+                ["parts"] = {
+                  "regions",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "regions",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "country_id",
+                      ["orig"] = "country_id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "509a2a0a-5ec6-483e-8381-4bea4422ac26",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "country_id",
+                  },
                 },
               },
             },
@@ -1602,18 +1715,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/regions/{id}",
@@ -1625,18 +1726,31 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
+                ["parts"] = {
+                  "regions",
+                  "{id}",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.country`",
                 },
-                ["parts"] = {
-                  "regions",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -1645,7 +1759,7 @@ local function make_config()
         ["relations"] = {
           ["ancestors"] = {
             {
-              "country",
+              "$.main.kit.entity.country",
             },
           },
         },
@@ -1654,33 +1768,38 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Translation ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "language",
+            ["title"] = "Language",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Language code",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Translated name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "nameNormalized",
+            ["title"] = "Name Normalized",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Normalized translated name",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "regionId",
+            ["title"] = "Region Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Region ID",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -1694,27 +1813,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["example"] = "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["example"] = "en,fr,hi",
-                      ["kind"] = "query",
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferred_language",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/regions/{id}/translations",
@@ -1729,21 +1827,43 @@ local function make_config()
                     ["lit"] = "translations",
                   },
                 },
+                ["parts"] = {
+                  "regions",
+                  "{id}",
+                  "translations",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                      ["example"] = "63df31a3-ca32-4970-8b5e-bcf9a11426e6",
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferred_language",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "en,fr,hi",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["$action"] = "translations",
                   ["exist"] = {
                     "id",
                     "preferred_language",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "regions",
-                  "{id}",
-                  "translations",
                 },
               },
             },
@@ -1757,33 +1877,38 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "description",
+            ["title"] = "Description",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Description of the settlement type",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Settlement Type ID",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Name of the settlement type",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "nameNormalized",
+            ["title"] = "Name Normalized",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Normalized name of the settlement type",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "wikidataId",
+            ["title"] = "Wikidata Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Wikidata ID",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -1797,25 +1922,9 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["kind"] = "param",
-                      ["name"] = "city_id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cities/{id}/settlement-types",
-                ["rename"] = {
-                  ["param"] = {
-                    ["id"] = "city_id",
-                  },
-                },
                 ["segments"] = {
                   {
                     ["lit"] = "cities",
@@ -1827,19 +1936,35 @@ local function make_config()
                     ["lit"] = "settlement-types",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "city_id",
+                ["parts"] = {
+                  "cities",
+                  "{city_id}",
+                  "settlement-types",
+                },
+                ["rename"] = {
+                  ["param"] = {
+                    ["id"] = "city_id",
                   },
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "cities",
-                  "{city_id}",
-                  "settlement-types",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "city_id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "city_id",
+                  },
                 },
               },
             },
@@ -1848,7 +1973,7 @@ local function make_config()
         ["relations"] = {
           ["ancestors"] = {
             {
-              "city",
+              "$.main.kit.entity.city",
             },
           },
         },

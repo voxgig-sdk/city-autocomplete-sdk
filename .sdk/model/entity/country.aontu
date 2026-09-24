@@ -1,0 +1,245 @@
+# Entity: country
+
+main: kit: entity: country: {
+
+  alias: field: {}
+
+  fields: {
+    drivingSide: {
+      h: "Driving Side"
+      n: "drivingSide"
+      r: true
+      sh: "Driving side of the country"
+      t: "`$STRING`"
+    }
+    emoji: {
+      h: "Emoji"
+      n: "emoji"
+      r: true
+      sh: "Emoji of the country"
+      t: "`$STRING`"
+    }
+    headOfGovernment: {
+      h: "Head Of Government"
+      n: "headOfGovernment"
+      r: true
+      sh: "Head of government of the country"
+      t: "`$STRING`"
+    }
+    headOfState: {
+      h: "Head Of State"
+      n: "headOfState"
+      r: true
+      sh: "Head of state of the country"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Country ID"
+      t: "`$STRING`"
+    }
+    isoCode: {
+      h: "Iso Code"
+      n: "isoCode"
+      r: true
+      sh: "ISO code of the country"
+      t: "`$STRING`"
+    }
+    licencePlateCode: {
+      h: "Licence Plate Code"
+      n: "licencePlateCode"
+      r: true
+      sh: "Licence plate code of the country"
+      t: "`$STRING`"
+    }
+    localizedName: {
+      h: "Localized Name"
+      n: "localizedName"
+      r: false
+      sh: "Name in the first matched preferred language, falls back to name"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Name of the country"
+      t: "`$STRING`"
+    }
+    preferredLanguageId: {
+      h: "Preferred Language Id"
+      n: "preferredLanguageId"
+      r: true
+      sh: "Preferred language ID for the country"
+      t: "`$STRING`"
+    }
+    regions: {
+      h: "Regions"
+      n: "regions"
+      r: true
+      sh: "Regions within the country"
+      t: "`$ARRAY`"
+    }
+    telephoneCode: {
+      h: "Telephone Code"
+      n: "telephoneCode"
+      r: true
+      sh: "Telephone code of the country"
+      t: "`$STRING`"
+    }
+    translations: {
+      h: "Translations"
+      n: "translations"
+      r: true
+      sh: "Country translations"
+      t: "`$ARRAY`"
+    }
+    trunkPrefix: {
+      h: "Trunk Prefix"
+      n: "trunkPrefix"
+      r: true
+      sh: "Trunk prefix of the country"
+      t: "`$STRING`"
+    }
+    wikidataId: {
+      h: "Wikidata Id"
+      n: "wikidataId"
+      r: true
+      sh: "Wikidata ID"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "country"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /countries"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 200
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "Spa"
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "fr,es,en"
+                k: "query"
+                n: "preferred_language"
+                or: "preferred_language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "+34"
+                k: "query"
+                n: "telephone_code"
+                or: "telephone_code"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/countries"
+          q: {
+            exist: [
+              "limit"
+              "name"
+              "offset"
+              "preferred_language"
+              "telephone_code"
+            ]
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /countries/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "509a2a0a-5ec6-483e-8381-4bea4422ac26"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/countries/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

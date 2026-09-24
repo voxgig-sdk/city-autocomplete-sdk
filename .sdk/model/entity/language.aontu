@@ -1,0 +1,148 @@
+# Entity: language
+
+main: kit: entity: language: {
+
+  alias: field: {}
+
+  fields: {
+    citiesCount: {
+      h: "Cities Count"
+      n: "citiesCount"
+      r: true
+      sh: "Number of cities using this language"
+      t: "`$NUMBER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "UUID of the language"
+      t: "`$STRING`"
+    }
+    isoCode: {
+      h: "Iso Code"
+      n: "isoCode"
+      r: true
+      sh: "ISO code of the language"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Name of the language"
+      t: "`$STRING`"
+    }
+    wikidataId: {
+      h: "Wikidata Id"
+      n: "wikidataId"
+      r: true
+      sh: "Wikidata ID of the language"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "language"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /languages"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 200
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/languages"
+          q: {
+            exist: [
+              "limit"
+              "offset"
+            ]
+          }
+          s: [
+            {
+              lit: "languages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /languages/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "6aa910e2-07b2-4f0e-a1ec-194e85c4f35b"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/languages/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "languages"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

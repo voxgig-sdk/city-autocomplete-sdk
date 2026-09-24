@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegionTranslationDtoEntity = void 0;
 const CityAutocompleteEntityBase_1 = require("../CityAutocompleteEntityBase");
-// TODO: needs Entity superclass
 class RegionTranslationDtoEntity extends CityAutocompleteEntityBase_1.CityAutocompleteEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

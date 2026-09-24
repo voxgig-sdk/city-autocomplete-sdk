@@ -1,0 +1,114 @@
+# Entity: country_translation_dto
+
+main: kit: entity: country_translation_dto: {
+
+  alias: field: {}
+
+  fields: {
+    countryId: {
+      h: "Country Id"
+      n: "countryId"
+      r: true
+      sh: "Country ID"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Translation ID"
+      t: "`$STRING`"
+    }
+    language: {
+      h: "Language"
+      n: "language"
+      r: true
+      sh: "Language code"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Translated name"
+      t: "`$STRING`"
+    }
+    nameNormalized: {
+      h: "Name Normalized"
+      n: "nameNormalized"
+      r: true
+      sh: "Normalized translated name"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "country_translation_dto"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /countries/{id}/translations"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "509a2a0a-5ec6-483e-8381-4bea4422ac26"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "en,fr,hi"
+                k: "query"
+                n: "preferred_language"
+                or: "preferred_language"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/countries/{id}/translations"
+          q: {
+            "$action": "translations"
+            exist: [
+              "id"
+              "preferred_language"
+            ]
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "translations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

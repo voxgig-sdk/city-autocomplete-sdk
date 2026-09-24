@@ -1,0 +1,109 @@
+# Entity: settlement_type
+
+main: kit: entity: settlement_type: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "Description of the settlement type"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Settlement Type ID"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Name of the settlement type"
+      t: "`$STRING`"
+    }
+    nameNormalized: {
+      h: "Name Normalized"
+      n: "nameNormalized"
+      r: true
+      sh: "Normalized name of the settlement type"
+      t: "`$STRING`"
+    }
+    wikidataId: {
+      h: "Wikidata Id"
+      n: "wikidataId"
+      r: true
+      sh: "Wikidata ID"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "settlement_type"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /cities/{id}/settlement-types"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "city_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cities/{id}/settlement-types"
+          q: {
+            exist: [
+              "city_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "city_id"
+            }
+          }
+          s: [
+            {
+              lit: "cities"
+            }
+            {
+              var: "city_id"
+            }
+            {
+              lit: "settlement-types"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.city")]
+  ]
+
+}

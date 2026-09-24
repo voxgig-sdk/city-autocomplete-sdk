@@ -1,0 +1,73 @@
+# Entity: distance
+
+main: kit: entity: distance: {
+
+  alias: field: {}
+
+  fields: {
+    distanceKm: {
+      h: "Distance Km"
+      n: "distanceKm"
+      r: true
+      sh: "Distance between cities"
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "distance"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /cities/distance"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "city1"
+                or: "city1"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "city2"
+                or: "city2"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cities/distance"
+          q: {
+            exist: [
+              "city1"
+              "city2"
+            ]
+          }
+          s: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "distance"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

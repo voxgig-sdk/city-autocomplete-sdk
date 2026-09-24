@@ -1,0 +1,114 @@
+# Entity: region_translation_dto
+
+main: kit: entity: region_translation_dto: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Translation ID"
+      t: "`$STRING`"
+    }
+    language: {
+      h: "Language"
+      n: "language"
+      r: true
+      sh: "Language code"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Translated name"
+      t: "`$STRING`"
+    }
+    nameNormalized: {
+      h: "Name Normalized"
+      n: "nameNormalized"
+      r: true
+      sh: "Normalized translated name"
+      t: "`$STRING`"
+    }
+    regionId: {
+      h: "Region Id"
+      n: "regionId"
+      r: true
+      sh: "Region ID"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "region_translation_dto"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /regions/{id}/translations"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "63df31a3-ca32-4970-8b5e-bcf9a11426e6"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "en,fr,hi"
+                k: "query"
+                n: "preferred_language"
+                or: "preferred_language"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/regions/{id}/translations"
+          q: {
+            "$action": "translations"
+            exist: [
+              "id"
+              "preferred_language"
+            ]
+          }
+          s: [
+            {
+              lit: "regions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "translations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
