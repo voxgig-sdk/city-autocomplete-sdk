@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/city-autocomplete",
+  "name": "voxgig-sdk/city-autocomplete-sdk",
   "description": "Unofficial generated PHP SDK for the Geomelon public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "city-autocomplete"],
