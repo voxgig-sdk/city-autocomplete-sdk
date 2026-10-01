@@ -12,6 +12,13 @@ main: kit: entity: region: {
       sh: "Region code"
       t: "`$STRING`"
     }
+    country: {
+      h: "Country"
+      n: "country"
+      r: true
+      sh: "Country details"
+      t: "`$ANY`"
+    }
     countryId: {
       h: "Country Id"
       n: "countryId"
@@ -19,46 +26,11 @@ main: kit: entity: region: {
       sh: "Country ID the region belongs to"
       t: "`$STRING`"
     }
-    drivingSide: {
-      h: "Driving Side"
-      n: "drivingSide"
-      r: true
-      sh: "Driving side of the country"
-      t: "`$STRING`"
-    }
-    emoji: {
-      h: "Emoji"
-      n: "emoji"
-      r: true
-      sh: "Emoji of the country"
-      t: "`$STRING`"
-    }
-    headOfGovernment: {
-      h: "Head Of Government"
-      n: "headOfGovernment"
-      r: true
-      sh: "Head of government of the country"
-      t: "`$STRING`"
-    }
-    headOfState: {
-      h: "Head Of State"
-      n: "headOfState"
-      r: true
-      sh: "Head of state of the country"
-      t: "`$STRING`"
-    }
     id: {
       h: "Id"
       n: "id"
       r: true
-      sh: "Country ID"
-      t: "`$STRING`"
-    }
-    isoCode: {
-      h: "Iso Code"
-      n: "isoCode"
-      r: true
-      sh: "ISO code of the country"
+      sh: "UUID of the region"
       t: "`$STRING`"
     }
     latitude: {
@@ -67,20 +39,6 @@ main: kit: entity: region: {
       r: true
       sh: "Latitude of the region center"
       t: "`$NUMBER`"
-    }
-    licencePlateCode: {
-      h: "Licence Plate Code"
-      n: "licencePlateCode"
-      r: true
-      sh: "Licence plate code of the country"
-      t: "`$STRING`"
-    }
-    localizedName: {
-      h: "Localized Name"
-      n: "localizedName"
-      r: false
-      sh: "Name in the first matched preferred language, falls back to name"
-      t: "`$STRING`"
     }
     longitude: {
       h: "Longitude"
@@ -93,7 +51,7 @@ main: kit: entity: region: {
       h: "Name"
       n: "name"
       r: true
-      sh: "Name of the country"
+      sh: "Name of the region"
       t: "`$STRING`"
     }
     population: {
@@ -102,27 +60,6 @@ main: kit: entity: region: {
       r: true
       sh: "Population of the region"
       t: "`$NUMBER`"
-    }
-    preferredLanguageId: {
-      h: "Preferred Language Id"
-      n: "preferredLanguageId"
-      r: true
-      sh: "Preferred language ID for the country"
-      t: "`$STRING`"
-    }
-    telephoneCode: {
-      h: "Telephone Code"
-      n: "telephoneCode"
-      r: true
-      sh: "Telephone code of the country"
-      t: "`$STRING`"
-    }
-    trunkPrefix: {
-      h: "Trunk Prefix"
-      n: "trunkPrefix"
-      r: true
-      sh: "Trunk prefix of the country"
-      t: "`$STRING`"
     }
     wikidataId: {
       h: "Wikidata Id"
@@ -201,7 +138,7 @@ main: kit: entity: region: {
                 ex: "509a2a0a-5ec6-483e-8381-4bea4422ac26"
                 k: "query"
                 n: "country_id"
-                or: "country_id"
+                or: "countryId"
                 r: false
                 t: "`$STRING`"
               }
@@ -264,7 +201,7 @@ main: kit: entity: region: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.country`"
+            res: "`body`"
           }
         }
       ]

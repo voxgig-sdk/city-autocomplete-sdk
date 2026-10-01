@@ -642,22 +642,13 @@ local region = client:Region(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `string` | Yes | Region code |
+| `country` | `any` | Yes | Country details |
 | `countryId` | `string` | Yes | Country ID the region belongs to |
-| `drivingSide` | `string` | Yes | Driving side of the country |
-| `emoji` | `string` | Yes | Emoji of the country |
-| `headOfGovernment` | `string` | Yes | Head of government of the country |
-| `headOfState` | `string` | Yes | Head of state of the country |
-| `id` | `string` | Yes | Country ID |
-| `isoCode` | `string` | Yes | ISO code of the country |
+| `id` | `string` | Yes | UUID of the region |
 | `latitude` | `number` | Yes | Latitude of the region center |
-| `licencePlateCode` | `string` | Yes | Licence plate code of the country |
-| `localizedName` | `string` | No | Name in the first matched preferred language, falls back to name |
 | `longitude` | `number` | Yes | Longitude of the region center |
-| `name` | `string` | Yes | Name of the country |
+| `name` | `string` | Yes | Name of the region |
 | `population` | `number` | Yes | Population of the region |
-| `preferredLanguageId` | `string` | Yes | Preferred language ID for the country |
-| `telephoneCode` | `string` | Yes | Telephone code of the country |
-| `trunkPrefix` | `string` | Yes | Trunk prefix of the country |
 | `wikidataId` | `string` | Yes | Wikidata ID |
 
 ### Operations

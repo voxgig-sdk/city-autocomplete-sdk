@@ -400,22 +400,13 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `code` | Region code |
+| `country` | Country details |
 | `countryId` | Country ID the region belongs to |
-| `drivingSide` | Driving side of the country |
-| `emoji` | Emoji of the country |
-| `headOfGovernment` | Head of government of the country |
-| `headOfState` | Head of state of the country |
-| `id` | Country ID |
-| `isoCode` | ISO code of the country |
+| `id` | UUID of the region |
 | `latitude` | Latitude of the region center |
-| `licencePlateCode` | Licence plate code of the country |
-| `localizedName` | Name in the first matched preferred language, falls back to name |
 | `longitude` | Longitude of the region center |
-| `name` | Name of the country |
+| `name` | Name of the region |
 | `population` | Population of the region |
-| `preferredLanguageId` | Preferred language ID for the country |
-| `telephoneCode` | Telephone code of the country |
-| `trunkPrefix` | Trunk prefix of the country |
 | `wikidataId` | Wikidata ID |
 
 Operations: List, Load.
@@ -747,22 +738,13 @@ Create an instance: `local region = client:Region(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `string` | Region code |
+| `country` | `any` | Country details |
 | `countryId` | `string` | Country ID the region belongs to |
-| `drivingSide` | `string` | Driving side of the country |
-| `emoji` | `string` | Emoji of the country |
-| `headOfGovernment` | `string` | Head of government of the country |
-| `headOfState` | `string` | Head of state of the country |
-| `id` | `string` | Country ID |
-| `isoCode` | `string` | ISO code of the country |
+| `id` | `string` | UUID of the region |
 | `latitude` | `number` | Latitude of the region center |
-| `licencePlateCode` | `string` | Licence plate code of the country |
-| `localizedName` | `string` | Name in the first matched preferred language, falls back to name |
 | `longitude` | `number` | Longitude of the region center |
-| `name` | `string` | Name of the country |
+| `name` | `string` | Name of the region |
 | `population` | `number` | Population of the region |
-| `preferredLanguageId` | `string` | Preferred language ID for the country |
-| `telephoneCode` | `string` | Telephone code of the country |
-| `trunkPrefix` | `string` | Trunk prefix of the country |
 | `wikidataId` | `string` | Wikidata ID |
 
 #### Example: Load

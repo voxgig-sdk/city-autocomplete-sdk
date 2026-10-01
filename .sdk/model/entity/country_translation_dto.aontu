@@ -74,7 +74,7 @@ main: kit: entity: country_translation_dto: {
                 ex: "en,fr,hi"
                 k: "query"
                 n: "preferred_language"
-                or: "preferred_language"
+                or: "preferredLanguages"
                 r: false
                 t: "`$STRING`"
               }

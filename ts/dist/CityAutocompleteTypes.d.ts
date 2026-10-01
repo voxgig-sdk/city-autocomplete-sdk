@@ -153,22 +153,13 @@ export interface OneshotListMatch {
 }
 export interface Region {
     code: string;
+    country: any;
     countryId: string;
-    drivingSide: string;
-    emoji: string;
-    headOfGovernment: string;
-    headOfState: string;
     id: string;
-    isoCode: string;
     latitude: number;
-    licencePlateCode: string;
-    localizedName?: string;
     longitude: number;
     name: string;
     population: number;
-    preferredLanguageId: string;
-    telephoneCode: string;
-    trunkPrefix: string;
     wikidataId: string;
 }
 export interface RegionLoadMatch {

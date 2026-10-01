@@ -643,22 +643,13 @@ region = client.Region()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `str` | Yes | Region code |
+| `country` | `Any` | Yes | Country details |
 | `countryId` | `str` | Yes | Country ID the region belongs to |
-| `drivingSide` | `str` | Yes | Driving side of the country |
-| `emoji` | `str` | Yes | Emoji of the country |
-| `headOfGovernment` | `str` | Yes | Head of government of the country |
-| `headOfState` | `str` | Yes | Head of state of the country |
-| `id` | `str` | Yes | Country ID |
-| `isoCode` | `str` | Yes | ISO code of the country |
+| `id` | `str` | Yes | UUID of the region |
 | `latitude` | `float` | Yes | Latitude of the region center |
-| `licencePlateCode` | `str` | Yes | Licence plate code of the country |
-| `localizedName` | `str` | No | Name in the first matched preferred language, falls back to name |
 | `longitude` | `float` | Yes | Longitude of the region center |
-| `name` | `str` | Yes | Name of the country |
+| `name` | `str` | Yes | Name of the region |
 | `population` | `float` | Yes | Population of the region |
-| `preferredLanguageId` | `str` | Yes | Preferred language ID for the country |
-| `telephoneCode` | `str` | Yes | Telephone code of the country |
-| `trunkPrefix` | `str` | Yes | Trunk prefix of the country |
 | `wikidataId` | `str` | Yes | Wikidata ID |
 
 ### Operations

@@ -124,10 +124,10 @@ SDK operations: `list`, `load`.
 Key fields to recognise:
 
 - `code`: Region code
+- `country`: Country details
 - `countryId`: Country ID the region belongs to
-- `drivingSide`: Driving side of the country
-- `emoji`: Emoji of the country
-- `headOfGovernment`: Head of government of the country
+- `id`: UUID of the region
+- `latitude`: Latitude of the region center
 
 ### RegionTranslationDto
 

@@ -219,22 +219,13 @@ class OneshotListMatch
 class Region
 {
     public string $code;
+    public mixed $country;
     public string $countryId;
-    public string $drivingSide;
-    public string $emoji;
-    public string $headOfGovernment;
-    public string $headOfState;
     public string $id;
-    public string $isoCode;
     public float $latitude;
-    public string $licencePlateCode;
-    public ?string $localizedName = null;
     public float $longitude;
     public string $name;
     public float $population;
-    public string $preferredLanguageId;
-    public string $telephoneCode;
-    public string $trunkPrefix;
     public string $wikidataId;
 }
 

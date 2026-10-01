@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CityAutocompleteUtility.registrar = ->(u) {
   u.clean = CityAutocompleteUtilities::Clean
+  u.clean_add = CityAutocompleteUtilities::CleanAdd
+  u.clean_explain = CityAutocompleteUtilities::CleanExplain
   u.done = CityAutocompleteUtilities::Done
   u.make_error = CityAutocompleteUtilities::MakeError
   u.feature_add = CityAutocompleteUtilities::FeatureAdd

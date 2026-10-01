@@ -587,7 +587,7 @@
                         "ex": "us",
                         "k": "query",
                         "n": "country_code",
-                        "or": "country_code",
+                        "or": "countryCode",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -604,7 +604,7 @@
                         "a": true,
                         "k": "query",
                         "n": "max_population",
-                        "or": "max_population",
+                        "or": "maxPopulation",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -612,7 +612,7 @@
                         "a": true,
                         "k": "query",
                         "n": "min_population",
-                        "or": "min_population",
+                        "or": "minPopulation",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -639,7 +639,7 @@
                         "ex": "en,fr,ja,hi",
                         "k": "query",
                         "n": "preferred_language",
-                        "or": "preferred_language",
+                        "or": "preferredLanguages",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -647,7 +647,7 @@
                         "a": true,
                         "k": "query",
                         "n": "region_id",
-                        "or": "region_id",
+                        "or": "regionId",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -722,7 +722,7 @@
                         "ex": "en",
                         "k": "query",
                         "n": "preferred_language",
-                        "or": "preferred_language",
+                        "or": "preferredLanguages",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -785,7 +785,7 @@
                         "ex": "en",
                         "k": "query",
                         "n": "preferred_language",
-                        "or": "preferred_language",
+                        "or": "preferredLanguages",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -1112,7 +1112,7 @@
                         "ex": "fr,es,en",
                         "k": "query",
                         "n": "preferred_language",
-                        "or": "preferred_language",
+                        "or": "preferredLanguages",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -1121,7 +1121,7 @@
                         "ex": "+34",
                         "k": "query",
                         "n": "telephone_code",
-                        "or": "telephone_code",
+                        "or": "telephoneCode",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -1287,7 +1287,7 @@
                         "ex": "en,fr,hi",
                         "k": "query",
                         "n": "preferred_language",
-                        "or": "preferred_language",
+                        "or": "preferredLanguages",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -1712,6 +1712,14 @@
               "sh": "Region code",
               "t": "`$STRING`"
             },
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
+              "r": true,
+              "sh": "Country details",
+              "t": "`$ANY`"
+            },
             "countryId": {
               "a": true,
               "h": "Country Id",
@@ -1720,52 +1728,12 @@
               "sh": "Country ID the region belongs to",
               "t": "`$STRING`"
             },
-            "drivingSide": {
-              "a": true,
-              "h": "Driving Side",
-              "n": "drivingSide",
-              "r": true,
-              "sh": "Driving side of the country",
-              "t": "`$STRING`"
-            },
-            "emoji": {
-              "a": true,
-              "h": "Emoji",
-              "n": "emoji",
-              "r": true,
-              "sh": "Emoji of the country",
-              "t": "`$STRING`"
-            },
-            "headOfGovernment": {
-              "a": true,
-              "h": "Head Of Government",
-              "n": "headOfGovernment",
-              "r": true,
-              "sh": "Head of government of the country",
-              "t": "`$STRING`"
-            },
-            "headOfState": {
-              "a": true,
-              "h": "Head Of State",
-              "n": "headOfState",
-              "r": true,
-              "sh": "Head of state of the country",
-              "t": "`$STRING`"
-            },
             "id": {
               "a": true,
               "h": "Id",
               "n": "id",
               "r": true,
-              "sh": "Country ID",
-              "t": "`$STRING`"
-            },
-            "isoCode": {
-              "a": true,
-              "h": "Iso Code",
-              "n": "isoCode",
-              "r": true,
-              "sh": "ISO code of the country",
+              "sh": "UUID of the region",
               "t": "`$STRING`"
             },
             "latitude": {
@@ -1775,22 +1743,6 @@
               "r": true,
               "sh": "Latitude of the region center",
               "t": "`$NUMBER`"
-            },
-            "licencePlateCode": {
-              "a": true,
-              "h": "Licence Plate Code",
-              "n": "licencePlateCode",
-              "r": true,
-              "sh": "Licence plate code of the country",
-              "t": "`$STRING`"
-            },
-            "localizedName": {
-              "a": true,
-              "h": "Localized Name",
-              "n": "localizedName",
-              "r": false,
-              "sh": "Name in the first matched preferred language, falls back to name",
-              "t": "`$STRING`"
             },
             "longitude": {
               "a": true,
@@ -1805,7 +1757,7 @@
               "h": "Name",
               "n": "name",
               "r": true,
-              "sh": "Name of the country",
+              "sh": "Name of the region",
               "t": "`$STRING`"
             },
             "population": {
@@ -1815,30 +1767,6 @@
               "r": true,
               "sh": "Population of the region",
               "t": "`$NUMBER`"
-            },
-            "preferredLanguageId": {
-              "a": true,
-              "h": "Preferred Language Id",
-              "n": "preferredLanguageId",
-              "r": true,
-              "sh": "Preferred language ID for the country",
-              "t": "`$STRING`"
-            },
-            "telephoneCode": {
-              "a": true,
-              "h": "Telephone Code",
-              "n": "telephoneCode",
-              "r": true,
-              "sh": "Telephone code of the country",
-              "t": "`$STRING`"
-            },
-            "trunkPrefix": {
-              "a": true,
-              "h": "Trunk Prefix",
-              "n": "trunkPrefix",
-              "r": true,
-              "sh": "Trunk prefix of the country",
-              "t": "`$STRING`"
             },
             "wikidataId": {
               "a": true,
@@ -1922,7 +1850,7 @@
                         "ex": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
                         "k": "query",
                         "n": "country_id",
-                        "or": "country_id",
+                        "or": "countryId",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -1992,7 +1920,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.country`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -2088,7 +2016,7 @@
                         "ex": "en,fr,hi",
                         "k": "query",
                         "n": "preferred_language",
-                        "or": "preferred_language",
+                        "or": "preferredLanguages",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -3066,7 +2994,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

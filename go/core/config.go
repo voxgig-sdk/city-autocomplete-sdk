@@ -523,7 +523,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "country_code",
-											"orig": "country_code",
+											"orig": "countryCode",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "us",
@@ -537,13 +537,13 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "max_population",
-											"orig": "max_population",
+											"orig": "maxPopulation",
 											"type": "`$NUMBER`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "min_population",
-											"orig": "min_population",
+											"orig": "minPopulation",
 											"type": "`$NUMBER`",
 											"kind": "query",
 										},
@@ -563,14 +563,14 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "preferred_language",
-											"orig": "preferred_language",
+											"orig": "preferredLanguages",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "en,fr,ja,hi",
 										},
 										map[string]any{
 											"name": "region_id",
-											"orig": "region_id",
+											"orig": "regionId",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -640,7 +640,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "preferred_language",
-											"orig": "preferred_language",
+											"orig": "preferredLanguages",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "en",
@@ -698,7 +698,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "preferred_language",
-											"orig": "preferred_language",
+											"orig": "preferredLanguages",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "en",
@@ -977,14 +977,14 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "preferred_language",
-											"orig": "preferred_language",
+											"orig": "preferredLanguages",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "fr,es,en",
 										},
 										map[string]any{
 											"name": "telephone_code",
-											"orig": "telephone_code",
+											"orig": "telephoneCode",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "+34",
@@ -1140,7 +1140,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "preferred_language",
-											"orig": "preferred_language",
+											"orig": "preferredLanguages",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "en,fr,hi",
@@ -1503,6 +1503,13 @@ func MakeConfig() map[string]any {
 						"short": "Region code",
 					},
 					map[string]any{
+						"name": "country",
+						"title": "Country",
+						"type": "`$ANY`",
+						"req": true,
+						"short": "Country details",
+					},
+					map[string]any{
 						"name": "countryId",
 						"title": "Country Id",
 						"type": "`$STRING`",
@@ -1510,46 +1517,11 @@ func MakeConfig() map[string]any {
 						"short": "Country ID the region belongs to",
 					},
 					map[string]any{
-						"name": "drivingSide",
-						"title": "Driving Side",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Driving side of the country",
-					},
-					map[string]any{
-						"name": "emoji",
-						"title": "Emoji",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Emoji of the country",
-					},
-					map[string]any{
-						"name": "headOfGovernment",
-						"title": "Head Of Government",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Head of government of the country",
-					},
-					map[string]any{
-						"name": "headOfState",
-						"title": "Head Of State",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Head of state of the country",
-					},
-					map[string]any{
 						"name": "id",
 						"title": "Id",
 						"type": "`$STRING`",
 						"req": true,
-						"short": "Country ID",
-					},
-					map[string]any{
-						"name": "isoCode",
-						"title": "Iso Code",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "ISO code of the country",
+						"short": "UUID of the region",
 					},
 					map[string]any{
 						"name": "latitude",
@@ -1557,19 +1529,6 @@ func MakeConfig() map[string]any {
 						"type": "`$NUMBER`",
 						"req": true,
 						"short": "Latitude of the region center",
-					},
-					map[string]any{
-						"name": "licencePlateCode",
-						"title": "Licence Plate Code",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Licence plate code of the country",
-					},
-					map[string]any{
-						"name": "localizedName",
-						"title": "Localized Name",
-						"type": "`$STRING`",
-						"short": "Name in the first matched preferred language, falls back to name",
 					},
 					map[string]any{
 						"name": "longitude",
@@ -1583,7 +1542,7 @@ func MakeConfig() map[string]any {
 						"title": "Name",
 						"type": "`$STRING`",
 						"req": true,
-						"short": "Name of the country",
+						"short": "Name of the region",
 					},
 					map[string]any{
 						"name": "population",
@@ -1591,27 +1550,6 @@ func MakeConfig() map[string]any {
 						"type": "`$NUMBER`",
 						"req": true,
 						"short": "Population of the region",
-					},
-					map[string]any{
-						"name": "preferredLanguageId",
-						"title": "Preferred Language Id",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Preferred language ID for the country",
-					},
-					map[string]any{
-						"name": "telephoneCode",
-						"title": "Telephone Code",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Telephone code of the country",
-					},
-					map[string]any{
-						"name": "trunkPrefix",
-						"title": "Trunk Prefix",
-						"type": "`$STRING`",
-						"req": true,
-						"short": "Trunk prefix of the country",
 					},
 					map[string]any{
 						"name": "wikidataId",
@@ -1699,7 +1637,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "country_id",
-											"orig": "country_id",
+											"orig": "countryId",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "509a2a0a-5ec6-483e-8381-4bea4422ac26",
@@ -1737,7 +1675,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.country`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -1855,7 +1793,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "preferred_language",
-											"orig": "preferred_language",
+											"orig": "preferredLanguages",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "en,fr,hi",

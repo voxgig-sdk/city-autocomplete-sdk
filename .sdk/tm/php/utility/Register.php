@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CityAutocompleteUtility::setRegistrar(function (CityAutocompleteUtility $u): void {
     $u->clean = [CityAutocompleteClean::class, 'call'];
+    $u->clean_add = [CityAutocompleteClean::class, 'add'];
+    $u->clean_explain = [CityAutocompleteDone::class, 'clean_explain'];
     $u->done = [CityAutocompleteDone::class, 'call'];
     $u->make_error = [CityAutocompleteMakeError::class, 'call'];
     $u->feature_add = [CityAutocompleteFeatureAdd::class, 'call'];

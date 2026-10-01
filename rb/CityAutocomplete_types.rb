@@ -555,35 +555,17 @@ OneshotListMatch = Struct.new(
 # @!attribute [rw] code
 #   @return [String]
 #
+# @!attribute [rw] country
+#   @return [Object]
+#
 # @!attribute [rw] countryId
-#   @return [String]
-#
-# @!attribute [rw] drivingSide
-#   @return [String]
-#
-# @!attribute [rw] emoji
-#   @return [String]
-#
-# @!attribute [rw] headOfGovernment
-#   @return [String]
-#
-# @!attribute [rw] headOfState
 #   @return [String]
 #
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] isoCode
-#   @return [String]
-#
 # @!attribute [rw] latitude
 #   @return [Float]
-#
-# @!attribute [rw] licencePlateCode
-#   @return [String]
-#
-# @!attribute [rw] localizedName
-#   @return [String, nil]
 #
 # @!attribute [rw] longitude
 #   @return [Float]
@@ -594,35 +576,17 @@ OneshotListMatch = Struct.new(
 # @!attribute [rw] population
 #   @return [Float]
 #
-# @!attribute [rw] preferredLanguageId
-#   @return [String]
-#
-# @!attribute [rw] telephoneCode
-#   @return [String]
-#
-# @!attribute [rw] trunkPrefix
-#   @return [String]
-#
 # @!attribute [rw] wikidataId
 #   @return [String]
 Region = Struct.new(
   :code,
+  :country,
   :countryId,
-  :drivingSide,
-  :emoji,
-  :headOfGovernment,
-  :headOfState,
   :id,
-  :isoCode,
   :latitude,
-  :licencePlateCode,
-  :localizedName,
   :longitude,
   :name,
   :population,
-  :preferredLanguageId,
-  :telephoneCode,
-  :trunkPrefix,
   :wikidataId,
   keyword_init: true
 )

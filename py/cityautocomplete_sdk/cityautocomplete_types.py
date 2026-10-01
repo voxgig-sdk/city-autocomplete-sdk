@@ -198,28 +198,16 @@ class OneshotListMatch(TypedDict):
     language: str
 
 
-class RegionRequired(TypedDict):
+class Region(TypedDict):
     code: str
+    country: Any
     countryId: str
-    drivingSide: str
-    emoji: str
-    headOfGovernment: str
-    headOfState: str
     id: str
-    isoCode: str
     latitude: float
-    licencePlateCode: str
     longitude: float
     name: str
     population: float
-    preferredLanguageId: str
-    telephoneCode: str
-    trunkPrefix: str
     wikidataId: str
-
-
-class Region(RegionRequired, total=False):
-    localizedName: str
 
 
 class RegionLoadMatch(TypedDict):

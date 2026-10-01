@@ -158,7 +158,7 @@ main: kit: entity: country: {
                 ex: "fr,es,en"
                 k: "query"
                 n: "preferred_language"
-                or: "preferred_language"
+                or: "preferredLanguages"
                 r: false
                 t: "`$STRING`"
               }
@@ -166,7 +166,7 @@ main: kit: entity: country: {
                 ex: "+34"
                 k: "query"
                 n: "telephone_code"
-                or: "telephone_code"
+                or: "telephoneCode"
                 r: false
                 t: "`$STRING`"
               }

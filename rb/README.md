@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/city-autocomplete-sdk/releases](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/city-autocomplete-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-city-autocomplete-sdk", path: "./city-autocomplete-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -412,22 +421,13 @@ API path: `/cities/oneshot/{country}/{language}/{city_name}`
 | Field | Description |
 | --- | --- |
 | `code` | Region code |
+| `country` | Country details |
 | `countryId` | Country ID the region belongs to |
-| `drivingSide` | Driving side of the country |
-| `emoji` | Emoji of the country |
-| `headOfGovernment` | Head of government of the country |
-| `headOfState` | Head of state of the country |
-| `id` | Country ID |
-| `isoCode` | ISO code of the country |
+| `id` | UUID of the region |
 | `latitude` | Latitude of the region center |
-| `licencePlateCode` | Licence plate code of the country |
-| `localizedName` | Name in the first matched preferred language, falls back to name |
 | `longitude` | Longitude of the region center |
-| `name` | Name of the country |
+| `name` | Name of the region |
 | `population` | Population of the region |
-| `preferredLanguageId` | Preferred language ID for the country |
-| `telephoneCode` | Telephone code of the country |
-| `trunkPrefix` | Trunk prefix of the country |
 | `wikidataId` | Wikidata ID |
 
 Operations: List, Load.
@@ -769,22 +769,13 @@ Create an instance: `region = client.Region`
 | Field | Type | Description |
 | --- | --- | --- |
 | `code` | `String` | Region code |
+| `country` | `Object` | Country details |
 | `countryId` | `String` | Country ID the region belongs to |
-| `drivingSide` | `String` | Driving side of the country |
-| `emoji` | `String` | Emoji of the country |
-| `headOfGovernment` | `String` | Head of government of the country |
-| `headOfState` | `String` | Head of state of the country |
-| `id` | `String` | Country ID |
-| `isoCode` | `String` | ISO code of the country |
+| `id` | `String` | UUID of the region |
 | `latitude` | `Float` | Latitude of the region center |
-| `licencePlateCode` | `String` | Licence plate code of the country |
-| `localizedName` | `String` | Name in the first matched preferred language, falls back to name |
 | `longitude` | `Float` | Longitude of the region center |
-| `name` | `String` | Name of the country |
+| `name` | `String` | Name of the region |
 | `population` | `Float` | Population of the region |
-| `preferredLanguageId` | `String` | Preferred language ID for the country |
-| `telephoneCode` | `String` | Telephone code of the country |
-| `trunkPrefix` | `String` | Trunk prefix of the country |
 | `wikidataId` | `String` | Wikidata ID |
 
 #### Example: Load

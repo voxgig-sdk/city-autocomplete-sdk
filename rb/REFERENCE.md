@@ -645,22 +645,13 @@ region = client.Region
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `code` | `String` | Yes | Region code |
+| `country` | `Object` | Yes | Country details |
 | `countryId` | `String` | Yes | Country ID the region belongs to |
-| `drivingSide` | `String` | Yes | Driving side of the country |
-| `emoji` | `String` | Yes | Emoji of the country |
-| `headOfGovernment` | `String` | Yes | Head of government of the country |
-| `headOfState` | `String` | Yes | Head of state of the country |
-| `id` | `String` | Yes | Country ID |
-| `isoCode` | `String` | Yes | ISO code of the country |
+| `id` | `String` | Yes | UUID of the region |
 | `latitude` | `Float` | Yes | Latitude of the region center |
-| `licencePlateCode` | `String` | Yes | Licence plate code of the country |
-| `localizedName` | `String` | No | Name in the first matched preferred language, falls back to name |
 | `longitude` | `Float` | Yes | Longitude of the region center |
-| `name` | `String` | Yes | Name of the country |
+| `name` | `String` | Yes | Name of the region |
 | `population` | `Float` | Yes | Population of the region |
-| `preferredLanguageId` | `String` | Yes | Preferred language ID for the country |
-| `telephoneCode` | `String` | Yes | Telephone code of the country |
-| `trunkPrefix` | `String` | Yes | Trunk prefix of the country |
 | `wikidataId` | `String` | Yes | Wikidata ID |
 
 ### Operations

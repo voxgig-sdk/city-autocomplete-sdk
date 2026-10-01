@@ -204,7 +204,7 @@ main: kit: entity: city_dto: {
                 ex: "us"
                 k: "query"
                 n: "country_code"
-                or: "country_code"
+                or: "countryCode"
                 r: false
                 t: "`$STRING`"
               }
@@ -219,14 +219,14 @@ main: kit: entity: city_dto: {
               {
                 k: "query"
                 n: "max_population"
-                or: "max_population"
+                or: "maxPopulation"
                 r: false
                 t: "`$NUMBER`"
               }
               {
                 k: "query"
                 n: "min_population"
-                or: "min_population"
+                or: "minPopulation"
                 r: false
                 t: "`$NUMBER`"
               }
@@ -250,14 +250,14 @@ main: kit: entity: city_dto: {
                 ex: "en,fr,ja,hi"
                 k: "query"
                 n: "preferred_language"
-                or: "preferred_language"
+                or: "preferredLanguages"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "region_id"
-                or: "region_id"
+                or: "regionId"
                 r: false
                 t: "`$STRING`"
               }
@@ -325,7 +325,7 @@ main: kit: entity: city_dto: {
                 ex: "en"
                 k: "query"
                 n: "preferred_language"
-                or: "preferred_language"
+                or: "preferredLanguages"
                 r: false
                 t: "`$STRING`"
               }
@@ -382,7 +382,7 @@ main: kit: entity: city_dto: {
                 ex: "en"
                 k: "query"
                 n: "preferred_language"
-                or: "preferred_language"
+                or: "preferredLanguages"
                 r: false
                 t: "`$STRING`"
               }

@@ -531,7 +531,7 @@ module CityAutocompleteConfig
                     "query" => [
                       {
                         "name" => "country_code",
-                        "orig" => "country_code",
+                        "orig" => "countryCode",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "us",
@@ -545,13 +545,13 @@ module CityAutocompleteConfig
                       },
                       {
                         "name" => "max_population",
-                        "orig" => "max_population",
+                        "orig" => "maxPopulation",
                         "type" => "`$NUMBER`",
                         "kind" => "query",
                       },
                       {
                         "name" => "min_population",
-                        "orig" => "min_population",
+                        "orig" => "minPopulation",
                         "type" => "`$NUMBER`",
                         "kind" => "query",
                       },
@@ -571,14 +571,14 @@ module CityAutocompleteConfig
                       },
                       {
                         "name" => "preferred_language",
-                        "orig" => "preferred_language",
+                        "orig" => "preferredLanguages",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "en,fr,ja,hi",
                       },
                       {
                         "name" => "region_id",
-                        "orig" => "region_id",
+                        "orig" => "regionId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -648,7 +648,7 @@ module CityAutocompleteConfig
                       },
                       {
                         "name" => "preferred_language",
-                        "orig" => "preferred_language",
+                        "orig" => "preferredLanguages",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "en",
@@ -706,7 +706,7 @@ module CityAutocompleteConfig
                       },
                       {
                         "name" => "preferred_language",
-                        "orig" => "preferred_language",
+                        "orig" => "preferredLanguages",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "en",
@@ -985,14 +985,14 @@ module CityAutocompleteConfig
                       },
                       {
                         "name" => "preferred_language",
-                        "orig" => "preferred_language",
+                        "orig" => "preferredLanguages",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "fr,es,en",
                       },
                       {
                         "name" => "telephone_code",
-                        "orig" => "telephone_code",
+                        "orig" => "telephoneCode",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "+34",
@@ -1148,7 +1148,7 @@ module CityAutocompleteConfig
                     "query" => [
                       {
                         "name" => "preferred_language",
-                        "orig" => "preferred_language",
+                        "orig" => "preferredLanguages",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "en,fr,hi",
@@ -1511,6 +1511,13 @@ module CityAutocompleteConfig
               "short" => "Region code",
             },
             {
+              "name" => "country",
+              "title" => "Country",
+              "type" => "`$ANY`",
+              "req" => true,
+              "short" => "Country details",
+            },
+            {
               "name" => "countryId",
               "title" => "Country Id",
               "type" => "`$STRING`",
@@ -1518,46 +1525,11 @@ module CityAutocompleteConfig
               "short" => "Country ID the region belongs to",
             },
             {
-              "name" => "drivingSide",
-              "title" => "Driving Side",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Driving side of the country",
-            },
-            {
-              "name" => "emoji",
-              "title" => "Emoji",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Emoji of the country",
-            },
-            {
-              "name" => "headOfGovernment",
-              "title" => "Head Of Government",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Head of government of the country",
-            },
-            {
-              "name" => "headOfState",
-              "title" => "Head Of State",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Head of state of the country",
-            },
-            {
               "name" => "id",
               "title" => "Id",
               "type" => "`$STRING`",
               "req" => true,
-              "short" => "Country ID",
-            },
-            {
-              "name" => "isoCode",
-              "title" => "Iso Code",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "ISO code of the country",
+              "short" => "UUID of the region",
             },
             {
               "name" => "latitude",
@@ -1565,19 +1537,6 @@ module CityAutocompleteConfig
               "type" => "`$NUMBER`",
               "req" => true,
               "short" => "Latitude of the region center",
-            },
-            {
-              "name" => "licencePlateCode",
-              "title" => "Licence Plate Code",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Licence plate code of the country",
-            },
-            {
-              "name" => "localizedName",
-              "title" => "Localized Name",
-              "type" => "`$STRING`",
-              "short" => "Name in the first matched preferred language, falls back to name",
             },
             {
               "name" => "longitude",
@@ -1591,7 +1550,7 @@ module CityAutocompleteConfig
               "title" => "Name",
               "type" => "`$STRING`",
               "req" => true,
-              "short" => "Name of the country",
+              "short" => "Name of the region",
             },
             {
               "name" => "population",
@@ -1599,27 +1558,6 @@ module CityAutocompleteConfig
               "type" => "`$NUMBER`",
               "req" => true,
               "short" => "Population of the region",
-            },
-            {
-              "name" => "preferredLanguageId",
-              "title" => "Preferred Language Id",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Preferred language ID for the country",
-            },
-            {
-              "name" => "telephoneCode",
-              "title" => "Telephone Code",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Telephone code of the country",
-            },
-            {
-              "name" => "trunkPrefix",
-              "title" => "Trunk Prefix",
-              "type" => "`$STRING`",
-              "req" => true,
-              "short" => "Trunk prefix of the country",
             },
             {
               "name" => "wikidataId",
@@ -1707,7 +1645,7 @@ module CityAutocompleteConfig
                     "query" => [
                       {
                         "name" => "country_id",
-                        "orig" => "country_id",
+                        "orig" => "countryId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "509a2a0a-5ec6-483e-8381-4bea4422ac26",
@@ -1745,7 +1683,7 @@ module CityAutocompleteConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.country`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -1863,7 +1801,7 @@ module CityAutocompleteConfig
                     "query" => [
                       {
                         "name" => "preferred_language",
-                        "orig" => "preferred_language",
+                        "orig" => "preferredLanguages",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "en,fr,hi",
