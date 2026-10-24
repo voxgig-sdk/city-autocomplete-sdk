@@ -10,6 +10,12 @@ import (
 	"github.com/voxgig-sdk/city-autocomplete-sdk/go/core"
 )
 
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const region_translation_dtoDirectLiveStrict = true
+
 func TestRegionTranslationDtoDirect(t *testing.T) {
 	t.Run("direct-list-region_translation_dto", func(t *testing.T) {
 		setup := region_translation_dtoDirectSetup([]any{
@@ -30,7 +36,7 @@ func TestRegionTranslationDtoDirect(t *testing.T) {
 		if setup.live {
 			for _, _liveKey := range []string{"region_translation_dto01"} {
 				if v := setup.idmap[_liveKey]; v == nil {
-					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
+					liveMiss(t, region_translation_dtoDirectLiveStrict, "Live test blocked: needs %s via CITY_AUTOCOMPLETE_TEST_REGION_TRANSLATION_DTO_ENTID", _liveKey)
 					return
 				}
 			}
@@ -50,19 +56,14 @@ func TestRegionTranslationDtoDirect(t *testing.T) {
 			"params": params,
 		})
 		if setup.live {
-			// Live-mode leniency is a model decision
-			// (main.kit.test.live.strict): synthetic IDs 4xx constantly
-			// against an arbitrary public API, so the default SKIPS here.
-			// A project that owns its test server sets strict and FAILS.
 			if err != nil {
-				t.Fatalf("list call failed (likely synthetic IDs against live API): %v", err)
+				liveMiss(t, region_translation_dtoDirectLiveStrict, "Live list failed: %v", err)
 			}
-			if result["ok"] != true {
-				t.Fatalf("list call not ok (likely synthetic IDs against live API): %v", result)
+			if status := core.ToInt(result["status"]); result["ok"] != true || status < 200 || status >= 300 {
+				liveMiss(t, region_translation_dtoDirectLiveStrict, "Live list failed: %s", liveDescribe(result))
 			}
-			status := core.ToInt(result["status"])
-			if status < 200 || status >= 300 {
-				t.Fatalf("expected 2xx status, got %v", result["status"])
+			if _, ok := liveList(result["data"]); !ok {
+				liveMiss(t, region_translation_dtoDirectLiveStrict, "Live list returned no list: %s", liveDescribe(result))
 			}
 		} else {
 			if err != nil {

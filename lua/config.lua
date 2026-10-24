@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -310,6 +311,10 @@ local function make_config()
                     "id",
                   },
                 },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
               },
             },
           },
@@ -497,105 +502,6 @@ local function make_config()
               {
                 ["kind"] = "http",
                 ["method"] = "GET",
-                ["orig"] = "/cities/search",
-                ["segments"] = {
-                  {
-                    ["lit"] = "cities",
-                  },
-                  {
-                    ["lit"] = "search",
-                  },
-                },
-                ["parts"] = {
-                  "cities",
-                  "search",
-                },
-                ["rename"] = {},
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["name"] = "country_code",
-                      ["orig"] = "countryCode",
-                      ["type"] = "`$STRING`",
-                      ["kind"] = "query",
-                      ["example"] = "us",
-                    },
-                    {
-                      ["name"] = "limit",
-                      ["orig"] = "limit",
-                      ["type"] = "`$NUMBER`",
-                      ["kind"] = "query",
-                      ["example"] = 20,
-                    },
-                    {
-                      ["name"] = "max_population",
-                      ["orig"] = "maxPopulation",
-                      ["type"] = "`$NUMBER`",
-                      ["kind"] = "query",
-                    },
-                    {
-                      ["name"] = "min_population",
-                      ["orig"] = "minPopulation",
-                      ["type"] = "`$NUMBER`",
-                      ["kind"] = "query",
-                    },
-                    {
-                      ["name"] = "name",
-                      ["orig"] = "name",
-                      ["type"] = "`$STRING`",
-                      ["kind"] = "query",
-                      ["example"] = "dallas",
-                    },
-                    {
-                      ["name"] = "offset",
-                      ["orig"] = "offset",
-                      ["type"] = "`$NUMBER`",
-                      ["kind"] = "query",
-                      ["example"] = 0,
-                    },
-                    {
-                      ["name"] = "preferred_language",
-                      ["orig"] = "preferredLanguages",
-                      ["type"] = "`$STRING`",
-                      ["kind"] = "query",
-                      ["example"] = "en,fr,ja,hi",
-                    },
-                    {
-                      ["name"] = "region_id",
-                      ["orig"] = "regionId",
-                      ["type"] = "`$STRING`",
-                      ["kind"] = "query",
-                    },
-                    {
-                      ["name"] = "sort",
-                      ["orig"] = "sort",
-                      ["type"] = "`$STRING`",
-                      ["kind"] = "query",
-                      ["example"] = "population_desc",
-                    },
-                  },
-                },
-                ["select"] = {
-                  ["exist"] = {
-                    "country_code",
-                    "limit",
-                    "max_population",
-                    "min_population",
-                    "name",
-                    "offset",
-                    "preferred_language",
-                    "region_id",
-                    "sort",
-                  },
-                },
-              },
-              {
-                ["kind"] = "http",
-                ["method"] = "GET",
                 ["orig"] = "/cities/byCoordinates/closest",
                 ["segments"] = {
                   {
@@ -647,8 +553,11 @@ local function make_config()
                   ["exist"] = {
                     "lat",
                     "lon",
-                    "preferred_language",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
               {
@@ -705,8 +614,103 @@ local function make_config()
                   ["exist"] = {
                     "lat",
                     "lon",
-                    "preferred_language",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
+              },
+              {
+                ["kind"] = "http",
+                ["method"] = "GET",
+                ["orig"] = "/cities/search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cities",
+                  },
+                  {
+                    ["lit"] = "search",
+                  },
+                },
+                ["parts"] = {
+                  "cities",
+                  "search",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "country_code",
+                      ["orig"] = "countryCode",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "us",
+                    },
+                    {
+                      ["name"] = "limit",
+                      ["orig"] = "limit",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 20,
+                    },
+                    {
+                      ["name"] = "max_population",
+                      ["orig"] = "maxPopulation",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "min_population",
+                      ["orig"] = "minPopulation",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "name",
+                      ["orig"] = "name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "dallas",
+                      ["field"] = true,
+                    },
+                    {
+                      ["name"] = "offset",
+                      ["orig"] = "offset",
+                      ["type"] = "`$NUMBER`",
+                      ["kind"] = "query",
+                      ["example"] = 0,
+                    },
+                    {
+                      ["name"] = "preferred_language",
+                      ["orig"] = "preferredLanguages",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "en,fr,ja,hi",
+                    },
+                    {
+                      ["name"] = "region_id",
+                      ["orig"] = "regionId",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "sort",
+                      ["orig"] = "sort",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "population_desc",
+                    },
+                  },
+                },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -805,6 +809,10 @@ local function make_config()
                   ["exist"] = {
                     "id",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -963,6 +971,7 @@ local function make_config()
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                       ["example"] = "Spa",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "offset",
@@ -987,14 +996,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "limit",
-                    "name",
-                    "offset",
-                    "preferred_language",
-                    "telephone_code",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1040,6 +1045,10 @@ local function make_config()
                   ["exist"] = {
                     "id",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1147,8 +1156,11 @@ local function make_config()
                   ["$action"] = "translations",
                   ["exist"] = {
                     "id",
-                    "preferred_language",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1218,6 +1230,10 @@ local function make_config()
                     "city1",
                     "city2",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1310,11 +1326,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "limit",
-                    "offset",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1360,6 +1375,10 @@ local function make_config()
                   ["exist"] = {
                     "id",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1480,6 +1499,10 @@ local function make_config()
                     "country",
                     "language",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1611,6 +1634,10 @@ local function make_config()
                     "country_id",
                   },
                 },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
               },
               {
                 ["kind"] = "http",
@@ -1640,10 +1667,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "country_id",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1689,6 +1716,10 @@ local function make_config()
                   ["exist"] = {
                     "id",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1800,8 +1831,11 @@ local function make_config()
                   ["$action"] = "translations",
                   ["exist"] = {
                     "id",
-                    "preferred_language",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -1903,6 +1937,10 @@ local function make_config()
                   ["exist"] = {
                     "city_id",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

@@ -110,6 +110,10 @@ main: kit: entity: region: {
               id: "country_id"
             }
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "countries"
@@ -146,10 +150,9 @@ main: kit: entity: region: {
           }
           m: "GET"
           o: "/regions"
-          q: {
-            exist: [
-              "country_id"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -190,6 +193,10 @@ main: kit: entity: region: {
             exist: [
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

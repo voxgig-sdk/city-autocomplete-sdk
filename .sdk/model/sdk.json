@@ -336,6 +336,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "cities"
@@ -576,6 +580,138 @@
                 {
                   "a": true,
                   "co": {
+                    "id": "GET /cities/byCoordinates/closest",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lon",
+                        "or": "lon",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "en",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferredLanguages",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/byCoordinates/closest",
+                  "q": {
+                    "exist": [
+                      "lat",
+                      "lon"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "byCoordinates"
+                    },
+                    {
+                      "lit": "closest"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /cities/byCoordinates/largest",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lon",
+                        "or": "lon",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "en",
+                        "k": "query",
+                        "n": "preferred_language",
+                        "or": "preferredLanguages",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/cities/byCoordinates/largest",
+                  "q": {
+                    "exist": [
+                      "lat",
+                      "lon"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "cities"
+                    },
+                    {
+                      "lit": "byCoordinates"
+                    },
+                    {
+                      "lit": "largest"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
                     "id": "GET /cities/search",
                     "source": "openapi3",
                     "version": 2
@@ -665,152 +801,18 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/cities/search",
-                  "q": {
-                    "exist": [
-                      "country_code",
-                      "limit",
-                      "max_population",
-                      "min_population",
-                      "name",
-                      "offset",
-                      "preferred_language",
-                      "region_id",
-                      "sort"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "cities"
                     },
                     {
                       "lit": "search"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /cities/byCoordinates/closest",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "query": [
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "lat",
-                        "or": "lat",
-                        "r": true,
-                        "t": "`$NUMBER`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "lon",
-                        "or": "lon",
-                        "r": true,
-                        "t": "`$NUMBER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": "en",
-                        "k": "query",
-                        "n": "preferred_language",
-                        "or": "preferredLanguages",
-                        "r": false,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/cities/byCoordinates/closest",
-                  "q": {
-                    "exist": [
-                      "lat",
-                      "lon",
-                      "preferred_language"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "cities"
-                    },
-                    {
-                      "lit": "byCoordinates"
-                    },
-                    {
-                      "lit": "closest"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /cities/byCoordinates/largest",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "query": [
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "lat",
-                        "or": "lat",
-                        "r": true,
-                        "t": "`$NUMBER`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "lon",
-                        "or": "lon",
-                        "r": true,
-                        "t": "`$NUMBER`"
-                      },
-                      {
-                        "a": true,
-                        "ex": "en",
-                        "k": "query",
-                        "n": "preferred_language",
-                        "or": "preferredLanguages",
-                        "r": false,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/cities/byCoordinates/largest",
-                  "q": {
-                    "exist": [
-                      "lat",
-                      "lon",
-                      "preferred_language"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "cities"
-                    },
-                    {
-                      "lit": "byCoordinates"
-                    },
-                    {
-                      "lit": "largest"
                     }
                   ],
                   "t": {
@@ -911,6 +913,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "cities"
@@ -1130,16 +1136,12 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/countries",
-                  "q": {
-                    "exist": [
-                      "limit",
-                      "name",
-                      "offset",
-                      "preferred_language",
-                      "telephone_code"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "countries"
@@ -1185,6 +1187,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "countries"
@@ -1299,11 +1305,14 @@
                   "q": {
                     "$action": "translations",
                     "exist": [
-                      "id",
-                      "preferred_language"
+                      "id"
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "countries"
@@ -1385,6 +1394,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "cities"
@@ -1494,13 +1507,12 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/languages",
-                  "q": {
-                    "exist": [
-                      "limit",
-                      "offset"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "languages"
@@ -1546,6 +1558,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "languages"
@@ -1669,6 +1685,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "cities"
@@ -1820,6 +1840,10 @@
                       "id": "country_id"
                     }
                   },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "countries"
@@ -1859,12 +1883,12 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/regions",
-                  "q": {
-                    "exist": [
-                      "country_id"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "regions"
@@ -1910,6 +1934,10 @@
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "regions"
@@ -2028,11 +2056,14 @@
                   "q": {
                     "$action": "translations",
                     "exist": [
-                      "id",
-                      "preferred_language"
+                      "id"
                     ]
                   },
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "regions"
@@ -2144,6 +2175,10 @@
                     "param": {
                       "id": "city_id"
                     }
+                  },
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
                   },
                   "s": [
                     {
@@ -2495,6 +2530,7 @@
             },
             "optspec": {
               "clearTimer": "`$FUNCTION`",
+              "now": "`$FUNCTION`",
               "setTimer": "`$FUNCTION`"
             },
             "strict": false
@@ -2983,7 +3019,7 @@
       "optspec": {
         "allow": {
           "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
-          "op": "create,update,load,list,remove,command,direct,graphql"
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
         },
         "apikey": "",
         "auth": {
@@ -3036,6 +3072,11 @@
         "top": {
           "active": true
         }
+      },
+      "publisher": {
+        "name": "",
+        "security": "",
+        "url": ""
       },
       "repo": {
         "host": "github.com",
@@ -3266,7 +3307,10 @@
             "version": "0.0.1"
           },
           "superseded": [],
-          "title": "Go MCP server"
+          "title": "Go MCP server",
+          "tool": {
+            "write": false
+          }
         },
         "lua": {
           "active": true,
@@ -3643,6 +3687,17 @@
           "base": "",
           "strict": true
         }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
       }
     }
   },

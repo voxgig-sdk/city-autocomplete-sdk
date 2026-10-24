@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -314,6 +315,10 @@ func MakeConfig() map[string]any {
 										"id",
 									},
 								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
 							},
 						},
 					},
@@ -501,105 +506,6 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
-								"orig": "/cities/search",
-								"segments": []any{
-									map[string]any{
-										"lit": "cities",
-									},
-									map[string]any{
-										"lit": "search",
-									},
-								},
-								"parts": []any{
-									"cities",
-									"search",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"name": "country_code",
-											"orig": "countryCode",
-											"type": "`$STRING`",
-											"kind": "query",
-											"example": "us",
-										},
-										map[string]any{
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$NUMBER`",
-											"kind": "query",
-											"example": 20,
-										},
-										map[string]any{
-											"name": "max_population",
-											"orig": "maxPopulation",
-											"type": "`$NUMBER`",
-											"kind": "query",
-										},
-										map[string]any{
-											"name": "min_population",
-											"orig": "minPopulation",
-											"type": "`$NUMBER`",
-											"kind": "query",
-										},
-										map[string]any{
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-											"kind": "query",
-											"example": "dallas",
-										},
-										map[string]any{
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$NUMBER`",
-											"kind": "query",
-											"example": 0,
-										},
-										map[string]any{
-											"name": "preferred_language",
-											"orig": "preferredLanguages",
-											"type": "`$STRING`",
-											"kind": "query",
-											"example": "en,fr,ja,hi",
-										},
-										map[string]any{
-											"name": "region_id",
-											"orig": "regionId",
-											"type": "`$STRING`",
-											"kind": "query",
-										},
-										map[string]any{
-											"name": "sort",
-											"orig": "sort",
-											"type": "`$STRING`",
-											"kind": "query",
-											"example": "population_desc",
-										},
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"country_code",
-										"limit",
-										"max_population",
-										"min_population",
-										"name",
-										"offset",
-										"preferred_language",
-										"region_id",
-										"sort",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
 								"orig": "/cities/byCoordinates/closest",
 								"segments": []any{
 									map[string]any{
@@ -651,8 +557,11 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"lat",
 										"lon",
-										"preferred_language",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 							map[string]any{
@@ -709,8 +618,103 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"lat",
 										"lon",
-										"preferred_language",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/cities/search",
+								"segments": []any{
+									map[string]any{
+										"lit": "cities",
+									},
+									map[string]any{
+										"lit": "search",
+									},
+								},
+								"parts": []any{
+									"cities",
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "country_code",
+											"orig": "countryCode",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "us",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "max_population",
+											"orig": "maxPopulation",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "min_population",
+											"orig": "minPopulation",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "dallas",
+											"field": true,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "preferred_language",
+											"orig": "preferredLanguages",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "en,fr,ja,hi",
+										},
+										map[string]any{
+											"name": "region_id",
+											"orig": "regionId",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "sort",
+											"orig": "sort",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "population_desc",
+										},
+									},
+								},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -809,6 +813,10 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -967,6 +975,7 @@ func MakeConfig() map[string]any {
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "Spa",
+											"field": true,
 										},
 										map[string]any{
 											"name": "offset",
@@ -991,14 +1000,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"limit",
-										"name",
-										"offset",
-										"preferred_language",
-										"telephone_code",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1044,6 +1049,10 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1151,8 +1160,11 @@ func MakeConfig() map[string]any {
 									"$action": "translations",
 									"exist": []any{
 										"id",
-										"preferred_language",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1222,6 +1234,10 @@ func MakeConfig() map[string]any {
 										"city1",
 										"city2",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1314,11 +1330,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"limit",
-										"offset",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1364,6 +1379,10 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1484,6 +1503,10 @@ func MakeConfig() map[string]any {
 										"country",
 										"language",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1615,6 +1638,10 @@ func MakeConfig() map[string]any {
 										"country_id",
 									},
 								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
 							},
 							map[string]any{
 								"kind": "http",
@@ -1644,10 +1671,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"country_id",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1693,6 +1720,10 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1804,8 +1835,11 @@ func MakeConfig() map[string]any {
 									"$action": "translations",
 									"exist": []any{
 										"id",
-										"preferred_language",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -1907,6 +1941,10 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"city_id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},

@@ -86,8 +86,11 @@ main: kit: entity: region_translation_dto: {
             "$action": "translations"
             exist: [
               "id"
-              "preferred_language"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

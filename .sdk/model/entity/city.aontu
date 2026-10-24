@@ -216,6 +216,10 @@ main: kit: entity: city: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "cities"

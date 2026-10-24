@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CityAutocompleteSDK, BaseFeature, stdutil } from '../../..'
+import { CityAutocompleteSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('CountryEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('country hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of CityAutocompleteSDK.test(offline).Country().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of CityAutocompleteSDK.test(offline).Country()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = CityAutocompleteSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Country().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of CityAutocompleteSDK.test().Country().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new CityAutocompleteSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Country().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Country().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CityAutocompleteSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Country().list({"limit":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CITY_AUTOCOMPLETE_TEST_LIVE
@@ -51,7 +109,7 @@ describe('CountryEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"drivingSide":{"a":true,"h":"Driving Side","n":"drivingSide","r":true,"sh":"Driving side of the country","t":"`$STRING`","key$":"drivingSide","index$":0},"emoji":{"a":true,"h":"Emoji","n":"emoji","r":true,"sh":"Emoji of the country","t":"`$STRING`","key$":"emoji","index$":1},"headOfGovernment":{"a":true,"h":"Head Of Government","n":"headOfGovernment","r":true,"sh":"Head of government of the country","t":"`$STRING`","key$":"headOfGovernment","index$":2},"headOfState":{"a":true,"h":"Head Of State","n":"headOfState","r":true,"sh":"Head of state of the country","t":"`$STRING`","key$":"headOfState","index$":3},"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Country ID","t":"`$STRING`","key$":"id","index$":4},"isoCode":{"a":true,"h":"Iso Code","n":"isoCode","r":true,"sh":"ISO code of the country","t":"`$STRING`","key$":"isoCode","index$":5},"licencePlateCode":{"a":true,"h":"Licence Plate Code","n":"licencePlateCode","r":true,"sh":"Licence plate code of the country","t":"`$STRING`","key$":"licencePlateCode","index$":6},"localizedName":{"a":true,"h":"Localized Name","n":"localizedName","r":false,"sh":"Name in the first matched preferred language, falls back to name","t":"`$STRING`","key$":"localizedName","index$":7},"name":{"a":true,"h":"Name","n":"name","r":true,"sh":"Name of the country","t":"`$STRING`","key$":"name","index$":8},"preferredLanguageId":{"a":true,"h":"Preferred Language Id","n":"preferredLanguageId","r":true,"sh":"Preferred language ID for the country","t":"`$STRING`","key$":"preferredLanguageId","index$":9},"regions":{"a":true,"h":"Regions","n":"regions","r":true,"sh":"Regions within the country","t":"`$ARRAY`","key$":"regions","index$":10},"telephoneCode":{"a":true,"h":"Telephone Code","n":"telephoneCode","r":true,"sh":"Telephone code of the country","t":"`$STRING`","key$":"telephoneCode","index$":11},"translations":{"a":true,"h":"Translations","n":"translations","r":true,"sh":"Country translations","t":"`$ARRAY`","key$":"translations","index$":12},"trunkPrefix":{"a":true,"h":"Trunk Prefix","n":"trunkPrefix","r":true,"sh":"Trunk prefix of the country","t":"`$STRING`","key$":"trunkPrefix","index$":13},"wikidataId":{"a":true,"h":"Wikidata Id","n":"wikidataId","r":true,"sh":"Wikidata ID","t":"`$STRING`","key$":"wikidataId","index$":14}},"id":{"field":"id","name":"id"},"name":"country","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /countries","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":200,"k":"query","n":"limit","or":"limit","r":false,"t":"`$NUMBER`","index$":0},{"a":true,"ex":"Spa","k":"query","n":"name","or":"name","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":0,"k":"query","n":"offset","or":"offset","r":false,"t":"`$NUMBER`","index$":2},{"a":true,"ex":"fr,es,en","k":"query","n":"preferred_language","or":"preferredLanguages","r":false,"t":"`$STRING`","index$":3},{"a":true,"ex":"+34","k":"query","n":"telephone_code","or":"telephoneCode","r":false,"t":"`$STRING`","index$":4}]},"k":"http","m":"GET","o":"/countries","q":{"exist":["limit","name","offset","preferred_language","telephone_code"]},"r":{},"s":[{"lit":"countries"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /countries/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"509a2a0a-5ec6-483e-8381-4bea4422ac26","k":"param","n":"id","or":"id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/countries/{id}","q":{"exist":["id"]},"r":{},"s":[{"lit":"countries"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"country","name__orig":"country","Name":"Country","name_":"country","name-":"country","NAME":"COUNTRY","index$":3}, {"active":true,"entity":"country","key$":"BasicCountryFlow","kind":"basic","name":"BasicCountryFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"country_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"country_ref01","srcdatavar":"country_ref01_data","suffix":"_dt0"},"m":{"id":"country01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-country_ref01"}}],"index$":1}]}, 'Country', {"GET /countries":{"protocol":"http","parameters":[{"name":"limit","required":false,"in":"query","description":"Maximum number of results","schema":{"default":200,"example":200,"type":"number"},"index$":0},{"name":"offset","required":false,"in":"query","description":"Number of results to skip","schema":{"default":0,"example":0,"type":"number"},"index$":1},{"name":"telephoneCode","required":false,"in":"query","description":"Filter by telephone code","schema":{"example":"+34","type":"string"},"index$":2},{"name":"name","required":false,"in":"query","description":"Prefix search on country name (English and preferred-language translations)","schema":{"example":"Spa","type":"string"},"index$":3},{"name":"preferredLanguages","required":false,"in":"query","description":"Comma-separated language codes. Affects localizedName and translation name search.","schema":{"example":"fr,es,en","type":"string"},"index$":4}]},"GET /countries/{id}":{"protocol":"http","parameters":[{"name":"id","required":true,"in":"path","schema":{"example":"509a2a0a-5ec6-483e-8381-4bea4422ac26","type":"string"},"index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"drivingSide":{"a":true,"h":"Driving Side","n":"drivingSide","r":true,"sh":"Driving side of the country","t":"`$STRING`","key$":"drivingSide","index$":0},"emoji":{"a":true,"h":"Emoji","n":"emoji","r":true,"sh":"Emoji of the country","t":"`$STRING`","key$":"emoji","index$":1},"headOfGovernment":{"a":true,"h":"Head Of Government","n":"headOfGovernment","r":true,"sh":"Head of government of the country","t":"`$STRING`","key$":"headOfGovernment","index$":2},"headOfState":{"a":true,"h":"Head Of State","n":"headOfState","r":true,"sh":"Head of state of the country","t":"`$STRING`","key$":"headOfState","index$":3},"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Country ID","t":"`$STRING`","key$":"id","index$":4},"isoCode":{"a":true,"h":"Iso Code","n":"isoCode","r":true,"sh":"ISO code of the country","t":"`$STRING`","key$":"isoCode","index$":5},"licencePlateCode":{"a":true,"h":"Licence Plate Code","n":"licencePlateCode","r":true,"sh":"Licence plate code of the country","t":"`$STRING`","key$":"licencePlateCode","index$":6},"localizedName":{"a":true,"h":"Localized Name","n":"localizedName","r":false,"sh":"Name in the first matched preferred language, falls back to name","t":"`$STRING`","key$":"localizedName","index$":7},"name":{"a":true,"h":"Name","n":"name","r":true,"sh":"Name of the country","t":"`$STRING`","key$":"name","index$":8},"preferredLanguageId":{"a":true,"h":"Preferred Language Id","n":"preferredLanguageId","r":true,"sh":"Preferred language ID for the country","t":"`$STRING`","key$":"preferredLanguageId","index$":9},"regions":{"a":true,"h":"Regions","n":"regions","r":true,"sh":"Regions within the country","t":"`$ARRAY`","key$":"regions","index$":10},"telephoneCode":{"a":true,"h":"Telephone Code","n":"telephoneCode","r":true,"sh":"Telephone code of the country","t":"`$STRING`","key$":"telephoneCode","index$":11},"translations":{"a":true,"h":"Translations","n":"translations","r":true,"sh":"Country translations","t":"`$ARRAY`","key$":"translations","index$":12},"trunkPrefix":{"a":true,"h":"Trunk Prefix","n":"trunkPrefix","r":true,"sh":"Trunk prefix of the country","t":"`$STRING`","key$":"trunkPrefix","index$":13},"wikidataId":{"a":true,"h":"Wikidata Id","n":"wikidataId","r":true,"sh":"Wikidata ID","t":"`$STRING`","key$":"wikidataId","index$":14}},"id":{"field":"id","name":"id"},"name":"country","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /countries","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":200,"k":"query","n":"limit","or":"limit","r":false,"t":"`$NUMBER`","index$":0},{"a":true,"ex":"Spa","k":"query","n":"name","or":"name","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":0,"k":"query","n":"offset","or":"offset","r":false,"t":"`$NUMBER`","index$":2},{"a":true,"ex":"fr,es,en","k":"query","n":"preferred_language","or":"preferredLanguages","r":false,"t":"`$STRING`","index$":3},{"a":true,"ex":"+34","k":"query","n":"telephone_code","or":"telephoneCode","r":false,"t":"`$STRING`","index$":4}]},"k":"http","m":"GET","o":"/countries","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"countries"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /countries/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"509a2a0a-5ec6-483e-8381-4bea4422ac26","k":"param","n":"id","or":"id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/countries/{id}","q":{"exist":["id"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"countries"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"country","name__orig":"country","Name":"Country","name_":"country","name-":"country","NAME":"COUNTRY","index$":3}, {"active":true,"entity":"country","key$":"BasicCountryFlow","kind":"basic","name":"BasicCountryFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"country_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"country_ref01","srcdatavar":"country_ref01_data","suffix":"_dt0"},"m":{"id":"country01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-country_ref01"}}],"index$":1}]}, 'Country', {"GET /countries":{"protocol":"http","parameters":[{"name":"limit","required":false,"in":"query","description":"Maximum number of results","schema":{"default":200,"example":200,"type":"number"},"index$":0},{"name":"offset","required":false,"in":"query","description":"Number of results to skip","schema":{"default":0,"example":0,"type":"number"},"index$":1},{"name":"telephoneCode","required":false,"in":"query","description":"Filter by telephone code","schema":{"example":"+34","type":"string"},"index$":2},{"name":"name","required":false,"in":"query","description":"Prefix search on country name (English and preferred-language translations)","schema":{"example":"Spa","type":"string"},"index$":3},{"name":"preferredLanguages","required":false,"in":"query","description":"Comma-separated language codes. Affects localizedName and translation name search.","schema":{"example":"fr,es,en","type":"string"},"index$":4}]},"GET /countries/{id}":{"protocol":"http","parameters":[{"name":"id","required":true,"in":"path","schema":{"example":"509a2a0a-5ec6-483e-8381-4bea4422ac26","type":"string"},"index$":0}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -79,6 +137,12 @@ describe('CountryEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

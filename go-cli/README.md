@@ -21,6 +21,7 @@ export CITY_AUTOCOMPLETE_APIKEY=sk_live_xxx
 # 4. Each command line is ONE boru expression, run against the API:
 ./city-autocomplete-cli load 1 city            # {id:1} shorthand
 ./city-autocomplete-cli load '{id:1}' city       # explicit match map
+./city-autocomplete-cli list city_dto
 
 # 5. Override the API base URL for a single call
 CITY_AUTOCOMPLETE_BASE=https://api.example.com ./city-autocomplete-cli load 1 city

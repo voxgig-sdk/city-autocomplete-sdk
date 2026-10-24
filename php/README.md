@@ -12,7 +12,7 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases)), or
+GitHub release tag (`php/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/city-autocomplete-sdk/tags)), or
 from a clone as a Composer path repository:
 
 ```bash
@@ -25,7 +25,7 @@ composer require voxgig-sdk/city-autocomplete-sdk:@dev
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
-loading a specific record.
+loading a specific record. The client sends the API key in the `x-rapidapi-key` header.
 
 ### 1. Create a client
 
@@ -235,8 +235,8 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
+| `load` | `($reqmatch, $ctrl): mixed` | Load a single entity by match criteria, and return it. |
+| `list` | `(?array $reqmatch = null, $ctrl): mixed` | List entities matching the criteria (call with no argument to list all), one per record. |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -246,9 +246,9 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
-ops, a `list` for `list`) and throw on error. Wrap calls in
-`try`/`catch` to handle failures.
+Entity operations return the entity, and `list` an `array` of entities, one
+per record; an entity's `data_get()` reads its record (an `array`). They
+throw on error, so wrap calls in `try`/`catch` to handle failures.
 
 The `direct()` escape hatch never throws — it returns a result `array`
 you branch on via `$result["ok"]`:
@@ -330,7 +330,7 @@ API path: `/cities/{id}`
 
 Operations: List.
 
-API path: `/cities/search`
+API path: `/cities/byCoordinates/closest`
 
 #### CityTranslationDto
 
@@ -564,7 +564,7 @@ Create an instance: `$city_dto = $client->CityDto();`
 #### Example: List
 
 ```php
-// list() returns an array of CityDto records (throws on error).
+// list() returns an array of CityDto entities, one per record (throws on error).
 $city_dtos = $client->CityDto()->list();
 ```
 
@@ -592,8 +592,8 @@ Create an instance: `$city_translation_dto = $client->CityTranslationDto();`
 #### Example: List
 
 ```php
-// list() returns an array of CityTranslationDto records (throws on error).
-$city_translation_dtos = $client->CityTranslationDto()->list();
+// list() returns an array of CityTranslationDto entities, one per record (throws on error).
+$city_translation_dtos = $client->CityTranslationDto()->list(["id" => "example"]);
 ```
 
 
@@ -638,7 +638,7 @@ $country = $client->Country()->load(["id" => "country_id"]);
 #### Example: List
 
 ```php
-// list() returns an array of Country records (throws on error).
+// list() returns an array of Country entities, one per record (throws on error).
 $countrys = $client->Country()->list();
 ```
 
@@ -666,8 +666,8 @@ Create an instance: `$country_translation_dto = $client->CountryTranslationDto()
 #### Example: List
 
 ```php
-// list() returns an array of CountryTranslationDto records (throws on error).
-$country_translation_dtos = $client->CountryTranslationDto()->list();
+// list() returns an array of CountryTranslationDto entities, one per record (throws on error).
+$country_translation_dtos = $client->CountryTranslationDto()->list(["id" => "example"]);
 ```
 
 
@@ -726,7 +726,7 @@ $language = $client->Language()->load(["id" => "language_id"]);
 #### Example: List
 
 ```php
-// list() returns an array of Language records (throws on error).
+// list() returns an array of Language entities, one per record (throws on error).
 $languages = $client->Language()->list();
 ```
 
@@ -754,8 +754,8 @@ Create an instance: `$oneshot = $client->Oneshot();`
 #### Example: List
 
 ```php
-// list() returns an array of Oneshot records (throws on error).
-$oneshots = $client->Oneshot()->list();
+// list() returns an array of Oneshot entities, one per record (throws on error).
+$oneshots = $client->Oneshot()->list(["city_name" => "example", "country" => "example", "language" => "example"]);
 ```
 
 
@@ -794,7 +794,7 @@ $region = $client->Region()->load(["id" => "region_id"]);
 #### Example: List
 
 ```php
-// list() returns an array of Region records (throws on error).
+// list() returns an array of Region entities, one per record (throws on error).
 $regions = $client->Region()->list();
 ```
 
@@ -822,8 +822,8 @@ Create an instance: `$region_translation_dto = $client->RegionTranslationDto();`
 #### Example: List
 
 ```php
-// list() returns an array of RegionTranslationDto records (throws on error).
-$region_translation_dtos = $client->RegionTranslationDto()->list();
+// list() returns an array of RegionTranslationDto entities, one per record (throws on error).
+$region_translation_dtos = $client->RegionTranslationDto()->list(["id" => "example"]);
 ```
 
 
@@ -850,8 +850,8 @@ Create an instance: `$settlement_type = $client->SettlementType();`
 #### Example: List
 
 ```php
-// list() returns an array of SettlementType records (throws on error).
-$settlement_types = $client->SettlementType()->list();
+// list() returns an array of SettlementType entities, one per record (throws on error).
+$settlement_types = $client->SettlementType()->list(["city_id" => "example"]);
 ```
 
 ## Features

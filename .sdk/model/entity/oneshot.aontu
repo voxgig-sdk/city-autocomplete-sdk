@@ -92,6 +92,10 @@ main: kit: entity: oneshot: {
               "language"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "cities"

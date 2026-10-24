@@ -54,27 +54,36 @@ const utility_1 = require("../../utility");
         const ent = testsdk.RegionTranslationDto();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.CityAutocompleteSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.RegionTranslationDto().list({ "id": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.CITY_AUTOCOMPLETE_TEST_LIVE;
-        for (const op of ['list']) {
+        for (const op of []) {
             if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'region_translation_dto.' + op, live))
                 return;
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": true, "sh": "Translation ID", "t": "`$STRING`", "key$": "id", "index$": 0 }, "language": { "a": true, "h": "Language", "n": "language", "r": true, "sh": "Language code", "t": "`$STRING`", "key$": "language", "index$": 1 }, "name": { "a": true, "h": "Name", "n": "name", "r": true, "sh": "Translated name", "t": "`$STRING`", "key$": "name", "index$": 2 }, "nameNormalized": { "a": true, "h": "Name Normalized", "n": "nameNormalized", "r": true, "sh": "Normalized translated name", "t": "`$STRING`", "key$": "nameNormalized", "index$": 3 }, "regionId": { "a": true, "h": "Region Id", "n": "regionId", "r": true, "sh": "Region ID", "t": "`$STRING`", "key$": "regionId", "index$": 4 } }, "id": { "field": "id", "name": "id" }, "name": "region_translation_dto", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /regions/{id}/translations", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "63df31a3-ca32-4970-8b5e-bcf9a11426e6", "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }], "query": [{ "a": true, "ex": "en,fr,hi", "k": "query", "n": "preferred_language", "or": "preferredLanguages", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/regions/{id}/translations", "q": { "$action": "translations", "exist": ["id", "preferred_language"] }, "r": {}, "s": [{ "lit": "regions" }, { "var": "id" }, { "lit": "translations" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "region_translation_dto", "name__orig": "region_translation_dto", "Name": "RegionTranslationDto", "name_": "region_translation_dto", "name-": "region-translation-dto", "NAME": "REGION_TRANSLATION_DTO", "index$": 9 }, { "active": true, "entity": "region_translation_dto", "key$": "BasicRegionTranslationDtoFlow", "kind": "basic", "name": "BasicRegionTranslationDtoFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "region_translation_dto_ref01" } }], "index$": 0 }] }, 'RegionTranslationDto', { "GET /regions/{id}/translations": { "protocol": "http", "parameters": [{ "name": "id", "required": true, "in": "path", "schema": { "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6", "type": "string" }, "index$": 0 }, { "name": "preferredLanguages", "required": false, "in": "query", "schema": { "default": "en", "example": "en,fr,hi", "type": "string" }, "index$": 1 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "id": { "a": true, "h": "Id", "n": "id", "r": true, "sh": "Translation ID", "t": "`$STRING`", "key$": "id", "index$": 0 }, "language": { "a": true, "h": "Language", "n": "language", "r": true, "sh": "Language code", "t": "`$STRING`", "key$": "language", "index$": 1 }, "name": { "a": true, "h": "Name", "n": "name", "r": true, "sh": "Translated name", "t": "`$STRING`", "key$": "name", "index$": 2 }, "nameNormalized": { "a": true, "h": "Name Normalized", "n": "nameNormalized", "r": true, "sh": "Normalized translated name", "t": "`$STRING`", "key$": "nameNormalized", "index$": 3 }, "regionId": { "a": true, "h": "Region Id", "n": "regionId", "r": true, "sh": "Region ID", "t": "`$STRING`", "key$": "regionId", "index$": 4 } }, "id": { "field": "id", "name": "id" }, "name": "region_translation_dto", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /regions/{id}/translations", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "63df31a3-ca32-4970-8b5e-bcf9a11426e6", "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }], "query": [{ "a": true, "ex": "en,fr,hi", "k": "query", "n": "preferred_language", "or": "preferredLanguages", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/regions/{id}/translations", "q": { "$action": "translations", "exist": ["id"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "regions" }, { "var": "id" }, { "lit": "translations" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "region_translation_dto", "name__orig": "region_translation_dto", "Name": "RegionTranslationDto", "name_": "region_translation_dto", "name-": "region-translation-dto", "NAME": "REGION_TRANSLATION_DTO", "index$": 9 }, { "active": true, "entity": "region_translation_dto", "key$": "BasicRegionTranslationDtoFlow", "kind": "basic", "name": "BasicRegionTranslationDtoFlow", "param": {}, "step": [{ "a": false, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "region_translation_dto_ref01" } }], "unreachable": true }] }, 'RegionTranslationDto', { "GET /regions/{id}/translations": { "protocol": "http", "parameters": [{ "name": "id", "required": true, "in": "path", "schema": { "example": "63df31a3-ca32-4970-8b5e-bcf9a11426e6", "type": "string" }, "index$": 0 }, { "name": "preferredLanguages", "required": false, "in": "query", "schema": { "default": "en", "example": "en,fr,hi", "type": "string" }, "index$": 1 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
         const isempty = struct.isempty;
         const select = struct.select;
         let region_translation_dto_ref01_data = Object.values(setup.data.existing.region_translation_dto)[0];
-        // LIST
-        const region_translation_dto_ref01_ent = client.RegionTranslationDto();
-        const region_translation_dto_ref01_match = {};
-        const region_translation_dto_ref01_list = (await region_translation_dto_ref01_ent.list(region_translation_dto_ref01_match)).map((e) => e.data());
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

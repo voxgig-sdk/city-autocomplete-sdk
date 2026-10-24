@@ -174,14 +174,9 @@ main: kit: entity: country: {
           }
           m: "GET"
           o: "/countries"
-          q: {
-            exist: [
-              "limit"
-              "name"
-              "offset"
-              "preferred_language"
-              "telephone_code"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -222,6 +217,10 @@ main: kit: entity: country: {
             exist: [
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

@@ -81,6 +81,10 @@ main: kit: entity: settlement_type: {
               id: "city_id"
             }
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "cities"

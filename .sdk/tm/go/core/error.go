@@ -12,6 +12,8 @@ type CityAutocompleteError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewCityAutocompleteError(code string, msg string, ctx *Context) *CityAutocompleteError {
@@ -21,7 +23,12 @@ func NewCityAutocompleteError(code string, msg string, ctx *Context) *CityAutoco
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *CityAutocompleteError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *CityAutocompleteError) Error() string {
@@ -35,6 +42,7 @@ func (e *CityAutocompleteError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

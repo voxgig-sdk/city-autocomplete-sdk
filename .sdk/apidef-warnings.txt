@@ -1,0 +1,11 @@
+{
+  point: "warning"
+  note: "Points GET /cities/byCoordinates/closest and GET /cities/byCoordinates/largest on entity=city_dto op=list have the same selector (exist: lat,lon), so only GET /cities/byCoordinates/closest is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "city_dto"
+  op: "list"
+  points: [
+    "GET /cities/byCoordinates/closest"
+    "GET /cities/byCoordinates/largest"
+  ]
+
+}

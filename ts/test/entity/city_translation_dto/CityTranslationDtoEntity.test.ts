@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CityAutocompleteSDK, BaseFeature, stdutil } from '../../..'
+import { CityAutocompleteSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,17 +41,29 @@ describe('CityTranslationDtoEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CityAutocompleteSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.CityTranslationDto().list({"id":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CITY_AUTOCOMPLETE_TEST_LIVE
-    for (const op of ['list']) {
+    for (const op of []) {
       if (!live && maybeSkipControl(t, 'entityOp', 'city_translation_dto.' + op, live)) return
     }
 
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"cityId":{"a":true,"h":"City Id","n":"cityId","r":true,"sh":"City ID","t":"`$STRING`","key$":"cityId","index$":0},"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Translation ID","t":"`$STRING`","key$":"id","index$":1},"language":{"a":true,"h":"Language","n":"language","r":true,"sh":"Language code","t":"`$STRING`","key$":"language","index$":2},"name":{"a":true,"h":"Name","n":"name","r":true,"sh":"Translated name","t":"`$STRING`","key$":"name","index$":3},"nameNormalized":{"a":true,"h":"Name Normalized","n":"nameNormalized","r":true,"sh":"Normalized translated name","t":"`$STRING`","key$":"nameNormalized","index$":4}},"id":{"field":"id","name":"id"},"name":"city_translation_dto","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /cities/{id}/translations","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/cities/{id}/translations","q":{"$action":"translations","exist":["id"]},"r":{},"s":[{"lit":"cities"},{"var":"id"},{"lit":"translations"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"city_translation_dto","name__orig":"city_translation_dto","Name":"CityTranslationDto","name_":"city_translation_dto","name-":"city-translation-dto","NAME":"CITY_TRANSLATION_DTO","index$":2}, {"active":true,"entity":"city_translation_dto","key$":"BasicCityTranslationDtoFlow","kind":"basic","name":"BasicCityTranslationDtoFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"city_translation_dto_ref01"}}],"index$":0}]}, 'CityTranslationDto', {"GET /cities/{id}/translations":{"protocol":"http","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"},"index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"cityId":{"a":true,"h":"City Id","n":"cityId","r":true,"sh":"City ID","t":"`$STRING`","key$":"cityId","index$":0},"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Translation ID","t":"`$STRING`","key$":"id","index$":1},"language":{"a":true,"h":"Language","n":"language","r":true,"sh":"Language code","t":"`$STRING`","key$":"language","index$":2},"name":{"a":true,"h":"Name","n":"name","r":true,"sh":"Translated name","t":"`$STRING`","key$":"name","index$":3},"nameNormalized":{"a":true,"h":"Name Normalized","n":"nameNormalized","r":true,"sh":"Normalized translated name","t":"`$STRING`","key$":"nameNormalized","index$":4}},"id":{"field":"id","name":"id"},"name":"city_translation_dto","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /cities/{id}/translations","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/cities/{id}/translations","q":{"$action":"translations","exist":["id"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"cities"},{"var":"id"},{"lit":"translations"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"city_translation_dto","name__orig":"city_translation_dto","Name":"CityTranslationDto","name_":"city_translation_dto","name-":"city-translation-dto","NAME":"CITY_TRANSLATION_DTO","index$":2}, {"active":true,"entity":"city_translation_dto","key$":"BasicCityTranslationDtoFlow","kind":"basic","name":"BasicCityTranslationDtoFlow","param":{},"step":[{"a":false,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"city_translation_dto_ref01"}}],"unreachable":true}]}, 'CityTranslationDto', {"GET /cities/{id}/translations":{"protocol":"http","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"},"index$":0}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -61,17 +73,16 @@ describe('CityTranslationDtoEntity', async () => {
 
     let city_translation_dto_ref01_data = Object.values(setup.data.existing.city_translation_dto)[0] as any
 
-    // LIST
-    const city_translation_dto_ref01_ent = client.CityTranslationDto()
-    const city_translation_dto_ref01_match: any = {}
-
-    const city_translation_dto_ref01_list = (await city_translation_dto_ref01_ent.list(city_translation_dto_ref01_match)).map((e: any) => e.data())
-
-
   })
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

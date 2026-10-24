@@ -115,17 +115,17 @@
     }
   },
   "requests": {
-    "GET /cities/search": {
-      "provenance": "operation-contract",
-      "version": 2,
-      "source": "openapi3"
-    },
     "GET /cities/byCoordinates/closest": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
     },
     "GET /cities/byCoordinates/largest": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /cities/search": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

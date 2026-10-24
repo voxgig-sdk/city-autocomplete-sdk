@@ -163,7 +163,7 @@ $city = $client->City();
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria. Throws on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and throws on error.
 
 ```php
 $result = $client->City()->load(["id" => "city_id"]);
@@ -239,7 +239,7 @@ $city_dto = $client->CityDto();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
 $results = $client->CityDto()->list();
@@ -295,10 +295,10 @@ $city_translation_dto = $client->CityTranslationDto();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
-$results = $client->CityTranslationDto()->list();
+$results = $client->CityTranslationDto()->list(["id" => "example"]);
 ```
 
 ### Common Methods
@@ -361,7 +361,7 @@ $country = $client->Country();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
 $results = $client->Country()->list();
@@ -369,7 +369,7 @@ $results = $client->Country()->list();
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria. Throws on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and throws on error.
 
 ```php
 $result = $client->Country()->load(["id" => "country_id"]);
@@ -425,10 +425,10 @@ $country_translation_dto = $client->CountryTranslationDto();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
-$results = $client->CountryTranslationDto()->list();
+$results = $client->CountryTranslationDto()->list(["id" => "example"]);
 ```
 
 ### Common Methods
@@ -477,7 +477,7 @@ $distance = $client->Distance();
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria. Throws on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and throws on error.
 
 ```php
 $result = $client->Distance()->load(["city1" => "city1", "city2" => "city2"]);
@@ -533,7 +533,7 @@ $language = $client->Language();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
 $results = $client->Language()->list();
@@ -541,7 +541,7 @@ $results = $client->Language()->list();
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria. Throws on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and throws on error.
 
 ```php
 $result = $client->Language()->load(["id" => "language_id"]);
@@ -597,10 +597,10 @@ $oneshot = $client->Oneshot();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
-$results = $client->Oneshot()->list();
+$results = $client->Oneshot()->list(["city_name" => "example", "country" => "example", "language" => "example"]);
 ```
 
 ### Common Methods
@@ -657,7 +657,7 @@ $region = $client->Region();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
 $results = $client->Region()->list();
@@ -665,7 +665,7 @@ $results = $client->Region()->list();
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria. Throws on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and throws on error.
 
 ```php
 $result = $client->Region()->load(["id" => "region_id"]);
@@ -721,10 +721,10 @@ $region_translation_dto = $client->RegionTranslationDto();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
-$results = $client->RegionTranslationDto()->list();
+$results = $client->RegionTranslationDto()->list(["id" => "example"]);
 ```
 
 ### Common Methods
@@ -777,10 +777,10 @@ $settlement_type = $client->SettlementType();
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array of entities, one per record, and throws on error.
 
 ```php
-$results = $client->SettlementType()->list();
+$results = $client->SettlementType()->list(["city_id" => "example"]);
 ```
 
 ### Common Methods
@@ -970,6 +970,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

@@ -6,64 +6,40 @@ require_relative "../CityAutocomplete_sdk"
 require_relative "runner"
 
 class CountryTranslationDtoEntityTest < Minitest::Test
+  # main.kit.test.live.strict is true (the default is true): a live
+  # request that fails, or a live test missing an input it needs,
+  # fails the test.
+  # An account with no record for a test to read skips it either way.
+  LIVE_STRICT = true
+
   def test_create_instance
     testsdk = CityAutocompleteSDK.test(nil, nil)
     ent = testsdk.CountryTranslationDto(nil)
     assert !ent.nil?
   end
 
-  # Feature #4: the entity stream(action, ...) method runs the op pipeline and
-  # returns an Enumerator over result items. With the streaming feature active
-  # it yields the feature's incremental output; otherwise it falls back to the
-  # materialised list so stream always yields.
-  def test_stream
-    seed = {
-      "entity" => {
-        "country_translation_dto" => {
-          "s1" => { "id" => "s1" },
-          "s2" => { "id" => "s2" },
-          "s3" => { "id" => "s3" },
-        },
-      },
-    }
-
-    # Fallback: streaming inactive -> yields the materialised list items.
-    base = CityAutocompleteSDK.test(seed, nil)
-    seen = base.CountryTranslationDto(nil).stream("list", nil, nil).to_a
-    assert_equal 3, seen.length
-
-    # Inbound: streaming active -> yields each item from the feature.
+  def test_validate
     cfg = CityAutocompleteConfig.shared_config
-    if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
-      sdk = CityAutocompleteSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
-      got = []
-      sdk.CountryTranslationDto(nil).stream("list", nil, nil).each do |item|
-        if item.is_a?(Array)
-          got.concat(item)
-        else
-          got << item
-        end
-      end
-      assert_equal 3, got.length
+    unless cfg["feature"].is_a?(Hash) && cfg["feature"].key?("validate")
+      skip("feature not present in this SDK: validate")
     end
+    client = CityAutocompleteSDK.test(nil, { "feature" => { "validate" => { "active" => true } } })
+    err = assert_raises(StandardError) do
+      client.CountryTranslationDto(nil).list({ "id" => 1 }, nil)
+    end
+    assert_equal "validate_failed", err.code
   end
 
   def test_basic_flow
     setup = country_translation_dto_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["list"].each do |_op|
+    [].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "country_translation_dto." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
         return
       end
-    end
-    # The basic flow consumes synthetic IDs from the fixture. In live mode
-    # without an *_ENTID env override, those IDs hit the live API and 4xx.
-    if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set CITY_AUTOCOMPLETE_TEST_COUNTRY_TRANSLATION_DTO_ENTID JSON to run live"
-      return
     end
     client = setup[:client]
 
@@ -75,13 +51,6 @@ class CountryTranslationDtoEntityTest < Minitest::Test
       country_translation_dto_ref01_data = Helpers.to_map(country_translation_dto_ref01_data_raw[0][1])
     end
 
-    # LIST
-    country_translation_dto_ref01_ent = client.CountryTranslationDto(nil)
-    country_translation_dto_ref01_match = {}
-
-    country_translation_dto_ref01_list_result = country_translation_dto_ref01_ent.list(country_translation_dto_ref01_match, nil)
-    assert country_translation_dto_ref01_list_result.is_a?(Array)
-
   end
 end
 
@@ -89,7 +58,7 @@ def country_translation_dto_basic_setup(extra)
   Runner.load_env_local
 
   entity_data_file = File.join(__dir__, "..", "..", ".sdk", "test", "entity", "country_translation_dto", "CountryTranslationDtoTestData.json")
-  entity_data_source = File.read(entity_data_file)
+  entity_data_source = File.read(entity_data_file, encoding: "UTF-8")
   entity_data = JSON.parse(entity_data_source)
 
   options = {}
@@ -108,9 +77,8 @@ def country_translation_dto_basic_setup(extra)
     }
   )
 
-  # Detect ENTID env override before envOverride consumes it. When live
-  # mode is on without a real override, the basic test runs against synthetic
-  # IDs from the fixture and 4xx's. Surface this so the test can skip.
+  # Whether *_ENTID supplied the idmap, read before env_override consumes
+  # it: without it, the ids a live flow binds are the fixture's synthetic ones.
   entid_env_raw = ENV["CITY_AUTOCOMPLETE_TEST_COUNTRY_TRANSLATION_DTO_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 

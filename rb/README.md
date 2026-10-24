@@ -12,7 +12,7 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases)), or
+GitHub release tag (`rb/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/city-autocomplete-sdk/tags)), or
 from a clone:
 
 ```bash
@@ -29,7 +29,7 @@ gem "voxgig-sdk-city-autocomplete-sdk", path: "./city-autocomplete-sdk/rb"
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
-loading a specific record.
+loading a specific record. The client sends the API key in the `x-rapidapi-key` header.
 
 ### 1. Create a client
 
@@ -47,7 +47,7 @@ client = CityAutocompleteSDK.new({
 begin
   # load returns the ENTITY — call data_get for the City record (raises on error).
   city = client.City.load({ "id" => "example_id" })
-  puts city
+  puts city.data_get
 rescue => err
   warn "load failed: #{err}"
 end
@@ -131,10 +131,10 @@ client = CityAutocompleteSDK.test({
   "entity" => { "language" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the ENTITY (raises on error);
-# call data_get for the mock record.
-language = client.Language.list()
-puts language
+# list returns an Array of Language entities, one per mock record (raises on
+# error); data_get reads each record.
+languages = client.Language.list()
+languages.each { |item| puts item.data_get }
 ```
 
 ### Use a custom fetch function
@@ -230,8 +230,8 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
-| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
+| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria, and return it. Raises on error. |
+| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all), one per record. Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> Hash` | Get entity match criteria. |
@@ -241,9 +241,10 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the result data directly. On failure they
-raise a `CityAutocompleteError` (a `StandardError` subclass), so wrap
-calls in `begin`/`rescue` where you need to handle errors.
+Entity operations return the entity, and `list` an `Array` of entities, one
+per record; an entity's `data_get` reads its record. On failure they raise a
+`CityAutocompleteError` (a `StandardError` subclass), so wrap calls in
+`begin`/`rescue` where you need to handle errors.
 
 The `direct` escape hatch is the exception: it never raises and instead
 returns a result `Hash` with these keys:
@@ -324,7 +325,7 @@ API path: `/cities/{id}`
 
 Operations: List.
 
-API path: `/cities/search`
+API path: `/cities/byCoordinates/closest`
 
 #### CityTranslationDto
 
@@ -558,8 +559,9 @@ Create an instance: `city_dto = client.CityDto`
 #### Example: List
 
 ```ruby
-# list returns an Array of CityDto records (raises on error).
+# list returns an Array of CityDto entities, one per record (raises on error).
 city_dtos = client.CityDto.list
+city_dtos.each { |item| puts item.data_get }
 ```
 
 
@@ -586,8 +588,9 @@ Create an instance: `city_translation_dto = client.CityTranslationDto`
 #### Example: List
 
 ```ruby
-# list returns an Array of CityTranslationDto records (raises on error).
-city_translation_dtos = client.CityTranslationDto.list
+# list returns an Array of CityTranslationDto entities, one per record (raises on error).
+city_translation_dtos = client.CityTranslationDto.list({ "id" => "example" })
+city_translation_dtos.each { |item| puts item.data_get }
 ```
 
 
@@ -632,8 +635,9 @@ country = client.Country.load({ "id" => "country_id" })
 #### Example: List
 
 ```ruby
-# list returns an Array of Country records (raises on error).
+# list returns an Array of Country entities, one per record (raises on error).
 countrys = client.Country.list
+countrys.each { |item| puts item.data_get }
 ```
 
 
@@ -660,8 +664,9 @@ Create an instance: `country_translation_dto = client.CountryTranslationDto`
 #### Example: List
 
 ```ruby
-# list returns an Array of CountryTranslationDto records (raises on error).
-country_translation_dtos = client.CountryTranslationDto.list
+# list returns an Array of CountryTranslationDto entities, one per record (raises on error).
+country_translation_dtos = client.CountryTranslationDto.list({ "id" => "example" })
+country_translation_dtos.each { |item| puts item.data_get }
 ```
 
 
@@ -720,8 +725,9 @@ language = client.Language.load({ "id" => "language_id" })
 #### Example: List
 
 ```ruby
-# list returns an Array of Language records (raises on error).
+# list returns an Array of Language entities, one per record (raises on error).
 languages = client.Language.list
+languages.each { |item| puts item.data_get }
 ```
 
 
@@ -748,8 +754,9 @@ Create an instance: `oneshot = client.Oneshot`
 #### Example: List
 
 ```ruby
-# list returns an Array of Oneshot records (raises on error).
-oneshots = client.Oneshot.list
+# list returns an Array of Oneshot entities, one per record (raises on error).
+oneshots = client.Oneshot.list({ "city_name" => "example", "country" => "example", "language" => "example" })
+oneshots.each { |item| puts item.data_get }
 ```
 
 
@@ -788,8 +795,9 @@ region = client.Region.load({ "id" => "region_id" })
 #### Example: List
 
 ```ruby
-# list returns an Array of Region records (raises on error).
+# list returns an Array of Region entities, one per record (raises on error).
 regions = client.Region.list
+regions.each { |item| puts item.data_get }
 ```
 
 
@@ -816,8 +824,9 @@ Create an instance: `region_translation_dto = client.RegionTranslationDto`
 #### Example: List
 
 ```ruby
-# list returns an Array of RegionTranslationDto records (raises on error).
-region_translation_dtos = client.RegionTranslationDto.list
+# list returns an Array of RegionTranslationDto entities, one per record (raises on error).
+region_translation_dtos = client.RegionTranslationDto.list({ "id" => "example" })
+region_translation_dtos.each { |item| puts item.data_get }
 ```
 
 
@@ -844,8 +853,9 @@ Create an instance: `settlement_type = client.SettlementType`
 #### Example: List
 
 ```ruby
-# list returns an Array of SettlementType records (raises on error).
-settlement_types = client.SettlementType.list
+# list returns an Array of SettlementType entities, one per record (raises on error).
+settlement_types = client.SettlementType.list({ "city_id" => "example" })
+settlement_types.each { |item| puts item.data_get }
 ```
 
 ## Features

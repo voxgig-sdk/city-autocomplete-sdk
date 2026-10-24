@@ -79,6 +79,7 @@ module CityAutocompleteConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -322,6 +323,10 @@ module CityAutocompleteConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -509,105 +514,6 @@ module CityAutocompleteConfig
                 {
                   "kind" => "http",
                   "method" => "GET",
-                  "orig" => "/cities/search",
-                  "segments" => [
-                    {
-                      "lit" => "cities",
-                    },
-                    {
-                      "lit" => "search",
-                    },
-                  ],
-                  "parts" => [
-                    "cities",
-                    "search",
-                  ],
-                  "rename" => {},
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "args" => {
-                    "query" => [
-                      {
-                        "name" => "country_code",
-                        "orig" => "countryCode",
-                        "type" => "`$STRING`",
-                        "kind" => "query",
-                        "example" => "us",
-                      },
-                      {
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$NUMBER`",
-                        "kind" => "query",
-                        "example" => 20,
-                      },
-                      {
-                        "name" => "max_population",
-                        "orig" => "maxPopulation",
-                        "type" => "`$NUMBER`",
-                        "kind" => "query",
-                      },
-                      {
-                        "name" => "min_population",
-                        "orig" => "minPopulation",
-                        "type" => "`$NUMBER`",
-                        "kind" => "query",
-                      },
-                      {
-                        "name" => "name",
-                        "orig" => "name",
-                        "type" => "`$STRING`",
-                        "kind" => "query",
-                        "example" => "dallas",
-                      },
-                      {
-                        "name" => "offset",
-                        "orig" => "offset",
-                        "type" => "`$NUMBER`",
-                        "kind" => "query",
-                        "example" => 0,
-                      },
-                      {
-                        "name" => "preferred_language",
-                        "orig" => "preferredLanguages",
-                        "type" => "`$STRING`",
-                        "kind" => "query",
-                        "example" => "en,fr,ja,hi",
-                      },
-                      {
-                        "name" => "region_id",
-                        "orig" => "regionId",
-                        "type" => "`$STRING`",
-                        "kind" => "query",
-                      },
-                      {
-                        "name" => "sort",
-                        "orig" => "sort",
-                        "type" => "`$STRING`",
-                        "kind" => "query",
-                        "example" => "population_desc",
-                      },
-                    ],
-                  },
-                  "select" => {
-                    "exist" => [
-                      "country_code",
-                      "limit",
-                      "max_population",
-                      "min_population",
-                      "name",
-                      "offset",
-                      "preferred_language",
-                      "region_id",
-                      "sort",
-                    ],
-                  },
-                },
-                {
-                  "kind" => "http",
-                  "method" => "GET",
                   "orig" => "/cities/byCoordinates/closest",
                   "segments" => [
                     {
@@ -659,8 +565,11 @@ module CityAutocompleteConfig
                     "exist" => [
                       "lat",
                       "lon",
-                      "preferred_language",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
                 {
@@ -717,8 +626,103 @@ module CityAutocompleteConfig
                     "exist" => [
                       "lat",
                       "lon",
-                      "preferred_language",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
+                },
+                {
+                  "kind" => "http",
+                  "method" => "GET",
+                  "orig" => "/cities/search",
+                  "segments" => [
+                    {
+                      "lit" => "cities",
+                    },
+                    {
+                      "lit" => "search",
+                    },
+                  ],
+                  "parts" => [
+                    "cities",
+                    "search",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "country_code",
+                        "orig" => "countryCode",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "us",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                        "example" => 20,
+                      },
+                      {
+                        "name" => "max_population",
+                        "orig" => "maxPopulation",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "min_population",
+                        "orig" => "minPopulation",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "name",
+                        "orig" => "name",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "dallas",
+                        "field" => true,
+                      },
+                      {
+                        "name" => "offset",
+                        "orig" => "offset",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                        "example" => 0,
+                      },
+                      {
+                        "name" => "preferred_language",
+                        "orig" => "preferredLanguages",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "en,fr,ja,hi",
+                      },
+                      {
+                        "name" => "region_id",
+                        "orig" => "regionId",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "sort",
+                        "orig" => "sort",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "population_desc",
+                      },
+                    ],
+                  },
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -817,6 +821,10 @@ module CityAutocompleteConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -975,6 +983,7 @@ module CityAutocompleteConfig
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "Spa",
+                        "field" => true,
                       },
                       {
                         "name" => "offset",
@@ -999,14 +1008,10 @@ module CityAutocompleteConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "limit",
-                      "name",
-                      "offset",
-                      "preferred_language",
-                      "telephone_code",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1052,6 +1057,10 @@ module CityAutocompleteConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1159,8 +1168,11 @@ module CityAutocompleteConfig
                     "$action" => "translations",
                     "exist" => [
                       "id",
-                      "preferred_language",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1230,6 +1242,10 @@ module CityAutocompleteConfig
                       "city1",
                       "city2",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1322,11 +1338,10 @@ module CityAutocompleteConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "limit",
-                      "offset",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1372,6 +1387,10 @@ module CityAutocompleteConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1492,6 +1511,10 @@ module CityAutocompleteConfig
                       "country",
                       "language",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1623,6 +1646,10 @@ module CityAutocompleteConfig
                       "country_id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -1652,10 +1679,10 @@ module CityAutocompleteConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "country_id",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1701,6 +1728,10 @@ module CityAutocompleteConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1812,8 +1843,11 @@ module CityAutocompleteConfig
                     "$action" => "translations",
                     "exist" => [
                       "id",
-                      "preferred_language",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -1915,6 +1949,10 @@ module CityAutocompleteConfig
                     "exist" => [
                       "city_id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

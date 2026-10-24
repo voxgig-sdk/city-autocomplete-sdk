@@ -1,6 +1,10 @@
 # Geomelon API
 
-Read-only geographic data API, cities, countries, regions, and languages with multilingual city names and fast prefix autocomplete. Authentication: subscribe on [RapidAPI](https://rapidapi.com/hom3chuk/api/geomelon) (free tier available) and send your key in the `x-rapidapi-key` header. The oneshot autocomplete endpoint is also available keyless on the free mirror at `https://oneshot.geomelon.dev/&#123;iso&#125;/&#123;lang&#125;/&#123;prefix&#125;`.
+> Read-only geographic data API, cities, countries, regions, and languages with multilingual city names and fast prefix autocomplete.
+>
+> Authentication: subscribe on [RapidAPI](https://rapidapi.com/hom3chuk/api/geomelon) (free tier available) and send your key in the `x-rapidapi-key` header.
+>
+> The oneshot autocomplete endpoint is also available keyless on the free mirror at `https://oneshot.geomelon.dev/&#123;iso&#125;/&#123;lang&#125;/&#123;prefix&#125;`.
 
 ## Start here
 
@@ -28,7 +32,7 @@ Key fields to recognise:
 
 ### CityDto
 
-Results: List of cities; Closest cities at lat/lon; Most populated cities nearby.
+Results: Closest cities at lat/lon; Most populated cities nearby; List of cities.
 
 SDK operations: `list`.
 
@@ -164,9 +168,9 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
 | City | `load` | `GET /cities/{id}` | Required |
-| CityDto | `list` | `GET /cities/search` | Required |
 | CityDto | `list` | `GET /cities/byCoordinates/closest` | Required |
 | CityDto | `list` | `GET /cities/byCoordinates/largest` | Required |
+| CityDto | `list` | `GET /cities/search` | Required |
 | CityTranslationDto | `list` | `GET /cities/{id}/translations` | Required |
 | Country | `list` | `GET /countries` | Required |
 | Country | `load` | `GET /countries/{id}` | Required |

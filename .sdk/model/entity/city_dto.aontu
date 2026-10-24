@@ -194,6 +194,126 @@ main: kit: entity: city_dto: {
       points: [
         {
           co: {
+            id: "GET /cities/byCoordinates/closest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "lat"
+                or: "lat"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "lon"
+                or: "lon"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "en"
+                k: "query"
+                n: "preferred_language"
+                or: "preferredLanguages"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cities/byCoordinates/closest"
+          q: {
+            exist: [
+              "lat"
+              "lon"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "byCoordinates"
+            }
+            {
+              lit: "closest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /cities/byCoordinates/largest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "lat"
+                or: "lat"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "lon"
+                or: "lon"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "en"
+                k: "query"
+                n: "preferred_language"
+                or: "preferredLanguages"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cities/byCoordinates/largest"
+          q: {
+            exist: [
+              "lat"
+              "lon"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "cities"
+            }
+            {
+              lit: "byCoordinates"
+            }
+            {
+              lit: "largest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
             id: "GET /cities/search"
             source: "openapi3"
             version: 2
@@ -273,18 +393,9 @@ main: kit: entity: city_dto: {
           }
           m: "GET"
           o: "/cities/search"
-          q: {
-            exist: [
-              "country_code"
-              "limit"
-              "max_population"
-              "min_population"
-              "name"
-              "offset"
-              "preferred_language"
-              "region_id"
-              "sort"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -292,120 +403,6 @@ main: kit: entity: city_dto: {
             }
             {
               lit: "search"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /cities/byCoordinates/closest"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            query: [
-              {
-                k: "query"
-                n: "lat"
-                or: "lat"
-                r: true
-                t: "`$NUMBER`"
-              }
-              {
-                k: "query"
-                n: "lon"
-                or: "lon"
-                r: true
-                t: "`$NUMBER`"
-              }
-              {
-                ex: "en"
-                k: "query"
-                n: "preferred_language"
-                or: "preferredLanguages"
-                r: false
-                t: "`$STRING`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/cities/byCoordinates/closest"
-          q: {
-            exist: [
-              "lat"
-              "lon"
-              "preferred_language"
-            ]
-          }
-          s: [
-            {
-              lit: "cities"
-            }
-            {
-              lit: "byCoordinates"
-            }
-            {
-              lit: "closest"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /cities/byCoordinates/largest"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            query: [
-              {
-                k: "query"
-                n: "lat"
-                or: "lat"
-                r: true
-                t: "`$NUMBER`"
-              }
-              {
-                k: "query"
-                n: "lon"
-                or: "lon"
-                r: true
-                t: "`$NUMBER`"
-              }
-              {
-                ex: "en"
-                k: "query"
-                n: "preferred_language"
-                or: "preferredLanguages"
-                r: false
-                t: "`$STRING`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/cities/byCoordinates/largest"
-          q: {
-            exist: [
-              "lat"
-              "lon"
-              "preferred_language"
-            ]
-          }
-          s: [
-            {
-              lit: "cities"
-            }
-            {
-              lit: "byCoordinates"
-            }
-            {
-              lit: "largest"
             }
           ]
           t: {

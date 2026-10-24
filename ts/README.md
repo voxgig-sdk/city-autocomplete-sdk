@@ -15,7 +15,7 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases)), or from a
+release tag (`ts/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/city-autocomplete-sdk/tags)), or from a
 clone, which carries the compiled `dist/`:
 
 ```bash
@@ -27,7 +27,7 @@ npm install ./city-autocomplete-sdk/ts
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
-loading a specific record.
+loading a specific record. The client sends the API key in the `x-rapidapi-key` header.
 
 ### 1. Create a client
 
@@ -41,12 +41,12 @@ const client = new CityAutocompleteSDK({
 
 ### 3. Load a city
 
-`load()` returns the entity directly and throws on failure:
+`load()` returns the entity and throws on failure; `.data()` reads its record:
 
 ```ts
 try {
   const city = await client.City().load({ id: 'example_id' })
-  console.log(city)
+  console.log(city.data())
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -60,14 +60,15 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 ```ts
 try {
   const languages = await client.Language().list()
-  console.log(languages)
+  console.log(languages.map((item) => item.data()))
 } catch (err) {
   console.error('list failed:', err)
 }
 ```
 
 The low-level `direct()` method does **not** throw — it returns the
-value or an `Error`, so check the result before using it:
+result envelope. Branch on `ok`; on failure `status` holds the HTTP status
+(for error responses) and `err` holds the error:
 
 ```ts
 const result = await client.direct({
@@ -76,8 +77,8 @@ const result = await client.direct({
   params: { id: 'example_id' },
 })
 
-if (result instanceof Error) {
-  throw result
+if (!result.ok) {
+  console.error('request failed:', result.status, result.err)
 }
 ```
 
@@ -95,9 +96,6 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
-if (result instanceof Error) {
-  throw result
-}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -126,10 +124,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CityAutocompleteSDK.test()
 
-const language = await client.Language().list()
-// language is the entity, populated with mock response data
-// — call language.data() for the record itself
-console.log(language)
+const languages = await client.Language().list()
+// languages is an array of Language entities, one per mock record
+console.log(languages.map((language) => language.data()))
 ```
 
 You can also use the instance method:
@@ -258,8 +255,8 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria, and return it. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria, one per record. |
 | `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
 | `match` | `match(match?: Partial<Entity>): Partial<Entity>` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
@@ -268,8 +265,8 @@ All entities share the same interface.
 
 #### Return values
 
-Entity operations resolve to the entity data directly — there is no
-result envelope:
+Entity operations resolve to the entity itself — there is no result
+envelope, and an entity's `data()` reads its record:
 
 - `load` resolves to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
@@ -375,7 +372,7 @@ API path: `/cities/{id}`
 
 Operations: list.
 
-API path: `/cities/search`
+API path: `/cities/byCoordinates/closest`
 
 #### CityTranslationDto
 

@@ -161,7 +161,7 @@ local city = client:City(nil)
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:City():load({ id = "city_id" })
@@ -237,7 +237,7 @@ local city_dto = client:CityDto(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
 local results, err = client:CityDto():list()
@@ -293,10 +293,10 @@ local city_translation_dto = client:CityTranslationDto(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
-local results, err = client:CityTranslationDto():list()
+local results, err = client:CityTranslationDto():list({ id = "example" })
 ```
 
 ### Common Methods
@@ -359,7 +359,7 @@ local country = client:Country(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
 local results, err = client:Country():list()
@@ -367,7 +367,7 @@ local results, err = client:Country():list()
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:Country():load({ id = "country_id" })
@@ -423,10 +423,10 @@ local country_translation_dto = client:CountryTranslationDto(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
-local results, err = client:CountryTranslationDto():list()
+local results, err = client:CountryTranslationDto():list({ id = "example" })
 ```
 
 ### Common Methods
@@ -475,7 +475,7 @@ local distance = client:Distance(nil)
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:Distance():load({ city1 = "city1", city2 = "city2" })
@@ -531,7 +531,7 @@ local language = client:Language(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
 local results, err = client:Language():list()
@@ -539,7 +539,7 @@ local results, err = client:Language():list()
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:Language():load({ id = "language_id" })
@@ -595,10 +595,10 @@ local oneshot = client:Oneshot(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
-local results, err = client:Oneshot():list()
+local results, err = client:Oneshot():list({ city_name = "example", country = "example", language = "example" })
 ```
 
 ### Common Methods
@@ -655,7 +655,7 @@ local region = client:Region(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
 local results, err = client:Region():list()
@@ -663,7 +663,7 @@ local results, err = client:Region():list()
 
 #### `load(reqmatch, ctrl) -> any, err`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, or `nil` and an error on failure.
 
 ```lua
 local result, err = client:Region():load({ id = "region_id" })
@@ -719,10 +719,10 @@ local region_translation_dto = client:RegionTranslationDto(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
-local results, err = client:RegionTranslationDto():list()
+local results, err = client:RegionTranslationDto():list({ id = "example" })
 ```
 
 ### Common Methods
@@ -775,10 +775,10 @@ local settlement_type = client:SettlementType(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
-local results, err = client:SettlementType():list()
+local results, err = client:SettlementType():list({ city_id = "example" })
 ```
 
 ### Common Methods
@@ -968,6 +968,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

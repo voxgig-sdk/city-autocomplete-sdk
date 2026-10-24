@@ -23,7 +23,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -79,17 +84,21 @@ const PLAN: any[] = [
     "path": "/cities/search",
     "args": [],
     "select": {
-      "country_code": "v1",
-      "limit": "v1",
+      "country_code": "us",
+      "limit": 20,
       "max_population": "v1",
       "min_population": "v1",
       "name": "dallas",
-      "offset": "v1",
-      "preferred_language": "v1",
+      "offset": 0,
+      "preferred_language": "en,fr,ja,hi",
       "region_id": "v1",
       "sort": "population_desc"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "sort",
       "offset",
@@ -100,6 +109,44 @@ const PLAN: any[] = [
       "minPopulation",
       "regionId",
       "countryCode"
+    ],
+    "queryArgs": [
+      {
+        "name": "country_code",
+        "wire": "countryCode"
+      },
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "max_population",
+        "wire": "maxPopulation"
+      },
+      {
+        "name": "min_population",
+        "wire": "minPopulation"
+      },
+      {
+        "name": "name",
+        "wire": "name"
+      },
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "preferred_language",
+        "wire": "preferredLanguages"
+      },
+      {
+        "name": "region_id",
+        "wire": "regionId"
+      },
+      {
+        "name": "sort",
+        "wire": "sort"
+      }
     ],
     "auth": [
       [
@@ -166,7 +213,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -198,16 +250,42 @@ const PLAN: any[] = [
       "limit": 200,
       "name": "Spa",
       "offset": 0,
-      "preferred_language": "v1",
-      "telephone_code": "v1"
+      "preferred_language": "fr,es,en",
+      "telephone_code": "+34"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "limit",
       "offset",
       "telephoneCode",
       "name",
       "preferredLanguages"
+    ],
+    "queryArgs": [
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "name",
+        "wire": "name"
+      },
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "preferred_language",
+        "wire": "preferredLanguages"
+      },
+      {
+        "name": "telephone_code",
+        "wire": "telephoneCode"
+      }
     ],
     "auth": [
       [
@@ -252,7 +330,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -314,11 +397,21 @@ const PLAN: any[] = [
       }
     ],
     "select": {
-      "preferred_language": "v1"
+      "preferred_language": "en,fr,hi"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "preferredLanguages"
+    ],
+    "queryArgs": [
+      {
+        "name": "preferred_language",
+        "wire": "preferredLanguages"
+      }
     ],
     "auth": [
       [
@@ -352,9 +445,23 @@ const PLAN: any[] = [
       "city2": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "city2",
       "city1"
+    ],
+    "queryArgs": [
+      {
+        "name": "city1",
+        "wire": "city1"
+      },
+      {
+        "name": "city2",
+        "wire": "city2"
+      }
     ],
     "auth": [
       [
@@ -382,9 +489,23 @@ const PLAN: any[] = [
       "offset": 0
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "limit",
       "offset"
+    ],
+    "queryArgs": [
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "offset",
+        "wire": "offset"
+      }
     ],
     "auth": [
       [
@@ -421,7 +542,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -465,7 +591,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -489,6 +620,90 @@ const PLAN: any[] = [
   {
     "entity": "region",
     "accessor": "Region",
+    "op": "list",
+    "method": "GET",
+    "path": "/countries/{id}/regions",
+    "args": [
+      {
+        "name": "country_id",
+        "wire": "id",
+        "value": "509a2a0a-5ec6-483e-8381-4bea4422ac26"
+      }
+    ],
+    "select": {},
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [],
+    "queryArgs": [],
+    "auth": [
+      [
+        {
+          "in": "header",
+          "name": "x-rapidapi-key"
+        }
+      ]
+    ],
+    "status": 200,
+    "sample": [
+      {
+        "id": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929",
+        "wikidataId": "Q5705",
+        "name": "Catalonia",
+        "countryId": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa",
+        "population": 8034743,
+        "code": "ES-CT",
+        "latitude": 41.85,
+        "longitude": 1.566666666
+      }
+    ],
+    "idField": "id"
+  },
+  {
+    "entity": "region",
+    "accessor": "Region",
+    "op": "list",
+    "method": "GET",
+    "path": "/regions",
+    "args": [],
+    "select": {},
+    "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
+    "query": [
+      "countryId"
+    ],
+    "queryArgs": [],
+    "auth": [
+      [
+        {
+          "in": "header",
+          "name": "x-rapidapi-key"
+        }
+      ]
+    ],
+    "status": 200,
+    "sample": [
+      {
+        "id": "dde1e1c6-ca22-48e6-8ad7-f97b141c1929",
+        "wikidataId": "Q5705",
+        "name": "Catalonia",
+        "countryId": "a1e06cc1-817c-429f-84f4-6ab51dac9bfa",
+        "population": 8034743,
+        "code": "ES-CT",
+        "latitude": 41.85,
+        "longitude": 1.566666666
+      }
+    ],
+    "idField": "id"
+  },
+  {
+    "entity": "region",
+    "accessor": "Region",
     "op": "load",
     "method": "GET",
     "path": "/regions/{id}",
@@ -501,7 +716,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -553,11 +773,21 @@ const PLAN: any[] = [
       }
     ],
     "select": {
-      "preferred_language": "v1"
+      "preferred_language": "en,fr,hi"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "preferredLanguages"
+    ],
+    "queryArgs": [
+      {
+        "name": "preferred_language",
+        "wire": "preferredLanguages"
+      }
     ],
     "auth": [
       [
@@ -594,7 +824,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {

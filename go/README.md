@@ -16,7 +16,7 @@ go get github.com/voxgig-sdk/city-autocomplete-sdk/go@latest
 ```
 
 The Go module proxy resolves the version from the `go/vX.Y.Z` GitHub
-release tag — see [Releases](https://github.com/voxgig-sdk/city-autocomplete-sdk/releases) for the available versions.
+release tag — see [Tags](https://github.com/voxgig-sdk/city-autocomplete-sdk/tags) for the available versions.
 
 To vendor from a local checkout instead, clone this repo alongside your
 project and add a `replace` directive pointing at the checked-out
@@ -30,14 +30,15 @@ go mod edit -replace github.com/voxgig-sdk/city-autocomplete-sdk/go=../city-auto
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
-loading a specific record.
+loading a specific record. The client sends the API key in the `x-rapidapi-key` header.
 
 ### Quickstart
 
 A complete program: create a client, then call the entity operations.
-Each operation returns `(value, error)` — the value is the data itself
-(there is no `{ok, data}` wrapper), so check `err` and use the value
-directly.
+Each operation returns `(value, error)` — the value is the entity, and for
+`List` a `[]any` of entities, one per record (there is no `{ok, data}`
+wrapper), so check `err` and read a record through the entity's
+`Data()`.
 
 ```go
 package main
@@ -53,12 +54,12 @@ func main() {
         "apikey": os.Getenv("CITY_AUTOCOMPLETE_APIKEY"),
     })
 
-    // Load a single city — the value is the loaded record.
+    // Load a single city — the value is the entity; Data() reads its record.
     city, err := client.City(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(city)
+    fmt.Println(city.(sdk.Entity).Data())
 }
 ```
 
@@ -138,13 +139,16 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-language, err := client.Language(nil).List(
+languages, err := client.Language(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(language) // the returned mock data
+// A []any of entities, one per mock record.
+for _, item := range languages.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 ### Use a custom fetch function
@@ -241,8 +245,8 @@ All entities implement the `CityAutocompleteEntity` interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
-| `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
+| `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria, and return it. |
+| `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria, one per record. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -250,13 +254,13 @@ All entities implement the `CityAutocompleteEntity` interface.
 
 ### Result shape
 
-Entity operations return `(value, error)`. The `value` is the
-operation's data **directly** — there is no wrapper:
+Entity operations return `(value, error)`. The `value` is the entity
+itself — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` | the entity record (`map[string]any`) |
-| `List` | a `[]any` of entity records |
+| `Load` | the entity, whose `Data()` reads its record (`map[string]any`) |
+| `List` | a `[]any` of entities, one per record |
 
 Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
@@ -264,7 +268,7 @@ slice):
 
     city, err := client.City(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // city is the returned record
+    // city is the entity; city.(sdk.Entity).Data() reads its record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -337,7 +341,7 @@ API path: `/cities/{id}`
 
 Operations: List.
 
-API path: `/cities/search`
+API path: `/cities/byCoordinates/closest`
 
 #### CityTranslationDto
 
@@ -527,7 +531,7 @@ city, err := client.City(nil).Load(map[string]any{"id": "city_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(city) // the loaded record
+fmt.Println(city.(sdk.Entity).Data()) // the loaded entity's record
 ```
 
 
@@ -578,7 +582,10 @@ cityDtos, err := client.CityDto(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(cityDtos) // the array of records
+// A []any of entities, one per record.
+for _, item := range cityDtos.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -605,11 +612,14 @@ Create an instance: `cityTranslationDto := client.CityTranslationDto(nil)`
 #### Example: List
 
 ```go
-cityTranslationDtos, err := client.CityTranslationDto(nil).List(nil, nil)
+cityTranslationDtos, err := client.CityTranslationDto(nil).List(map[string]any{"id": "example"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(cityTranslationDtos) // the array of records
+// A []any of entities, one per record.
+for _, item := range cityTranslationDtos.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -651,7 +661,7 @@ country, err := client.Country(nil).Load(map[string]any{"id": "country_id"}, nil
 if err != nil {
     panic(err)
 }
-fmt.Println(country) // the loaded record
+fmt.Println(country.(sdk.Entity).Data()) // the loaded entity's record
 ```
 
 #### Example: List
@@ -661,7 +671,10 @@ countrys, err := client.Country(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(countrys) // the array of records
+// A []any of entities, one per record.
+for _, item := range countrys.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -688,11 +701,14 @@ Create an instance: `countryTranslationDto := client.CountryTranslationDto(nil)`
 #### Example: List
 
 ```go
-countryTranslationDtos, err := client.CountryTranslationDto(nil).List(nil, nil)
+countryTranslationDtos, err := client.CountryTranslationDto(nil).List(map[string]any{"id": "example"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(countryTranslationDtos) // the array of records
+// A []any of entities, one per record.
+for _, item := range countryTranslationDtos.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -719,7 +735,7 @@ distance, err := client.Distance(nil).Load(map[string]any{"city1": "city1", "cit
 if err != nil {
     panic(err)
 }
-fmt.Println(distance) // the loaded record
+fmt.Println(distance.(sdk.Entity).Data()) // the loaded entity's record
 ```
 
 
@@ -751,7 +767,7 @@ language, err := client.Language(nil).Load(map[string]any{"id": "language_id"}, 
 if err != nil {
     panic(err)
 }
-fmt.Println(language) // the loaded record
+fmt.Println(language.(sdk.Entity).Data()) // the loaded entity's record
 ```
 
 #### Example: List
@@ -761,7 +777,10 @@ languages, err := client.Language(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(languages) // the array of records
+// A []any of entities, one per record.
+for _, item := range languages.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -788,11 +807,14 @@ Create an instance: `oneshot := client.Oneshot(nil)`
 #### Example: List
 
 ```go
-oneshots, err := client.Oneshot(nil).List(nil, nil)
+oneshots, err := client.Oneshot(nil).List(map[string]any{"city_name": "example", "country": "example", "language": "example"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(oneshots) // the array of records
+// A []any of entities, one per record.
+for _, item := range oneshots.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -828,7 +850,7 @@ region, err := client.Region(nil).Load(map[string]any{"id": "region_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(region) // the loaded record
+fmt.Println(region.(sdk.Entity).Data()) // the loaded entity's record
 ```
 
 #### Example: List
@@ -838,7 +860,10 @@ regions, err := client.Region(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(regions) // the array of records
+// A []any of entities, one per record.
+for _, item := range regions.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -865,11 +890,14 @@ Create an instance: `regionTranslationDto := client.RegionTranslationDto(nil)`
 #### Example: List
 
 ```go
-regionTranslationDtos, err := client.RegionTranslationDto(nil).List(nil, nil)
+regionTranslationDtos, err := client.RegionTranslationDto(nil).List(map[string]any{"id": "example"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(regionTranslationDtos) // the array of records
+// A []any of entities, one per record.
+for _, item := range regionTranslationDtos.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 
@@ -896,11 +924,14 @@ Create an instance: `settlementType := client.SettlementType(nil)`
 #### Example: List
 
 ```go
-settlementTypes, err := client.SettlementType(nil).List(nil, nil)
+settlementTypes, err := client.SettlementType(nil).List(map[string]any{"city_id": "example"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(settlementTypes) // the array of records
+// A []any of entities, one per record.
+for _, item := range settlementTypes.([]any) {
+    fmt.Println(item.(sdk.Entity).Data())
+}
 ```
 
 ## Features
@@ -1037,7 +1068,9 @@ The Go SDK uses `map[string]any` throughout rather than typed structs.
 This mirrors the dynamic nature of the API and keeps the SDK
 flexible — no code generation is needed when the API schema changes.
 
-Use `core.ToMapAny()` to safely cast results and nested data.
+An operation returns the entity, and its `Data()` returns the record. Use
+`core.ToMapAny()` to safely cast that record, or data nested in it, to
+`map[string]any`: it returns `nil` for anything else, an entity included.
 
 ### Package structure
 

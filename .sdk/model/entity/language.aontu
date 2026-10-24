@@ -80,11 +80,9 @@ main: kit: entity: language: {
           }
           m: "GET"
           o: "/languages"
-          q: {
-            exist: [
-              "limit"
-              "offset"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -125,6 +123,10 @@ main: kit: entity: language: {
             exist: [
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

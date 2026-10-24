@@ -51,6 +51,10 @@ main: kit: entity: distance: {
               "city2"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "cities"
